@@ -1,0 +1,223 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Single Cell RNA
+Analysis Name: scRNA_parse_kinnex
+Platform: All Single-cell platform, Parse Bioscience(Evercode all type), PacBio Revio MARS-Seq
+Pipeline: Pre-processing(parse_pacbio), inhouse v25.1.0.257715
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 6
+Number of Steps: 18
+Number of Tools: 11
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 550
+Total Memory: 1094 GB
+Total Compute Time: 68.50 hours
+Total Storage: 1694.93 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $10445.01
+  - Compute Cost: $10444.11 (100.0%)
+  - Storage Cost: $0.90 (0.0%)
+Cost per Hour: $152.48
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Post-processing:
+  Steps: 5
+  Time: 36.00 hours
+  Cost: $9289.81
+  Tools: Seurat, clusterprofiler
+
+split-pipe post:
+  Steps: 1
+  Time: 3.00 hours
+  Cost: $522.31
+  Tools: split-pipe_post
+
+split-pipe pre:
+  Steps: 3
+  Time: 3.50 hours
+  Cost: $359.13
+  Tools: split-pipe_pre, minimap2, python
+
+split-pipe comb:
+  Steps: 1
+  Time: 1.00 hours
+  Cost: $174.08
+  Tools: split-pipe_comb
+
+Read Segmentation:
+  Steps: 4
+  Time: 10.30 hours
+  Cost: $95.61
+  Tools: python, skera
+
+Generate fastq:
+  Steps: 4
+  Time: 14.70 hours
+  Cost: $4.07
+  Tools: bamToFastq, seqkit, python, cat and zip
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Read Segmentation
+Step: call-prepare_inputs
+Tool: python v3.9.6
+Resources: 1 CPUs, 0 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Read Segmentation
+Step: call-skera
+Tool: skera v2.5.0
+Resources: 14 CPUs, 0 GB RAM, 358000 MB storage
+Runtime: 10.00 hours × 14 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $95.5885 (compute: $95.2000, storage: $0.3885)
+
+Group: Read Segmentation
+Step: call-gather_sreads
+Tool: python v3.9.6
+Resources: 1 CPUs, 0 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Read Segmentation
+Step: call-pbreports_read_segmentation
+Tool: python v3.9.6
+Resources: 1 CPUs, 0 GB RAM, 608 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Generate fastq
+Step: bam to fastq
+Tool: bamToFastq v1.2.1
+Resources: 1 CPUs, 23 GB RAM, 200000 MB storage
+Runtime: 2.50 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $1.7543 (compute: $1.7000, storage: $0.0543)
+
+Group: Generate fastq
+Step: split fastq
+Tool: seqkit v2.10.0
+Resources: 1 CPUs, 0 GB RAM, 37000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0089 (compute: $0.0085, storage: $0.0004)
+
+Group: Generate fastq
+Step: LR generate fastq
+Tool: python v3.12.8
+Resources: 1 CPUs, 7 GB RAM, 195000 MB storage
+Runtime: 12.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $2.2939 (compute: $2.0400, storage: $0.2539)
+
+Group: Generate fastq
+Step: concatenate paired-reads
+Tool: cat and zip vv1.0.0
+Resources: 1 CPUs, 0 GB RAM, 195000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0106 (compute: $0.0085, storage: $0.0021)
+
+Group: split-pipe pre
+Step: pre
+Tool: split-pipe_pre v1.2.1
+Resources: 16 CPUs, 1 GB RAM, 32000 MB storage
+Runtime: 1.00 hours × 16 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $10.8835 (compute: $10.8800, storage: $0.0035)
+
+Group: split-pipe pre
+Step: alignment
+Tool: minimap2 v2.24-r1122
+Resources: 64 CPUs, 49 GB RAM, 157000 MB storage
+Runtime: 2.00 hours × 64 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $348.1941 (compute: $348.1600, storage: $0.0341)
+
+Group: split-pipe pre
+Step: update_csv
+Tool: python vv1.0.0
+Resources: 1 CPUs, 0 GB RAM, 224000 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0547 (compute: $0.0425, storage: $0.0122)
+
+Group: split-pipe post
+Step: post
+Tool: split-pipe_post v1.2.1
+Resources: 64 CPUs, 6 GB RAM, 221000 MB storage
+Runtime: 3.00 hours × 64 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $522.3119 (compute: $522.2400, storage: $0.0719)
+
+Group: split-pipe comb
+Step: comb
+Tool: split-pipe_comb v1.2.1
+Resources: 64 CPUs, 6 GB RAM, 16000 MB storage
+Runtime: 1.00 hours × 64 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $174.0817 (compute: $174.0800, storage: $0.0017)
+
+Group: Post-processing
+Step: qc_merge
+Tool: Seurat v5.2.1
+Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 6.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $1548.3023 (compute: $1548.2880, storage: $0.0143)
+
+Group: Post-processing
+Step: integration_annot
+Tool: Seurat v5.2.1
+Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 12.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $3096.6046 (compute: $3096.5760, storage: $0.0286)
+
+Group: Post-processing
+Step: select
+Tool: Seurat v5.2.1
+Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 6.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $1548.3023 (compute: $1548.2880, storage: $0.0143)
+
+Group: Post-processing
+Step: DE
+Tool: Seurat v5.2.1
+Resources: 64 CPUs, 200 GB RAM, 17000 MB storage
+Runtime: 6.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $1548.2991 (compute: $1548.2880, storage: $0.0111)
+
+Group: Post-processing
+Step: Functional Analysis
+Tool: clusterprofiler v4.18.4
+Resources: 64 CPUs, 200 GB RAM, 17000 MB storage
+Runtime: 6.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $1548.2991 (compute: $1548.2880, storage: $0.0111)
+
+================================================================================
+END OF REPORT
+================================================================================

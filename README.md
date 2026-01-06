@@ -8,9 +8,9 @@
 팀별로 독립적인 분석이 가능하며, 각 팀의 파이프라인 비용을 개별적으로 추적할 수 있습니다.
 
 ### 분석 대상
-- **직무**: Assembly, Microbiome
-- **분석 파이프라인**: 15개
-- **총 분석 단계**: 122 steps
+- **Team 2**: 22개 파이프라인, 351 steps (Short RNA, Single Cell RNA, Spatial 등)
+- **Team 3**: 8개 파이프라인, 122 steps (Assembly, Microbiome)
+- **총 파이프라인**: 30개 (팀별로 상이)
 - **플랫폼**: PacBio Revio, Illumina NovaSeq/MiSeq, Nanopore PromethION
 
 ## 디렉토리 구조
@@ -111,34 +111,38 @@ python3 scripts/02_calculate_aws_costs.py 3 && \
 python3 scripts/03_analyze_pipelines.py 3
 ```
 
-## 주요 결과 (Team 3 기준)
+## 주요 결과
 
-### 전체 비용 요약
+### Team 2 비용 요약
+- **총 비용**: $51,688.29
+- **총 파이프라인**: 22개
+- **총 실행 시간**: 651.34 hours
+- **주요 직무**: Single Cell RNA ($48,288.78), Spatial ($3,114.01), Short RNA Sequencing ($126.92)
+
+**Top 5 고비용 파이프라인 (Team 2):**
+1. scRNA_parse_kinnex: $10,445.01
+2. scRNA_parse_illumina: $9,812.05
+3. scRNA_10x_illumina: $9,376.85
+4. scRNA_10x_kinnex: $9,355.57
+5. scRNA_scale_illumina: $9,299.31
+
+### Team 3 비용 요약
 - **총 비용**: $3,302.47
+- **총 파이프라인**: 8개
 - **총 실행 시간**: 602.8 hours
 - **Assembly 비용**: $1,934.48 (54 steps)
 - **Microbiome 비용**: $1,367.99 (68 steps)
 
-> 각 팀의 결과는 `reports/team{N}/00_SUMMARY_ALL_PIPELINES.txt`에서 확인할 수 있습니다.
+**Top 5 고비용 파이프라인 (Team 3):**
+1. Large Genome Assembly - All: $1,772.34
+2. shotgun metagenome 분석 - Pacbio: $997.53
+3. 16S rRNA metagenome - Pacbio: $318.48
+4. Small Genome Assembly - Bacteria/Fungi: $84.52
+5. Organelle Assembly - CP/MT: $77.62
 
-### 가장 비용이 높은 파이프라인 Top 5
+> 각 팀의 상세 결과는 `reports/team{N}/00_SUMMARY_ALL_PIPELINES.txt`에서 확인할 수 있습니다.
 
-1. **Large Genome Assembly** (PacBio + Nanopore): **$1,198.50**
-   - 104.5 hours, 22 steps, 7 groups
-
-2. **Shotgun Metagenome 분석** (PacBio): **$997.53**
-   - 250.5 hours, 14 steps, 7 groups
-
-3. **Large Genome Assembly** (PacBio + Nanopore + Illumina): **$392.48**
-   - 18.0 hours, 1 step (verkko assembly)
-
-4. **16S rRNA Metagenome 분석** (PacBio full-length): **$318.48**
-   - 117.9 hours, 19 steps, 6 groups
-
-5. **Large Genome Assembly** (PacBio + Illumina): **$169.15**
-   - 20.1 hours, 3 steps, 3 groups
-
-### 가장 비용이 높은 단계 Top 3
+### 가장 비용이 높은 작업 단계 (Team 3 기준)
 
 1. **Flye Assembly** (Shotgun metagenome): $979.77
    - c6i.24xlarge (96 vCPU, 192 GB), 240 hours
@@ -232,7 +236,8 @@ python3 scripts/03_analyze_pipelines.py 3
 분석에 대한 질문이나 추가 요청사항이 있으시면 연락 주세요.
 
 ---
-**최종 업데이트**: 2026-01-06 (팀별 구조로 재구성)
+**최종 업데이트**: 2026-01-06
+**분석 완료**: Team 2 (22 pipelines), Team 3 (8 pipelines)
 **분석 도구**: Python 3.11, pandas, numpy
 **AWS 리전**: us-east-1 (N. Virginia)
 **지원 팀**: Team 1, Team 2, Team 3

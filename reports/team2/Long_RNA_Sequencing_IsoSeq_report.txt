@@ -1,0 +1,175 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Long RNA Sequencing
+Analysis Name: IsoSeq
+Platform: Pacbio Revio
+Pipeline: Isoseq v25.2
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 2
+Number of Steps: 15
+Number of Tools: 7
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 80
+Total Memory: 91 GB
+Total Compute Time: 2.88 hours
+Total Storage: 29.44 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $1.82
+  - Compute Cost: $1.82 (99.9%)
+  - Storage Cost: $0.00 (0.1%)
+Cost per Hour: $0.63
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Read Segmentation:
+  Steps: 4
+  Time: 1.96 hours
+  Cost: $1.24
+  Tools: python, skera
+
+Iso-seq:
+  Steps: 11
+  Time: 0.92 hours
+  Cost: $0.58
+  Tools: python3, lima, isoseq, dataset, bam2fasta
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Read Segmentation
+Step: call-prepare_inputs
+Tool: python v3.9.6
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+
+Group: Read Segmentation
+Step: call-skera
+Tool: skera v2.5.0
+Resources: 14 CPUs, 4 GB RAM, 3700 MB storage
+Runtime: 1.80 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $1.2247 (compute: $1.2240, storage: $0.0007)
+
+Group: Read Segmentation
+Step: call-gather_sreads
+Tool: python v3.9.6
+Resources: 1 CPUs, 1 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Read Segmentation
+Step: call-pbreports_read_segmentation
+Tool: python v3.9.6
+Resources: 1 CPUs, 4 GB RAM, 3500 MB storage
+Runtime: 0.05 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0043 (compute: $0.0043, storage: $0.0000)
+
+Group: Iso-seq
+Step: call-setup_inputs
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 3 GB RAM, 1085 MB storage
+Runtime: 0.03 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0026 (compute: $0.0026, storage: $0.0000)
+
+Group: Iso-seq
+Step: call-lima_isoseq
+Tool: lima v2.12.0
+Resources: 14 CPUs, 4 GB RAM, 7322 MB storage
+Runtime: 0.54 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.3676 (compute: $0.3672, storage: $0.0004)
+
+Group: Iso-seq
+Step: call-isoseq_refine
+Tool: isoseq v4.2.0
+Resources: 14 CPUs, 4 GB RAM, 3400 MB storage
+Runtime: 0.05 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: Iso-seq
+Step: call-pbreports_isoseq_primers
+Tool: dataset v0.15.0
+Resources: 1 CPUs, 32 GB RAM, 2970 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0068 (compute: $0.0068, storage: $0.0000)
+
+Group: Iso-seq
+Step: call-get_flnc_size
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 1 GB RAM, 122 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: Iso-seq
+Step: call-isoseq_cluster2
+Tool: dataset v0.15.0
+Resources: 14 CPUs, 12 GB RAM, 6471 MB storage
+Runtime: 0.25 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.1702 (compute: $0.1700, storage: $0.0002)
+
+Group: Iso-seq
+Step: call-consolidate_transcripts
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 4 GB RAM, 1085 MB storage
+Runtime: 0.04 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: Iso-seq
+Step: call-bam2fasta_transcripts
+Tool: bam2fasta v3.4.0
+Resources: 14 CPUs, 2 GB RAM, 122 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: Iso-seq
+Step: call-pbreports_isoseq
+Tool: dataset v0.15.0
+Resources: 1 CPUs, 16 GB RAM, 122 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: Iso-seq
+Step: call-get_input_sizes
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 1 GB RAM, 122 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: Iso-seq
+Step: call-collect_cluster_outputs
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 2 GB RAM, 122 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

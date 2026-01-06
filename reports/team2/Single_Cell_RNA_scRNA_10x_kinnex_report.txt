@@ -1,0 +1,253 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Single Cell RNA
+Analysis Name: scRNA_10x_kinnex
+Platform: 10x genomics, PacBio Revio MARS-Seq, All Single-cell platform
+Pipeline: Pre-processing(10x_pacbio), inhouse v25.1.0.257715
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 3
+Number of Steps: 24
+Number of Tools: 18
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 399
+Total Memory: 1113 GB
+Total Compute Time: 104.60 hours
+Total Storage: 1601.83 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $9355.57
+  - Compute Cost: $9354.37 (100.0%)
+  - Storage Cost: $1.20 (0.0%)
+Cost per Hour: $89.44
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Post-processing:
+  Steps: 5
+  Time: 36.00 hours
+  Cost: $9289.81
+  Tools: Seurat, clusterprofiler
+
+Single-Cell Iso-Seq:
+  Steps: 10
+  Time: 52.30 hours
+  Cost: $60.19
+  Tools: lima, isoseq_tag, isoseq_refine, isoseq_correct, samtools, isoseq_bcstats, isoseq_groupdedup, pbmm2, isoseq, pigeon_sort, pigeon_classify, pigeon_filter, pigeon_report, pigeon_make-seurat, python
+
+Read Segmentation:
+  Steps: 4
+  Time: 16.30 hours
+  Cost: $5.57
+  Tools: python, skera
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Read Segmentation
+Step: call-prepare_inputs
+Tool: python v3.9.6
+Resources: 1 CPUs, 0 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Read Segmentation
+Step: call-skera
+Tool: skera v2.5.0
+Resources: 7 CPUs, 0 GB RAM, 63000 MB storage
+Runtime: 16.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $5.5494 (compute: $5.4400, storage: $0.1094)
+
+Group: Read Segmentation
+Step: call-gather_sreads
+Tool: python v3.9.6
+Resources: 1 CPUs, 0 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Read Segmentation
+Step: call-pbreports_read_segmentation
+Tool: python v3.9.6
+Resources: 1 CPUs, 0 GB RAM, 260 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Single-Cell Iso-Seq
+Step: call-lima_sc_isoseq
+Tool: lima v0.2.2
+Resources: 1 CPUs, 2 GB RAM, 245000 MB storage
+Runtime: 22.00 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $2.4549 (compute: $1.8700, storage: $0.5849)
+
+Group: Single-Cell Iso-Seq
+Step: call-isoseq_tag
+Tool: isoseq_tag v1.0.1
+Resources: 7 CPUs, 3 GB RAM, 222000 MB storage
+Runtime: 5.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $1.8204 (compute: $1.7000, storage: $0.1204)
+
+Group: Single-Cell Iso-Seq
+Step: call-isoseq_refine
+Tool: isoseq_refine v1.0.1
+Resources: 1 CPUs, 0 GB RAM, 210000 MB storage
+Runtime: 12.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $1.3473 (compute: $1.0625, storage: $0.2848)
+
+Group: Single-Cell Iso-Seq
+Step: call-isoseq_correct
+Tool: isoseq_correct v1.0.1
+Resources: 7 CPUs, 8 GB RAM, 410000 MB storage
+Runtime: 0.10 hours × 7 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.2424 (compute: $0.2380, storage: $0.0044)
+
+Group: Single-Cell Iso-Seq
+Step: nan
+Tool: samtools v1.17
+Resources: 7 CPUs, 1 GB RAM, 205000 MB storage
+Runtime: 0.10 hours × 7 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.2402 (compute: $0.2380, storage: $0.0022)
+
+Group: Single-Cell Iso-Seq
+Step: call-isoseq_bcstats
+Tool: isoseq_bcstats v1.0.1
+Resources: 7 CPUs, 10 GB RAM, 7 MB storage
+Runtime: 0.10 hours × 7 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.2380 (compute: $0.2380, storage: $0.0000)
+
+Group: Single-Cell Iso-Seq
+Step: call-isoseq_dedup
+Tool: isoseq_groupdedup v1.0.1
+Resources: 7 CPUs, 7 GB RAM, 62000 MB storage
+Runtime: 0.10 hours × 7 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.2387 (compute: $0.2380, storage: $0.0007)
+
+Group: Single-Cell Iso-Seq
+Step: call-pbmm2_align
+Tool: pbmm2 v1.0.1
+Resources: 7 CPUs, 19 GB RAM, 8000 MB storage
+Runtime: 10.00 hours × 7 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $47.6087 (compute: $47.6000, storage: $0.0087)
+
+Group: Single-Cell Iso-Seq
+Step: call-isoseq_collapse
+Tool: isoseq v1.0.1
+Resources: 7 CPUs, 12 GB RAM, 10000 MB storage
+Runtime: 1.20 hours × 7 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $2.8573 (compute: $2.8560, storage: $0.0013)
+
+Group: Single-Cell Iso-Seq
+Step: call-pigeon
+Tool: pigeon_sort v1.2.0
+Resources: 1 CPUs, 0 GB RAM, 21000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0087 (compute: $0.0085, storage: $0.0002)
+
+Group: Single-Cell Iso-Seq
+Step: nan
+Tool: pigeon_classify v1.2.0
+Resources: 7 CPUs, 15 GB RAM, 21000 MB storage
+Runtime: 0.30 hours × 7 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.7147 (compute: $0.7140, storage: $0.0007)
+
+Group: Single-Cell Iso-Seq
+Step: nan
+Tool: pigeon_filter v1.2.0
+Resources: 1 CPUs, 5 GB RAM, 21000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0172 (compute: $0.0170, storage: $0.0002)
+
+Group: Single-Cell Iso-Seq
+Step: nan
+Tool: pigeon_report v1.2.0
+Resources: 1 CPUs, 4 GB RAM, 21000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0087 (compute: $0.0085, storage: $0.0002)
+
+Group: Single-Cell Iso-Seq
+Step: nan
+Tool: pigeon_make-seurat v1.2.0
+Resources: 7 CPUs, 26 GB RAM, 21000 MB storage
+Runtime: 0.50 hours × 7 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $2.3811 (compute: $2.3800, storage: $0.0011)
+
+Group: Single-Cell Iso-Seq
+Step: call-pbreports_sc_isoseq
+Tool: python v3.9.6
+Resources: 1 CPUs, 0 GB RAM, 2 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Post-processing
+Step: qc_merge
+Tool: Seurat v5.2.1
+Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 6.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $1548.3023 (compute: $1548.2880, storage: $0.0143)
+
+Group: Post-processing
+Step: integration_annot
+Tool: Seurat v5.2.1
+Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 12.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $3096.6046 (compute: $3096.5760, storage: $0.0286)
+
+Group: Post-processing
+Step: select
+Tool: Seurat v5.2.1
+Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 6.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $1548.3023 (compute: $1548.2880, storage: $0.0143)
+
+Group: Post-processing
+Step: DE
+Tool: Seurat v5.2.1
+Resources: 64 CPUs, 200 GB RAM, 17000 MB storage
+Runtime: 6.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $1548.2991 (compute: $1548.2880, storage: $0.0111)
+
+Group: Post-processing
+Step: Functional Analysis
+Tool: clusterprofiler v4.18.4
+Resources: 64 CPUs, 200 GB RAM, 17000 MB storage
+Runtime: 6.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $1548.2991 (compute: $1548.2880, storage: $0.0111)
+
+================================================================================
+END OF REPORT
+================================================================================

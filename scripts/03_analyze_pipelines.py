@@ -24,27 +24,20 @@ def analyze_pipeline_structure(df):
     print("Step 3: Analyzing Pipeline Structure")
     print("=" * 80)
 
-    # For Assembly, ignore pipeline name differences
-    # For Microbiome, keep pipeline name to distinguish different methods
-    # Create a custom grouping key
+    # Group by 직무(업무명) and Analysis_name only
+    # Pipeline Name differences within the same Analysis_name are not counted separately
     def get_pipeline_key(row):
         job = row['직무(업무명)']
-        task = row['업무세부내역']
-        pipeline = row['Pipeline Name']
+        analysis_name = row['Analysis_name']
 
-        # For Assembly, ignore pipeline name (combine all)
-        if job == 'Assembly':
-            return (job, task, 'combined')
-        # For Microbiome, use pipeline name to distinguish
-        else:
-            return (job, task, pipeline)
+        return (job, analysis_name)
 
     df['pipeline_key'] = df.apply(get_pipeline_key, axis=1)
     pipelines = df.groupby('pipeline_key')
 
     pipeline_summary = []
 
-    for (job, task, pipeline_key), group in pipelines:
+    for (job, analysis_name), group in pipelines:
         # Count groups and steps
         n_groups = group['Group'].nunique()
         n_steps = len(group)
@@ -53,12 +46,9 @@ def analyze_pipeline_structure(df):
         tools_list = group['tools'].dropna().unique().tolist()
         n_tools = len(tools_list)
 
-        # Get pipeline names (may be multiple for combined Assembly pipelines)
+        # Get pipeline names (may be multiple)
         pipeline_names = group['Pipeline Name'].dropna().unique()
-        if pipeline_key == 'combined':
-            pipeline_name = ', '.join(pipeline_names) if len(pipeline_names) > 1 else pipeline_names[0]
-        else:
-            pipeline_name = pipeline_key
+        pipeline_name = ', '.join(pipeline_names) if len(pipeline_names) > 1 else pipeline_names[0]
 
         # Get platforms and versions (may be multiple)
         platforms = group['Platfom'].dropna().unique()
@@ -87,7 +77,7 @@ def analyze_pipeline_structure(df):
 
         pipeline_summary.append({
             '직무(업무명)': job,
-            '업무세부내역': task,
+            'Analysis_name': analysis_name,
             'Platform': platform_str,
             'Pipeline Name': pipeline_name,
             'Pipeline Version': version,
@@ -111,14 +101,14 @@ def analyze_pipeline_structure(df):
     print(f"\n1. Total Pipelines Analyzed: {len(pipeline_df)}")
 
     print("\n2. Pipeline Overview:")
-    overview = pipeline_df[['직무(업무명)', '업무세부내역', 'Platform', 'n_groups', 'n_steps',
+    overview = pipeline_df[['직무(업무명)', 'Analysis_name', 'Platform', 'n_groups', 'n_steps',
                              'total_time_hr', 'total_cost_usd']].copy()
     overview['total_cost_usd'] = overview['total_cost_usd'].round(2)
     overview['total_time_hr'] = overview['total_time_hr'].round(2)
     print(overview.to_string(index=False, max_colwidth=40))
 
     print("\n3. Resource Requirements by Pipeline:")
-    resources = pipeline_df[['직무(업무명)', '업무세부내역', 'total_cpu', 'total_mem_gb',
+    resources = pipeline_df[['직무(업무명)', 'Analysis_name', 'total_cpu', 'total_mem_gb',
                               'total_storage_gb']].copy()
     resources['total_storage_gb'] = resources['total_storage_gb'].round(2)
     print(resources.to_string(index=False, max_colwidth=40))
@@ -139,16 +129,16 @@ def generate_detailed_reports(df, pipeline_df, team):
     # Group by pipeline
     for idx, pipeline in pipeline_df.iterrows():
         job = pipeline['직무(업무명)']
-        task = pipeline['업무세부내역']
+        analysis_name = pipeline['Analysis_name']
 
         # Filter data for this pipeline
         pipeline_data = df[
             (df['직무(업무명)'] == job) &
-            (df['업무세부내역'] == task)
+            (df['Analysis_name'] == analysis_name)
         ].copy()
 
         # Generate report filename
-        filename = f"{job}_{task}".replace(' ', '_').replace(',', '').replace('(', '').replace(')', '')
+        filename = f"{job}_{analysis_name}".replace(' ', '_').replace(',', '').replace('(', '').replace(')', '')
         filename = filename.replace('/', '_')[:100]  # Limit length
         report_file = TEAM_REPORTS_DIR / f"{filename}_report.txt"
 
@@ -159,7 +149,7 @@ def generate_detailed_reports(df, pipeline_df, team):
             f.write("=" * 80 + "\n\n")
 
             f.write(f"직무 (Job): {job}\n")
-            f.write(f"업무세부내역 (Task Detail): {task}\n")
+            f.write(f"Analysis Name: {analysis_name}\n")
             f.write(f"Platform: {pipeline['Platform']}\n")
             f.write(f"Pipeline: {pipeline['Pipeline Name']} v{pipeline['Pipeline Version']}\n")
             f.write(f"\n")
@@ -275,12 +265,12 @@ def generate_detailed_reports(df, pipeline_df, team):
 
         f.write("ALL PIPELINES RANKED BY COST\n")
         f.write("-" * 80 + "\n")
-        f.write("Rank | Job | Task Detail | Cost (USD) | Time (hr) | Groups | Steps | Total CPU | Total Mem (GB) | Storage (GB)\n")
+        f.write("Rank | Job | Analysis Name | Cost (USD) | Time (hr) | Groups | Steps | Total CPU | Total Mem (GB) | Storage (GB)\n")
         f.write("-" * 80 + "\n")
         ranked = pipeline_df.sort_values('total_cost_usd', ascending=False)
         for idx, (_, row) in enumerate(ranked.iterrows(), 1):
             job = row['직무(업무명)'][:10]
-            task = row['업무세부내역'][:25]
+            analysis_name = row['Analysis_name'][:25]
             cost = row['total_cost_usd']
             time_hr = row['total_time_hr']
             n_groups = int(row['n_groups'])
@@ -288,14 +278,14 @@ def generate_detailed_reports(df, pipeline_df, team):
             total_cpu = int(row['total_cpu'])
             total_mem = int(row['total_mem_gb'])
             storage = row['total_storage_gb']
-            f.write(f"{idx:4} | {job:10} | {task:25} | ${cost:9.2f} | {time_hr:9.1f} | {n_groups:6} | {n_steps:5} | {total_cpu:9} | {total_mem:14} | {storage:11.1f}\n")
+            f.write(f"{idx:4} | {job:10} | {analysis_name:25} | ${cost:9.2f} | {time_hr:9.1f} | {n_groups:6} | {n_steps:5} | {total_cpu:9} | {total_mem:14} | {storage:11.1f}\n")
         f.write("\n")
 
         f.write("DETAILED PIPELINE INFORMATION\n")
         f.write("=" * 80 + "\n\n")
 
         for idx, row in ranked.iterrows():
-            f.write(f"[{ranked.index.get_loc(idx) + 1}] {row['직무(업무명)']} - {row['업무세부내역']}\n")
+            f.write(f"[{ranked.index.get_loc(idx) + 1}] {row['직무(업무명)']} - {row['Analysis_name']}\n")
             f.write("-" * 80 + "\n")
             f.write(f"Pipeline: {row['Pipeline Name']} v{row['Pipeline Version']}\n")
             f.write(f"Platform: {row['Platform']}\n")

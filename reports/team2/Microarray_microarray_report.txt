@@ -1,0 +1,85 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Microarray
+Analysis Name: microarray
+Platform: Microarray
+Pipeline: inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 3
+Number of Steps: 3
+Number of Tools: 3
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 8
+Total Memory: 6 GB
+Total Compute Time: 0.30 hours
+Total Storage: 0.10 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $0.05
+  - Compute Cost: $0.05 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $0.17
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Expression:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.03
+  Tools: Expression console
+
+Visualization:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: R
+
+DEG analysis:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: python
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Expression
+Step: Analysis
+Tool: Expression console v1.4
+Resources: 6 CPUs, 4 GB RAM, 80 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: Visualization
+Step: Graph
+Tool: R v4.0.5
+Resources: 1 CPUs, 1 GB RAM, 15 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: DEG analysis
+Step: DEG
+Tool: python v2.7.5
+Resources: 1 CPUs, 1 GB RAM, 10 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

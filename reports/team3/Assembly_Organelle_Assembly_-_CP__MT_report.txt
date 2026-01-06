@@ -3,7 +3,7 @@ PIPELINE COST ANALYSIS REPORT
 ================================================================================
 
 직무 (Job): Assembly
-업무세부내역 (Task Detail): Organelle Assembly (CP, MT)
+Analysis Name: Organelle Assembly - CP__MT
 Platform: Illumina NovaSeq
 Pipeline: inhouse, chlorobox v1.0.0
 

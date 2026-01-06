@@ -1,0 +1,223 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Short RNA Sequencing
+Analysis Name: Immune_TCR_BCR
+Platform: MiSeq
+Pipeline: Immune Repertoire Analysis, clonal expansion v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 6
+Number of Steps: 18
+Number of Tools: 6
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 55
+Total Memory: 113 GB
+Total Compute Time: 3.90 hours
+Total Storage: 7.06 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $1.08
+  - Compute Cost: $1.08 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $0.28
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Somatic hypermutation:
+  Steps: 5
+  Time: 1.60 hours
+  Cost: $0.80
+  Tools: MiXCR
+
+Analyze:
+  Steps: 6
+  Time: 0.90 hours
+  Cost: $0.15
+  Tools: MiXCR
+
+Report:
+  Steps: 3
+  Time: 0.80 hours
+  Cost: $0.07
+  Tools: python, MiXCR, R
+
+Visualization:
+  Steps: 2
+  Time: 0.40 hours
+  Cost: $0.03
+  Tools: Immunarch, R
+
+Rawdata Prepare:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: zcat
+
+CDR length analysis:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: Immunarch, python
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Rawdata Prepare
+Step: Decompress
+Tool: zcat v1.9
+Resources: 2 CPUs, 8 GB RAM, 2000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: Analyze
+Step: Align
+Tool: MiXCR v4.7.0
+Resources: 4 CPUs, 8 GB RAM, 700 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: Analyze
+Step: Sorting
+Tool: MiXCR v4.7.0
+Resources: 4 CPUs, 8 GB RAM, 700 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: Analyze
+Step: Assemble
+Tool: MiXCR v4.7.0
+Resources: 4 CPUs, 8 GB RAM, 60 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: Analyze
+Step: Export Clones
+Tool: MiXCR v4.7.0
+Resources: 4 CPUs, 8 GB RAM, 80 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: Analyze
+Step: Export Airr format
+Tool: MiXCR v4.7.0
+Resources: 4 CPUs, 8 GB RAM, 3000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: Analyze
+Step: postanalysis
+Tool: MiXCR v4.7.0
+Resources: 4 CPUs, 8 GB RAM, 10 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: Report
+Step: Clone table
+Tool: python v3.6.8
+Resources: 1 CPUs, 1 GB RAM, 6 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Report
+Step: Visualization
+Tool: MiXCR v4.7.0
+Resources: 1 CPUs, 4 GB RAM, 20 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+Group: Report
+Step: Report
+Tool: R v4.0.5
+Resources: 1 CPUs, 1 GB RAM, 15 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: Somatic hypermutation
+Step: Refine
+Tool: MiXCR v4.7.0
+Resources: 4 CPUs, 8 GB RAM, 500 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: Somatic hypermutation
+Step: Find Allele
+Tool: MiXCR v4.7.0
+Resources: 1 CPUs, 16 GB RAM, 10 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Somatic hypermutation
+Step: Find SHM tree
+Tool: MiXCR v4.7.0
+Resources: 16 CPUs, 16 GB RAM, 100 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.6800 (compute: $0.6800, storage: $0.0000)
+
+Group: Somatic hypermutation
+Step: Export SHM tree table
+Tool: MiXCR v4.7.0
+Resources: 1 CPUs, 4 GB RAM, 3 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Somatic hypermutation
+Step: Export SHM tree pdf
+Tool: MiXCR v4.7.0
+Resources: 1 CPUs, 4 GB RAM, 10 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: CDR length analysis
+Step: CDR3 Length Statistics
+Tool: Immunarch, python v0.9.1
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Visualization
+Step: Visualization
+Tool: Immunarch v0.9.1
+Resources: 1 CPUs, 1 GB RAM, 10 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0255 (compute: $0.0255, storage: $0.0000)
+
+Group: Visualization
+Step: Visualization
+Tool: R v4.4.3
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

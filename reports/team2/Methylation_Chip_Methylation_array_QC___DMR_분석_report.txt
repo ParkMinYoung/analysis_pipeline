@@ -1,0 +1,87 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Methylation Chip
+Analysis Name: Methylation array QC / DMR 분석
+Platform: Illumina iScan
+Pipeline: inhouse v1.0.1
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 2
+Number of Steps: 4
+Number of Tools: 1
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 23
+Total Memory: 195 GB
+Total Compute Time: 3.70 hours
+Total Storage: 21.53 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $11.63
+  - Compute Cost: $11.63 (99.9%)
+  - Storage Cost: $0.01 (0.1%)
+Cost per Hour: $3.14
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+QC:
+  Steps: 3
+  Time: 3.30 hours
+  Cost: $11.09
+  Tools: R
+
+DMR_ANALYSIS:
+  Steps: 1
+  Time: 0.40 hours
+  Cost: $0.54
+  Tools: R
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: QC
+Step: EXPERIMENT_QC
+Tool: R v4.4.2
+Resources: 1 CPUs, 11 GB RAM, 1 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: QC
+Step: DATA_QC
+Tool: R v4.4.2
+Resources: 1 CPUs, 130 GB RAM, 22000 MB storage
+Runtime: 2.50 hours × 1 parallel tasks
+Instance: c6i.24xlarge @ $4.0800/hr
+Cost: $10.2060 (compute: $10.2000, storage: $0.0060)
+
+Group: QC
+Step: AGE_PREDICTION
+Tool: R v4.4.2
+Resources: 20 CPUs, 14 GB RAM, 1 MB storage
+Runtime: 0.60 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.8160 (compute: $0.8160, storage: $0.0000)
+
+Group: DMR_ANALYSIS
+Step: DMR_ANALYSIS
+Tool: R v4.4.2
+Resources: 1 CPUs, 40 GB RAM, 43 MB storage
+Runtime: 0.40 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.5440 (compute: $0.5440, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

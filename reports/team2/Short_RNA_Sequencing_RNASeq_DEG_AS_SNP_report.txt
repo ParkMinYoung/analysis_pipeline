@@ -1,0 +1,325 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Short RNA Sequencing
+Analysis Name: RNASeq_DEG_AS_SNP
+Platform: Illumina NovaSeq
+Pipeline: RNASeq통합분석 v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 7
+Number of Steps: 30
+Number of Tools: 11
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 200
+Total Memory: 800 GB
+Total Compute Time: 20.95 hours
+Total Storage: 66.84 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $14.12
+  - Compute Cost: $14.12 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $0.67
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+VariantCall:
+  Steps: 17
+  Time: 12.81 hours
+  Cost: $8.71
+  Tools: GATK, snpEff, snpsift
+
+Alternative splicing:
+  Steps: 2
+  Time: 5.00 hours
+  Cost: $3.40
+  Tools: rmats
+
+Reference indexing:
+  Steps: 5
+  Time: 1.03 hours
+  Cost: $0.68
+  Tools: GATK, samtools, STAR, RSEM
+
+Alignment:
+  Steps: 1
+  Time: 1.00 hours
+  Cost: $0.68
+  Tools: STAR
+
+QC:
+  Steps: 2
+  Time: 0.51 hours
+  Cost: $0.34
+  Tools: awk, bwa
+
+Abundance Estimation:
+  Steps: 1
+  Time: 0.40 hours
+  Cost: $0.27
+  Tools: RSEM
+
+Differential gene expression:
+  Steps: 2
+  Time: 0.20 hours
+  Cost: $0.03
+  Tools: trinity, R
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Reference indexing
+Step: reference dictionary
+Tool: GATK v4.5.0.0
+Resources: 1 CPUs, 4 GB RAM, 122 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+
+Group: Reference indexing
+Step: fasta indexing
+Tool: samtools v1.21
+Resources: 1 CPUs, 4 GB RAM, 122 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+
+Group: Reference indexing
+Step: gtfToCallingIntervals
+Tool: GATK v4.5.0.0
+Resources: 1 CPUs, 4 GB RAM, 3 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+
+Group: Reference indexing
+Step: StarGenerateReferences
+Tool: STAR v2.5.3a
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 0.80 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.5441 (compute: $0.5440, storage: $0.0001)
+
+Group: Reference indexing
+Step: RsemGenerateReferences
+Tool: RSEM v1.3.1
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+Group: QC
+Step: splfq1
+Tool: awk vnan
+Resources: 1 CPUs, 4 GB RAM, 30 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+
+Group: QC
+Step: ribopicker_1
+Tool: bwa v0.5.9-r16
+Resources: 8 CPUs, 32 GB RAM, 6450 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.3403 (compute: $0.3400, storage: $0.0003)
+
+Group: Alignment
+Step: StarAlign
+Tool: STAR v2.5.3a
+Resources: 8 CPUs, 32 GB RAM, 40 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.6800 (compute: $0.6800, storage: $0.0000)
+
+Group: Abundance Estimation
+Step: rsem_exp
+Tool: RSEM v1.3.1
+Resources: 8 CPUs, 32 GB RAM, 40 MB storage
+Runtime: 0.40 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: VariantCall
+Step: FixMateInformation
+Tool: GATK v4.5.0.0
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: VariantCall
+Step: AddOrReplaceReadGroups
+Tool: GATK v4.5.0.0
+Resources: 8 CPUs, 32 GB RAM, 1750 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: VariantCall
+Step: SetNmMdAndUqTags
+Tool: GATK v4.5.0.0
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: VariantCall
+Step: FilterReads
+Tool: GATK v4.5.0.0
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: VariantCall
+Step: MarkDuplicates
+Tool: GATK v4.5.0.0
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: VariantCall
+Step: SplitNCigarReads
+Tool: GATK v4.5.0.0
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $1.3604 (compute: $1.3600, storage: $0.0004)
+
+Group: VariantCall
+Step: BaseRecalibrator
+Tool: GATK v4.5.0.0
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.6802 (compute: $0.6800, storage: $0.0002)
+
+Group: VariantCall
+Step: ApplyBQSR
+Tool: GATK v4.5.0.0
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.3401 (compute: $0.3400, storage: $0.0001)
+
+Group: VariantCall
+Step: ScatterIntervalList
+Tool: GATK v4.5.0.0
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0068 (compute: $0.0068, storage: $0.0000)
+
+Group: VariantCall
+Step: HaplotypeCaller
+Tool: GATK v4.5.0.0
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $2.7207 (compute: $2.7200, storage: $0.0007)
+
+Group: VariantCall
+Step: HaplotypeCaller_GVCF
+Tool: GATK v4.5.0.0
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $2.7207 (compute: $2.7200, storage: $0.0007)
+
+Group: VariantCall
+Step: MergeVCFs
+Tool: GATK v4.5.0.0
+Resources: 8 CPUs, 32 GB RAM, 3200 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: VariantCall
+Step: MergegVCFs
+Tool: GATK v4.5.0.0
+Resources: 8 CPUs, 32 GB RAM, 3200 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: VariantCall
+Step: VariantFiltration
+Tool: GATK v4.5.0.0
+Resources: 8 CPUs, 32 GB RAM, 3200 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.2041 (compute: $0.2040, storage: $0.0001)
+
+Group: VariantCall
+Step: SnpEff
+Tool: snpEff v5.1
+Resources: 8 CPUs, 32 GB RAM, 10390 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0681 (compute: $0.0680, storage: $0.0001)
+
+Group: VariantCall
+Step: vcfparsing
+Tool: snpEff v5.1
+Resources: 8 CPUs, 32 GB RAM, 3300 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: VariantCall
+Step: snpsiftextractFields
+Tool: snpsift v5.1
+Resources: 8 CPUs, 32 GB RAM, 9620 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0681 (compute: $0.0680, storage: $0.0001)
+
+Group: Alternative splicing
+Step: rmats_pre
+Tool: rmats v4.1.2
+Resources: 8 CPUs, 32 GB RAM, 3200 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $1.3607 (compute: $1.3600, storage: $0.0007)
+
+Group: Alternative splicing
+Step: rmats_post
+Tool: rmats v4.1.2
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $2.0406 (compute: $2.0400, storage: $0.0006)
+
+Group: Differential gene expression
+Step: trinity_DEG
+Tool: trinity v2.14
+Resources: 2 CPUs, 8 GB RAM, 120 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: Differential gene expression
+Step: pre_heatmap
+Tool: R v4.1.0
+Resources: 2 CPUs, 8 GB RAM, 1690 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

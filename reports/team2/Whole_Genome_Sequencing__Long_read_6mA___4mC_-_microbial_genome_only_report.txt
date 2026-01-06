@@ -1,0 +1,239 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Whole Genome Sequencing 
+Analysis Name: Long read 6mA / 4mC - microbial genome only
+Platform: Pacbio Revio
+Pipeline: smrtlink, inhouse v25.2
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 6
+Number of Steps: 20
+Number of Tools: 8
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 82
+Total Memory: 33 GB
+Total Compute Time: 2.30 hours
+Total Storage: 28.59 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $0.58
+  - Compute Cost: $0.58 (99.9%)
+  - Storage Cost: $0.00 (0.1%)
+Cost per Hour: $0.25
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+WF_BASEMODS:
+  Steps: 9
+  Time: 1.10 hours
+  Cost: $0.35
+  Tools: dataset, ipdsummary, python3, pbmotifmaker
+
+PB_BASEMODS_HIFI:
+  Steps: 3
+  Time: 0.30 hours
+  Cost: $0.15
+  Tools: ccs-kinetics-bystrandify, pbmm2, python3
+
+PLOTS:
+  Steps: 2
+  Time: 0.30 hours
+  Cost: $0.03
+  Tools: R
+
+COVERAGE_REPORTS:
+  Steps: 3
+  Time: 0.30 hours
+  Cost: $0.03
+  Tools: summarize-coverage, python3
+
+DEV_MICROBIAL_ANALYSIS:
+  Steps: 2
+  Time: 0.20 hours
+  Cost: $0.02
+  Tools: python3, dataset
+
+PREPARE_INPUT:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: python3
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: DEV_MICROBIAL_ANALYSIS
+Step: EVALUATE_KINETICS
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: DEV_MICROBIAL_ANALYSIS
+Step: MAKE_REFERENCE
+Tool: dataset v0.15.1
+Resources: 1 CPUs, 1 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: PREPARE_INPUT
+Step: DATASET_FILTER
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: PB_BASEMODS_HIFI
+Step: CCS_KINETICS_BYSTRANDIFY
+Tool: ccs-kinetics-bystrandify v3.4.0
+Resources: 1 CPUs, 1 GB RAM, 14000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0087 (compute: $0.0085, storage: $0.0002)
+
+Group: PB_BASEMODS_HIFI
+Step: MAPPING
+Tool: pbmm2 v1.16.0
+Resources: 32 CPUs, 3 GB RAM, 14000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.1362 (compute: $0.1360, storage: $0.0002)
+
+Group: PB_BASEMODS_HIFI
+Step: MAPPING_STATS
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: WF_BASEMODS
+Step: SPLIT_ALIGNMENTS
+Tool: dataset v0.15.1
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: COVERAGE_REPORTS
+Step: SUMMARIZE_COVERAGE
+Tool: summarize-coverage v0.0.1
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: COVERAGE_REPORTS
+Step: GC_COVERAGE_PLOT
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: COVERAGE_REPORTS
+Step: PBREPORTS_COVERAGE
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: WF_BASEMODS
+Step: IPDSUMMARY
+Tool: ipdsummary v3.0
+Resources: 32 CPUs, 8 GB RAM, 608 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: WF_BASEMODS
+Step: GATHER_BIGWIG
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 1 GB RAM, 34 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: WF_BASEMODS
+Step: GATHER_BASEMODS_CSV
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 1 GB RAM, 530 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: WF_BASEMODS
+Step: GATHER_BASEMODS_GFF
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 1 GB RAM, 43 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: WF_BASEMODS
+Step: MODIFICATIONS_REPORT
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 2 GB RAM, 2 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: WF_BASEMODS
+Step: FIND_MOTIFS
+Tool: pbmotifmaker v1.1.0
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: WF_BASEMODS
+Step: REPROCESS_MOTIFS
+Tool: pbmotifmaker v1.1.0
+Resources: 1 CPUs, 1 GB RAM, 43 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: WF_BASEMODS
+Step: MOTIFS_REPORT
+Tool: python3 v3.9.6
+Resources: 1 CPUs, 3 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: PLOTS
+Step: R_SUMMARY
+Tool: R v4.4.2
+Resources: 1 CPUs, 2 GB RAM, 1 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: PLOTS
+Step: R_PLOTS
+Tool: R v4.4.2
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

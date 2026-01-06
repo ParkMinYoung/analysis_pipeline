@@ -48,7 +48,7 @@ def main(team):
 
     # Forward fill merged cells for key columns
     print("\n2. Unmerging cells (forward fill)...")
-    columns_to_fill = ['직무(업무명)', '업무세부내역', 'Platfom', 'Pipeline Name', 'Pipeline Version', 'Group']
+    columns_to_fill = ['직무(업무명)', '업무세부내역', 'Analysis_name', 'Platfom', 'Pipeline Name', 'Pipeline Version', 'Group']
 
     for col in columns_to_fill:
         if col in df.columns:

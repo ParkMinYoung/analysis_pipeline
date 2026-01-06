@@ -1,0 +1,229 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Whole Genome Bisulfite Sequencing 
+Analysis Name: WGBS DMR 분석 - human/mouse
+Platform: Illumina NovaSeq
+Pipeline: inhouse v1.1.1
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 11
+Number of Steps: 15
+Number of Tools: 11
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 70
+Total Memory: 174 GB
+Total Compute Time: 84.90 hours
+Total Storage: 405.14 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $66.72
+  - Compute Cost: $66.06 (99.0%)
+  - Storage Cost: $0.65 (1.0%)
+Cost per Hour: $0.79
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+ALIGN:
+  Steps: 1
+  Time: 34.50 hours
+  Cost: $47.29
+  Tools: bismark
+
+DEDUPLICATE:
+  Steps: 1
+  Time: 4.50 hours
+  Cost: $6.16
+  Tools: deduplicate_bismark
+
+METHYLATION_CALL:
+  Steps: 1
+  Time: 8.00 hours
+  Cost: $5.54
+  Tools: bismark_methylation_extractor
+
+CH_CALL:
+  Steps: 1
+  Time: 16.00 hours
+  Cost: $4.12
+  Tools: bismark2bedGraph
+
+TRIM:
+  Steps: 1
+  Time: 14.50 hours
+  Cost: $2.55
+  Tools: trim_galore
+
+SAMTOOLS_STATS:
+  Steps: 3
+  Time: 5.50 hours
+  Cost: $0.49
+  Tools: samtools
+
+DMR_ANALYSIS:
+  Steps: 2
+  Time: 0.80 hours
+  Cost: $0.44
+  Tools: R
+
+PLOTS:
+  Steps: 2
+  Time: 0.70 hours
+  Cost: $0.08
+  Tools: C, R
+
+COVERAGE:
+  Steps: 1
+  Time: 0.20 hours
+  Cost: $0.03
+  Tools: mosdepth
+
+MULTIQC:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: multiqc
+
+FASTQ_QC:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: fastqc
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: FASTQ_QC
+Step: FASTQC
+Tool: fastqc v0.12.1
+Resources: 1 CPUs, 1 GB RAM, 3 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: TRIM
+Step: TRIM
+Tool: trim_galore v0.6.10
+Resources: 4 CPUs, 1 GB RAM, 55000 MB storage
+Runtime: 14.50 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $2.5515 (compute: $2.4650, storage: $0.0865)
+
+Group: ALIGN
+Step: BISMARK
+Tool: bismark v0.24.2
+Resources: 30 CPUs, 60 GB RAM, 100000 MB storage
+Runtime: 34.50 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $47.2943 (compute: $46.9200, storage: $0.3743)
+
+Group: DEDUPLICATE
+Step: DEDUPLICATE_BISMARK
+Tool: deduplicate_bismark v0.24.2
+Resources: 2 CPUs, 42 GB RAM, 75000 MB storage
+Runtime: 4.50 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $6.1566 (compute: $6.1200, storage: $0.0366)
+
+Group: METHYLATION_CALL
+Step: METHYLATION_CALL
+Tool: bismark_methylation_extractor v0.24.2
+Resources: 12 CPUs, 8 GB RAM, 110000 MB storage
+Runtime: 8.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $5.5355 (compute: $5.4400, storage: $0.0955)
+
+Group: SAMTOOLS_STATS
+Step: SAMTOOLS_SORT
+Tool: samtools v1.19.2
+Resources: 1 CPUs, 1 GB RAM, 45000 MB storage
+Runtime: 4.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.4045 (compute: $0.3825, storage: $0.0220)
+
+Group: SAMTOOLS_STATS
+Step: SAMTOOLS_INDEX
+Tool: samtools v1.19.2
+Resources: 1 CPUs, 1 GB RAM, 10 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0255 (compute: $0.0255, storage: $0.0000)
+
+Group: SAMTOOLS_STATS
+Step: SAMTOOLS_STATS
+Tool: samtools v1.19.2
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.70 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0595 (compute: $0.0595, storage: $0.0000)
+
+Group: COVERAGE
+Step: MOSDEPTH_COVERAGE
+Tool: mosdepth v0.3.6
+Resources: 4 CPUs, 2 GB RAM, 4500 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0341 (compute: $0.0340, storage: $0.0001)
+
+Group: CH_CALL
+Step: CH_CALL
+Tool: bismark2bedGraph v0.24.2
+Resources: 2 CPUs, 2 GB RAM, 22500 MB storage
+Runtime: 16.00 hours × 3 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $4.1191 (compute: $4.0800, storage: $0.0391)
+
+Group: MULTIQC
+Step: MULTIQC
+Tool: multiqc v1.14
+Resources: 2 CPUs, 1 GB RAM, 8 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: PLOTS
+Step: MAKE_INPUT
+Tool: C v8.5.0
+Resources: 1 CPUs, 1 GB RAM, 9 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+Group: PLOTS
+Step: R_PLOTS
+Tool: R v4.4.2
+Resources: 1 CPUs, 6 GB RAM, 1 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: DMR_ANALYSIS
+Step: RNBEADS_SNP_FILTER
+Tool: R v4.4.2
+Resources: 4 CPUs, 32 GB RAM, 2600 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.3401 (compute: $0.3400, storage: $0.0001)
+
+Group: DMR_ANALYSIS
+Step: DMR_ANALYSIS
+Tool: R v4.4.2
+Resources: 4 CPUs, 15 GB RAM, 230 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.1020 (compute: $0.1020, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

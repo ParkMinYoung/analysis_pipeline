@@ -1,0 +1,71 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Spatial
+Analysis Name: cosmx
+Platform: Bruker Nanostring_CosMx
+Pipeline: AtoMx, inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 2
+Number of Steps: 2
+Number of Tools: 2
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 64
+Total Memory: 200 GB
+Total Compute Time: 36.00 hours
+Total Storage: 14.65 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $3096.60
+  - Compute Cost: $3096.58 (100.0%)
+  - Storage Cost: $0.03 (0.0%)
+Cost per Hour: $86.02
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Post-processing:
+  Steps: 1
+  Time: 12.00 hours
+  Cost: $3096.59
+  Tools: Giotto
+
+Pre-processing:
+  Steps: 1
+  Time: 24.00 hours
+  Cost: $0.01
+  Tools: AtoMx
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Pre-processing
+Step: Pre-processing
+Tool: AtoMx v2.1.0
+Resources: nan CPUs, nan GB RAM, 5000 MB storage
+Runtime: 24.00 hours × nan parallel tasks
+Instance: nan @ $0.0000/hr
+Cost: $0.0130 (compute: $0.0000, storage: $0.0130)
+
+Group: Post-processing
+Step: Post-processing
+Tool: Giotto v4.2.2
+Resources: 64 CPUs, 200 GB RAM, 10000 MB storage
+Runtime: 12.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $3096.5890 (compute: $3096.5760, storage: $0.0130)
+
+================================================================================
+END OF REPORT
+================================================================================

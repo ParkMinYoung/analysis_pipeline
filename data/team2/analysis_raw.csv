@@ -1,0 +1,352 @@
+idx,직무(업무명),업무세부내역,Analysis_name,Platfom,Pipeline Name,Pipeline Version,Group,Step,tools,version,CPUs,MEM(G),TIME(hr),nTask(병렬),SIZE(MB),USER,비고
+1,Short RNA Sequencing,기본분석,RNASeq_noBAM_DEG,Illumina NovaSeq,QC,1.0.0,rRNA,rRNA ratio,ribopicker,0.4.3,1,8,3,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+2,Short RNA Sequencing,기본분석,,Illumina NovaSeq,QC,1.0.0,gene body coverage,Align,STAR,2.7.1a,16,40,1.5,1,1800,"김현승, 양요한",기본 RNAseq 5Gb 기준
+3,Short RNA Sequencing,기본분석,,Illumina NovaSeq,QC,1.0.0,,Indexing,samtools,1.9-74-gf69e678,1,1,0.2,1,5,"김현승, 양요한",기본 RNAseq 5Gb 기준
+4,Short RNA Sequencing,기본분석,,Illumina NovaSeq,QC,1.0.0,,Read distribution,python - module,5.0.4,10,6,8,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+5,Short RNA Sequencing,기본분석,,Illumina NovaSeq,QC,1.0.0,,Gene body coverage,python - module,5.0.4,2,6,2,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+6,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,Rawdata Prepare,Decompress,zcat,1.9,2,8,0.1,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+7,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,Reference Prepare,Reference Prepare,gffread,0.12.7,1,3,0.1,1,300,"김현승, 양요한","reference 3GB, GFF 300Mb 기준"
+8,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,,Annotation parsing,python,3.6.8,1,1,0.1,1,10,"김현승, 양요한","reference 3GB, GFF 300Mb 기준"
+9,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,Expression,Alignment,kallisto,2.14.0,4,8,0.3,1,20,"김현승, 양요한",기본 RNAseq 5Gb 기준
+10,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,,Merge,R,4.0.5,1,1,0.1,1,100,"김현승, 양요한",기본 RNAseq 5Gb 기준
+11,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,DEG,DE analysis,edgeR,3.22,1,1,0.1,1,10,"김현승, 양요한",기본 RNAseq 5Gb 기준
+12,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,,cutoff,perl,v5.16.3,1,1,0.1,1,10,"김현승, 양요한",기본 RNAseq 5Gb 기준
+13,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,Report,Visualization,R,4.0.5,1,1,0.1,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+14,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,,Knitting Report,R,4.0.5,1,1,0.1,1,2,"김현승, 양요한",기본 RNAseq 5Gb 기준
+15,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.1.0,Otholog Annotation,Make protein DB,diamond,2.1.11,1,8,1,1,30,김현승,"reference 3GB, GFF 300Mb 기준"
+16,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.1.0,,Match DB with transcript,diamond,2.1.11,64,60,1,1,20,김현승,"reference 3GB, GFF 300Mb 기준"
+17,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.1.0,,Parsing,python,3.6.8,1,0.1,0.1,1,20,김현승,"reference 3GB, GFF 300Mb 기준"
+18,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.0.0,"Functional Analysis(GO, KEGG)","KEGG, Ontology Analysis",David,v2023q4,1,1,0.5,1,1,"김현승, 양요한",web 기반
+19,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.0.0,Enrichment Analysis,"KEGG, Ontology Analysis",clusterprofiler,4.10.1,1,1,0.5,1,40,"김현승, 양요한",1개 조합 DEG
+20,Short RNA Sequencing,기본분석,RNASeq_BAM_DEG,Illumina NovaSeq,QC,1.0.0,rRNA,rRNA ratio,ribopicker,0.4.3,1,8,3,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+21,Short RNA Sequencing,기본분석,,Illumina NovaSeq,QC,1.0.0,gene body coverage,Align,STAR,2.7.1a,16,40,1.5,1,1800,"김현승, 양요한",기본 RNAseq 5Gb 기준
+22,Short RNA Sequencing,기본분석,,Illumina NovaSeq,QC,1.0.0,,Indexing,samtools,1.9-74-gf69e678,1,1,0.2,1,5,"김현승, 양요한",기본 RNAseq 5Gb 기준
+23,Short RNA Sequencing,기본분석,,Illumina NovaSeq,QC,1.0.0,,Read distribution,python - module,5.0.4,10,6,8,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+24,Short RNA Sequencing,기본분석,,Illumina NovaSeq,QC,1.0.0,,Gene body coverage,python - module,5.0.4,2,6,2,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+25,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Tophat_cufflink_DEG,1.0.0,Trimming,Adapter Trimming,Cutadapter,1.18,6,4,1,1,2500,"김현승, 양요한","기본 RNAseq 5Gb 기준, 기본 샘플 크기에 따라 변동"
+26,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Tophat_cufflink_DEG,1.0.0,Calculate insert size,Read sort,bowtie2,2.2.9,10,8,8,1,1,"김현승, 양요한","기본 RNAseq 5Gb 기준, 기본 샘플 크기에 따라 변동"
+27,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Tophat_cufflink_DEG,1.0.0,,Mark Duplicate,picard-tools,1.118,10,8,1,1,3500,"김현승, 양요한",기본 RNAseq 5Gb 기준
+28,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Tophat_cufflink_DEG,1.0.0,,Split'N'Trim,picard-tools,1.118,10,8,1,1,3500,"김현승, 양요한",기본 RNAseq 5Gb 기준
+29,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Tophat_cufflink_DEG,1.0.0,,Calculate insert size,awk,4.0.2,1,0.1,0.1,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+30,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Tophat_cufflink_DEG,1.0.0,Align,Alignment,tophat,v2.1.1,10,12,7,1,5000,"김현승, 양요한",기본 RNAseq 5Gb 기준
+31,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Tophat_cufflink_DEG,1.0.0,,Mapping rate,awk,4.0.2,1,0.1,0.1,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+32,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Tophat_cufflink_DEG,1.0.0,,Estimate expression,cuffdiff,v2.2.1,10,64,8,1,170,"김현승, 양요한",기본 RNAseq 5Gb 기준
+33,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Tophat_cufflink_DEG,1.0.0,,Merge expression tables,python,3.6.8,1,1,0.1,1,5,"김현승, 양요한",기본 RNAseq 5Gb 기준
+34,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Tophat_cufflink_DEG,1.0.0,DEG,DE analysis,cuffdiff,2.7.5,32,50,6,1,10,"김현승, 양요한",기본 RNAseq 5Gb 기준
+35,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Tophat_cufflink_DEG,1.0.0,Report,Visualization,R,4.0.5,1,1,0.1,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+36,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Tophat_cufflink_DEG,1.0.0,,Knitting Report,R,4.0.5,1,1,0.1,1,2,"김현승, 양요한",기본 RNAseq 5Gb 기준
+37,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.1.0,Otholog Annotation,Make protein DB,diamond,2.1.11,1,8,1,1,30,김현승,"reference 3GB, GFF 300Mb 기준"
+38,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.1.0,,Match DB with transcript,diamond,2.1.11,64,60,1,1,20,김현승,"reference 3GB, GFF 300Mb 기준"
+39,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.1.0,,Parsing,python,3.6.8,1,0.1,0.1,1,20,김현승,"reference 3GB, GFF 300Mb 기준"
+40,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.0.0,"Functional Analysis(GO, KEGG)","KEGG, Ontology Analysis",David,v2023q4,1,1,0.5,1,1,"김현승, 양요한",web 기반
+41,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.0.0,Enrichment Analysis,"KEGG, Ontology Analysis",clusterprofiler,4.10.1,1,1,0.5,1,40,"김현승, 양요한",1개 조합 DEG
+42,Short RNA Sequencing,기본분석,RNASeq_noREF_DEG,Illumina NovaSeq,QC,1.0.0,rRNA,rRNA ratio,ribopicker,0.4.3,1,8,3,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+43,Short RNA Sequencing,기본분석,,Illumina NovaSeq,QC,1.0.0,gene body coverage,Align,STAR,2.7.1a,16,40,1.5,1,1800,"김현승, 양요한",기본 RNAseq 5Gb 기준
+44,Short RNA Sequencing,기본분석,,Illumina NovaSeq,QC,1.0.0,,Indexing,samtools,1.9-74-gf69e678,1,1,0.2,1,5,"김현승, 양요한",기본 RNAseq 5Gb 기준
+45,Short RNA Sequencing,기본분석,,Illumina NovaSeq,QC,1.0.0,,Read distribution,python - module,5.0.4,10,6,8,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+46,Short RNA Sequencing,기본분석,,Illumina NovaSeq,QC,1.0.0,,Gene body coverage,python - module,5.0.4,2,6,2,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+47,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Denovo Transcriptome Assembly,1.0.0,Denovo Transcriptome Assembly,Assembly,Trinity(assembly),2.14.0,72,200,6,1,2000,"김현승, 양요한","기본 RNAseq 5Gb, 6샘플 이상, transcript.fasta 약 10만개 transcript 검출 기준"
+48,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Denovo Transcriptome Assembly,1.0.0,,Rduce redundants,Trinity,2.14.0,1,4,0.5,1,300,"김현승, 양요한",transcript.fasta 약 10만개 transcript 검출 기준
+49,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Denovo Transcriptome Assembly,,Report,Knitting Report,R,4.0.5,1,1,0.1,1,2,"김현승, 양요한",기본 RNAseq 5Gb 기준
+50,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Denovo Transcriptome Assembly,1.0.0,Annotation(Blast),Annotation(Blast),diamond-blast,2.1.11,64,64,0.5,1,4000,"김현승, 양요한",transcript.fasta 약 10만개 transcript 검출 기준
+51,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Denovo Transcriptome Assembly,1.0.0,,Annotation(Blast),blast2GO,1.5.1,1,64,3,1,500,"김현승, 양요한",transcript.fasta 약 10만개 transcript 검출 기준
+52,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Denovo Transcriptome Assembly,1.0.0,,Annotation parsing,python,3.6.8,1,0.1,0.1,1,50,"김현승, 양요한",transcript.fasta 약 10만개 transcript 검출 기준
+53,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,Rawdata Prepare,Decompress,zcat,1.9,2,8,0.1,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+54,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,Reference Prepare,Reference Prepare,gffread,0.12.7,1,3,0.1,1,300,"김현승, 양요한","reference 3GB, GFF 300Mb 기준"
+55,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,,Annotation parsing,python,3.6.8,1,1,0.1,1,10,"김현승, 양요한","reference 3GB, GFF 300Mb 기준"
+56,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,Expression,Alignment,kallisto,2.14.0,4,8,0.3,1,20,"김현승, 양요한",기본 RNAseq 5Gb 기준
+57,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,,Merge,R,4.0.5,1,1,0.1,1,100,"김현승, 양요한",기본 RNAseq 5Gb 기준
+58,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,DEG,DE analysis,edgeR,3.22,1,1,0.1,1,10,"김현승, 양요한",기본 RNAseq 5Gb 기준
+59,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,,cutoff,perl,v5.16.3,1,1,0.1,1,10,"김현승, 양요한",기본 RNAseq 5Gb 기준
+60,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,Report,Visualization,R,4.0.5,1,1,0.1,1,1,"김현승, 양요한",기본 RNAseq 5Gb 기준
+61,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Kallisto_DEG,1.0.0,,Knitting Report,R,4.0.5,1,1,0.1,1,2,"김현승, 양요한",기본 RNAseq 5Gb 기준
+62,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.1.0,Otholog Annotation,Make protein DB,diamond,2.1.11,1,8,1,1,30,김현승,"reference 3GB, GFF 300Mb 기준"
+63,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.1.0,,Match DB with transcript,diamond,2.1.11,64,60,1,1,20,김현승,"reference 3GB, GFF 300Mb 기준"
+64,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.1.0,,Parsing,python,3.6.8,1,0.1,0.1,1,20,김현승,"reference 3GB, GFF 300Mb 기준"
+65,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.0.0,"Functional Analysis(GO, KEGG)","KEGG, Ontology Analysis",David,v2023q4,1,1,0.5,1,1,"김현승, 양요한",web 기반
+66,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.0.0,Enrichment Analysis,"KEGG, Ontology Analysis",clusterprofiler,4.10.1,1,1,0.5,1,40,"김현승, 양요한",1개 조합 DEG
+67,Short RNA Sequencing,심화분석,RNASeq_DEG_AS_SNP,Illumina NovaSeq,RNASeq통합분석,1.0.0,Reference indexing,reference dictionary,GATK,4.5.0.0,1,4,0.01,1,122,양요한,WTS 7Gb 크기 기준
+68,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,fasta indexing,samtools,1.21,1,4,0.01,1,122,양요한,WTS 7Gb 크기 기준
+69,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,gtfToCallingIntervals,GATK,4.5.0.0,1,4,0.01,1,3,양요한,WTS 7Gb 크기 기준
+70,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,StarGenerateReferences,STAR,2.5.3a,8,32,0.8,1,1690,양요한,WTS 7Gb 크기 기준
+71,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,RsemGenerateReferences,RSEM,1.3.1,8,32,0.2,1,1690,양요한,WTS 7Gb 크기 기준
+72,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,QC,splfq1,awk,,1,4,0.01,1,30,양요한,WTS 7Gb 크기 기준
+73,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,ribopicker_1,bwa,0.5.9-r16,8,32,0.5,1,6450,양요한,WTS 7Gb 크기 기준
+74,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,Alignment,StarAlign,STAR,2.5.3a,8,32,1,1,40,양요한,WTS 7Gb 크기 기준
+75,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,Abundance Estimation,rsem_exp,RSEM,1.3.1,8,32,0.4,1,40,양요한,WTS 7Gb 크기 기준
+76,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,VariantCall,FixMateInformation,GATK,4.5.0.0,8,32,0.1,1,1690,양요한,WTS 7Gb 크기 기준
+77,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,AddOrReplaceReadGroups,GATK,4.5.0.0,8,32,0.1,1,1750,양요한,WTS 7Gb 크기 기준
+78,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,SetNmMdAndUqTags,GATK,4.5.0.0,8,32,0.1,1,1690,양요한,WTS 7Gb 크기 기준
+79,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,FilterReads,GATK,4.5.0.0,8,32,0.1,1,1690,양요한,WTS 7Gb 크기 기준
+80,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,MarkDuplicates,GATK,4.5.0.0,8,32,0.1,1,1690,양요한,WTS 7Gb 크기 기준
+81,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,SplitNCigarReads,GATK,4.5.0.0,8,32,2,1,1690,양요한,WTS 7Gb 크기 기준
+82,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,BaseRecalibrator,GATK,4.5.0.0,8,32,1,1,1690,양요한,WTS 7Gb 크기 기준
+83,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,ApplyBQSR,GATK,4.5.0.0,8,32,0.5,1,1690,양요한,WTS 7Gb 크기 기준
+84,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,ScatterIntervalList,GATK,4.5.0.0,8,32,0.01,1,1690,양요한,WTS 7Gb 크기 기준
+85,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,HaplotypeCaller,GATK,4.5.0.0,8,32,4,1,1690,양요한,WTS 7Gb 크기 기준
+86,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,HaplotypeCaller_GVCF,GATK,4.5.0.0,8,32,4,1,1690,양요한,WTS 7Gb 크기 기준
+87,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,MergeVCFs,GATK,4.5.0.0,8,32,0.1,1,3200,양요한,WTS 7Gb 크기 기준
+88,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,MergegVCFs,GATK,4.5.0.0,8,32,0.1,1,3200,양요한,WTS 7Gb 크기 기준
+89,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,VariantFiltration,GATK,4.5.0.0,8,32,0.3,1,3200,양요한,WTS 7Gb 크기 기준
+90,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,SnpEff,snpEff,5.1,8,32,0.1,1,10390,양요한,WTS 7Gb 크기 기준
+91,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,vcfparsing,snpEff,5.1,8,32,0.1,1,3300,양요한,WTS 7Gb 크기 기준
+92,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,snpsiftextractFields,snpsift,5.1,8,32,0.1,1,9620,양요한,WTS 7Gb 크기 기준
+93,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,Alternative splicing,rmats_pre,rmats,4.1.2,8,32,2,1,3200,양요한,WTS 7Gb 크기 기준
+94,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,rmats_post,rmats,4.1.2,8,32,3,1,1690,양요한,WTS 7Gb 크기 기준
+95,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,Differential gene expression,trinity_DEG,trinity,2.14,2,8,0.1,1,120,양요한,WTS 7Gb 크기 기준
+96,Short RNA Sequencing,심화분석,,Illumina NovaSeq,RNASeq통합분석,1.0.0,,pre_heatmap,R,4.1.0,2,8,0.1,1,1690,양요한,WTS 7Gb 크기 기준
+97,Short RNA Sequencing,심화분석,Immune_TCR_BCR,MiSeq,Immune Repertoire Analysis,1.0.0,Rawdata Prepare,Decompress,zcat,1.9,2,8,0.1,1,2000,김현승,"1샘플, 3Gb 이하"
+98,Short RNA Sequencing,심화분석,,MiSeq,Immune Repertoire Analysis,1.0.0,Analyze,Align,MiXCR,4.7.0,4,8,0.2,1,700,김현승,"1샘플, 3Gb 이하"
+99,Short RNA Sequencing,심화분석,,MiSeq,Immune Repertoire Analysis,1.0.0,,Sorting,MiXCR,4.7.0,4,8,0.2,1,700,김현승,"1샘플, 3Gb 이하"
+100,Short RNA Sequencing,심화분석,,MiSeq,Immune Repertoire Analysis,1.0.0,,Assemble,MiXCR,4.7.0,4,8,0.2,1,60,김현승,"1샘플, 3Gb 이하"
+101,Short RNA Sequencing,심화분석,,MiSeq,Immune Repertoire Analysis,1.0.0,,Export Clones,MiXCR,4.7.0,4,8,0.1,1,80,김현승,"1샘플, 3Gb 이하"
+102,Short RNA Sequencing,심화분석,,MiSeq,Immune Repertoire Analysis,1.0.0,,Export Airr format,MiXCR,4.7.0,4,8,0.1,1,3000,김현승,"1샘플, 3Gb 이하"
+103,Short RNA Sequencing,심화분석,,MiSeq,Immune Repertoire Analysis,1.0.0,,postanalysis,MiXCR,4.7.0,4,8,0.1,1,10,김현승,"1샘플, 3Gb 이하"
+104,Short RNA Sequencing,심화분석,,MiSeq,Immune Repertoire Analysis,1.0.0,Report,Clone table,python,3.6.8,1,1,0.1,1,6,김현승,"1샘플, 3Gb 이하"
+105,Short RNA Sequencing,심화분석,,MiSeq,Immune Repertoire Analysis,1.0.0,,Visualization,MiXCR,4.7.0,1,4,0.5,1,20,김현승,"1샘플, 3Gb 이하"
+106,Short RNA Sequencing,심화분석,,MiSeq,Immune Repertoire Analysis,1.0.0,,Report,R,4.0.5,1,1,0.2,1,15,김현승,"1샘플, 3Gb 이하"
+107,Short RNA Sequencing,심화분석,,MiSeq,clonal expansion,1.0.0,Somatic hypermutation,Refine,MiXCR,4.7.0,4,8,0.2,1,500,김현승,"1샘플, 3Gb 이하"
+108,Short RNA Sequencing,심화분석,,MiSeq,clonal expansion,1.0.0,,Find Allele,MiXCR,4.7.0,1,16,0.2,1,10,김현승,"1샘플, 3Gb 이하"
+109,Short RNA Sequencing,심화분석,,MiSeq,clonal expansion,1.0.0,,Find SHM tree,MiXCR,4.7.0,16,16,1,1,100,김현승,"tree 1천개 이하 기준 1시간(6929개 tree 기준 16시간, clone 개수에 따라 편차 큼)"
+110,Short RNA Sequencing,심화분석,,MiSeq,clonal expansion,1.0.0,,Export SHM tree table,MiXCR,4.7.0,1,4,0.1,1,3,김현승,tree 1천개 이하 기준
+111,Short RNA Sequencing,심화분석,,MiSeq,clonal expansion,1.0.0,,Export SHM tree pdf,MiXCR,4.7.0,1,4,0.1,1,10,김현승,tree 1천개 이하 기준
+112,Short RNA Sequencing,심화분석,,MiSeq,clonal expansion,1.0.0,CDR length analysis,CDR3 Length Statistics,"Immunarch, python",0.9.1,1,1,0.1,1,1,김현승,"1샘플, 3Gb 이하"
+113,Short RNA Sequencing,심화분석,,MiSeq,clonal expansion,1.0.0,Visualization,Visualization,Immunarch,0.9.1,1,1,0.3,1,10,김현승,"1샘플, 3Gb 이하"
+114,Short RNA Sequencing,심화분석,,MiSeq,clonal expansion,1.0.0,,Visualization,R,4.4.3,1,1,0.1,1,1,김현승,"1샘플, 3Gb 이하"
+115,Short RNA Sequencing,심화분석,circRNA,Illumina NovaSeq,circrna,1.0.0,PREPARE_GENOME,GTFFILTER (gtf),python,3.9.5,1,6,0.10,1,3100,양요한,WTS 7Gb 크기 기준
+116,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,SEQKIT_SPLIT (fasta),seqkit,2.8.0,6,6,0.10,1,2850,양요한,WTS 7Gb 크기 기준
+117,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,SAMTOOLS_FAIDX (hg38_onlyCHR.fa),samtools,1.2,1,6,0.10,1,2850,양요한,WTS 7Gb 크기 기준
+118,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,STAR_GENOMEGENERATE,star,2.7.10a,12,72,0.80,1,51500,양요한,WTS 7Gb 크기 기준
+119,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,CAT_FASTQ,CAT_FASTQ,cat,8.3,1,6,0.10,1,7000,양요한,WTS 7Gb 크기 기준
+120,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,FASTQC_TRIMGALORE,FASTQC,fastqc,0.12.1,6,36,0.10,1,6800,양요한,WTS 7Gb 크기 기준
+121,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,TRIMGALORE,trimgalore,0.6.7,12,72,0.20,1,126000,양요한,WTS 7Gb 크기 기준
+122,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,CIRCRNA_DISCOVERY,CIRCEXPLORER2:REFERENCE (gtf.filtered.gtf),python,3.9.5,1,6,0.01,1,255,양요한,WTS 7Gb 크기 기준
+123,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,STAR2PASS:PASS_1,star,2.7.10a,12,72,0.25,1,46200,양요한,WTS 7Gb 크기 기준
+124,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,STAR2PASS:SJDB (star_sjdb),star,2.7.10a,1,6,0.01,1,310,양요한,WTS 7Gb 크기 기준
+125,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,STAR2PASS:PASS_2,star,2.7.10a,12,72,2.00,1,46200,양요한,WTS 7Gb 크기 기준
+126,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,CIRCEXPLORER2:PARSE,circexplorer2,2.3.8,2,12,0.01,1,45,양요한,WTS 7Gb 크기 기준
+127,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,CIRCEXPLORER2:ANNOTATE,circexplorer2,2.3.8,2,12,0.01,1,3000,양요한,WTS 7Gb 크기 기준
+128,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,CIRCEXPLORER2:UNIFY,circexplorer2,2.3.8,1,6,0.01,1,2,양요한,WTS 7Gb 크기 기준
+129,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,FILTER_BSJS,gawk,5.1.0,1,6,0.01,1,1,양요한,WTS 7Gb 크기 기준
+130,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,ANNOTATION:INTERSECT_GTF,bedtools,2.31.1,1,6,0.01,1,235,양요한,WTS 7Gb 크기 기준
+131,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,MERGE_TOOLS,pandas,1.5.2,1,6,0.01,1,25,양요한,WTS 7Gb 크기 기준
+132,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,MERGE_SAMPLES,pandas,1.5.2,1,6,0.01,1,25,양요한,WTS 7Gb 크기 기준
+133,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,ANNOTATION:ANNOTATE (circexplorer2),pandas,1.5.2,1,6,0.02,1,96,양요한,WTS 7Gb 크기 기준
+134,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,ANNOTATION:ANNOTATE (merged),pandas,1.5.2,1,6,0.02,1,96,양요한,WTS 7Gb 크기 기준
+135,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,BEDTOOLS_GETFASTA ,bedtools,2.31.1,1,6,0.01,1,3100,양요한,WTS 7Gb 크기 기준
+136,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,ANNOTATION:COMBINE_GTFS (annotation),sort,null,2,12,0.01,1,5,양요한,WTS 7Gb 크기 기준
+137,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,ANNOTATION:COMBINE_BEDS (annotation),sort,null,2,12,0.01,1,5,양요한,WTS 7Gb 크기 기준
+138,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,ANNOTATION:REMOVE_SCORE_STRAND (annotation),gawk,5.1.0,1,6,0.01,1,3,양요한,WTS 7Gb 크기 기준
+139,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,ADD_BACKSPLICE,gawk,5.1.0,1,6,0.00,1,120,양요한,WTS 7Gb 크기 기준
+140,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,QUANTIFICATION,COMBINE_TRANSCRIPTOME_GTFS (transcriptome),sort,null,2,12,0.01,1,240,양요한,WTS 7Gb 크기 기준
+141,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,EXCLUDE_OVERLONG_TRANSCRIPTS (transcriptome),gawk,5.1.0,1,6,0.01,1,240,양요한,WTS 7Gb 크기 기준
+142,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,TRANSCRIPTOME (transcriptome),gffread,0.12.1,2,12,0.01,1,6000,양요한,WTS 7Gb 크기 기준
+143,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,MARK_CIRCULAR (transcriptome),gawk,5.1.0,1,6,0.00,1,260,양요한,WTS 7Gb 크기 기준
+144,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,PSIRC_INDEX (transcriptome),psirc,1.0.0,12,72,0.07,1,260,양요한,WTS 7Gb 크기 기준
+145,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,PSIRC_QUANT,psirc,1.0.0,12,72,0.48,1,27904,양요한,WTS 7Gb 크기 기준
+146,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,TXIMETA_TXIMETA,tximeta,1.20.1,6,36,0.01,1,70,양요한,WTS 7Gb 크기 기준
+147,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,CUSTOM_TX2GENE (transcriptome),python,3.9.5,1,6,0.01,1,480,양요한,WTS 7Gb 크기 기준
+148,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,TXIMETA_TXIMPORT,tximeta,1.20.1,6,36,0.00,1,32,양요한,WTS 7Gb 크기 기준
+149,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,JOIN_GENE_TPM (gene_tpm),csvtk,0.30.0,1,6,0.00,1,10,양요한,WTS 7Gb 크기 기준
+150,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,JOIN_TX_COUNTS (tx_counts),csvtk,0.30.0,1,6,0.00,1,30,양요한,WTS 7Gb 크기 기준
+151,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,JOIN_TX_TPM (tx_tpm),csvtk,0.30.0,1,6,0.00,1,32,양요한,WTS 7Gb 크기 기준
+152,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,JOIN_GENE_COUNTS (gene_counts),csvtk,0.30.0,1,6,0.00,1,9,양요한,WTS 7Gb 크기 기준
+153,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,SPLIT_TYPES_TPM (tx_tpm),gawk,5.1.0,1,6,0.00,1,9,양요한,WTS 7Gb 크기 기준
+154,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,MERGE_EXPERIMENTS (experiments),bioconductor_rtracklayer,1.62.0,6,36,0.01,1,700,양요한,WTS 7Gb 크기 기준
+155,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,,SPLIT_TYPES_COUNTS (tx_counts),gawk,5.1.0,1,6,0.00,1,8,양요한,WTS 7Gb 크기 기준
+156,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,STATISTICAL_TESTS,CIRCTEST_PREPARE,R,4.2.1,2,12,0.00,1,10,양요한,WTS 7Gb 크기 기준
+157,Short RNA Sequencing,심화분석,,Illumina NovaSeq,circrna,1.0.0,MULTIQC,MULTIQC,multiqc,1.21,1,6,0.00,1,66,양요한,WTS 7Gb 크기 기준
+158,Long RNA Sequencing,기본분석,IsoSeq,Pacbio Revio,Isoseq,25.2,Read Segmentation,call-prepare_inputs,python,3.9.6,1,1,0.01,1,1,양요한,25M 1cell 기준(kinnex)
+159,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-skera,skera,2.5.0,14,4,1.8,1,3700,양요한,25M 1cell 기준(kinnex)
+160,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-gather_sreads,python,3.9.6,1,1,0.1,1,0.1,양요한,25M 1cell 기준(kinnex)
+161,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-pbreports_read_segmentation,python,3.9.6,1,4,0.05,1,3500,양요한,25M 1cell 기준(kinnex)
+162,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,Iso-seq,call-setup_inputs,python3,3.9.6,1,3,0.03,1,1085,양요한,25M 1cell 기준(kinnex)
+163,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-lima_isoseq,lima,2.12.0,14,4,0.54,1,7322,양요한,25M 1cell 기준(kinnex)
+164,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-isoseq_refine,isoseq,4.2.0,14,4,0.05,1,3400,양요한,25M 1cell 기준(kinnex)
+165,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-pbreports_isoseq_primers,dataset,0.15.0,1,32,0.01,1,2970,양요한,25M 1cell 기준(kinnex)
+166,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-get_flnc_size,python3,3.9.6,1,1,0,1,122,양요한,25M 1cell 기준(kinnex)
+167,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-isoseq_cluster2,dataset,0.15.0,14,12,0.25,1,6471,양요한,25M 1cell 기준(kinnex)
+168,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-consolidate_transcripts,python3,3.9.6,1,4,0.04,1,1085,양요한,25M 1cell 기준(kinnex)
+169,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-bam2fasta_transcripts,bam2fasta,3.4.0,14,2,0,1,122,양요한,25M 1cell 기준(kinnex)
+170,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-pbreports_isoseq,dataset,0.15.0,1,16,0,1,122,양요한,25M 1cell 기준(kinnex)
+171,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-get_input_sizes,python3,3.9.6,1,1,0,1,122,양요한,25M 1cell 기준(kinnex)
+172,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-collect_cluster_outputs,python3,3.9.6,1,2,0,1,122,양요한,25M 1cell 기준(kinnex)
+173,Long RNA Sequencing,기본분석,IsoSeq_DEG,Pacbio Revio,Isoseq,25.2,Read Segmentation,call-prepare_inputs,python,3.9.6,1,1,0.01,1,1,양요한,25M 1cell 기준(kinnex)
+174,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-skera,skera,2.5.0,14,4,1.8,1,3700,양요한,25M 1cell 기준(kinnex)
+175,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-gather_sreads,python,3.9.6,1,1,0.1,1,0.1,양요한,25M 1cell 기준(kinnex)
+176,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-pbreports_read_segmentation,python,3.9.6,1,4,0.05,1,3500,양요한,25M 1cell 기준(kinnex)
+177,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,Iso-seq,call-setup_inputs,python3,3.9.6,1,3,0.03,1,1085,양요한,25M 1cell 기준(kinnex)
+178,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-lima_isoseq,lima,2.12.0,14,4,0.54,1,7322,양요한,25M 1cell 기준(kinnex)
+179,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-isoseq_refine,isoseq,4.2.0,14,4,0.05,1,3400,양요한,25M 1cell 기준(kinnex)
+180,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-pbreports_isoseq_primers,dataset,0.15.0,1,32,0.01,1,2970,양요한,25M 1cell 기준(kinnex)
+181,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-get_flnc_size,python3,3.9.6,1,1,0,1,122,양요한,25M 1cell 기준(kinnex)
+182,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-isoseq_cluster2,dataset,0.15.0,14,12,0.25,1,6471,양요한,25M 1cell 기준(kinnex)
+183,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-consolidate_transcripts,python3,3.9.6,1,4,0.04,1,1085,양요한,25M 1cell 기준(kinnex)
+184,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-bam2fasta_transcripts,bam2fasta,3.4.0,14,2,0,1,122,양요한,25M 1cell 기준(kinnex)
+185,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-pbreports_isoseq,dataset,0.15.0,1,16,0,1,122,양요한,25M 1cell 기준(kinnex)
+186,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-get_input_sizes,python3,3.9.6,1,1,0,1,122,양요한,25M 1cell 기준(kinnex)
+187,Long RNA Sequencing,기본분석,,Pacbio Revio,Isoseq,25.2,,call-collect_cluster_outputs,python3,3.9.6,1,2,0,1,122,양요한,25M 1cell 기준(kinnex)
+188,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Denovo Transcriptome Assembly,1.0.0,Annotation(Blast),Annotation(Blast),diamond-blast,2.1.11,64,64,0.5,1,4000,"김현승, 양요한",transcript.fasta 약 10만개 transcript 검출 기준
+189,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Denovo Transcriptome Assembly,1.0.0,,Annotation(Blast),blast2GO,1.5.1,1,64,3,1,500,"김현승, 양요한",transcript.fasta 약 10만개 transcript 검출 기준
+190,Short RNA Sequencing,기본분석,,Illumina NovaSeq,Denovo Transcriptome Assembly,1.0.0,,Annotation parsing,python,3.6.8,1,0.1,0.1,1,50,"김현승, 양요한",transcript.fasta 약 10만개 transcript 검출 기준
+191,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.1.0,Otholog Annotation,Make protein DB,diamond,2.1.11,1,8,1,1,30,김현승,"reference 3GB, GFF 300Mb 기준"
+192,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.1.0,,Match DB with transcript,diamond,2.1.11,64,60,1,1,20,김현승,"reference 3GB, GFF 300Mb 기준"
+193,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.1.0,,Parsing,python,3.6.8,1,0.1,0.1,1,20,김현승,"reference 3GB, GFF 300Mb 기준"
+194,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.0.0,"Functional Analysis(GO, KEGG)","KEGG, Ontology Analysis",David,v2023q4,1,1,0.5,1,1,"김현승, 양요한",web 기반
+195,Short RNA Sequencing,기본분석,,Illumina NovaSeq,"Functional Analysis(GO, KEGG)",1.0.0,Enrichment Analysis,"KEGG, Ontology Analysis",clusterprofiler,4.10.1,1,1,0.5,1,40,"김현승, 양요한",1개 조합 DEG
+196,Single Cell RNA,기본분석,scRNA_10x_illumina,"10x genomics, Illumina",Pre-processing(10x_ilumina),v1.0.0,Pre-processing(10x_ilumina),Pre-processing,CellRanger,8.0.0,32,113,1,32,10000,서채화,50G 기준
+197,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,Post-processing,qc_merge,Seurat,5.2.1,64,200,6,64,22000,서채화,8 sample 기준
+198,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,integration_annot,Seurat,5.2.1,64,200,12,64,22000,서채화,8 sample 기준
+199,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,select,Seurat,5.2.1,64,200,6,64,22000,서채화,8 sample 기준
+200,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,DE,Seurat,5.2.1,64,200,6,64,17000,서채화,8 sample 기준
+201,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,Functional Analysis,clusterprofiler,4.18.4,64,200,6,64,17000,서채화,8 sample 기준
+202,Single Cell RNA,기본분석,scRNA_10x_kinnex,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,Read Segmentation,call-prepare_inputs,python,3.9.6,1,0.1,0.1,1,1,서채화,25M 1cell 기준
+203,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,call-skera,skera,2.5.0,7,0.4,16,1,63000,서채화,25M 1cell 기준
+204,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,call-gather_sreads,python,3.9.6,1,0.1,0.1,1,0.1,서채화,25M 1cell 기준
+205,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,call-pbreports_read_segmentation,python,3.9.6,1,0.1,0.1,1,260,서채화,25M 1cell 기준
+206,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,Single-Cell Iso-Seq,call-lima_sc_isoseq,lima,0.2.2,1,2,22,1,245000,서채화,25M 1cell 기준
+207,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,call-isoseq_tag,isoseq_tag,1.0.1,7,3,5,1,222000,서채화,25M 1cell 기준
+208,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,call-isoseq_refine,isoseq_refine,1.0.1,1,0.13,12.5,1,210000,서채화,25M 1cell 기준
+209,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,call-isoseq_correct,isoseq_correct,1.0.1,7,7.85,0.1,7,410000,서채화,25M 1cell 기준
+210,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,,samtools,1.17,7,1,0.1,7,205000,서채화,25M 1cell 기준
+211,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,call-isoseq_bcstats,isoseq_bcstats,1.0.1,7,10,0.1,7,7,서채화,25M 1cell 기준
+212,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,call-isoseq_dedup,isoseq_groupdedup,1.0.1,7,7.2,0.1,7,62000,서채화,25M 1cell 기준
+213,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,call-pbmm2_align,pbmm2,1.0.1,7,19,10,7,8000,서채화,25M 1cell 기준
+214,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,call-isoseq_collapse,isoseq,1.0.1,7,12,1.2,7,10000,서채화,25M 1cell 기준
+215,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,call-pigeon,pigeon_sort,1.2.0,1,0.1,0.1,1,21000,서채화,25M 1cell 기준
+216,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,,pigeon_classify,1.2.0,7,15,0.3,7,21000,서채화,25M 1cell 기준
+217,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,,pigeon_filter,1.2.0,1,5,0.1,1,21000,서채화,25M 1cell 기준
+218,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,,pigeon_report,1.2.0,1,4,0.1,1,21000,서채화,25M 1cell 기준
+219,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,,pigeon_make-seurat,1.2.0,7,26,0.5,7,21000,서채화,25M 1cell 기준
+220,Single Cell RNA,기본분석,,"10x genomics, PacBio Revio MARS-Seq",Pre-processing(10x_pacbio),25.1.0.257715,,call-pbreports_sc_isoseq,python,3.9.6,1,0.2,0.1,1,2,서채화,25M 1cell 기준
+221,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,Post-processing,qc_merge,Seurat,5.2.1,64,200,6,64,22000,서채화,8 sample 기준
+222,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,integration_annot,Seurat,5.2.1,64,200,12,64,22000,서채화,8 sample 기준
+223,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,select,Seurat,5.2.1,64,200,6,64,22000,서채화,8 sample 기준
+224,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,DE,Seurat,5.2.1,64,200,6,64,17000,서채화,8 sample 기준
+225,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,Functional Analysis,clusterprofiler,4.18.4,64,200,6,64,17000,서채화,8 sample 기준
+226,Single Cell RNA,기본분석,scRNA_parse_illumina,"Parse Bioscience(Evercode all type), Illumina",Pre-processing(parse_illumina),1.6.3,Pre-processing(parse_illumina),split-pipe_all,split-pipe_all,1.6.3,64,32,2,64,15000,서채화,"Sublibrary 50G 기준, 개수만큼 반복"
+227,Single Cell RNA,기본분석,,"Parse Bioscience(Evercode all type), Illumina",Pre-processing(parse_illumina),1.6.3,,split-pipe_comb,split-pipe_comb,1.6.3,64,32,1,64,10000,서채화,8 Sublibrary 기준
+228,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,Post-processing,qc_merge,Seurat,5.2.1,64,200,6,64,22000,서채화,8 sample 기준
+229,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,integration_annot,Seurat,5.2.1,64,200,12,64,22000,서채화,8 sample 기준
+230,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,select,Seurat,5.2.1,64,200,6,64,22000,서채화,8 sample 기준
+231,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,DE,Seurat,5.2.1,64,200,6,64,17000,서채화,8 sample 기준
+232,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,Functional Analysis,clusterprofiler,4.18.4,64,200,6,64,17000,서채화,8 sample 기준
+233,Single Cell RNA,기본분석,scRNA_parse_kinnex,"Parse Bioscience(Evercode all type), PacBio Revio MARS-Seq",Pre-processing(parse_pacbio),25.1.0.257715,Read Segmentation,call-prepare_inputs,python,3.9.6,1,0.1,0.1,1,0.1,서채화,"Sublibrary 25M 1cell 기준, 개수만큼 반복"
+234,Single Cell RNA,기본분석,,"Parse Bioscience(Evercode all type), PacBio Revio MARS-Seq",Pre-processing(parse_pacbio),25.1.0.257715,,call-skera,skera,2.5.0,14,0.5,10,14,358000,서채화,"Sublibrary 25M 1cell 기준, 개수만큼 반복"
+235,Single Cell RNA,기본분석,,"Parse Bioscience(Evercode all type), PacBio Revio MARS-Seq",Pre-processing(parse_pacbio),25.1.0.257715,,call-gather_sreads,python,3.9.6,1,0.1,0.1,1,0.1,서채화,"Sublibrary 25M 1cell 기준, 개수만큼 반복"
+236,Single Cell RNA,기본분석,,"Parse Bioscience(Evercode all type), PacBio Revio MARS-Seq",Pre-processing(parse_pacbio),25.1.0.257715,,call-pbreports_read_segmentation,python,3.9.6,1,0.1,0.1,1,608,서채화,"Sublibrary 25M 1cell 기준, 개수만큼 반복"
+237,Single Cell RNA,기본분석,,"Parse Bioscience(Evercode all type), PacBio Revio MARS-Seq",Pre-processing(parse_pacbio),25.1.0.257715,Generate fastq,bam to fastq,bamToFastq,1.2.1,1,23,2.5,1,200000,서채화,"Sublibrary 25M 1cell 기준, 개수만큼 반복"
+238,Single Cell RNA,기본분석,,"Parse Bioscience(Evercode all type), PacBio Revio MARS-Seq",Pre-processing(parse_pacbio),1.2.1,,split fastq,seqkit,2.10.0,1,0.1,0.1,1,37000,서채화,"Sublibrary 25M 1cell 기준, 개수만큼 반복"
+239,Single Cell RNA,기본분석,,"Parse Bioscience(Evercode all type), PacBio Revio MARS-Seq",Pre-processing(parse_pacbio),1.2.1,,LR generate fastq,python,3.12.8,1,7,12,1,195000,서채화,"Sublibrary 25M 1cell 기준, 개수만큼 반복"
+240,Single Cell RNA,기본분석,,"Parse Bioscience(Evercode all type), PacBio Revio MARS-Seq",Pre-processing(parse_pacbio),1.2.1,,concatenate paired-reads,cat and zip,v1.0.0,1,0.1,0.1,1,195000,서채화,"Sublibrary 25M 1cell 기준, 개수만큼 반복"
+241,Single Cell RNA,기본분석,,"Parse Bioscience(Evercode all type), PacBio Revio MARS-Seq",Pre-processing(parse_pacbio),1.2.1,split-pipe pre,pre,split-pipe_pre,1.2.1,16,1,1,16,32000,서채화,"Sublibrary 25M 1cell 기준, 개수만큼 반복"
+242,Single Cell RNA,기본분석,,"Parse Bioscience(Evercode all type), PacBio Revio MARS-Seq",Pre-processing(parse_pacbio),1.2.1,,alignment,minimap2,2.24-r1122,64,49,2,64,157000,서채화,"Sublibrary 25M 1cell 기준, 개수만큼 반복"
+243,Single Cell RNA,기본분석,,"Parse Bioscience(Evercode all type), PacBio Revio MARS-Seq",Pre-processing(parse_pacbio),1.2.1,,update_csv,python,v1.0.0,1,0.5,0.5,1,224000,서채화,"Sublibrary 25M 1cell 기준, 개수만큼 반복"
+244,Single Cell RNA,기본분석,,"Parse Bioscience(Evercode all type), PacBio Revio MARS-Seq",Pre-processing(parse_pacbio),1.2.1,split-pipe post,post,split-pipe_post,1.2.1,64,6.5,3,64,221000,서채화,"Sublibrary 25M 1cell 기준, 개수만큼 반복"
+245,Single Cell RNA,기본분석,,"Parse Bioscience(Evercode all type), PacBio Revio MARS-Seq",Pre-processing(parse_pacbio),1.2.1,split-pipe comb,comb,split-pipe_comb,1.2.1,64,6,1,64,16000,서채화,8 Sublibrary 기준
+246,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,Post-processing,qc_merge,Seurat,5.2.1,64,200,6,64,22000,서채화,8 sample 기준
+247,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,integration_annot,Seurat,5.2.1,64,200,12,64,22000,서채화,8 sample 기준
+248,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,select,Seurat,5.2.1,64,200,6,64,22000,서채화,8 sample 기준
+249,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,DE,Seurat,5.2.1,64,200,6,64,17000,서채화,8 sample 기준
+250,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,Functional Analysis,clusterprofiler,4.18.4,64,200,6,64,17000,서채화,8 sample 기준
+251,Single Cell RNA,기본분석,scRNA_scale_illumina,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,Pre-processing,RegularizeSamplesCsv,python,2.1.0,1,0.1,0.1,1,0.1,서채화,BCL 78G 4 sample 기준
+252,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,INPUT_READS,MakeBclConvertSamplesheet,python,3.12.4,1,0.1,0.1,1,0.1,서채화,BCL 78G 4 sample 기준
+253,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,,BclConvert,bcl-convert,3.9.3,8,40,0.5,8,238000,서채화,BCL 78G 4 sample 기준
+254,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,,TrimFq,cutadapt,5.0,2,1,0.1,2,788,서채화,"BCL 78G 4 sample 기준, plate well 개수 반복"
+255,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,,BarcodeParser,bc_parser,0.15.0,1,0.1,0.1,1,3,서채화,"BCL 78G 4 sample 기준, plate well 개수 반복"
+256,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,,FastQC,fastqc,0.12.1,2,0.1,0.1,2,2,서채화,"BCL 78G 4 sample 기준, plate well 개수 반복"
+257,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,,MultiQC,multiqc,1.14,1,0.1,0.1,1,7,서채화,"BCL 78G 4 sample 기준, plate well 개수 반복"
+258,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,,MergeDemux,python,3.12.4,1,0.1,0.1,1,0.1,서채화,BCL 78G 4 sample 기준
+259,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,ALIGNMENT,StarSolo,STAR,2.7.11a,14,0.1,0.1,14,520000,서채화,"BCL 78G 4 sample 기준, plate well 개수 반복"
+260,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,,StarSolo,pigz,2.8,16,0.1,0.1,16,44,서채화,"BCL 78G 4 sample 기준, plate well 개수 반복"
+261,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,,MergeStar,python,3.12.4,1,0.1,0.1,1,392,서채화,BCL 78G 4 sample 기준
+262,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,CELL_CALLING,CellMetricsGeneration,python,3.12.4,5,30,0.1,5,13,서채화,BCL 78G 4 sample 기준
+263,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,,BeadFiltering,python,3.12.4,5,30,0.1,5,2,서채화,BCL 78G 4 sample 기준
+264,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,,FilteredMatrixGeneration,python,3.12.4,5,30,0.2,5,496,서채화,BCL 78G 4 sample 기준
+265,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,,FilteredMatrixGeneration,pigz,2.8,5,0.1,0.1,5,630,서채화,BCL 78G 4 sample 기준
+266,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,,SampleStats,python,3.12.4,5,30,0.1,5,0.1,서채화,BCL 78G 4 sample 기준
+267,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,SAMPLE_REPORTING,SampleReportGeneration,python,3.12.4,1,0.1,0.1,1,0.1,서채화,BCL 78G 4 sample 기준
+268,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,MultiSampleReport,MultiSampleReport,python,3.12.4,1,0.1,0.1,1,0.1,서채화,BCL 78G 4 sample 기준
+269,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,LibraryMetricsGeneration,LibraryMetricsGeneration,python,3.12.4,1,0.1,0.1,1,0.1,서채화,BCL 78G 4 sample 기준
+270,Single Cell RNA,기본분석,,"QuatumScale, Illumina",Pre-processing(scalebio_illumina),2.1.0,LibraryReportGeneration,LibraryReportGeneration,python,3.12.4,1,0.1,0.1,1,0.1,서채화,BCL 78G 4 sample 기준
+271,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,Post-processing,qc_merge,Seurat,5.2.1,64,200,6,64,22000,서채화,8 sample 기준
+272,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,integration_annot,Seurat,5.2.1,64,200,12,64,22000,서채화,8 sample 기준
+273,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,select,Seurat,5.2.1,64,200,6,64,22000,서채화,8 sample 기준
+274,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,DE,Seurat,5.2.1,64,200,6,64,17000,서채화,8 sample 기준
+275,Single Cell RNA,심화분석,,All Single-cell platform,inhouse,1.0.0,,Functional Analysis,clusterprofiler,4.18.4,64,200,6,64,17000,서채화,8 sample 기준
+276,Spatial,기본분석,geomx,Bruker Nanostring_GeoMx,GeoMxDSP,3.2,Pre-processing,Process_DCC,geomxngspipeline,3.2.0.35,64,10,0.1,64,141000,서채화,"one plate, 121 AOI 기준"
+277,Spatial,기본분석,cosmx,Bruker Nanostring_CosMx,AtoMx,1.0.0,Pre-processing,Pre-processing,AtoMx,2.1.0,in cloud,in cloud,24,in cloud,5000,서채화,"one slide, 45 fov 기준"
+278,Spatial,심화분석,,Bruker Nanostring_CosMx,inhouse,1.0.0,Post-processing,Post-processing,Giotto,4.2.2,64,200,12,64,10000,서채화,"one slide, 45 fov 기준"
+279,Microarray,Gene Expression,microarray,Microarray,inhouse,1.0.0,Expression,Analysis,Expression console,1.4,6,4,0.1,1,80,김현승,1샘플(약 25Mb) 기준
+280,Microarray,Gene Expression,,Microarray,inhouse,1.0.0,Visualization,Graph,R,4.0.5,1,1,0.1,1,15,김현승,1샘플(약 25Mb) 기준
+281,Microarray,Gene Expression,,Microarray,inhouse,1.0.0,DEG analysis,DEG,python,2.7.5,1,1,0.1,1,10,김현승,1샘플(약 25Mb) 기준
+282,Targeted Methylation Sequencing,Human/Mouse DMR 분석,Target BS DMR 분석 - human/mouse,Illumina NovaSeq,inhouse,1.1.1,FASTQ_QC,FASTQC,fastqc,0.12.1,1,1,0.1,1,2,이신석,"TBS, 120x 기준"
+283,Targeted Methylation Sequencing,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,TRIM,TRIM,trim_galore,0.6.10,4,1,1.5,1,"5,000",이신석,"TBS, 120x 기준"
+284,Targeted Methylation Sequencing,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,ALIGN,BISMARK,bismark,0.24.2,30,52,3.5,1,"9,000",이신석,"TBS, 120x 기준"
+285,Targeted Methylation Sequencing,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,DEDUPLICATE,DEDUPLICATE_BISMARK,deduplicate_bismark,0.24.2,2,7,0.5,1,"7,000",이신석,"TBS, 120x 기준"
+286,Targeted Methylation Sequencing,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,METHYLATION_CALL,METHYLATION_CALL,bismark_methylation_extractor,0.24.2,12,3,1.5,1,"7,000",이신석,"TBS, 120x 기준"
+287,Targeted Methylation Sequencing,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,SAMTOOLS_STATS,SAMTOOLS_SORT,samtools,1.19.2,1,1,0.5,1,"4,000",이신석,"TBS, 120x 기준"
+288,Targeted Methylation Sequencing,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,,SAMTOOLS_INDEX,samtools,1.19.2,1,1,0.1,1,4,이신석,"TBS, 120x 기준"
+289,Targeted Methylation Sequencing,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,,SAMTOOLS_STATS,samtools,1.19.2,1,1,0.1,1,1,이신석,"TBS, 120x 기준"
+290,Targeted Methylation Sequencing,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,COVERAGE,MOSDEPTH_COVERAGE,mosdepth,0.3.6,4,2,0.1,1,500,이신석,"TBS, 120x 기준"
+291,Targeted Methylation Sequencing,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,,BEDTOOLS_COVERAGE,bedtools,2.31.1,2,3,0.2,1,"12,000",이신석,"TBS, 120x 기준"
+292,Targeted Methylation Sequencing,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,MULTIQC,MULTIQC,multiqc,1.14,2,1,0.1,1,8,이신석,"TBS, 120x 기준"
+293,Targeted Methylation Sequencing,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,Plots,MAKE_INPUT,C,8.5.0,1,1,0.2,1,9,이신석,"TBS, 120x 기준"
+294,Targeted Methylation Sequencing,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.0.1,,R_PLOTS,R,4.4.2,1,4,0.1,1,1,이신석,"TBS, 120x 기준"
+295,Targeted Methylation Sequencing,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.0.1,DMR_ANALYSIS,RNBEADS_SNP_FILTER,R,4.4.2,4,16,0.2,1,"1,000",이신석,4 sample 기준
+296,Targeted Methylation Sequencing,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.0.1,,DMR_ANALYSIS,R,4.4.2,4,10,0.5,1,30,이신석,4 sample 기준
+297,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,WGBS DMR 분석 - human/mouse,Illumina NovaSeq,inhouse,1.1.1,FASTQ_QC,FASTQC,fastqc,0.12.1,1,1,0.1,1,3,이신석,"WGBS, 50x 기준"
+298,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,TRIM,TRIM,trim_galore,0.6.10,4,1,14.5,1,"55,000",이신석,"WGBS, 50x 기준"
+299,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,ALIGN,BISMARK,bismark,0.24.2,30,60,34.5,1,"100,000",이신석,"WGBS, 50x 기준"
+300,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,DEDUPLICATE,DEDUPLICATE_BISMARK,deduplicate_bismark,0.24.2,2,42,4.5,1,"75,000",이신석,"WGBS, 50x 기준"
+301,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,METHYLATION_CALL,METHYLATION_CALL,bismark_methylation_extractor,0.24.2,12,8,8,1,"110,000",이신석,"WGBS, 50x 기준"
+302,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,SAMTOOLS_STATS,SAMTOOLS_SORT,samtools,1.19.2,1,1,4.5,1,"45,000",이신석,"WGBS, 50x 기준"
+303,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,,SAMTOOLS_INDEX,samtools,1.19.2,1,1,0.3,1,10,이신석,"WGBS, 50x 기준"
+304,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,,SAMTOOLS_STATS,samtools,1.19.2,1,1,0.7,1,1,이신석,"WGBS, 50x 기준"
+305,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,COVERAGE,MOSDEPTH_COVERAGE,mosdepth,0.3.6,4,2,0.2,1,"4,500",이신석,"WGBS, 50x 기준"
+306,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,CH_CALL,CH_CALL,bismark2bedGraph,0.24.2,2,2,16,3,"22,500",이신석,"WGBS, 50x 기준"
+307,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,MULTIQC,MULTIQC,multiqc,1.14,2,1,0.1,1,8,이신석,"WGBS, 50x 기준"
+308,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.1.1,PLOTS,MAKE_INPUT,C,8.5.0,1,1,0.5,1,9,이신석,"WGBS, 50x 기준"
+309,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.0.1,,R_PLOTS,R,4.4.2,1,6,0.2,1,1,이신석,"WGBS, 50x 기준"
+310,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.0.1,DMR_ANALYSIS,RNBEADS_SNP_FILTER,R,4.4.2,4,32,0.5,1,"2,600",이신석,2 sample 기준
+311,Whole Genome Bisulfite Sequencing ,Human/Mouse DMR 분석,,Illumina NovaSeq,inhouse,1.0.1,,DMR_ANALYSIS,R,4.4.2,4,15,0.3,1,230,이신석,2 sample 기준
+312,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,WGBS DMR 분석 - human/mouse 외,Illumina NovaSeq,inhouse,1.1.1,FASTQ_QC,FASTQC,fastqc,0.12.1,1,1,0.1,1,3,이신석,"WGBS, 50x 기준"
+313,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.1.1,TRIM,TRIM,trim_galore,0.6.10,4,1,14.5,1,"55,000",이신석,"WGBS, 50x 기준"
+314,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.1.1,ALIGN,BISMARK_GENOME_PREPARE,bismark_genome_preparation,0.24.2,4,10,1.6,1,"15,000",이신석,"WGBS, 50x 기준"
+315,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.1.1,,BISMARK_ALIGN,bismark,0.24.2,30,60,34.5,1,"100,000",이신석,"WGBS, 50x 기준"
+316,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.1.1,DEDUPLICATE,DEDUPLICATE_BISMARK,deduplicate_bismark,0.24.2,2,42,4.5,1,"75,000",이신석,"WGBS, 50x 기준"
+317,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.1.1,METHYLATION_CALL,METHYLATION_CALL,bismark_methylation_extractor,0.24.2,12,8,8,1,"110,000",이신석,"WGBS, 50x 기준"
+318,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.1.1,SAMTOOLS_STATS,SAMTOOLS_SORT,samtools,1.19.2,1,1,4.5,1,"45,000",이신석,"WGBS, 50x 기준"
+319,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.1.1,,SAMTOOLS_INDEX,samtools,1.19.2,1,1,0.3,1,10,이신석,"WGBS, 50x 기준"
+320,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.1.1,,SAMTOOLS_STATS,samtools,1.19.2,1,1,0.7,1,1,이신석,"WGBS, 50x 기준"
+321,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.1.1,COVERAGE,MOSDEPTH_COVERAGE,mosdepth,0.3.6,4,2,0.2,1,"4,500",이신석,"WGBS, 50x 기준"
+322,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.1.1,CH_CALL,CH_CALL,bismark2bedGraph,0.24.2,2,2,16,3,"22,500",이신석,"WGBS, 50x 기준"
+323,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.1.1,MULTIQC,MULTIQC,multiqc,1.14,2,1,0.1,1,8,이신석,"WGBS, 50x 기준"
+324,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.1.1,PLOTS,MAKE_INPUT,C,8.5.0,1,1,0.5,1,9,이신석,"WGBS, 50x 기준"
+325,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.0.1,,R_PLOTS,R,4.4.2,1,6,0.2,1,1,이신석,"WGBS, 50x 기준"
+326,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.1.1,DMR_ANALYSIS,CPG_ISLAND,cgh_lh,2025.12.03,1,2,0.1,1,4,이신석,"WGBS, 50x 기준"
+327,Whole Genome Bisulfite Sequencing ,Human/Mouse 이외 기본 분석,,Illumina NovaSeq,inhouse,1.0.1,,DMR_ANALYSIS,R,4.4.2,4,243,1.3,1,560,이신석,2 sample 기준
+328,Methylation Chip,EPICarray v1/v2 DMR 분석,Methylation array QC / DMR 분석,Illumina iScan,inhouse,1.0.1,QC,EXPERIMENT_QC,R,4.4.2,1,11,0.2,1,1,이신석,96 sample 기준
+329,Methylation Chip,EPICarray v1/v2 DMR 분석,,Illumina iScan,inhouse,1.0.1,,DATA_QC,R,4.4.2,1,130,2.5,1,"22,000",이신석,300 sample 기준
+330,Methylation Chip,EPICarray v1/v2 DMR 분석,,Illumina iScan,inhouse,1.0.1,,AGE_PREDICTION,R,4.4.2,20,14,0.6,1,1,이신석,300 sample 기준
+331,Methylation Chip,EPICarray v1/v2 DMR 분석,,Illumina iScan,inhouse,1.0.1,DMR_ANALYSIS,DMR_ANALYSIS,R,4.4.2,1,40,0.4,1,43,이신석,300 sample 기준
+332,Whole Genome Sequencing ,Long read microbial genome 분석,Long read 6mA / 4mC - microbial genome only,Pacbio Revio,smrtlink,25.2,DEV_MICROBIAL_ANALYSIS,EVALUATE_KINETICS,python3,3.9.6,1,1,0.1,1,1,이신석,"WGS, 100x 기준"
+333,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,,MAKE_REFERENCE,dataset,0.15.1,1,1,0.1,1,5,이신석,"WGS, 100x 기준"
+334,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,PREPARE_INPUT,DATASET_FILTER,python3,3.9.6,1,1,0.1,1,1,이신석,"WGS, 100x 기준"
+335,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,PB_BASEMODS_HIFI,CCS_KINETICS_BYSTRANDIFY,ccs-kinetics-bystrandify,3.4.0,1,1,0.1,1,"14,000",이신석,"WGS, 100x 기준"
+336,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,,MAPPING,pbmm2,1.16.0,32,3,0.1,1,"14,000",이신석,"WGS, 100x 기준"
+337,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,,MAPPING_STATS,python3,3.9.6,1,1,0.1,1,1,이신석,"WGS, 100x 기준"
+338,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,WF_BASEMODS,SPLIT_ALIGNMENTS,dataset,0.15.1,1,1,0.1,1,1,이신석,"WGS, 100x 기준"
+339,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,COVERAGE_REPORTS,SUMMARIZE_COVERAGE,summarize-coverage,0.0.1,1,1,0.1,1,1,이신석,"WGS, 100x 기준"
+340,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,,GC_COVERAGE_PLOT,python3,3.9.6,1,1,0.1,1,1,이신석,"WGS, 100x 기준"
+341,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,,PBREPORTS_COVERAGE,python3,3.9.6,1,1,0.1,1,1,이신석,"WGS, 100x 기준"
+342,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,WF_BASEMODS,IPDSUMMARY,ipdsummary,3.0,32,8,0.2,1,608,이신석,"WGS, 100x 기준"
+343,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,,GATHER_BIGWIG,python3,3.9.6,1,1,0.1,1,34,이신석,"WGS, 100x 기준"
+344,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,,GATHER_BASEMODS_CSV,python3,3.9.6,1,1,0.1,1,530,이신석,"WGS, 100x 기준"
+345,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,,GATHER_BASEMODS_GFF,python3,3.9.6,1,1,0.1,1,43,이신석,"WGS, 100x 기준"
+346,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,,MODIFICATIONS_REPORT,python3,3.9.6,1,2,0.1,1,2,이신석,"WGS, 100x 기준"
+347,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,,FIND_MOTIFS,pbmotifmaker,1.1.0,1,1,0.2,1,1,이신석,"WGS, 100x 기준"
+348,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,,REPROCESS_MOTIFS,pbmotifmaker,1.1.0,1,1,0.1,1,43,이신석,"WGS, 100x 기준"
+349,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,smrtlink,25.2,,MOTIFS_REPORT,python3,3.9.6,1,3,0.1,1,5,이신석,"WGS, 100x 기준"
+350,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,inhouse,1.0.1,PLOTS,R_SUMMARY,R,4.4.2,1,2,0.2,1,1,이신석,"WGS, 100x 기준"
+351,Whole Genome Sequencing ,Long read microbial genome 분석,,Pacbio Revio,inhouse,1.0.1,,R_PLOTS,R,4.4.2,1,1,0.1,1,1,이신석,"WGS, 100x 기준"

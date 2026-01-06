@@ -1,0 +1,223 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Targeted Methylation Sequencing
+Analysis Name: Target BS DMR 분석 - human/mouse
+Platform: Illumina NovaSeq
+Pipeline: inhouse v1.1.1
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 10
+Number of Steps: 15
+Number of Tools: 11
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 70
+Total Memory: 104 GB
+Total Compute Time: 9.20 hours
+Total Storage: 44.49 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $6.50
+  - Compute Cost: $6.49 (99.9%)
+  - Storage Cost: $0.01 (0.1%)
+Cost per Hour: $0.71
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+ALIGN:
+  Steps: 1
+  Time: 3.50 hours
+  Cost: $4.76
+  Tools: bismark
+
+METHYLATION_CALL:
+  Steps: 1
+  Time: 1.50 hours
+  Cost: $1.02
+  Tools: bismark_methylation_extractor
+
+TRIM:
+  Steps: 1
+  Time: 1.50 hours
+  Cost: $0.26
+  Tools: trim_galore
+
+DMR_ANALYSIS:
+  Steps: 2
+  Time: 0.70 hours
+  Cost: $0.24
+  Tools: R
+
+DEDUPLICATE:
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.09
+  Tools: deduplicate_bismark
+
+SAMTOOLS_STATS:
+  Steps: 3
+  Time: 0.70 hours
+  Cost: $0.06
+  Tools: samtools
+
+COVERAGE:
+  Steps: 2
+  Time: 0.30 hours
+  Cost: $0.03
+  Tools: mosdepth, bedtools
+
+Plots:
+  Steps: 2
+  Time: 0.30 hours
+  Cost: $0.03
+  Tools: C, R
+
+MULTIQC:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: multiqc
+
+FASTQ_QC:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: fastqc
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: FASTQ_QC
+Step: FASTQC
+Tool: fastqc v0.12.1
+Resources: 1 CPUs, 1 GB RAM, 2 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: TRIM
+Step: TRIM
+Tool: trim_galore v0.6.10
+Resources: 4 CPUs, 1 GB RAM, 5000 MB storage
+Runtime: 1.50 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.2558 (compute: $0.2550, storage: $0.0008)
+
+Group: ALIGN
+Step: BISMARK
+Tool: bismark v0.24.2
+Resources: 30 CPUs, 52 GB RAM, 9000 MB storage
+Runtime: 3.50 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $4.7634 (compute: $4.7600, storage: $0.0034)
+
+Group: DEDUPLICATE
+Step: DEDUPLICATE_BISMARK
+Tool: deduplicate_bismark v0.24.2
+Resources: 2 CPUs, 7 GB RAM, 7000 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0854 (compute: $0.0850, storage: $0.0004)
+
+Group: METHYLATION_CALL
+Step: METHYLATION_CALL
+Tool: bismark_methylation_extractor v0.24.2
+Resources: 12 CPUs, 3 GB RAM, 7000 MB storage
+Runtime: 1.50 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $1.0211 (compute: $1.0200, storage: $0.0011)
+
+Group: SAMTOOLS_STATS
+Step: SAMTOOLS_SORT
+Tool: samtools v1.19.2
+Resources: 1 CPUs, 1 GB RAM, 4000 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0427 (compute: $0.0425, storage: $0.0002)
+
+Group: SAMTOOLS_STATS
+Step: SAMTOOLS_INDEX
+Tool: samtools v1.19.2
+Resources: 1 CPUs, 1 GB RAM, 4 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: SAMTOOLS_STATS
+Step: SAMTOOLS_STATS
+Tool: samtools v1.19.2
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: COVERAGE
+Step: MOSDEPTH_COVERAGE
+Tool: mosdepth v0.3.6
+Resources: 4 CPUs, 2 GB RAM, 500 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: COVERAGE
+Step: BEDTOOLS_COVERAGE
+Tool: bedtools v2.31.1
+Resources: 2 CPUs, 3 GB RAM, 12000 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0173 (compute: $0.0170, storage: $0.0003)
+
+Group: MULTIQC
+Step: MULTIQC
+Tool: multiqc v1.14
+Resources: 2 CPUs, 1 GB RAM, 8 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Plots
+Step: MAKE_INPUT
+Tool: C v8.5.0
+Resources: 1 CPUs, 1 GB RAM, 9 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: Plots
+Step: R_PLOTS
+Tool: R v4.4.2
+Resources: 1 CPUs, 4 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: DMR_ANALYSIS
+Step: RNBEADS_SNP_FILTER
+Tool: R v4.4.2
+Resources: 4 CPUs, 16 GB RAM, 1000 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: DMR_ANALYSIS
+Step: DMR_ANALYSIS
+Tool: R v4.4.2
+Resources: 4 CPUs, 10 GB RAM, 30 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.1700 (compute: $0.1700, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

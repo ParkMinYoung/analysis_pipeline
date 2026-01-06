@@ -3,7 +3,7 @@ PIPELINE COST ANALYSIS REPORT
 ================================================================================
 
 직무 (Job): Assembly
-업무세부내역 (Task Detail): Large Genome Assembly (Human, Animal, Plant)
+Analysis Name: Large Genome Assembly - All
 Platform: Illumina NovaSeq, PacBio Revio, PacBio Revio, Illumina NovaSeq, PacBio Revio, Nanopore PromethION, PacBio Revio, Nanopore PromethION, Illumina NovaSeq
 Pipeline: inhouse v1.0.0
 

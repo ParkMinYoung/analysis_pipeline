@@ -1,0 +1,429 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Short RNA Sequencing
+Analysis Name: circRNA
+Platform: Illumina NovaSeq
+Pipeline: circrna v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 7
+Number of Steps: 43
+Number of Tools: 19
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 141
+Total Memory: 816 GB
+Total Compute Time: 4.53 hours
+Total Storage: 328.30 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $8.07
+  - Compute Cost: $8.05 (99.7%)
+  - Storage Cost: $0.02 (0.3%)
+Cost per Hour: $1.78
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+CIRCRNA_DISCOVERY:
+  Steps: 18
+  Time: 2.42 hours
+  Cost: $4.64
+  Tools: python, star, circexplorer2, gawk, bedtools, pandas, sort
+
+PREPARE_GENOME:
+  Steps: 4
+  Time: 1.10 hours
+  Cost: $1.70
+  Tools: python, seqkit, samtools, star
+
+QUANTIFICATION:
+  Steps: 16
+  Time: 0.61 hours
+  Cost: $1.16
+  Tools: sort, gawk, gffread, psirc, tximeta, python, csvtk, bioconductor_rtracklayer
+
+FASTQC_TRIMGALORE:
+  Steps: 2
+  Time: 0.30 hours
+  Cost: $0.55
+  Tools: fastqc, trimgalore
+
+CAT_FASTQ:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: cat
+
+MULTIQC:
+  Steps: 1
+  Time: 0.00 hours
+  Cost: $0.00
+  Tools: multiqc
+
+STATISTICAL_TESTS:
+  Steps: 1
+  Time: 0.00 hours
+  Cost: $0.00
+  Tools: R
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: PREPARE_GENOME
+Step: GTFFILTER (gtf)
+Tool: python v3.9.5
+Resources: 1 CPUs, 6 GB RAM, 3100 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: PREPARE_GENOME
+Step: SEQKIT_SPLIT (fasta)
+Tool: seqkit v2.8.0
+Resources: 6 CPUs, 6 GB RAM, 2850 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: PREPARE_GENOME
+Step: SAMTOOLS_FAIDX (hg38_onlyCHR.fa)
+Tool: samtools v1.2
+Resources: 1 CPUs, 6 GB RAM, 2850 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: PREPARE_GENOME
+Step: STAR_GENOMEGENERATE
+Tool: star v2.7.10a
+Resources: 12 CPUs, 72 GB RAM, 51500 MB storage
+Runtime: 0.80 hours × 1 parallel tasks
+Instance: c6i.12xlarge @ $2.0400/hr
+Cost: $1.6365 (compute: $1.6320, storage: $0.0045)
+
+Group: CAT_FASTQ
+Step: CAT_FASTQ
+Tool: cat v8.3
+Resources: 1 CPUs, 6 GB RAM, 7000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0171 (compute: $0.0170, storage: $0.0001)
+
+Group: FASTQC_TRIMGALORE
+Step: FASTQC
+Tool: fastqc v0.12.1
+Resources: 6 CPUs, 36 GB RAM, 6800 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.1361 (compute: $0.1360, storage: $0.0001)
+
+Group: FASTQC_TRIMGALORE
+Step: TRIMGALORE
+Tool: trimgalore v0.6.7
+Resources: 12 CPUs, 72 GB RAM, 126000 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.12xlarge @ $2.0400/hr
+Cost: $0.4107 (compute: $0.4080, storage: $0.0027)
+
+Group: CIRCRNA_DISCOVERY
+Step: CIRCEXPLORER2:REFERENCE (gtf.filtered.gtf)
+Tool: python v3.9.5
+Resources: 1 CPUs, 6 GB RAM, 255 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: STAR2PASS:PASS_1
+Tool: star v2.7.10a
+Resources: 12 CPUs, 72 GB RAM, 46200 MB storage
+Runtime: 0.25 hours × 1 parallel tasks
+Instance: c6i.12xlarge @ $2.0400/hr
+Cost: $0.5113 (compute: $0.5100, storage: $0.0013)
+
+Group: CIRCRNA_DISCOVERY
+Step: STAR2PASS:SJDB (star_sjdb)
+Tool: star v2.7.10a
+Resources: 1 CPUs, 6 GB RAM, 310 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: STAR2PASS:PASS_2
+Tool: star v2.7.10a
+Resources: 12 CPUs, 72 GB RAM, 46200 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.12xlarge @ $2.0400/hr
+Cost: $4.0900 (compute: $4.0800, storage: $0.0100)
+
+Group: CIRCRNA_DISCOVERY
+Step: CIRCEXPLORER2:PARSE
+Tool: circexplorer2 v2.3.8
+Resources: 2 CPUs, 12 GB RAM, 45 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: CIRCEXPLORER2:ANNOTATE
+Tool: circexplorer2 v2.3.8
+Resources: 2 CPUs, 12 GB RAM, 3000 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: CIRCEXPLORER2:UNIFY
+Tool: circexplorer2 v2.3.8
+Resources: 1 CPUs, 6 GB RAM, 2 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: FILTER_BSJS
+Tool: gawk v5.1.0
+Resources: 1 CPUs, 6 GB RAM, 1 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: ANNOTATION:INTERSECT_GTF
+Tool: bedtools v2.31.1
+Resources: 1 CPUs, 6 GB RAM, 235 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: MERGE_TOOLS
+Tool: pandas v1.5.2
+Resources: 1 CPUs, 6 GB RAM, 25 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: MERGE_SAMPLES
+Tool: pandas v1.5.2
+Resources: 1 CPUs, 6 GB RAM, 25 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: ANNOTATION:ANNOTATE (circexplorer2)
+Tool: pandas v1.5.2
+Resources: 1 CPUs, 6 GB RAM, 96 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: ANNOTATION:ANNOTATE (merged)
+Tool: pandas v1.5.2
+Resources: 1 CPUs, 6 GB RAM, 96 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: BEDTOOLS_GETFASTA 
+Tool: bedtools v2.31.1
+Resources: 1 CPUs, 6 GB RAM, 3100 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: ANNOTATION:COMBINE_GTFS (annotation)
+Tool: sort vnan
+Resources: 2 CPUs, 12 GB RAM, 5 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: ANNOTATION:COMBINE_BEDS (annotation)
+Tool: sort vnan
+Resources: 2 CPUs, 12 GB RAM, 5 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: ANNOTATION:REMOVE_SCORE_STRAND (annotation)
+Tool: gawk v5.1.0
+Resources: 1 CPUs, 6 GB RAM, 3 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: CIRCRNA_DISCOVERY
+Step: ADD_BACKSPLICE
+Tool: gawk v5.1.0
+Resources: 1 CPUs, 6 GB RAM, 120 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: COMBINE_TRANSCRIPTOME_GTFS (transcriptome)
+Tool: sort vnan
+Resources: 2 CPUs, 12 GB RAM, 240 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: EXCLUDE_OVERLONG_TRANSCRIPTS (transcriptome)
+Tool: gawk v5.1.0
+Resources: 1 CPUs, 6 GB RAM, 240 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: TRANSCRIPTOME (transcriptome)
+Tool: gffread v0.12.1
+Resources: 2 CPUs, 12 GB RAM, 6000 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: MARK_CIRCULAR (transcriptome)
+Tool: gawk v5.1.0
+Resources: 1 CPUs, 6 GB RAM, 260 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: PSIRC_INDEX (transcriptome)
+Tool: psirc v1.0.0
+Resources: 12 CPUs, 72 GB RAM, 260 MB storage
+Runtime: 0.07 hours × 1 parallel tasks
+Instance: c6i.12xlarge @ $2.0400/hr
+Cost: $0.1428 (compute: $0.1428, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: PSIRC_QUANT
+Tool: psirc v1.0.0
+Resources: 12 CPUs, 72 GB RAM, 27904 MB storage
+Runtime: 0.48 hours × 1 parallel tasks
+Instance: c6i.12xlarge @ $2.0400/hr
+Cost: $0.9807 (compute: $0.9792, storage: $0.0015)
+
+Group: QUANTIFICATION
+Step: TXIMETA_TXIMETA
+Tool: tximeta v1.20.1
+Resources: 6 CPUs, 36 GB RAM, 70 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.0136 (compute: $0.0136, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: CUSTOM_TX2GENE (transcriptome)
+Tool: python v3.9.5
+Resources: 1 CPUs, 6 GB RAM, 480 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: TXIMETA_TXIMPORT
+Tool: tximeta v1.20.1
+Resources: 6 CPUs, 36 GB RAM, 32 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: JOIN_GENE_TPM (gene_tpm)
+Tool: csvtk v0.30.0
+Resources: 1 CPUs, 6 GB RAM, 10 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: JOIN_TX_COUNTS (tx_counts)
+Tool: csvtk v0.30.0
+Resources: 1 CPUs, 6 GB RAM, 30 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: JOIN_TX_TPM (tx_tpm)
+Tool: csvtk v0.30.0
+Resources: 1 CPUs, 6 GB RAM, 32 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: JOIN_GENE_COUNTS (gene_counts)
+Tool: csvtk v0.30.0
+Resources: 1 CPUs, 6 GB RAM, 9 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: SPLIT_TYPES_TPM (tx_tpm)
+Tool: gawk v5.1.0
+Resources: 1 CPUs, 6 GB RAM, 9 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: MERGE_EXPERIMENTS (experiments)
+Tool: bioconductor_rtracklayer v1.62.0
+Resources: 6 CPUs, 36 GB RAM, 700 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.0136 (compute: $0.0136, storage: $0.0000)
+
+Group: QUANTIFICATION
+Step: SPLIT_TYPES_COUNTS (tx_counts)
+Tool: gawk v5.1.0
+Resources: 1 CPUs, 6 GB RAM, 8 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: STATISTICAL_TESTS
+Step: CIRCTEST_PREPARE
+Tool: R v4.2.1
+Resources: 2 CPUs, 12 GB RAM, 10 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: MULTIQC
+Step: MULTIQC
+Tool: multiqc v1.21
+Resources: 1 CPUs, 6 GB RAM, 66 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

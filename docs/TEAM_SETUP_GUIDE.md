@@ -1,6 +1,8 @@
 # 팀별 분석 설정 가이드
 
-이 가이드는 Team 1과 Team 2가 파이프라인 비용 분석을 시작하기 위한 단계별 지침을 제공합니다.
+이 가이드는 Team 1이 파이프라인 비용 분석을 시작하기 위한 단계별 지침을 제공합니다.
+
+> **완료된 팀**: Team 2 (22 pipelines), Team 3 (8 pipelines)
 
 ## 사전 요구사항
 
@@ -19,7 +21,7 @@ Google Sheets에는 다음 컬럼들이 포함되어야 합니다:
 | idx | 순번 | 1, 2, 3, ... |
 | 직무(업무명) | 직무 분류 | Assembly, Microbiome |
 | 업무세부내역 | 세부 업무 내용 | Large Genome Assembly (Human, Animal, Plant) |
-| Analysis_name | 분석 이름 (선택) | Large Genome Assembly - All |
+| **Analysis_name** | **분석 이름 (필수)** | **Large Genome Assembly - All** |
 | Platfom | 플랫폼 정보 | PacBio Revio, Illumina NovaSeq |
 | Pipeline Name | 파이프라인 이름 | inhouse |
 | Pipeline Version | 파이프라인 버전 | 1.0.0 |
@@ -37,11 +39,17 @@ Google Sheets에는 다음 컬럼들이 포함되어야 합니다:
 
 ### 중요 사항
 
-1. **병합된 셀**: 같은 파이프라인 내에서 반복되는 값(직무, 업무세부내역, Pipeline Name 등)은 병합된 상태로 두셔도 됩니다. 스크립트가 자동으로 처리합니다.
+1. **Analysis_name 컬럼 (중요!)**: 파이프라인 그룹화의 핵심 기준입니다.
+   - `직무(업무명)` + `Analysis_name` 조합으로 파이프라인이 구분됩니다
+   - 예: Assembly + Large Genome Assembly - All
+   - 동일한 분석이라도 플랫폼별로 구분하려면 Analysis_name을 다르게 설정하세요
+   - 예: "16S rRNA metagenome - Illumina", "16S rRNA metagenome - Pacbio"
 
-2. **숫자 형식**: 숫자 필드에 쉼표가 포함되어 있어도 괜찮습니다 (예: 1,000). 스크립트가 자동으로 제거합니다.
+2. **병합된 셀**: 같은 파이프라인 내에서 반복되는 값(직무, 업무세부내역, Analysis_name, Pipeline Name 등)은 병합된 상태로 두셔도 됩니다. 스크립트가 자동으로 처리합니다.
 
-3. **빈 값**: 데이터가 없는 경우 빈 칸 또는 '-'로 표시하면 됩니다.
+3. **숫자 형식**: 숫자 필드에 쉼표가 포함되어 있어도 괜찮습니다 (예: 1,000). 스크립트가 자동으로 제거합니다.
+
+4. **빈 값**: 데이터가 없는 경우 빈 칸 또는 '-'로 표시하면 됩니다.
 
 ## 2단계: CSV 파일 다운로드
 
@@ -193,10 +201,17 @@ pip install pandas numpy
 - 병합된 셀은 스크립트가 자동으로 forward fill 처리합니다
 - CSV로 다운로드 시 병합 정보가 유지되는지 확인하세요
 
-## Team 3 예시 참고
+## 완료된 팀 예시 참고
 
-Team 3의 분석 결과를 참고하시면 도움이 됩니다:
-- `reports/team3/00_SUMMARY_ALL_PIPELINES.txt` - 전체 요약 예시
+Team 2와 Team 3의 분석 결과를 참고하시면 도움이 됩니다:
+
+**Team 2 (Short RNA, Single Cell RNA 등):**
+- `reports/team2/00_SUMMARY_ALL_PIPELINES.txt` - 전체 요약 예시 (22 pipelines)
+- `reports/team2/pipeline_summary.csv` - CSV 형식 예시
+- `reports/team2/*_report.txt` - 상세 리포트 예시
+
+**Team 3 (Assembly, Microbiome):**
+- `reports/team3/00_SUMMARY_ALL_PIPELINES.txt` - 전체 요약 예시 (8 pipelines)
 - `reports/team3/pipeline_summary.csv` - CSV 형식 예시
 - `reports/team3/*_report.txt` - 상세 리포트 예시
 

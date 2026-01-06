@@ -3,7 +3,7 @@ PIPELINE COST ANALYSIS REPORT
 ================================================================================
 
 직무 (Job): Assembly
-업무세부내역 (Task Detail): Small Genome Assembly (Bacteria, Fungi)
+Analysis Name: Small Genome Assembly - Bacteria__Fungi
 Platform: PacBio Revio, PacBio Revio, illumina Novaseq, illumina Novaseq
 Pipeline: inhouse v1.0.0
 

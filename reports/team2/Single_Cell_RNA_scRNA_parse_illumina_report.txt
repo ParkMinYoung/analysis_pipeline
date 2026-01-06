@@ -1,0 +1,111 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Single Cell RNA
+Analysis Name: scRNA_parse_illumina
+Platform: All Single-cell platform, Parse Bioscience(Evercode all type), Illumina
+Pipeline: Pre-processing(parse_illumina), inhouse v1.6.3
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 2
+Number of Steps: 7
+Number of Tools: 4
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 448
+Total Memory: 1064 GB
+Total Compute Time: 39.00 hours
+Total Storage: 122.07 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $9812.05
+  - Compute Cost: $9811.97 (100.0%)
+  - Storage Cost: $0.08 (0.0%)
+Cost per Hour: $251.59
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Post-processing:
+  Steps: 5
+  Time: 36.00 hours
+  Cost: $9289.81
+  Tools: Seurat, clusterprofiler
+
+Pre-processing(parse_illumina):
+  Steps: 2
+  Time: 3.00 hours
+  Cost: $522.24
+  Tools: split-pipe_all, split-pipe_comb
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Pre-processing(parse_illumina)
+Step: split-pipe_all
+Tool: split-pipe_all v1.6.3
+Resources: 64 CPUs, 32 GB RAM, 15000 MB storage
+Runtime: 2.00 hours × 64 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $348.1633 (compute: $348.1600, storage: $0.0033)
+
+Group: Pre-processing(parse_illumina)
+Step: split-pipe_comb
+Tool: split-pipe_comb v1.6.3
+Resources: 64 CPUs, 32 GB RAM, 10000 MB storage
+Runtime: 1.00 hours × 64 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $174.0811 (compute: $174.0800, storage: $0.0011)
+
+Group: Post-processing
+Step: qc_merge
+Tool: Seurat v5.2.1
+Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 6.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $1548.3023 (compute: $1548.2880, storage: $0.0143)
+
+Group: Post-processing
+Step: integration_annot
+Tool: Seurat v5.2.1
+Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 12.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $3096.6046 (compute: $3096.5760, storage: $0.0286)
+
+Group: Post-processing
+Step: select
+Tool: Seurat v5.2.1
+Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 6.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $1548.3023 (compute: $1548.2880, storage: $0.0143)
+
+Group: Post-processing
+Step: DE
+Tool: Seurat v5.2.1
+Resources: 64 CPUs, 200 GB RAM, 17000 MB storage
+Runtime: 6.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $1548.2991 (compute: $1548.2880, storage: $0.0111)
+
+Group: Post-processing
+Step: Functional Analysis
+Tool: clusterprofiler v4.18.4
+Resources: 64 CPUs, 200 GB RAM, 17000 MB storage
+Runtime: 6.00 hours × 64 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $1548.2991 (compute: $1548.2880, storage: $0.0111)
+
+================================================================================
+END OF REPORT
+================================================================================

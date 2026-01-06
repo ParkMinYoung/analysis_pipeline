@@ -1,0 +1,175 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Microbiome
+Analysis Name: shotgun metagenome - Illumina
+Platform: Illumina Novaseq
+Pipeline: inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 6
+Number of Steps: 12
+Number of Tools: 10
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 433
+Total Memory: 170 GB
+Total Compute Time: 10.60 hours
+Total Storage: 91.57 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $21.34
+  - Compute Cost: $21.33 (100.0%)
+  - Storage Cost: $0.01 (0.0%)
+Cost per Hour: $2.01
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+ASSEMBLY:
+  Steps: 1
+  Time: 5.00 hours
+  Cost: $13.61
+  Tools: metawrap
+
+ANNOTATION:
+  Steps: 1
+  Time: 3.00 hours
+  Cost: $4.08
+  Tools: prokka
+
+BINNING:
+  Steps: 4
+  Time: 0.60 hours
+  Cost: $1.23
+  Tools: metawrap, dastools, checkm2
+
+TAXONOMY:
+  Steps: 2
+  Time: 0.40 hours
+  Cost: $1.09
+  Tools: gtdbtk, mOTUs
+
+FASTQ_QC:
+  Steps: 2
+  Time: 1.10 hours
+  Cost: $0.75
+  Tools: fastq, bwa
+
+REPORTING:
+  Steps: 2
+  Time: 0.50 hours
+  Cost: $0.58
+  Tools: python, quarto
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: FASTQ_QC
+Step: RAWDATA_QC
+Tool: fastq v0.23.4
+Resources: 16 CPUs, 1 GB RAM, 20000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0682 (compute: $0.0680, storage: $0.0002)
+
+Group: FASTQ_QC
+Step: HOST_REMOVAL
+Tool: bwa v0.7.19
+Resources: 16 CPUs, 12 GB RAM, 10000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.6811 (compute: $0.6800, storage: $0.0011)
+
+Group: ASSEMBLY
+Step: ASSEMBLY
+Tool: metawrap v1.3.2
+Resources: 64 CPUs, 60 GB RAM, 11000 MB storage
+Runtime: 5.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $13.6060 (compute: $13.6000, storage: $0.0060)
+
+Group: BINNING
+Step: METAWRAP
+Tool: metawrap v1.3.2
+Resources: 64 CPUs, 12 GB RAM, 12000 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.8164 (compute: $0.8160, storage: $0.0004)
+
+Group: BINNING
+Step: DASTOOLS_INPUT_MAKING
+Tool: dastools v1.1.7
+Resources: 1 CPUs, 1 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: BINNING
+Step: DASTOOLS_ANALYSIS
+Tool: dastools v1.1.7
+Resources: 36 CPUs, 1 GB RAM, 50 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.12xlarge @ $2.0400/hr
+Cost: $0.2040 (compute: $0.2040, storage: $0.0000)
+
+Group: BINNING
+Step: CHECKM2_BIN_ANALYSIS
+Tool: checkm2 v1.0.2
+Resources: 36 CPUs, 8 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.12xlarge @ $2.0400/hr
+Cost: $0.2040 (compute: $0.2040, storage: $0.0000)
+
+Group: TAXONOMY
+Step: GTDBTK_ANALYSIS
+Tool: gtdbtk v2.4.0
+Resources: 64 CPUs, 8 GB RAM, 200 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.5440 (compute: $0.5440, storage: $0.0000)
+
+Group: TAXONOMY
+Step: MAPPING_ANALYSIS
+Tool: mOTUs v4.0.4
+Resources: 64 CPUs, 64 GB RAM, 60 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.5440 (compute: $0.5440, storage: $0.0000)
+
+Group: ANNOTATION
+Step: PROKKA
+Tool: prokka v1.14.6
+Resources: 32 CPUs, 1 GB RAM, 400 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $4.0801 (compute: $4.0800, storage: $0.0001)
+
+Group: REPORTING
+Step: MAKE_RESULT
+Tool: python v-
+Resources: 32 CPUs, 1 GB RAM, 40000 MB storage
+Runtime: 0.40 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.5457 (compute: $0.5440, storage: $0.0017)
+
+Group: REPORTING
+Step: MAKE_REPORT
+Tool: quarto v1.8.26
+Resources: 8 CPUs, 1 GB RAM, 60 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

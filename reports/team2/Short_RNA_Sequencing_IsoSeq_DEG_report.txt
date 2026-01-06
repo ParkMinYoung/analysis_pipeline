@@ -1,0 +1,131 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Short RNA Sequencing
+Analysis Name: IsoSeq_DEG
+Platform: Illumina NovaSeq
+Pipeline: Denovo Transcriptome Assembly, Functional Analysis(GO, KEGG) v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 4
+Number of Steps: 8
+Number of Tools: 6
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 134
+Total Memory: 198 GB
+Total Compute Time: 6.70 hours
+Total Storage: 4.55 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $8.43
+  - Compute Cost: $8.43 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $1.26
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Annotation(Blast):
+  Steps: 3
+  Time: 3.60 hours
+  Cost: $5.45
+  Tools: diamond-blast, blast2GO, python
+
+Otholog Annotation:
+  Steps: 3
+  Time: 2.10 hours
+  Cost: $2.90
+  Tools: diamond, python
+
+Enrichment Analysis:
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.04
+  Tools: clusterprofiler
+
+Functional Analysis(GO, KEGG):
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.04
+  Tools: David
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Annotation(Blast)
+Step: Annotation(Blast)
+Tool: diamond-blast v2.1.11
+Resources: 64 CPUs, 64 GB RAM, 4000 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $1.3602 (compute: $1.3600, storage: $0.0002)
+
+Group: Annotation(Blast)
+Step: Annotation(Blast)
+Tool: blast2GO v1.5.1
+Resources: 1 CPUs, 64 GB RAM, 500 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $4.0802 (compute: $4.0800, storage: $0.0002)
+
+Group: Annotation(Blast)
+Step: Annotation parsing
+Tool: python v3.6.8
+Resources: 1 CPUs, 0 GB RAM, 50 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Otholog Annotation
+Step: Make protein DB
+Tool: diamond v2.1.11
+Resources: 1 CPUs, 8 GB RAM, 30 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.1700 (compute: $0.1700, storage: $0.0000)
+
+Group: Otholog Annotation
+Step: Match DB with transcript
+Tool: diamond v2.1.11
+Resources: 64 CPUs, 60 GB RAM, 20 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $2.7200 (compute: $2.7200, storage: $0.0000)
+
+Group: Otholog Annotation
+Step: Parsing
+Tool: python v3.6.8
+Resources: 1 CPUs, 0 GB RAM, 20 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Functional Analysis(GO, KEGG)
+Step: KEGG, Ontology Analysis
+Tool: David vv2023q4
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+Group: Enrichment Analysis
+Step: KEGG, Ontology Analysis
+Tool: clusterprofiler v4.10.1
+Resources: 1 CPUs, 1 GB RAM, 40 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

@@ -1,0 +1,255 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Short RNA Sequencing
+Analysis Name: RNASeq_noBAM_DEG
+Platform: Illumina NovaSeq
+Pipeline: QC, Kallisto_DEG, Functional Analysis(GO, KEGG) v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 10
+Number of Steps: 19
+Number of Tools: 14
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 111
+Total Memory: 156 GB
+Total Compute Time: 18.90 hours
+Total Storage: 2.32 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $11.46
+  - Compute Cost: $11.46 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $0.61
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+gene body coverage:
+  Steps: 4
+  Time: 11.70 hours
+  Cost: $7.84
+  Tools: STAR, samtools, python - module
+
+Otholog Annotation:
+  Steps: 3
+  Time: 2.10 hours
+  Cost: $2.90
+  Tools: diamond, python
+
+rRNA:
+  Steps: 1
+  Time: 3.00 hours
+  Cost: $0.51
+  Tools: ribopicker
+
+Expression:
+  Steps: 2
+  Time: 0.40 hours
+  Cost: $0.06
+  Tools: kallisto, R
+
+Enrichment Analysis:
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.04
+  Tools: clusterprofiler
+
+Functional Analysis(GO, KEGG):
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.04
+  Tools: David
+
+Reference Prepare:
+  Steps: 2
+  Time: 0.20 hours
+  Cost: $0.02
+  Tools: gffread, python
+
+DEG:
+  Steps: 2
+  Time: 0.20 hours
+  Cost: $0.02
+  Tools: edgeR, perl
+
+Report:
+  Steps: 2
+  Time: 0.20 hours
+  Cost: $0.02
+  Tools: R
+
+Rawdata Prepare:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: zcat
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: rRNA
+Step: rRNA ratio
+Tool: ribopicker v0.4.3
+Resources: 1 CPUs, 8 GB RAM, 1 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.5100 (compute: $0.5100, storage: $0.0000)
+
+Group: gene body coverage
+Step: Align
+Tool: STAR v2.7.1a
+Resources: 16 CPUs, 40 GB RAM, 1800 MB storage
+Runtime: 1.50 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $2.0403 (compute: $2.0400, storage: $0.0003)
+
+Group: gene body coverage
+Step: Indexing
+Tool: samtools v1.9-74-gf69e678
+Resources: 1 CPUs, 1 GB RAM, 5 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: gene body coverage
+Step: Read distribution
+Tool: python - module v5.0.4
+Resources: 10 CPUs, 6 GB RAM, 1 MB storage
+Runtime: 8.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $5.4400 (compute: $5.4400, storage: $0.0000)
+
+Group: gene body coverage
+Step: Gene body coverage
+Tool: python - module v5.0.4
+Resources: 2 CPUs, 6 GB RAM, 1 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.3400 (compute: $0.3400, storage: $0.0000)
+
+Group: Rawdata Prepare
+Step: Decompress
+Tool: zcat v1.9
+Resources: 2 CPUs, 8 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: Reference Prepare
+Step: Reference Prepare
+Tool: gffread v0.12.7
+Resources: 1 CPUs, 3 GB RAM, 300 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Reference Prepare
+Step: Annotation parsing
+Tool: python v3.6.8
+Resources: 1 CPUs, 1 GB RAM, 10 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Expression
+Step: Alignment
+Tool: kallisto v2.14.0
+Resources: 4 CPUs, 8 GB RAM, 20 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0510 (compute: $0.0510, storage: $0.0000)
+
+Group: Expression
+Step: Merge
+Tool: R v4.0.5
+Resources: 1 CPUs, 1 GB RAM, 100 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: DEG
+Step: DE analysis
+Tool: edgeR v3.22
+Resources: 1 CPUs, 1 GB RAM, 10 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: DEG
+Step: cutoff
+Tool: perl vv5.16.3
+Resources: 1 CPUs, 1 GB RAM, 10 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Report
+Step: Visualization
+Tool: R v4.0.5
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Report
+Step: Knitting Report
+Tool: R v4.0.5
+Resources: 1 CPUs, 1 GB RAM, 2 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Otholog Annotation
+Step: Make protein DB
+Tool: diamond v2.1.11
+Resources: 1 CPUs, 8 GB RAM, 30 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.1700 (compute: $0.1700, storage: $0.0000)
+
+Group: Otholog Annotation
+Step: Match DB with transcript
+Tool: diamond v2.1.11
+Resources: 64 CPUs, 60 GB RAM, 20 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $2.7200 (compute: $2.7200, storage: $0.0000)
+
+Group: Otholog Annotation
+Step: Parsing
+Tool: python v3.6.8
+Resources: 1 CPUs, 0 GB RAM, 20 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Functional Analysis(GO, KEGG)
+Step: KEGG, Ontology Analysis
+Tool: David vv2023q4
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+Group: Enrichment Analysis
+Step: KEGG, Ontology Analysis
+Tool: clusterprofiler v4.10.1
+Resources: 1 CPUs, 1 GB RAM, 40 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

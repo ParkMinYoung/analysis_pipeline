@@ -3,7 +3,7 @@ PIPELINE COST ANALYSIS REPORT
 ================================================================================
 
 직무 (Job): Microbiome
-업무세부내역 (Task Detail): 16S rRNA metagenome 분석 (Microbiome Consortium)
+Analysis Name: 16S rRNA metagenome - Microbiome Consortium
 Platform: PacBio Revio
 Pipeline: inhouse v1.0.0
 
