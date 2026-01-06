@@ -1,0 +1,237 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Assembly
+업무세부내역 (Task Detail): Small Genome Assembly (Bacteria, Fungi)
+Platform: PacBio Revio, PacBio Revio, illumina Novaseq, illumina Novaseq
+Pipeline: inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 7
+Number of Steps: 19
+Number of Tools: 16
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 761
+Total Memory: 52 GB
+Total Compute Time: 32.60 hours
+Total Storage: 119.27 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $84.52
+  - Compute Cost: $84.50 (100.0%)
+  - Storage Cost: $0.02 (0.0%)
+Cost per Hour: $2.59
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+DE_NOVO_ASSEMBLY:
+  Steps: 3
+  Time: 28.50 hours
+  Cost: $78.38
+  Tools: flye, pbcromwell, unicycler, circulator, circos
+
+MAPPING:
+  Steps: 2
+  Time: 1.10 hours
+  Cost: $1.50
+  Tools: samtools, bwa, minimap2
+
+ANNOTATION:
+  Steps: 2
+  Time: 1.00 hours
+  Cost: $1.40
+  Tools: prokka, diamond, blast2go
+
+REPORTING:
+  Steps: 2
+  Time: 1.10 hours
+  Cost: $1.40
+  Tools: python
+
+POLISHING:
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $1.36
+  Tools: pilon, gatk
+
+DEMULTIPLEXING:
+  Steps: 3
+  Time: 0.30 hours
+  Cost: $0.41
+  Tools: lima, samtools
+
+ASSESSMENT:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.07
+  Tools: busco
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: DEMULTIPLEXING
+Step: DEMULTIPLEXING
+Tool: lima v2.12.0
+Resources: 32 CPUs, 1 GB RAM, 20000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.1362 (compute: $0.1360, storage: $0.0002)
+
+Group: DEMULTIPLEXING
+Step: BAM_TO_FASTA
+Tool: samtools v1.21
+Resources: 32 CPUs, 1 GB RAM, 3000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+Group: DEMULTIPLEXING
+Step: BAM_TO_FASTQ
+Tool: samtools v1.21
+Resources: 32 CPUs, 1 GB RAM, 3000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+Group: DE_NOVO_ASSEMBLY
+Step: ASSEMBLY
+Tool: flye v2.9.5
+Resources: 64 CPUs, 8 GB RAM, 6000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $2.7207 (compute: $2.7200, storage: $0.0007)
+
+Group: DE_NOVO_ASSEMBLY
+Step: nan
+Tool: pbcromwell v2.0.3
+Resources: 64 CPUs, 1 GB RAM, 43000 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $8.1740 (compute: $8.1600, storage: $0.0140)
+
+Group: DE_NOVO_ASSEMBLY
+Step: nan
+Tool: unicycler v0.5.1
+Resources: 64 CPUs, 1 GB RAM, 50 MB storage
+Runtime: 24.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $65.2801 (compute: $65.2800, storage: $0.0001)
+
+Group: DE_NOVO_ASSEMBLY
+Step: CIRCULIZATION
+Tool: circulator v1.5.5
+Resources: 64 CPUs, 1 GB RAM, 5000 MB storage
+Runtime: 0.40 hours × 2 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $2.1762 (compute: $2.1760, storage: $0.0002)
+
+Group: DE_NOVO_ASSEMBLY
+Step: GENOME PLOT
+Tool: circos v0.69.9
+Resources: 8 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: ASSESSMENT
+Step: BUSCO
+Tool: busco v5.7.1
+Resources: 8 CPUs, 1 GB RAM, 50 MB storage
+Runtime: 0.10 hours × 2 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: POLISHING
+Step: ERROR CORRECTION
+Tool: pilon v1.24
+Resources: 64 CPUs, 20 GB RAM, 5000 MB storage
+Runtime: 0.40 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $1.0882 (compute: $1.0880, storage: $0.0002)
+
+Group: POLISHING
+Step: nan
+Tool: gatk v3.6
+Resources: 64 CPUs, 1 GB RAM, 500 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: ANNOTATION
+Step: GENE PREDICTION
+Tool: prokka v1.14.6
+Resources: 64 CPUs, 1 GB RAM, 110 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: ANNOTATION
+Step: FUNCTIONAL ANNOTATION
+Tool: diamond v2.1.11
+Resources: 64 CPUs, 8 GB RAM, 800 MB storage
+Runtime: 0.40 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $1.0880 (compute: $1.0880, storage: $0.0000)
+
+Group: ANNOTATION
+Step: nan
+Tool: blast2go v1.5.1
+Resources: 1 CPUs, 1 GB RAM, 600 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+Group: MAPPING
+Step: GENOME COVERAGE
+Tool: samtools v1.9
+Resources: 32 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+Group: MAPPING
+Step: GENE ALIGNMENT
+Tool: bwa v1.9
+Resources: 32 CPUs, 1 GB RAM, 5000 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.6803 (compute: $0.6800, storage: $0.0003)
+
+Group: MAPPING
+Step: nan
+Tool: minimap2 v2.17
+Resources: 32 CPUs, 1 GB RAM, 10000 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.6805 (compute: $0.6800, storage: $0.0005)
+
+Group: REPORTING
+Step: MAKE RESULT
+Tool: python v-
+Resources: 32 CPUs, 1 GB RAM, 20000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $1.3622 (compute: $1.3600, storage: $0.0022)
+
+Group: REPORTING
+Step: MAKE REPORT
+Tool: python v-
+Resources: 8 CPUs, 1 GB RAM, 20 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

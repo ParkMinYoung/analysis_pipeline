@@ -1,0 +1,383 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Microbiome
+업무세부내역 (Task Detail): 16S rRNA metagenome 분석
+Platform: PacBio Revio
+Pipeline: 16S full-length (inhouse) v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 6
+Number of Steps: 19
+Number of Tools: 2
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 1088
+Total Memory: 264 GB
+Total Compute Time: 117.90 hours
+Total Storage: 29.08 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $318.48
+  - Compute Cost: $318.38 (100.0%)
+  - Storage Cost: $0.11 (0.0%)
+Cost per Hour: $2.70
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+OTU CLUSTERING:
+  Steps: 8
+  Time: 60.90 hours
+  Cost: $165.75
+  Tools: qiime2
+
+ASV CLUSTERING:
+  Steps: 6
+  Time: 55.80 hours
+  Cost: $151.78
+  Tools: qiime2
+
+DIVERSITY:
+  Steps: 16
+  Time: 2.00 hours
+  Cost: $5.44
+  Tools: qiime2
+
+IMPORT DATA:
+  Steps: 2
+  Time: 1.10 hours
+  Cost: $1.50
+  Tools: qiime2
+
+TRIMMING:
+  Steps: 2
+  Time: 0.70 hours
+  Cost: $0.95
+  Tools: qiime2
+
+REPORTING:
+  Steps: 4
+  Time: 0.40 hours
+  Cost: $0.54
+  Tools: python
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: IMPORT DATA
+Step: IMPORT_QZA
+Tool: qiime2 v2024.5
+Resources: 32 CPUs, 1 GB RAM, 1200 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+Group: TRIMMING
+Step: TRIMMING
+Tool: qiime2 v2024.5
+Resources: 32 CPUs, 1 GB RAM, 3000 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.2721 (compute: $0.2720, storage: $0.0001)
+
+Group: OTU CLUSTERING
+Step: OTU CLUSTERING
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 2 GB RAM, 100 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $1.3600 (compute: $1.3600, storage: $0.0000)
+
+Group: OTU CLUSTERING
+Step: CHIMERA_REMOVAL
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 10 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: OTU CLUSTERING
+Step: TAXONOMY_PROFILE
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 3 GB RAM, 10 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: OTU CLUSTERING
+Step: PHYLOGENY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 10 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.5440 (compute: $0.5440, storage: $0.0000)
+
+Group: ASV CLUSTERING
+Step: ASV CLUSTERING
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 10 GB RAM, 5 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $1.3600 (compute: $1.3600, storage: $0.0000)
+
+Group: ASV CLUSTERING
+Step: TAXONOMY_PROFILE
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 2 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: ASV CLUSTERING
+Step: PHYLOGENY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 15 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.5440 (compute: $0.5440, storage: $0.0000)
+
+Group: DIVERSITY
+Step: ACE DIVERSITY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: DIVERSITY
+Step: ALPHA RAREFACTION
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: DIVERSITY
+Step: CHAO1 DIVERSITY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: DIVERSITY
+Step: GOODS COVERAGE DIVERSITY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: DIVERSITY
+Step: OBSERVED FEATURES DIVERSITY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: DIVERSITY
+Step: SHANNON DIVERSITY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: DIVERSITY
+Step: SIMPSON DIVERSITY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: DIVERSITY
+Step: CORE DIVERSITY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 50 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: REPORTING
+Step: MAKE_DATA
+Tool: python v-
+Resources: 32 CPUs, 1 GB RAM, 3000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+Group: REPORTING
+Step: MAKE_REPORT
+Tool: python v-
+Resources: 32 CPUs, 1 GB RAM, 50 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+Group: IMPORT DATA
+Step: IMPORT_QZA
+Tool: qiime2 v2024.5
+Resources: 32 CPUs, 1 GB RAM, 1000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $1.3601 (compute: $1.3600, storage: $0.0001)
+
+Group: TRIMMING
+Step: TRIMMING
+Tool: qiime2 v2024.5
+Resources: 32 CPUs, 1 GB RAM, 1500 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.6801 (compute: $0.6800, storage: $0.0001)
+
+Group: OTU CLUSTERING
+Step: OTU CLUSTERING
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 36 GB RAM, 1000 MB storage
+Runtime: 6.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $16.3207 (compute: $16.3200, storage: $0.0007)
+
+Group: OTU CLUSTERING
+Step: CHIMERA_REMOVAL
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 4 GB RAM, 400 MB storage
+Runtime: 5.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $13.6002 (compute: $13.6000, storage: $0.0002)
+
+Group: OTU CLUSTERING
+Step: TAXONOMY_PROFILE
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 8 GB RAM, 500 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $2.7201 (compute: $2.7200, storage: $0.0001)
+
+Group: OTU CLUSTERING
+Step: PHYLOGENY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 128 GB RAM, 20000 MB storage
+Runtime: 48.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $130.6642 (compute: $130.5600, storage: $0.1042)
+
+Group: ASV CLUSTERING
+Step: ASV CLUSTERING
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 60 GB RAM, 10 MB storage
+Runtime: 50.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $136.0001 (compute: $136.0000, storage: $0.0001)
+
+Group: ASV CLUSTERING
+Step: TAXONOMY_PROFILE
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 4 GB RAM, 20 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $2.7200 (compute: $2.7200, storage: $0.0000)
+
+Group: ASV CLUSTERING
+Step: PHYLOGENY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 12 GB RAM, 100 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $10.8800 (compute: $10.8800, storage: $0.0000)
+
+Group: DIVERSITY
+Step: ACE DIVERSITY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 100 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: DIVERSITY
+Step: ALPHA RAREFACTION
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 100 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.5440 (compute: $0.5440, storage: $0.0000)
+
+Group: DIVERSITY
+Step: CHAO1 DIVERSITY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 100 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: DIVERSITY
+Step: GOODS COVERAGE DIVERSITY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 100 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: DIVERSITY
+Step: OBSERVED FEATURES DIVERSITY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 100 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: DIVERSITY
+Step: SHANNON DIVERSITY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 100 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: DIVERSITY
+Step: SIMPSON DIVERSITY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 100 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: DIVERSITY
+Step: CORE DIVERSITY
+Tool: qiime2 v2024.5
+Resources: 64 CPUs, 1 GB RAM, 1500 MB storage
+Runtime: 0.40 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $1.0881 (compute: $1.0880, storage: $0.0001)
+
+Group: REPORTING
+Step: MAKE_DATA
+Tool: python v-
+Resources: 32 CPUs, 1 GB RAM, 3000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+Group: REPORTING
+Step: MAKE_REPORT
+Tool: python v-
+Resources: 32 CPUs, 1 GB RAM, 50 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

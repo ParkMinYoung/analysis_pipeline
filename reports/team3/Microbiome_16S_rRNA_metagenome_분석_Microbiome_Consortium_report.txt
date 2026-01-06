@@ -1,0 +1,99 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Microbiome
+업무세부내역 (Task Detail): 16S rRNA metagenome 분석 (Microbiome Consortium)
+Platform: PacBio Revio
+Pipeline: inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 4
+Number of Steps: 4
+Number of Tools: 4
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 98
+Total Memory: 71 GB
+Total Compute Time: 9.20 hours
+Total Storage: 73.24 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $23.16
+  - Compute Cost: $23.14 (99.9%)
+  - Storage Cost: $0.02 (0.1%)
+Cost per Hour: $2.52
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+QUALITY_CONTROL:
+  Steps: 1
+  Time: 8.00 hours
+  Cost: $21.78
+  Tools: dada2
+
+DEMULTIPLEXING:
+  Steps: 1
+  Time: 1.00 hours
+  Cost: $1.36
+  Tools: lima
+
+TRIMMING:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: cutadapt
+
+MAKE_DATASET:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: smrtlink dataset
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: MAKE_DATASET
+Step: MERGE_REVIO_XML
+Tool: smrtlink dataset v0.15.0
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: DEMULTIPLEXING
+Step: DEMULTIPLEXING
+Tool: lima v2.12.0
+Resources: 32 CPUs, 5 GB RAM, 25000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $1.3627 (compute: $1.3600, storage: $0.0027)
+
+Group: TRIMMING
+Step: TRIMMING
+Tool: cutadapt v4.6
+Resources: 1 CPUs, 1 GB RAM, 25000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0088 (compute: $0.0085, storage: $0.0003)
+
+Group: QUALITY_CONTROL
+Step: QC_FILTERING
+Tool: dada2 v1.16
+Resources: 64 CPUs, 64 GB RAM, 25000 MB storage
+Runtime: 8.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $21.7817 (compute: $21.7600, storage: $0.0217)
+
+================================================================================
+END OF REPORT
+================================================================================

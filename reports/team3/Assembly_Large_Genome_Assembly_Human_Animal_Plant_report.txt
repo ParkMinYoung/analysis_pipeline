@@ -1,0 +1,337 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Assembly
+업무세부내역 (Task Detail): Large Genome Assembly (Human, Animal, Plant)
+Platform: Illumina NovaSeq, PacBio Revio, PacBio Revio, Illumina NovaSeq, PacBio Revio, Nanopore PromethION, PacBio Revio, Nanopore PromethION, Illumina NovaSeq
+Pipeline: inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 9
+Number of Steps: 30
+Number of Tools: 23
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 719
+Total Memory: 1378 GB
+Total Compute Time: 148.90 hours
+Total Storage: 3550.66 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $1772.34
+  - Compute Cost: $1769.13 (99.8%)
+  - Storage Cost: $3.21 (0.2%)
+Cost per Hour: $11.90
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+STRUCTIONAL_ANNOTATION:
+  Steps: 3
+  Time: 46.00 hours
+  Cost: $894.66
+  Tools: repeatmasker, trinity, maker
+
+DE_NOVO_ASSEMBLY:
+  Steps: 4
+  Time: 54.00 hours
+  Cost: $680.95
+  Tools: hifiasm, verkko, nextdenovo
+
+POLISHING:
+  Steps: 1
+  Time: 6.00 hours
+  Cost: $131.04
+  Tools: nextpolish
+
+FUNCTIONAL_ANNOTATION:
+  Steps: 5
+  Time: 15.20 hours
+  Cost: $35.46
+  Tools: Interproscan, blast, maker, blast2go, python
+
+PURGE_HAPLOTIGS:
+  Steps: 5
+  Time: 3.70 hours
+  Cost: $12.55
+  Tools: minimap2, pbcstat, purge_dups, get_seqs
+
+GENOME_SCAFFOLDING:
+  Steps: 7
+  Time: 19.60 hours
+  Cost: $12.16
+  Tools: python, bwa, juicer, 3d-dna, juicebox, circos
+
+GENOME_ASSESSMENT:
+  Steps: 1
+  Time: 4.00 hours
+  Cost: $5.47
+  Tools: busco
+
+MAKE_DATASET:
+  Steps: 3
+  Time: 0.30 hours
+  Cost: $0.05
+  Tools: smrtlink dataset, samtools
+
+MAKE_REPORT:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: python
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: MAKE_DATASET
+Step: MERGE_REVIO_XML
+Tool: smrtlink dataset v0.15.0
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: MAKE_DATASET
+Step: BAM_TO_FASTA
+Tool: samtools v1.9
+Resources: 4 CPUs, 1 GB RAM, 125000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0184 (compute: $0.0170, storage: $0.0014)
+
+Group: MAKE_DATASET
+Step: BAM_TO_FASTQ
+Tool: samtools v1.9
+Resources: 4 CPUs, 1 GB RAM, 250000 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0197 (compute: $0.0170, storage: $0.0027)
+
+Group: DE_NOVO_ASSEMBLY
+Step: ASSEMBLY (long read only)
+Tool: hifiasm v0.25.0
+Resources: 64 CPUs, 97 GB RAM, 18000 MB storage
+Runtime: 12.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $32.6634 (compute: $32.6400, storage: $0.0234)
+
+Group: DE_NOVO_ASSEMBLY
+Step: ASSEMBLY (long read + hi-c)
+Tool: hifiasm v0.25.0
+Resources: 64 CPUs, 97 GB RAM, 18000 MB storage
+Runtime: 14.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $38.1073 (compute: $38.0800, storage: $0.0273)
+
+Group: DE_NOVO_ASSEMBLY
+Step: ASSEMBLY (long read + hi-c, for human)
+Tool: verkko v2.2.1
+Resources: 64 CPUs, 128 GB RAM, 409000 MB storage
+Runtime: 18.00 hours × 8 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $392.4788 (compute: $391.6800, storage: $0.7988)
+
+Group: DE_NOVO_ASSEMBLY
+Step: ASSEMBLY (2nd tool)
+Tool: nextdenovo v2.5.2
+Resources: 64 CPUs, 64 GB RAM, 90000 MB storage
+Runtime: 10.00 hours × 8 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $217.6977 (compute: $217.6000, storage: $0.0977)
+
+Group: PURGE_HAPLOTIGS
+Step: READ_MAPPING
+Tool: minimap2 v2.28
+Resources: 32 CPUs, 10 GB RAM, 15000 MB storage
+Runtime: 1.00 hours × 3 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $4.0816 (compute: $4.0800, storage: $0.0016)
+
+Group: PURGE_HAPLOTIGS
+Step: STATS_CUTOFF
+Tool: pbcstat v-
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 3 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0255 (compute: $0.0255, storage: $0.0000)
+
+Group: PURGE_HAPLOTIGS
+Step: SELF_MAPPING
+Tool: minimap2 v2.28
+Resources: 32 CPUs, 10 GB RAM, 30000 MB storage
+Runtime: 2.00 hours × 3 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $8.1665 (compute: $8.1600, storage: $0.0065)
+
+Group: PURGE_HAPLOTIGS
+Step: DUPLICATE_IDENTIFICATION
+Tool: purge_dups v1.2.6
+Resources: 4 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.50 hours × 3 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.2550 (compute: $0.2550, storage: $0.0000)
+
+Group: PURGE_HAPLOTIGS
+Step: HAPLOTIG_PURGE
+Tool: get_seqs v-
+Resources: 1 CPUs, 1 GB RAM, 9000 MB storage
+Runtime: 0.10 hours × 3 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0256 (compute: $0.0255, storage: $0.0001)
+
+Group: POLISHING
+Step: ERROR_CORRECTION
+Tool: nextpolish v1.4.1
+Resources: 64 CPUs, 64 GB RAM, 730000 MB storage
+Runtime: 6.00 hours × 8 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $131.0353 (compute: $130.5600, storage: $0.4753)
+
+Group: GENOME_ASSESSMENT
+Step: GENOME_ASSESSMENT
+Tool: busco v5.8.2
+Resources: 32 CPUs, 60 GB RAM, 72000 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $5.4713 (compute: $5.4400, storage: $0.0312)
+
+Group: GENOME_SCAFFOLDING
+Step: RESTRICTION_SITE_PREP
+Tool: python v-
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: GENOME_SCAFFOLDING
+Step: INDEX_DRAFTGENOME
+Tool: bwa v0.7.17
+Resources: 1 CPUs, 1 GB RAM, 105000 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0482 (compute: $0.0425, storage: $0.0057)
+
+Group: GENOME_SCAFFOLDING
+Step: HI-C_ALIGNMENT
+Tool: juicer v1.5.7
+Resources: 16 CPUs, 32 GB RAM, 750000 MB storage
+Runtime: 8.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $6.0910 (compute: $5.4400, storage: $0.6510)
+
+Group: GENOME_SCAFFOLDING
+Step: PRIMARY_SCAFFOLDING
+Tool: 3d-dna v180922
+Resources: 4 CPUs, 32 GB RAM, 360000 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $2.8763 (compute: $2.7200, storage: $0.1562)
+
+Group: GENOME_SCAFFOLDING
+Step: MANUAL_REVIEW_&_ADJUST
+Tool: juicebox v2.17.0
+Resources: 1 CPUs, 1 GB RAM, 4500 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.1710 (compute: $0.1700, storage: $0.0010)
+
+Group: GENOME_SCAFFOLDING
+Step: FINAL_SCAFFOLDING
+Tool: 3d-dna v180922
+Resources: 4 CPUs, 32 GB RAM, 360000 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $2.8763 (compute: $2.7200, storage: $0.1562)
+
+Group: GENOME_SCAFFOLDING
+Step: SYNTENY_PLOT
+Tool: circos v0.69
+Resources: 1 CPUs, 1 GB RAM, 3 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0850 (compute: $0.0850, storage: $0.0000)
+
+Group: STRUCTIONAL_ANNOTATION
+Step: REPEAT_MASKING
+Tool: repeatmasker v4.1.5
+Resources: 64 CPUs, 90 GB RAM, 3200 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $10.8814 (compute: $10.8800, storage: $0.0014)
+
+Group: STRUCTIONAL_ANNOTATION
+Step: RNA_ASSEMBLY
+Tool: trinity v2.3.2
+Resources: 32 CPUs, 200 GB RAM, 105000 MB storage
+Runtime: 6.00 hours × 1 parallel tasks
+Instance: r6i.8xlarge @ $2.0160/hr
+Cost: $12.1644 (compute: $12.0960, storage: $0.0684)
+
+Group: STRUCTIONAL_ANNOTATION
+Step: GENE_PREDICTION
+Tool: maker v3.01.03
+Resources: 64 CPUs, 256 GB RAM, 180000 MB storage
+Runtime: 36.00 hours × 6 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $871.6151 (compute: $870.9120, storage: $0.7031)
+
+Group: FUNCTIONAL_ANNOTATION
+Step: FUNCTIONAL_ANNOTATION
+Tool: Interproscan v5.44-79.0
+Resources: 64 CPUs, 128 GB RAM, 150 MB storage
+Runtime: 12.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $32.6402 (compute: $32.6400, storage: $0.0002)
+
+Group: FUNCTIONAL_ANNOTATION
+Step: BLAST_SEARCH
+Tool: blast v2.10.0
+Resources: 32 CPUs, 64 GB RAM, 2000 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $2.7204 (compute: $2.7200, storage: $0.0004)
+
+Group: FUNCTIONAL_ANNOTATION
+Step: FUNCTIONAL_ASSIGNMENT
+Tool: maker v3.01.03
+Resources: 1 CPUs, 1 GB RAM, 10 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0850 (compute: $0.0850, storage: $0.0000)
+
+Group: FUNCTIONAL_ANNOTATION
+Step: GENE_ONTOLOGY
+Tool: blast2go v1.5.1
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: FUNCTIONAL_ANNOTATION
+Step: MAKE_SUMMARY
+Tool: python v-
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: MAKE_REPORT
+Step: WORD_REPORT
+Tool: python v-
+Resources: 1 CPUs, 1 GB RAM, 4 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================
