@@ -1,0 +1,883 @@
+================================================================================
+BIOINFORMATICS PIPELINE COST SUMMARY
+Team 1 Analysis - AWS Batch Cost Analysis
+================================================================================
+
+OVERVIEW
+--------------------------------------------------------------------------------
+Total Pipelines: 19
+Total Groups: 185
+Total Steps: 338
+Total Cost: $20218.67
+  - Compute Cost: $20217.54
+  - Storage Cost: $1.13
+Total Compute Time: 384.61 hours
+Total Storage: 2007.74 GB
+Total CPUs: 2201
+Total Memory: 7065 GB
+
+COST BY JOB TYPE
+--------------------------------------------------------------------------------
+                         total_cost_usd  compute_cost_usd  storage_cost_usd  n_groups  n_steps  total_time_hr  total_storage_gb
+직무(업무명)                                                                                                                        
+DNA Chip                          25.84             25.81              0.04        51       71          21.75            273.85
+Pangenome                        154.80            154.76              0.04         4        4          14.00             44.77
+Whole Exome Sequencing            27.36             27.35              0.00        47       69          16.20             93.62
+Whole Genome Sequencing          732.98            732.00              0.98        54      126         203.00           1313.65
+단백질 데이터 통계 분석                      2.18              2.18              0.00         4       31           3.20              2.30
+커스텀 분석                         19275.51          19275.44              0.07        25       37         126.46            279.55
+
+ALL PIPELINES RANKED BY COST
+--------------------------------------------------------------------------------
+Rank | Job | Analysis Name | Cost (USD) | Time (hr) | Groups | Steps | Total CPU | Total Mem (GB) | Storage (GB)
+--------------------------------------------------------------------------------
+   1 | 커스텀 분석     | Proteome-Wide Association | $ 19097.80 |      92.8 |     24 |    31 |       558 |            956 |       277.6
+   2 | Whole Geno | PacBio Revio Human Whole  | $   257.48 |      66.6 |      6 |    34 |       317 |           1232 |       364.1
+   3 | Whole Geno | Illumina Novaseq non-Huma | $   227.64 |      48.1 |     17 |    32 |       151 |            366 |       428.2
+   4 | Whole Geno | Illumina Novaseq Human Wh | $   216.80 |      82.4 |     24 |    46 |       172 |            574 |       521.0
+   5 | 커스텀 분석     | Kinics-ICS                | $   177.71 |      33.7 |      1 |     6 |        11 |             26 |         2.0
+   6 | Pangenome  | Fungi Pangenome construct | $   154.80 |      14.0 |      4 |     4 |       150 |            644 |        44.8
+   7 | Whole Geno | Illumina Novaseq Human St | $    31.06 |       5.9 |      7 |    14 |        38 |             80 |         0.4
+   8 | DNA Chip   | Post-GWAS downstream anal | $    21.09 |       8.8 |      6 |    19 |       332 |           1208 |        43.3
+   9 | Whole Exom | Illumina Novaseq Human Ge | $    16.43 |       4.1 |     16 |    18 |        24 |             88 |         0.3
+  10 | Whole Exom | Illumina Novaseq Human Wh | $     7.05 |       9.2 |     24 |    44 |       169 |            429 |        65.8
+  11 | Whole Exom | Illumina Novaseq  DNAGPS  | $     3.88 |       2.9 |      7 |     7 |        37 |            400 |        27.4
+  12 | DNA Chip   | Axiom Human KNIH Protocol | $     3.24 |       6.0 |     14 |    14 |        25 |            105 |       179.7
+  13 | 단백질 데이터 통계 | Olink-Somascan Proteomics | $     2.18 |       3.2 |      4 |    31 |       121 |            744 |         2.3
+  14 | DNA Chip   | Axiom Human Best Practice | $     0.64 |       1.4 |     11 |    18 |        49 |             69 |        31.7
+  15 | DNA Chip   | Illumina Copy Number Vari | $     0.43 |       2.5 |      2 |     2 |         8 |              8 |         7.2
+  16 | DNA Chip   | Genome-Wide Assocication  | $     0.20 |       2.4 |      5 |     5 |         6 |             14 |         2.3
+  17 | DNA Chip   | Illumina Human Analysis   | $     0.20 |       0.4 |      5 |     5 |        10 |             48 |         8.4
+  18 | DNA Chip   | DNAGPS                    | $     0.03 |       0.2 |      4 |     4 |         7 |             18 |         0.0
+  19 | DNA Chip   | Polygenic Rist Score(PRS) | $     0.02 |       0.1 |      4 |     4 |        16 |             56 |         1.3
+
+DETAILED PIPELINE INFORMATION
+================================================================================
+
+[1] 커스텀 분석 - Proteome-Wide Association Study(PWAS)
+--------------------------------------------------------------------------------
+Pipeline: Inhouse v1.0.0
+Platform: Olink, Microarray
+
+Structure:
+  Groups: 24
+  Steps:  31
+  Tools:  12
+
+Resources:
+  Total CPU:      558 cores
+  Total Memory:   956 GB
+  Total Time:     92.8 hours
+  Total Storage:  277.6 GB
+
+Cost:
+  Total:   $19097.80
+  Compute: $19097.73 (100.0%)
+  Storage: $0.07 (0.0%)
+  Per Hour: $205.88/hr
+
+Group Breakdown:
+  FUSION_wgt:
+    Steps: 1, Time: 84.0h, Cost: $18966.59
+  PWASO_Model:
+    Steps: 1, Time: 2.0h, Cost: $119.68
+  PWASO_PWAS:
+    Steps: 1, Time: 0.4h, Cost: $6.58
+  MR_coloc:
+    Steps: 8, Time: 3.8h, Cost: $2.59
+  FUSION_assoc_test:
+    Steps: 1, Time: 0.3h, Cost: $0.92
+  PWASO_preFusion:
+    Steps: 1, Time: 1.1h, Cost: $0.75
+  FUSION_plot:
+    Steps: 1, Time: 0.3h, Cost: $0.20
+  PWASO_FusionModel:
+    Steps: 1, Time: 0.0h, Cost: $0.15
+  PWAS_report:
+    Steps: 1, Time: 0.2h, Cost: $0.08
+  run_GWAS:
+    Steps: 1, Time: 0.1h, Cost: $0.05
+  PWASO_Plot:
+    Steps: 1, Time: 0.1h, Cost: $0.04
+  LDrefData:
+    Steps: 1, Time: 0.1h, Cost: $0.04
+  GenoDataInput:
+    Steps: 1, Time: 0.0h, Cost: $0.03
+  FUSION_assoc_final:
+    Steps: 1, Time: 0.0h, Cost: $0.03
+  FUSION_exel:
+    Steps: 1, Time: 0.0h, Cost: $0.01
+  PWASO_format:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+  FUSION_report:
+    Steps: 1, Time: 0.0h, Cost: $0.01
+  GWASsummary:
+    Steps: 1, Time: 0.0h, Cost: $0.01
+  ProteinDataInput:
+    Steps: 1, Time: 0.0h, Cost: $0.01
+  PWASO_Summary:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  PWASO_ACAT:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  Individuals:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  PWASO_MergePWAS:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  chunk_proteins:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+
+[2] Whole Genome Sequencing - PacBio Revio Human Whole Genome Sequencing
+--------------------------------------------------------------------------------
+Pipeline: Hifi-human-WGS-WDL, Inhouse v3.1.0
+Platform: PacBio Revio
+
+Structure:
+  Groups: 6
+  Steps:  34
+  Tools:  22
+
+Resources:
+  Total CPU:      317 cores
+  Total Memory:   1232 GB
+  Total Time:     66.6 hours
+  Total Storage:  364.1 GB
+
+Cost:
+  Total:   $257.48
+  Compute: $257.33 (99.9%)
+  Storage: $0.15 (0.1%)
+  Per Hour: $3.87/hr
+
+Group Breakdown:
+  upstream:
+    Steps: 16, Time: 46.8h, Cost: $241.69
+  downstream:
+    Steps: 11, Time: 14.8h, Cost: $10.14
+  rmkinetic:
+    Steps: 1, Time: 4.0h, Cost: $5.47
+  tertiary:
+    Steps: 4, Time: 0.8h, Cost: $0.17
+  consolidate:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+  multiqc report:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+
+[3] Whole Genome Sequencing - Illumina Novaseq non-Human Whole Genome Sequencing
+--------------------------------------------------------------------------------
+Pipeline: Inhouse, warp - WholeGenomeGermlineSingleSample, warp - JointGenotyping v1.0.0
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 17
+  Steps:  32
+  Tools:  29
+
+Resources:
+  Total CPU:      151 cores
+  Total Memory:   366 GB
+  Total Time:     48.1 hours
+  Total Storage:  428.2 GB
+
+Cost:
+  Total:   $227.64
+  Compute: $226.99 (99.7%)
+  Storage: $0.64 (0.3%)
+  Per Hour: $4.73/hr
+
+Group Breakdown:
+  Variant Annotation & Make Summary file:
+    Steps: 2, Time: 23.5h, Cost: $155.67
+  BamToGvcf:
+    Steps: 5, Time: 11.6h, Cost: $37.13
+  GenotypeGVCFs:
+    Steps: 1, Time: 1.0h, Cost: $14.28
+  ImportGVFs:
+    Steps: 1, Time: 1.0h, Cost: $14.28
+  UnmappedBamToAlignedBam:
+    Steps: 7, Time: 6.5h, Cost: $3.74
+  VCF QC:
+    Steps: 1, Time: 0.9h, Cost: $1.22
+  Bam QC:
+    Steps: 1, Time: 0.3h, Cost: $0.41
+  Fastq QC:
+    Steps: 1, Time: 0.2h, Cost: $0.27
+  BamToCram:
+    Steps: 3, Time: 0.8h, Cost: $0.20
+  Fastq_to_ubam:
+    Steps: 1, Time: 0.5h, Cost: $0.17
+  AggregatedBamQC:
+    Steps: 3, Time: 1.0h, Cost: $0.17
+  CollectRawWgsMetrics:
+    Steps: 1, Time: 0.2h, Cost: $0.03
+  FinalGatherVcf:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  CollectWgsMetrics:
+    Steps: 1, Time: 0.2h, Cost: $0.02
+  Multiqc Report:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+  SplitIntervalList:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+  CheckSamplesUnique:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+
+[4] Whole Genome Sequencing - Illumina Novaseq Human Whole Genome Sequencing
+--------------------------------------------------------------------------------
+Pipeline: Inhouse, warp - WholeGenomeGermlineSingleSample, warp - JointGenotyping v1.0.0
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 24
+  Steps:  46
+  Tools:  40
+
+Resources:
+  Total CPU:      172 cores
+  Total Memory:   574 GB
+  Total Time:     82.4 hours
+  Total Storage:  521.0 GB
+
+Cost:
+  Total:   $216.80
+  Compute: $216.61 (99.9%)
+  Storage: $0.19 (0.1%)
+  Per Hour: $2.63/hr
+
+Group Breakdown:
+  UnmappedBamToAlignedBam:
+    Steps: 14, Time: 41.0h, Cost: $90.99
+  ImportGVFs:
+    Steps: 1, Time: 1.4h, Cost: $44.74
+  GenotypeGVCFs:
+    Steps: 1, Time: 1.1h, Cost: $35.16
+  BamToGvcf:
+    Steps: 6, Time: 6.7h, Cost: $18.16
+  Variant Annotation & Make Summary file:
+    Steps: 1, Time: 10.0h, Cost: $13.63
+  CrossCheckFingerprintSolo:
+    Steps: 1, Time: 1.5h, Cost: $4.08
+  Bam QC:
+    Steps: 1, Time: 2.0h, Cost: $2.72
+  ApplyRecalibration:
+    Steps: 1, Time: 0.2h, Cost: $1.60
+  AggregatedBamQC:
+    Steps: 3, Time: 6.4h, Cost: $1.09
+  Fastq_to_ubam:
+    Steps: 1, Time: 3.0h, Cost: $1.05
+  BamToCram:
+    Steps: 3, Time: 3.0h, Cost: $0.69
+  VCF QC:
+    Steps: 1, Time: 0.5h, Cost: $0.68
+  Fastq QC:
+    Steps: 1, Time: 0.5h, Cost: $0.68
+  SNPsVariantRecalibratorClassic:
+    Steps: 1, Time: 0.7h, Cost: $0.48
+  HardFilterAndMakeSitesOnlyVcf:
+    Steps: 1, Time: 0.1h, Cost: $0.40
+  CollectRawWgsMetrics:
+    Steps: 1, Time: 1.7h, Cost: $0.29
+  CollectWgsMetrics:
+    Steps: 1, Time: 1.7h, Cost: $0.14
+  IndelsVariantRecalibrator:
+    Steps: 1, Time: 0.2h, Cost: $0.14
+  CollectMetricsOnFullVcf:
+    Steps: 1, Time: 0.2h, Cost: $0.03
+  FinalGatherVcf:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  SitesOnlyGatherVcf:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  Multiqc Report:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+  SplitIntervalList:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+  CheckSamplesUnique:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+
+[5] 커스텀 분석 - Kinics-ICS
+--------------------------------------------------------------------------------
+Pipeline: Inhouse v1.0.0
+Platform: Axiom Microarray
+
+Structure:
+  Groups: 1
+  Steps:  6
+  Tools:  5
+
+Resources:
+  Total CPU:      11 cores
+  Total Memory:   26 GB
+  Total Time:     33.7 hours
+  Total Storage:  2.0 GB
+
+Cost:
+  Total:   $177.71
+  Compute: $177.71 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $5.27/hr
+
+Group Breakdown:
+  ICS:
+    Steps: 6, Time: 33.7h, Cost: $177.71
+
+[6] Pangenome - Fungi Pangenome construction
+--------------------------------------------------------------------------------
+Pipeline: Inhouse v1.0.0
+Platform: PacBio Sequel
+
+Structure:
+  Groups: 4
+  Steps:  4
+  Tools:  4
+
+Resources:
+  Total CPU:      150 cores
+  Total Memory:   644 GB
+  Total Time:     14.0 hours
+  Total Storage:  44.8 GB
+
+Cost:
+  Total:   $154.80
+  Compute: $154.76 (100.0%)
+  Storage: $0.04 (0.0%)
+  Per Hour: $11.06/hr
+
+Group Breakdown:
+  AssemblyProcess:
+    Steps: 1, Time: 8.7h, Cost: $140.35
+  Cactus:
+    Steps: 1, Time: 5.1h, Cost: $13.87
+  AssemblyQCwithQuast:
+    Steps: 1, Time: 0.1h, Cost: $0.54
+  MergeQuast:
+    Steps: 1, Time: 0.1h, Cost: $0.03
+
+[7] Whole Genome Sequencing - Illumina Novaseq Human Structural Variant
+--------------------------------------------------------------------------------
+Pipeline: nf-core/sarek, Inhouse v3.5.1
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 7
+  Steps:  14
+  Tools:  10
+
+Resources:
+  Total CPU:      38 cores
+  Total Memory:   80 GB
+  Total Time:     5.9 hours
+  Total Storage:  0.4 GB
+
+Cost:
+  Total:   $31.06
+  Compute: $31.06 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $5.26/hr
+
+Group Breakdown:
+  BAM_VARIANT_CALLING_GERMLINE_ALL:
+    Steps: 1, Time: 4.0h, Cost: $27.20
+  VCF_ANNOTATE_ALL:
+    Steps: 2, Time: 0.2h, Cost: $1.45
+  CRAM_SAMPLEQC:
+    Steps: 2, Time: 0.7h, Cost: $1.19
+  Structural Variant Pathogenicity Annotation:
+    Steps: 1, Time: 0.2h, Cost: $0.68
+  VCF_QC_BCFTOOLS_VCFTOOLS:
+    Steps: 4, Time: 0.4h, Cost: $0.34
+  PREPARE_INTERVALS:
+    Steps: 3, Time: 0.3h, Cost: $0.20
+  Multiqc:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+
+[8] DNA Chip - Post-GWAS downstream analysis
+--------------------------------------------------------------------------------
+Pipeline: Inhouse v1.0.0
+Platform: Microarray
+
+Structure:
+  Groups: 6
+  Steps:  19
+  Tools:  11
+
+Resources:
+  Total CPU:      332 cores
+  Total Memory:   1208 GB
+  Total Time:     8.8 hours
+  Total Storage:  43.3 GB
+
+Cost:
+  Total:   $21.09
+  Compute: $21.09 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $2.40/hr
+
+Group Breakdown:
+  Genebased:
+    Steps: 4, Time: 4.4h, Cost: $15.80
+  MR_Coloc:
+    Steps: 6, Time: 1.8h, Cost: $2.65
+  MetaAnalysis:
+    Steps: 4, Time: 2.0h, Cost: $2.38
+  FineMapping:
+    Steps: 1, Time: 0.2h, Cost: $0.14
+  InputFormatting:
+    Steps: 3, Time: 0.3h, Cost: $0.10
+  report:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+
+[9] Whole Exome Sequencing - Illumina Novaseq Human Germline Copy Number Variation
+--------------------------------------------------------------------------------
+Pipeline: gatk CNV Germline Cohort Workflow v1.0.0
+Platform: Illumina NoavaSeq
+
+Structure:
+  Groups: 16
+  Steps:  18
+  Tools:  13
+
+Resources:
+  Total CPU:      24 cores
+  Total Memory:   88 GB
+  Total Time:     4.1 hours
+  Total Storage:  0.3 GB
+
+Cost:
+  Total:   $16.43
+  Compute: $16.43 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $4.01/hr
+
+Group Breakdown:
+  GermlineCNVCallerCohortMode:
+    Steps: 1, Time: 0.3h, Cost: $13.62
+  CollectCounts:
+    Steps: 1, Time: 1.3h, Cost: $2.21
+  PostprocessGermlineCNVCalls:
+    Steps: 1, Time: 0.2h, Cost: $0.34
+  AnnotateIntervals:
+    Steps: 1, Time: 0.8h, Cost: $0.07
+  Report:
+    Steps: 3, Time: 0.3h, Cost: $0.03
+  FilterIntervals:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  DetermineGermlineContigPloidyCohortMode:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  WriteGCNVCalls:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  ScatterPloidyCallsBySample:
+    Steps: 1, Time: 0.2h, Cost: $0.02
+  WriteIntervalIndexes:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  WriteIntervals:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  WritePloidyCalls:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  WriteSegmentIndexes:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  WriteSegments:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  ScatterIntervals:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+  PreprocessIntervals:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+
+[10] Whole Exome Sequencing - Illumina Novaseq Human Whole Exome Sequencing
+--------------------------------------------------------------------------------
+Pipeline: Inhouse, warp - ExomeGermlineSingleSample, warp - JointGenotyping v1.0.0
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 24
+  Steps:  44
+  Tools:  39
+
+Resources:
+  Total CPU:      169 cores
+  Total Memory:   429 GB
+  Total Time:     9.2 hours
+  Total Storage:  65.8 GB
+
+Cost:
+  Total:   $7.05
+  Compute: $7.05 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $0.77/hr
+
+Group Breakdown:
+  UnmappedBamToAlignedBam:
+    Steps: 12, Time: 3.9h, Cost: $3.49
+  Variant Annotation & Make Summary file:
+    Steps: 1, Time: 1.0h, Cost: $1.36
+  BamToGvcf:
+    Steps: 6, Time: 1.0h, Cost: $1.10
+  ImportGVFs:
+    Steps: 1, Time: 0.1h, Cost: $0.14
+  GenotypeGVCFs:
+    Steps: 1, Time: 0.1h, Cost: $0.14
+  AggregatedBamQC:
+    Steps: 3, Time: 0.7h, Cost: $0.12
+  BamToCram:
+    Steps: 3, Time: 0.4h, Cost: $0.09
+  Fastq_to_ubam:
+    Steps: 1, Time: 0.2h, Cost: $0.07
+  Fastq QC:
+    Steps: 1, Time: 0.1h, Cost: $0.07
+  SNPsVariantRecalibratorClassic:
+    Steps: 1, Time: 0.1h, Cost: $0.07
+  Bam QC:
+    Steps: 1, Time: 0.1h, Cost: $0.07
+  VCF QC:
+    Steps: 1, Time: 0.1h, Cost: $0.07
+  IndelsVariantRecalibrator:
+    Steps: 1, Time: 0.1h, Cost: $0.07
+  CollectHsMetrics:
+    Steps: 1, Time: 0.3h, Cost: $0.05
+  ApplyRecalibration:
+    Steps: 1, Time: 0.1h, Cost: $0.03
+  CrossCheckFingerprintSolo:
+    Steps: 1, Time: 0.1h, Cost: $0.03
+  HardFilterAndMakeSitesOnlyVcf:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  FinalGatherVcf:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  SitesOnlyGatherVcf:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  CollectMetricsOnFullVcf:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  Multiqc Report:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+  SplitIntervalList:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+  GenerateSubsettedContaminationResources:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+  CheckSamplesUnique:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+
+[11] Whole Exome Sequencing - Illumina Novaseq  DNAGPS VN
+--------------------------------------------------------------------------------
+Pipeline: Inhouse v1.0.0
+Platform: Illumina NoavaSeq
+
+Structure:
+  Groups: 7
+  Steps:  7
+  Tools:  7
+
+Resources:
+  Total CPU:      37 cores
+  Total Memory:   400 GB
+  Total Time:     2.9 hours
+  Total Storage:  27.4 GB
+
+Cost:
+  Total:   $3.88
+  Compute: $3.88 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $1.34/hr
+
+Group Breakdown:
+  AlignBam:
+    Steps: 1, Time: 1.5h, Cost: $2.04
+  Fastq_to_ubam:
+    Steps: 1, Time: 0.4h, Cost: $0.54
+  MarkDuplicates:
+    Steps: 1, Time: 0.4h, Cost: $0.54
+  Combine & Genotype GVCFs:
+    Steps: 1, Time: 0.2h, Cost: $0.27
+  VariantCalling:
+    Steps: 1, Time: 0.2h, Cost: $0.27
+  Output formatting:
+    Steps: 1, Time: 0.1h, Cost: $0.14
+  SortBam:
+    Steps: 1, Time: 0.1h, Cost: $0.07
+
+[12] DNA Chip - Axiom Human KNIH Protocol Analysis
+--------------------------------------------------------------------------------
+Pipeline: KNIHprotocol v-
+Platform: Axiom Microarray
+
+Structure:
+  Groups: 14
+  Steps:  14
+  Tools:  8
+
+Resources:
+  Total CPU:      25 cores
+  Total Memory:   105 GB
+  Total Time:     6.0 hours
+  Total Storage:  179.7 GB
+
+Cost:
+  Total:   $3.24
+  Compute: $3.20 (99.0%)
+  Storage: $0.03 (1.0%)
+  Per Hour: $0.54/hr
+
+Group Breakdown:
+  FirstGenotypeCall:
+    Steps: 1, Time: 2.3h, Cost: $1.58
+  SecondGenotypeCall:
+    Steps: 1, Time: 2.2h, Cost: $1.51
+  AptGenoQC:
+    Steps: 1, Time: 0.6h, Cost: $0.05
+  SecondSNPolisher:
+    Steps: 1, Time: 0.3h, Cost: $0.02
+  FirstSNPolisher:
+    Steps: 1, Time: 0.3h, Cost: $0.02
+  FirstCallToPlink:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+  SecondCallToPlink:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+  FlowlessInspection:
+    Steps: 1, Time: 0.0h, Cost: $0.01
+  Report:
+    Steps: 1, Time: 0.1h, Cost: $0.00
+  SecondQC:
+    Steps: 1, Time: 0.1h, Cost: $0.00
+  FirstQC:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  SecondMakeSummaryAndDB:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  FirstMakeSummaryAndDB:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  GetVersionAPT:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+
+[13] 단백질 데이터 통계 분석 - Olink-Somascan Proteomics downstream analysis
+--------------------------------------------------------------------------------
+Pipeline: Inhouse v1.0.0
+Platform: Olink, Somascan
+
+Structure:
+  Groups: 4
+  Steps:  31
+  Tools:  2
+
+Resources:
+  Total CPU:      121 cores
+  Total Memory:   744 GB
+  Total Time:     3.2 hours
+  Total Storage:  2.3 GB
+
+Cost:
+  Total:   $2.18
+  Compute: $2.18 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $0.68/hr
+
+Group Breakdown:
+  Analysis for QC Pass samples:
+    Steps: 14, Time: 1.4h, Cost: $0.95
+  Analysis for all samples:
+    Steps: 14, Time: 1.4h, Cost: $0.95
+  Data Normalization:
+    Steps: 1, Time: 0.2h, Cost: $0.14
+  Data preprocessing:
+    Steps: 2, Time: 0.2h, Cost: $0.14
+
+[14] DNA Chip - Axiom Human Best Practice Analysis
+--------------------------------------------------------------------------------
+Pipeline: BestPractice v-
+Platform: Axiom Microarray
+
+Structure:
+  Groups: 11
+  Steps:  18
+  Tools:  9
+
+Resources:
+  Total CPU:      49 cores
+  Total Memory:   69 GB
+  Total Time:     1.4 hours
+  Total Storage:  31.7 GB
+
+Cost:
+  Total:   $0.64
+  Compute: $0.64 (99.9%)
+  Storage: $0.00 (0.1%)
+  Per Hour: $0.47/hr
+
+Group Breakdown:
+  Genotype call:
+    Steps: 2, Time: 0.8h, Cost: $0.57
+  SNPolisher:
+    Steps: 2, Time: 0.1h, Cost: $0.02
+  Report:
+    Steps: 2, Time: 0.2h, Cost: $0.01
+  CallToPlink:
+    Steps: 2, Time: 0.0h, Cost: $0.01
+  AptGenoQC:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+  MergePlink:
+    Steps: 2, Time: 0.0h, Cost: $0.01
+  PlinkBasicQC:
+    Steps: 2, Time: 0.0h, Cost: $0.01
+  FlowlessInspection:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  MakeSummaryAndDB:
+    Steps: 2, Time: 0.0h, Cost: $0.00
+  ScatterProbesetList:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  GetVersionAPT:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+
+[15] DNA Chip - Illumina Copy Number Variation(CNV) analysis
+--------------------------------------------------------------------------------
+Pipeline: Inhouse v1.0.0
+Platform: Illumina Microarray
+
+Structure:
+  Groups: 2
+  Steps:  2
+  Tools:  2
+
+Resources:
+  Total CPU:      8 cores
+  Total Memory:   8 GB
+  Total Time:     2.5 hours
+  Total Storage:  7.2 GB
+
+Cost:
+  Total:   $0.43
+  Compute: $0.43 (99.7%)
+  Storage: $0.00 (0.3%)
+  Per Hour: $0.17/hr
+
+Group Breakdown:
+  Genome Studio CNV Region Report:
+    Steps: 1, Time: 2.0h, Cost: $0.34
+  Genome Studio cnvPartition:
+    Steps: 1, Time: 0.5h, Cost: $0.09
+
+[16] DNA Chip - Genome-Wide Assocication Stuty(GWAS)
+--------------------------------------------------------------------------------
+Pipeline: Inhouse v1.0.0
+Platform: Microarray
+
+Structure:
+  Groups: 5
+  Steps:  5
+  Tools:  4
+
+Resources:
+  Total CPU:      6 cores
+  Total Memory:   14 GB
+  Total Time:     2.4 hours
+  Total Storage:  2.3 GB
+
+Cost:
+  Total:   $0.20
+  Compute: $0.20 (99.9%)
+  Storage: $0.00 (0.1%)
+  Per Hour: $0.09/hr
+
+Group Breakdown:
+  VisualInspection:
+    Steps: 1, Time: 1.0h, Cost: $0.09
+  Locuszoom:
+    Steps: 1, Time: 1.0h, Cost: $0.08
+  Regression:
+    Steps: 1, Time: 0.3h, Cost: $0.03
+  Cluster QC:
+    Steps: 1, Time: 0.1h, Cost: $0.00
+  GWAS plot:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+
+[17] DNA Chip - Illumina Human Analysis
+--------------------------------------------------------------------------------
+Pipeline: Inhouse v1.0.0
+Platform: Illumina Microarray
+
+Structure:
+  Groups: 5
+  Steps:  5
+  Tools:  4
+
+Resources:
+  Total CPU:      10 cores
+  Total Memory:   48 GB
+  Total Time:     0.4 hours
+  Total Storage:  8.4 GB
+
+Cost:
+  Total:   $0.20
+  Compute: $0.20 (99.9%)
+  Storage: $0.00 (0.1%)
+  Per Hour: $0.46/hr
+
+Group Breakdown:
+  Genotype call:
+    Steps: 1, Time: 0.3h, Cost: $0.18
+  CallToPlink:
+    Steps: 1, Time: 0.1h, Cost: $0.00
+  SummaryAndReport:
+    Steps: 1, Time: 0.1h, Cost: $0.00
+  Plink2BasicQC:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  Reprocessing_Sample:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+
+[18] DNA Chip - DNAGPS
+--------------------------------------------------------------------------------
+Pipeline: Inhouse v1.0.0
+Platform: Axiom Microarray
+
+Structure:
+  Groups: 4
+  Steps:  4
+  Tools:  4
+
+Resources:
+  Total CPU:      7 cores
+  Total Memory:   18 GB
+  Total Time:     0.2 hours
+  Total Storage:  0.0 GB
+
+Cost:
+  Total:   $0.03
+  Compute: $0.03 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $0.14/hr
+
+Group Breakdown:
+  Genotype call:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  Cluster QC:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  CallToPlink:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  SNPolisher:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+
+[19] DNA Chip - Polygenic Rist Score(PRS) Analysis
+--------------------------------------------------------------------------------
+Pipeline: Inhouse v1.0.0
+Platform: Microarray
+
+Structure:
+  Groups: 4
+  Steps:  4
+  Tools:  4
+
+Resources:
+  Total CPU:      16 cores
+  Total Memory:   56 GB
+  Total Time:     0.1 hours
+  Total Storage:  1.3 GB
+
+Cost:
+  Total:   $0.02
+  Compute: $0.02 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $0.30/hr
+
+Group Breakdown:
+  LDpred2:
+    Steps: 1, Time: 0.0h, Cost: $0.01
+  PRScs:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  PRSice2:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  plink GRS:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+
+================================================================================

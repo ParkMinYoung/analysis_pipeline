@@ -1,0 +1,438 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): 커스텀 분석
+Analysis Name: Proteome-Wide Association Study(PWAS)
+Platform: Olink, Microarray
+Pipeline: Inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 24
+Number of Steps: 31
+Number of Tools: 12
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 558
+Total Memory: 956 GB
+Total Compute Time: 92.76 hours
+Total Storage: 277.59 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $19097.80
+  - Compute Cost: $19097.73 (100.0%)
+  - Storage Cost: $0.07 (0.0%)
+Cost per Hour: $205.88
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+FUSION_wgt:
+  Steps: 1
+  Time: 84.00 hours
+  Cost: $18966.59
+  Tools: R
+
+PWASO_Model:
+  Steps: 1
+  Time: 2.00 hours
+  Cost: $119.68
+  Tools: TIGAR
+
+PWASO_PWAS:
+  Steps: 1
+  Time: 0.44 hours
+  Cost: $6.58
+  Tools: TIGAR
+
+MR_coloc:
+  Steps: 8
+  Time: 3.85 hours
+  Cost: $2.59
+  Tools: plink, ivreg, coloc, R, locuszoom, snpEff
+
+FUSION_assoc_test:
+  Steps: 1
+  Time: 0.34 hours
+  Cost: $0.92
+  Tools: R
+
+PWASO_preFusion:
+  Steps: 1
+  Time: 1.10 hours
+  Cost: $0.75
+  Tools: R
+
+FUSION_plot:
+  Steps: 1
+  Time: 0.29 hours
+  Cost: $0.20
+  Tools: R
+
+PWASO_FusionModel:
+  Steps: 1
+  Time: 0.01 hours
+  Cost: $0.15
+  Tools: TIGAR
+
+PWAS_report:
+  Steps: 1
+  Time: 0.23 hours
+  Cost: $0.08
+  Tools: R
+
+run_GWAS:
+  Steps: 1
+  Time: 0.07 hours
+  Cost: $0.05
+  Tools: plink
+
+PWASO_Plot:
+  Steps: 1
+  Time: 0.13 hours
+  Cost: $0.04
+  Tools: R
+
+LDrefData:
+  Steps: 1
+  Time: 0.06 hours
+  Cost: $0.04
+  Tools: plink
+
+GenoDataInput:
+  Steps: 1
+  Time: 0.02 hours
+  Cost: $0.03
+  Tools: bcftools
+plink
+
+FUSION_assoc_final:
+  Steps: 1
+  Time: 0.01 hours
+  Cost: $0.03
+  Tools: bash
+
+FUSION_exel:
+  Steps: 1
+  Time: 0.02 hours
+  Cost: $0.01
+  Tools: R
+
+PWASO_format:
+  Steps: 1
+  Time: 0.07 hours
+  Cost: $0.01
+  Tools: bash
+
+FUSION_report:
+  Steps: 1
+  Time: 0.03 hours
+  Cost: $0.01
+  Tools: R
+
+GWASsummary:
+  Steps: 1
+  Time: 0.01 hours
+  Cost: $0.01
+  Tools: ldsc
+
+ProteinDataInput:
+  Steps: 1
+  Time: 0.01 hours
+  Cost: $0.01
+  Tools: bash
+
+PWASO_Summary:
+  Steps: 1
+  Time: 0.02 hours
+  Cost: $0.00
+  Tools: python
+
+PWASO_ACAT:
+  Steps: 1
+  Time: 0.01 hours
+  Cost: $0.00
+  Tools: R
+
+Individuals:
+  Steps: 1
+  Time: 0.02 hours
+  Cost: $0.00
+  Tools: bcftools
+
+PWASO_MergePWAS:
+  Steps: 1
+  Time: 0.01 hours
+  Cost: $0.00
+  Tools: bash
+
+chunk_proteins:
+  Steps: 1
+  Time: 0.01 hours
+  Cost: $0.00
+  Tools: python
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Individuals
+Step: Individuals
+Tool: bcftools v1.2
+Resources: 4 CPUs, 4 GB RAM, 0 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: GenoDataInput
+Step: GenoDataInput
+Tool: bcftools
+plink v1.2
+1,9
+Resources: 32 CPUs, 64 GB RAM, 164864 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.0276 (compute: $0.0272, storage: $0.0004)
+
+Group: ProteinDataInput
+Step: ProteinDataInput
+Tool: bash v4.4.20
+Resources: 16 CPUs, 32 GB RAM, 163 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0068 (compute: $0.0068, storage: $0.0000)
+
+Group: chunk_proteins
+Step: chunk_proteins
+Tool: python v3.7.12
+Resources: 4 CPUs, 8 GB RAM, 0 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: run_GWAS
+Step: run_GWAS
+Tool: plink vv1.90b7.2
+Resources: 16 CPUs, 32 GB RAM, 967 MB storage
+Runtime: 0.07 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0476 (compute: $0.0476, storage: $0.0000)
+
+Group: GWASsummary
+Step: GWASsummary
+Tool: ldsc vv1.0.1
+Resources: 16 CPUs, 32 GB RAM, 639 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0068 (compute: $0.0068, storage: $0.0000)
+
+Group: LDrefData
+Step: LDrefData
+Tool: plink vv1.90b7.2
+Resources: 16 CPUs, 32 GB RAM, 63488 MB storage
+Runtime: 0.06 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0412 (compute: $0.0408, storage: $0.0004)
+
+Group: FUSION_wgt
+Step: FUSION_wgt
+Tool: R v4.3.3
+Resources: 64 CPUs, 500 GB RAM, 7066 MB storage
+Runtime: 84.00 hours × 56 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $18966.5924 (compute: $18966.5280, storage: $0.0644)
+
+Group: PWASO_format
+Step: PWASO_format
+Tool: bash v4.4.20
+Resources: 4 CPUs, 4 GB RAM, 7475 MB storage
+Runtime: 0.07 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0120 (compute: $0.0119, storage: $0.0001)
+
+Group: PWASO_Model
+Step: PWASO_Model
+Tool: TIGAR vv1
+Resources: 64 CPUs, 16 GB RAM, 185 MB storage
+Runtime: 2.00 hours × 22 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $119.6800 (compute: $119.6800, storage: $0.0000)
+
+Group: FUSION_assoc_test
+Step: FUSION_assoc_test
+Tool: R v4.3.3
+Resources: 64 CPUs, 64 GB RAM, 189 MB storage
+Runtime: 0.34 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.9248 (compute: $0.9248, storage: $0.0000)
+
+Group: FUSION_assoc_final
+Step: FUSION_assoc_final
+Tool: bash v4.4.20
+Resources: 64 CPUs, 64 GB RAM, 1 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.0272 (compute: $0.0272, storage: $0.0000)
+
+Group: FUSION_exel
+Step: FUSION_exel
+Tool: R v4.3.3
+Resources: 16 CPUs, 8 GB RAM, 0 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0136 (compute: $0.0136, storage: $0.0000)
+
+Group: PWASO_preFusion
+Step: PWASO_preFusion
+Tool: R v4.3.3
+Resources: 16 CPUs, 8 GB RAM, 262 MB storage
+Runtime: 1.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.7480 (compute: $0.7480, storage: $0.0000)
+
+Group: PWASO_FusionModel
+Step: PWASO_FusionModel
+Tool: TIGAR vv1
+Resources: 16 CPUs, 8 GB RAM, 51 MB storage
+Runtime: 0.01 hours × 22 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.1496 (compute: $0.1496, storage: $0.0000)
+
+Group: PWASO_PWAS
+Step: PWASO_PWAS
+Tool: TIGAR vv1
+Resources: 16 CPUs, 8 GB RAM, 4 MB storage
+Runtime: 0.44 hours × 22 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $6.5824 (compute: $6.5824, storage: $0.0000)
+
+Group: PWASO_MergePWAS
+Step: PWASO_MergePWAS
+Tool: bash v4.4.20
+Resources: 4 CPUs, 4 GB RAM, 1 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: PWASO_ACAT
+Step: PWASO_ACAT
+Tool: R v4.3.3
+Resources: 8 CPUs, 4 GB RAM, 0 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: FUSION_plot
+Step: FUSION_plot
+Tool: R v4.3.3
+Resources: 16 CPUs, 8 GB RAM, 99 MB storage
+Runtime: 0.29 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.1972 (compute: $0.1972, storage: $0.0000)
+
+Group: FUSION_report
+Step: FUSION_report
+Tool: R v4.3.3
+Resources: 8 CPUs, 4 GB RAM, 190 MB storage
+Runtime: 0.03 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0102 (compute: $0.0102, storage: $0.0000)
+
+Group: PWASO_Plot
+Step: PWASO_Plot
+Tool: R v4.3.3
+Resources: 8 CPUs, 4 GB RAM, 41 MB storage
+Runtime: 0.13 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0442 (compute: $0.0442, storage: $0.0000)
+
+Group: PWASO_Summary
+Step: PWASO_Summary
+Tool: python v3.7.12
+Resources: 4 CPUs, 4 GB RAM, 1 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: PWAS_report
+Step: PWAS_report
+Tool: R v4.3.3
+Resources: 8 CPUs, 4 GB RAM, 26624 MB storage
+Runtime: 0.23 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0789 (compute: $0.0782, storage: $0.0007)
+
+Group: MR_coloc
+Step: MR_prep_genotype
+Tool: plink vv1.90b7.2
+Resources: 12 CPUs, 12 GB RAM, 7885 MB storage
+Runtime: 0.08 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0545 (compute: $0.0544, storage: $0.0001)
+
+Group: MR_coloc
+Step: OneSampleMR
+Tool: ivreg v0.6_2
+Resources: 12 CPUs, 4 GB RAM, 274 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: MR_coloc
+Step: Colocalization
+Tool: coloc v5.2.3
+Resources: 16 CPUs, 4 GB RAM, 3482 MB storage
+Runtime: 0.12 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0816 (compute: $0.0816, storage: $0.0000)
+
+Group: MR_coloc
+Step: MR_plot
+Tool: R v4.3.3
+Resources: 12 CPUs, 4 GB RAM, 102 MB storage
+Runtime: 0.11 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0748 (compute: $0.0748, storage: $0.0000)
+
+Group: MR_coloc
+Step: Coloc_Locuszoom
+Tool: locuszoom v1.4
+Resources: 16 CPUs, 4 GB RAM, 112 MB storage
+Runtime: 3.40 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $2.3120 (compute: $2.3120, storage: $0.0000)
+
+Group: MR_coloc
+Step: Protein_anno
+Tool: R v4.3.3
+Resources: 2 CPUs, 4 GB RAM, 0 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+
+Group: MR_coloc
+Step: SNP_anno
+Tool: snpEff v4.2
+Resources: 2 CPUs, 4 GB RAM, 1 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: MR_coloc
+Step: MR_Coloc_Report
+Tool: R v4.3.3
+Resources: 2 CPUs, 4 GB RAM, 87 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

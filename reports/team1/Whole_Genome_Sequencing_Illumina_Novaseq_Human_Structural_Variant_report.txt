@@ -1,0 +1,202 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Whole Genome Sequencing
+Analysis Name: Illumina Novaseq Human Structural Variant
+Platform: Illumina NovaSeq
+Pipeline: nf-core/sarek, Inhouse v3.5.1
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 7
+Number of Steps: 14
+Number of Tools: 10
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 38
+Total Memory: 80 GB
+Total Compute Time: 5.90 hours
+Total Storage: 0.38 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $31.06
+  - Compute Cost: $31.06 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $5.26
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+BAM_VARIANT_CALLING_GERMLINE_ALL:
+  Steps: 1
+  Time: 4.00 hours
+  Cost: $27.20
+  Tools: manta
+
+VCF_ANNOTATE_ALL:
+  Steps: 2
+  Time: 0.20 hours
+  Cost: $1.45
+  Tools: SnpEff, bgzip
+tabix
+
+CRAM_SAMPLEQC:
+  Steps: 2
+  Time: 0.70 hours
+  Cost: $1.19
+  Tools: mosdepth, samtools
+
+Structural Variant Pathogenicity Annotation:
+  Steps: 1
+  Time: 0.20 hours
+  Cost: $0.68
+  Tools: AnnotSV
+
+VCF_QC_BCFTOOLS_VCFTOOLS:
+  Steps: 4
+  Time: 0.40 hours
+  Cost: $0.34
+  Tools: bcftools, vcftools
+
+PREPARE_INTERVALS:
+  Steps: 3
+  Time: 0.30 hours
+  Cost: $0.20
+  Tools: gawk, bgzip
+tabix
+
+Multiqc:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: multiqc
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: PREPARE_INTERVALS
+Step: CREATE_INTERVALS_BED
+Tool: gawk v5.1.0
+Resources: 1 CPUs, 1 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: PREPARE_INTERVALS
+Step: TABIX_BGZIPTABIX_INTERVAL_COMBINED
+Tool: bgzip
+tabix v1.20
+Resources: 1 CPUs, 1 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: PREPARE_INTERVALS
+Step: TABIX_BGZIPTABIX_INTERVAL_SPLIT
+Tool: bgzip
+tabix v1.20
+Resources: 1 CPUs, 1 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 21 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.1785 (compute: $0.1785, storage: $0.0000)
+
+Group: CRAM_SAMPLEQC
+Step: CRAM_QC_RECAL
+Tool: mosdepth v0.3.8
+Resources: 4 CPUs, 4 GB RAM, 65 MB storage
+Runtime: 0.10 hours × 10 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.1700 (compute: $0.1700, storage: $0.0000)
+
+Group: CRAM_SAMPLEQC
+Step: CRAM_QC_RECAL
+Tool: samtools v1.21
+Resources: 1 CPUs, 6 GB RAM, 0 MB storage
+Runtime: 0.60 hours × 10 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $1.0200 (compute: $1.0200, storage: $0.0000)
+
+Group: BAM_VARIANT_CALLING_GERMLINE_ALL
+Step: BAM_VARIANT_CALLING_GERMLINE_MANTA
+Tool: manta v1.6.0
+Resources: 10 CPUs, 8 GB RAM, 1 MB storage
+Runtime: 4.00 hours × 10 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $27.2000 (compute: $27.2000, storage: $0.0000)
+
+Group: VCF_QC_BCFTOOLS_VCFTOOLS
+Step: BCFTOOLS_STATS
+Tool: bcftools v1.20
+Resources: 1 CPUs, 1 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 10 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0850 (compute: $0.0850, storage: $0.0000)
+
+Group: VCF_QC_BCFTOOLS_VCFTOOLS
+Step: VCFTOOLS_TSTV_QUAL
+Tool: vcftools v0.1.16
+Resources: 1 CPUs, 1 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 10 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0850 (compute: $0.0850, storage: $0.0000)
+
+Group: VCF_QC_BCFTOOLS_VCFTOOLS
+Step: VCFTOOLS_TSTV_COUNT
+Tool: vcftools v0.1.16
+Resources: 1 CPUs, 1 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 10 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0850 (compute: $0.0850, storage: $0.0000)
+
+Group: VCF_QC_BCFTOOLS_VCFTOOLS
+Step: VCFTOOLS_SUMMARY
+Tool: vcftools v0.1.16
+Resources: 1 CPUs, 1 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 10 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0850 (compute: $0.0850, storage: $0.0000)
+
+Group: VCF_ANNOTATE_ALL
+Step: VCF_ANNOTATE_SNPEFF
+Tool: SnpEff v5.1d
+Resources: 6 CPUs, 36 GB RAM, 6 MB storage
+Runtime: 0.10 hours × 10 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $1.3600 (compute: $1.3600, storage: $0.0000)
+
+Group: VCF_ANNOTATE_ALL
+Step: TABIX_BGZIPTABIX
+Tool: bgzip
+tabix v1.20
+Resources: 1 CPUs, 1 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 10 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0850 (compute: $0.0850, storage: $0.0000)
+
+Group: Structural Variant Pathogenicity Annotation
+Step: Structural Variant Pathogenicity Annotation
+Tool: AnnotSV v3.5.3
+Resources: 8 CPUs, 16 GB RAM, 300 MB storage
+Runtime: 0.20 hours × 10 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.6800 (compute: $0.6800, storage: $0.0000)
+
+Group: Multiqc
+Step: Multiqc
+Tool: multiqc v1.28
+Resources: 1 CPUs, 2 GB RAM, 20 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

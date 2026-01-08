@@ -1,0 +1,446 @@
+idx,직무(업무명),업무세부내역,Analysis_name,Platfom,Pipeline Name,Pipeline Version,Group,Step,tools,version,CPUs,MEM(G),TIME(hr),nTask(병렬),SIZE(MB),USER,비고
+1,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,consolidate,consolidate_stats,python,3.9,1.0,1.0,0.1,1.0,1.0,박윤기,"WGS, 40x 기준"
+2,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,downstream,coverage_dropouts,python,3.9,2.0,4.0,4.0,1.0,1.0,,
+3,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,downstream,hiphase,hiphase,1.5.0-8af3f1e,16.0,96.0,4.0,1.0,59463.0,,
+4,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,downstream,bam_stats,samtools,1.20,2.0,8.0,2.0,1.0,104.0,,
+5,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,downstream,cpg_pileup,aligned_bam_to_cpg_scores,3.0.0,16.0,32.0,1.0,1.0,2917.0,,
+6,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,downstream,pbstarphase_diplotype,pbstarphase,1.4.1-c0c8c26,2.0,16.0,1.0,1.0,1.0,,
+7,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,downstream,sv_stats,bcftools,1.20,2.0,4.0,1.0,1.0,1.0,,
+8,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,downstream,bcftools_stats_roh_small_variants,bcftools,1.20,2.0,4.0,1.0,1.0,35.0,,
+9,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,downstream,filter_preprocessed_vcf,"bcftools
+mosdepth","1.20
+0.3.9",4.0,8.0,0.2,1.0,1.0,,
+10,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,downstream,methbat,methbat,0.15.0,2.0,4.0,0.2,1.0,5.0,,
+11,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,downstream,pharmcat_preprocess,python,3.9,2.0,4.0,0.2,1.0,1.0,,
+12,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,downstream,run_pharmcat,pharmcat,2.15.4,2.0,4.0,0.2,1.0,2.0,,
+13,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,tertiary,slivar_small_variant,slivar,0.3.1,8.0,16.0,0.2,1.0,19.0,,
+14,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,tertiary,svpack_filter_annotated,svpack,54b54db,2.0,16.0,0.2,1.0,1.0,,
+15,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,tertiary,slivar_svpack_tsv,slivar,0.3.1,2.0,4.0,0.2,1.0,7.0,,
+16,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,tertiary,write_phrank,python,3.9,1.0,2.0,0.2,1.0,1.0,,
+17,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,pbmm2_align_wgs,pbmm2,1.17.0,32.0,128.0,5.0,14.0,61094.0,,
+18,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,deepvariant_make_examples,deepvariant,1.9.0,8.0,32.0,4.0,8.0,16085.0,,
+19,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,bamTofastq,samtools,1.21,8.0,32.0,6.0,1.0,45510.0,,
+20,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,fastqc,fastqc,v0.12.1,8.0,32.0,5.0,1.0,1.0,,
+21,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,nanostat,nanostat,1.6.0,8.0,32.0,5.0,1.0,1.0,,
+22,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,paraphase,paraphase,3.3.4,8.0,16.0,4.0,1.0,262.0,,
+23,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,mosdepth,mosdepth,0.3.9,4.0,8.0,3.0,1.0,34.0,,
+24,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,mitorsaw,mitorsaw,0.2.4,4.0,32.0,3.0,1.0,1.0,,
+25,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,samtools_stat,samtools,1.19.2,8.0,32.0,3.0,1.0,5.0,,
+26,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,merge_hifi_bams,samtools,1.20,8.0,16.0,3.0,1.0,60402.0,,
+27,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,trgt,trgt,4.0.0,32.0,64.0,1.5,1.0,3605.0,,
+28,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,split_input_bam,"pindex
+zmwfilter","3.5.0
+3.5.0",16.0,32.0,1.2,1.0,60948.0,,
+29,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,sawfish_discover,sawfish,2.1.1,16.0,128.0,1.2,1.0,168.0,,
+30,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,deepvariant_call_variants_cpu,deepvariant,1.9.0,64.0,256.0,1.0,1.0,185.0,,
+31,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,deepvariant_postprocess_variants,deepvariant,1.9.0,2.0,72.0,0.6,1.0,694.0,,
+32,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Hifi-human-WGS-WDL,3.1.0,upstream,sawfish_call,sawfish,2.1.1,16.0,32.0,0.3,1.0,210.0,,
+33,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Inhouse,1.0.0,multiqc report,multiqc report,multiqc,1.30,1.0,1.0,0.1,1.0,1.0,,
+34,Whole Genome Sequencing,Human 기본 분석,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,Inhouse,1.0.0,rmkinetic,remove_kinetic,python,3.11,8.0,64.0,4.0,1.0,61094.0,,
+35,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Fastq_to_ubam,Fastq_to_ubam,"gatk FastqToSam
+gatk MarkIlluminaAdapters",4.2.2.0,2.0,12.0,3.0,1.0,80000.0,이유빈,"WGS, 30x 기준"
+36,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,CollectQualityYieldMeterics,picard CollectQualityYieldMetrics,2.26.10,2.0,3.5,0.6,1.0,0.1,,
+37,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,SamSplitter,picard SplitSamByNumberOfReads,2.26.10,2.0,4.0,1.1,1.0,80400.0,,
+38,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,SamToFastqAndBwaMemAndMba,"picard SamToFastq
+bwa mem
+picard MergeBamAlignment","2.26.10
+0.7.15
+2.26.10",16.0,14.0,5.7,19.0,6000.0,,
+39,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,GatherMonolithicBamFile,picard GatherBamFiles,2.26.10,2.0,3.0,0.5,1.0,98200.0,,
+40,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,CreateSequenceGroupingTSV,python,3.9,2.0,2.0,0.1,1.0,0.1,,
+41,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,CollectUnsortedReadgroupBamQualityMetrics,picard CollectMultipleMetrics,2.26.10,2.0,7.0,1.7,1.0,0.1,,
+42,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,MarkDuplicates,picard MarkDuplicates,2.26.10,2.0,7.5,2.5,1.0,108000.0,,
+43,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,SortSampleBam,picard SortSam,2.26.10,1.0,5.0,14.8,1.0,48100.0,,
+44,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,CrossCheckFingerprints,picard CrossCheckFingerprints,2.26.10,2.0,3.5,2.8,1.0,0.1,,
+45,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,BaseRecalibrator,gatk BaseRecalibrator,4.3.0.0,2.0,6.0,2.9,18.0,0.1,,
+46,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,CheckContamination,VerifyBamID,1.0.1,2.0,7.5,5.4,1.0,0.1,,
+47,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,GatherBqsrReports,gatk GatherBQSRReports,4.3.0.0,2.0,3.5,0.1,1.0,0.1,,
+48,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,ApplyBQSR,gatk ApplyBQSR,4.3.0.0,2.0,3.5,2.3,19.0,4000.0,,
+49,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,GatherBamFiles,picard GatherBamFiles,2.26.10,2.0,3.0,0.5,1.0,46000.0,,
+50,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,AggregatedBamQC,CalculateReadGroupChecksum,picard CalculateReadGroupChecksum,2.26.10,2.0,6.0,0.7,1.0,0.1,,
+51,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,AggregatedBamQC,CollectReadgroupBamQualityMetrics,picard CollectMultipleMetrics,2.26.10,2.0,7.0,1.7,1.0,0.1,,
+52,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,AggregatedBamQC,CollectAggregationMetrics,picard CollectMultipleMetrics,2.26.10,2.0,7.0,4.0,1.0,1.0,,
+53,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToGvcf,ScatterIntervalList,picard IntervalListTools,2.26.10,2.0,2.0,0.2,1.0,7.0,,
+54,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToGvcf,HaplotypeCallerGATK3,"gatk PrintReads
+gatk HaplotypeCaller",4.3.0.0,1.0,10.0,5.3,10.0,5000.0,,
+55,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToGvcf,MergeVCFs,picard MergeVcfs,2.26.10,2.0,3.0,0.3,1.0,3500.0,,
+56,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToGvcf,Reblock,gatk ReblockGVCF,4.3.0.0,2.0,4.0,0.5,1.0,660.0,,
+57,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToGvcf,CollectVariantCallingMetrics,picard CollectVariantCallingMetrics,2.26.10,2.0,3.0,0.2,1.0,0.1,,
+58,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToGvcf,ValidateVCF,"gatk VcfToIntervalList
+gatk ValidateVariants",4.3.0.0,2.0,7.0,0.2,1.0,0.0,,
+59,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,CollectWgsMetrics,CollectWgsMetrics,picard CollectWgsMetrics,2.26.10,2.0,3.0,1.7,1.0,0.1,,
+60,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,CollectRawWgsMetrics,CollectRawWgsMetrics,picard CollectRawWgsMetrics,2.26.10,2.0,5.0,1.7,1.0,0.1,,
+61,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToCram,CheckPreValidation,python,3.9,2.0,2.0,0.1,1.0,0.0,,
+62,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToCram,ConvertToCram,samtools,1.0.2,1.0,3.0,1.2,1.0,10600.0,,
+63,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToCram,ValidateCram,picard ValidateSamFile,2.26.10,2.0,16.0,1.7,1.0,0.1,,
+64,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,CheckSamplesUnique,CheckSamplesUnique,bash,-,2.0,1.0,0.1,1.0,0.0,,
+65,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,SplitIntervalList,SplitIntervalList,gatk SplitIntervals,4.6.1.0,2.0,4.0,0.1,1.0,26.0,,
+66,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,ImportGVFs,ImportGVFs,gatk GenomicsDBImport,4.6.1.0,4.0,29.5,1.4,47.0,3000.0,,
+67,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,GenotypeGVCFs,GenotypeGVCFs,gatk GenotypeGVCFs,4.6.1.0,2.0,25.5,1.1,47.0,400.0,,
+68,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,HardFilterAndMakeSitesOnlyVcf,HardFilterAndMakeSitesOnlyVcf,"gatk VariantFiltration
+gatk MakeSitesOnlyVCF",4.6.1.0,1.0,4.0,0.1,47.0,400.0,,
+69,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,SitesOnlyGatherVcf,SitesOnlyGatherVcf,gatk GatherVcfsCloud,4.6.1.0,1.0,7.0,0.1,1.0,1320.0,,
+70,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,IndelsVariantRecalibrator,IndelsVariantRecalibrator,gatk VariantRecalibrator,4.6.1.0,2.0,25.5,0.2,1.0,230.0,,
+71,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,SNPsVariantRecalibratorClassic,SNPsVariantRecalibratorClassic,gatk VariantRecalibrator,4.6.1.0,2.0,27.0,0.7,1.0,1200.0,,
+72,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,ApplyRecalibration,ApplyRecalibration,gatk ApplyVQSR,4.6.1.0,1.0,7.0,0.2,47.0,2000.0,,
+73,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,FinalGatherVcf,FinalGatherVcf,gatk GatherVcfsCloud,4.6.1.0,1.0,7.0,0.1,1.0,9100.0,,
+74,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,CollectMetricsOnFullVcf,CollectMetricsOnFullVcf,gatk CollectVariantCallingMetrics,4.6.1.0,2.0,7.5,0.2,1.0,0.1,,
+75,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,CrossCheckFingerprintSolo,CrossCheckFingerprintSolo,gatk CrosscheckFingerprints,4.6.1.0,2.0,120.0,1.5,1.0,0.1,,
+76,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Variant Annotation & Make Summary file,Variant Annotation & Make Summary file,"SnpEff
+svdb","4.2
+2.8.2",32.0,36.0,10.0,1.0,25000.0,,
+77,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Fastq QC,Fastq QC,FastQ Screen,0.16.0,16.0,36.0,0.5,1.0,10.0,,
+78,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Bam QC,Bam QC,"qualimap
+samtools","2.2.2
+1.6",16.0,36.0,2.0,1.0,3.0,,
+79,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,VCF QC,gVCF genotyping & VCF stats,"gatk GenotypeGVCFs
+bcftools","4.6.1.0
+1.19",16.0,36.0,0.5,1.0,300.0,,
+80,Whole Genome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Multiqc Report,Multiqc Report,multiqc,1.30,1.0,2.0,0.1,1.0,30.0,,
+81,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Fastq_to_ubam,Fastq_to_ubam,"gatk FastqToSam
+gatk MarkIlluminaAdapters",4.2.2.0,2.0,12.0,0.5,1.0,12000.0,이유빈,"WGS, 상추 genome 기준"
+82,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,CollectQualityYieldMeterics,picard CollectQualityYieldMetrics,2.26.10,2.0,3.5,0.1,1.0,0.1,,
+83,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,SamToFastqAndBwaMemAndMba,"picard SamToFastq
+bwa mem
+picard MergeBamAlignment","2.26.10
+0.7.15
+2.26.10",16.0,14.0,5.2,1.0,16000.0,,
+84,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,CreateSequenceGroupingTSV,python,3.9,2.0,2.0,0.1,1.0,0.1,,
+85,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,CollectUnsortedReadgroupBamQualityMetrics,picard CollectMultipleMetrics,2.26.10,2.0,7.0,0.2,1.0,0.2,,
+86,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,MarkDuplicates,picard MarkDuplicates,2.26.10,2.0,7.5,0.4,1.0,18000.0,,
+87,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,SortSampleBam,picard SortSam,2.26.10,1.0,5.0,0.4,1.0,8900.0,,
+88,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,UnmappedBamToAlignedBam,GatherBamFiles,picard GatherBamFiles,2.26.10,2.0,3.0,0.1,1.0,8900.0,,
+89,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,AggregatedBamQC,CalculateReadGroupChecksum,picard CalculateReadGroupChecksum,2.26.10,2.0,6.0,0.1,1.0,0.1,,
+90,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,AggregatedBamQC,CollectReadgroupBamQualityMetrics,picard CollectMultipleMetrics,2.26.10,2.0,7.0,0.3,1.0,0.1,,
+91,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,AggregatedBamQC,CollectAggregationMetrics,picard CollectMultipleMetrics,2.26.10,2.0,7.0,0.6,1.0,0.2,,
+92,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToGvcf,ScatterIntervalList,picard IntervalListTools,2.26.10,2.0,2.0,0.1,1.0,0.4,,
+93,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToGvcf,HaplotypeCallerGATK3,"gatk PrintReads
+gatk HaplotypeCaller",4.3.0.0,1.0,10.0,10.9,10.0,1400.0,,
+94,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToGvcf,MergeVCFs,picard MergeVcfs,2.26.10,2.0,3.0,0.2,1.0,1800.0,,
+95,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToGvcf,Reblock,gatk ReblockGVCF,4.3.0.0,2.0,4.0,0.3,1.0,1200.0,,
+96,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToGvcf,ValidateVCF,"gatk VcfToIntervalList
+gatk ValidateVariants",4.3.0.0,2.0,7.0,0.1,1.0,0.0,,
+97,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,CollectWgsMetrics,CollectWgsMetrics,picard CollectWgsMetrics,2.26.10,2.0,3.0,0.2,1.0,0.1,,
+98,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,CollectRawWgsMetrics,CollectRawWgsMetrics,picard CollectRawWgsMetrics,2.26.10,2.0,5.0,0.2,1.0,1.0,,
+99,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToCram,CheckPreValidation,python,3.9,2.0,2.0,0.1,1.0,0.0,,
+100,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToCram,ConvertToCram,samtools,1.0.2,1.0,3.0,0.2,1.0,3500.0,,
+101,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - WholeGenomeGermlineSingleSample,3.3.3,BamToCram,ValidateCram,picard ValidateSamFile,2.26.10,2.0,16.0,0.5,1.0,0.1,,
+102,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,CheckSamplesUnique,CheckSamplesUnique,bash,-,2.0,1.0,0.1,1.0,0.0,,
+103,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,SplitIntervalList,SplitIntervalList,gatk SplitIntervals,4.6.1.0,2.0,4.0,0.1,1.0,0.1,,
+104,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,ImportGVFs,ImportGVFs,gatk GenomicsDBImport,4.6.1.0,4.0,29.5,1.0,21.0,115.0,,
+105,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,GenotypeGVCFs,GenotypeGVCFs,gatk GenotypeGVCFs,4.6.1.0,2.0,25.5,1.0,21.0,860.0,,
+106,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,FinalGatherVcf,FinalGatherVcf,gatk GatherVcfsCloud,4.6.1.0,1.0,7.0,0.1,1.0,18000.0,,
+107,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Variant Annotation & Make Summary file,Variant Annotation & Make Summary file,"SnpEff
+svdb","4.2 / 5.3a
+2.8.2",32.0,36.0,23.0,1.0,251000.0,,
+108,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Variant Annotation & Make Summary file,Convert Variant Summary file from txt to excel,perl,5.40.2,6.0,24.0,0.5,364.0,96000.0,,
+109,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Fastq QC,Fastq QC,FastQ Screen,0.16.0,16.0,36.0,0.2,1.0,6.5,,
+110,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Bam QC,Bam QC,"qualimap
+samtools","2.2.2
+1.6",16.0,36.0,0.3,1.0,1.5,,
+111,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,VCF QC,gVCF genotyping & VCF stats,"gatk GenotypeGVCFs
+bcftools","4.6.1.0
+1.19",16.0,36.0,0.9,1.0,700.0,,
+112,Whole Genome Sequencing,NonHuman 기본 분석,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Multiqc Report,Multiqc Report,multiqc,1.30,1.0,2.0,0.1,1.0,50.0,,
+113,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Fastq_to_ubam,Fastq_to_ubam,"gatk FastqToSam
+gatk MarkIlluminaAdapters",4.2.2.0,2.0,12.0,0.2,1.0,38000.0,이유빈,"WES, 100x 기준 (Twist_Refseq panel)"
+114,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,GenerateSubsettedContaminationResources,GenerateSubsettedContaminationResources,bedtools,2.27.1,2.0,3.5,0.1,1.0,0.5,,
+115,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,UnmappedBamToAlignedBam,CollectQualityYieldMeterics,picard CollectQualityYieldMetrics,2.26.10,2.0,3.5,0.1,1.0,0.1,,
+116,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,UnmappedBamToAlignedBam,SamToFastqAndBwaMemAndMba,"picard SamToFastq
+bwa mem
+picard MergeBamAlignment","2.26.10
+0.7.15
+2.26.10",16.0,14.0,0.6,1.0,4600.0,,
+117,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,UnmappedBamToAlignedBam,CreateSequenceGroupingTSV,python,3.9,2.0,2.0,0.1,1.0,0.1,,
+118,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,UnmappedBamToAlignedBam,CollectUnsortedReadgroupBamQualityMetrics,picard CollectMultipleMetrics,2.26.10,2.0,7.0,0.1,1.0,0.1,,
+119,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,UnmappedBamToAlignedBam,MarkDuplicates,picard MarkDuplicates,2.26.10,2.0,7.5,0.2,1.0,5000.0,,
+120,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,UnmappedBamToAlignedBam,SortSampleBam,picard SortSam,2.26.10,1.0,5.0,0.2,1.0,2500.0,,
+121,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,UnmappedBamToAlignedBam,CrossCheckFingerprints,picard CrossCheckFingerprints,2.26.10,2.0,3.5,0.6,1.0,0.1,,
+122,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,UnmappedBamToAlignedBam,BaseRecalibrator,gatk BaseRecalibrator,4.3.0.0,2.0,6.0,0.6,18.0,0.1,,
+123,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,UnmappedBamToAlignedBam,CheckContamination,VerifyBamID,1.0.1,2.0,7.5,0.6,1.0,0.1,,
+124,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,UnmappedBamToAlignedBam,GatherBqsrReports,gatk GatherBQSRReports,4.3.0.0,2.0,3.5,0.1,1.0,0.1,,
+125,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,UnmappedBamToAlignedBam,ApplyBQSR,gatk ApplyBQSR,4.3.0.0,2.0,3.5,0.6,19.0,240.0,,
+126,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,UnmappedBamToAlignedBam,GatherBamFiles,picard GatherBamFiles,2.26.10,2.0,3.0,0.1,1.0,2400.0,,
+127,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,AggregatedBamQC,CalculateReadGroupChecksum,picard CalculateReadGroupChecksum,2.26.10,2.0,6.0,0.1,1.0,0.1,,
+128,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,AggregatedBamQC,CollectReadgroupBamQualityMetrics,picard CollectMultipleMetrics,2.26.10,2.0,7.0,0.3,1.0,0.1,,
+129,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,AggregatedBamQC,CollectAggregationMetrics,picard CollectMultipleMetrics,2.26.10,2.0,7.0,0.3,1.0,0.1,,
+130,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,BamToGvcf,ScatterIntervalList,picard IntervalListTools,2.26.10,2.0,2.0,0.2,1.0,12.0,,
+131,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,BamToGvcf,HaplotypeCallerGATK4,gatk HaplotypeCaller,4.3.0.0,2.0,10.0,0.3,10.0,1.2,,
+132,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,BamToGvcf,MergeVCFs,picard MergeVcfs,2.26.10,2.0,3.0,0.1,1.0,9.5,,
+133,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,BamToGvcf,Reblock,gatk ReblockGVCF,4.3.0.0,2.0,4.0,0.1,1.0,7.0,,
+134,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,BamToGvcf,CollectVariantCallingMetrics,picard CollectVariantCallingMetrics,2.26.10,2.0,3.0,0.1,1.0,0.1,,
+135,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,BamToGvcf,ValidateVCF,"gatk VcfToIntervalList
+gatk ValidateVariants",4.3.0.0,2.0,7.0,0.2,1.0,0.0,,
+136,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,CollectHsMetrics,CollectHsMetrics,picard CollectHsMetrics,2.26.10,2.0,7.0,0.3,1.0,0.1,,
+137,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,BamToCram,CheckPreValidation,python,3.9,2.0,2.0,0.1,1.0,0.0,,
+138,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,BamToCram,ConvertToCram,samtools,1.0.2,1.0,3.0,0.1,1.0,575.0,,
+139,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - ExomeGermlineSingleSample,3.2.3,BamToCram,ValidateCram,picard ValidateSamFile,2.26.10,2.0,16.0,0.2,1.0,0.0,,
+140,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,CheckSamplesUnique,CheckSamplesUnique,bash,-,2.0,1.0,0.1,1.0,0.0,,
+141,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,SplitIntervalList,SplitIntervalList,gatk SplitIntervals,4.6.1.0,2.0,4.0,0.1,1.0,7.0,,
+142,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,ImportGVFs,ImportGVFs,gatk GenomicsDBImport,4.6.1.0,4.0,29.5,0.1,2.0,17.0,,
+143,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,GenotypeGVCFs,GenotypeGVCFs,gatk GenotypeGVCFs,4.6.1.0,2.0,25.5,0.1,2.0,2.0,,
+144,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,HardFilterAndMakeSitesOnlyVcf,HardFilterAndMakeSitesOnlyVcf,"gatk VariantFiltration
+gatk MakeSitesOnlyVCF",4.6.1.0,1.0,4.0,0.1,2.0,7.0,,
+145,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,SitesOnlyGatherVcf,SitesOnlyGatherVcf,gatk GatherVcfsCloud,4.6.1.0,1.0,7.0,0.1,1.0,3.0,,
+146,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,IndelsVariantRecalibrator,IndelsVariantRecalibrator,gatk VariantRecalibrator,4.6.1.0,2.0,25.5,0.1,1.0,0.5,,
+147,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,SNPsVariantRecalibratorClassic,SNPsVariantRecalibratorClassic,gatk VariantRecalibrator,4.6.1.0,2.0,24.5,0.1,1.0,4.0,,
+148,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,ApplyRecalibration,ApplyRecalibration,gatk ApplyVQSR,4.6.1.0,1.0,7.0,0.1,2.0,5.0,,
+149,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,FinalGatherVcf,FinalGatherVcf,gatk GatherVcfsCloud,4.6.1.0,1.0,7.0,0.1,1.0,5.0,,
+150,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,CollectMetricsOnFullVcf,CollectMetricsOnFullVcf,gatk CollectVariantCallingMetrics,4.6.1.0,2.0,7.5,0.1,1.0,0.1,,
+151,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,warp - JointGenotyping,1.7.2,CrossCheckFingerprintSolo,CrossCheckFingerprintSolo,gatk CrosscheckFingerprints,4.6.1.0,2.0,15.0,0.1,1.0,0.1,,
+152,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Variant Annotation & Make Summary file,Variant Annotation & Make Summary file,"SnpEff
+svdb","4.2
+2.8.2",32.0,36.0,1.0,1.0,14000.0,,
+153,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Fastq QC,Fastq QC,FastQ Screen,0.16.0,16.0,25.0,0.1,1.0,6.5,,
+154,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Bam QC,Bam QC,"qualimap
+samtools","2.2.2
+1.6",16.0,25.0,0.1,1.0,2.0,,
+155,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,VCF QC,gVCF genotyping & VCF stats,"gatk GenotypeGVCFs
+bcftools","4.6.1.0
+1.19",16.0,25.0,0.1,1.0,2.0,,
+156,Whole Exome Sequencing,Human 기본 분석,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,Inhouse,1.0.0,Multiqc Report,Multiqc Report,multiqc,1.30,1.0,2.0,0.1,1.0,15.0,,
+157,Whole Exome Sequencing,DNAGPS,Illumina Novaseq  DNAGPS VN,Illumina NoavaSeq,Inhouse,1.0.0,Fastq_to_ubam,Fastq_to_ubam,"gatk FastqToSam
+gatk MarkIlluminaAdapters",4.2.2.0,1.0,64.0,0.4,1.0,9200.0,이유빈,샘플 1개 분석 기준
+158,Whole Exome Sequencing,DNAGPS,Illumina Novaseq  DNAGPS VN,Illumina NoavaSeq,Inhouse,1.0.0,AlignBam,SamToFastqAndBwaMemAndMba,"picard SamToFastq
+bwa mem
+picard MergeBamAlignment","2.25.4
+0.7.17
+2.25.4",16.0,64.0,1.5,1.0,6300.0,,
+159,Whole Exome Sequencing,DNAGPS,Illumina Novaseq  DNAGPS VN,Illumina NoavaSeq,Inhouse,1.0.0,MarkDuplicates,MarkDuplicates,gatk MarkDuplicates,4.2.2.0,1.0,64.0,0.4,1.0,6300.0,,
+160,Whole Exome Sequencing,DNAGPS,Illumina Novaseq  DNAGPS VN,Illumina NoavaSeq,Inhouse,1.0.0,SortBam,SortBam,samtools,4.2.2.0,16.0,16.0,0.1,1.0,6300.0,,
+161,Whole Exome Sequencing,DNAGPS,Illumina Novaseq  DNAGPS VN,Illumina NoavaSeq,Inhouse,1.0.0,VariantCalling,VariantCalling,gatk HaplotypeCaller,4.2.2.0,1.0,64.0,0.2,1.0,0.1,,
+162,Whole Exome Sequencing,DNAGPS,Illumina Novaseq  DNAGPS VN,Illumina NoavaSeq,Inhouse,1.0.0,Combine & Genotype GVCFs,Combine & Genotype GVCFs,"gatk CombineGVCFs
+gatk GenotypeGVCFs",4.2.2.0,1.0,64.0,0.2,1.0,0.2,,
+163,Whole Exome Sequencing,DNAGPS,Illumina Novaseq  DNAGPS VN,Illumina NoavaSeq,Inhouse,1.0.0,Output formatting,Output formatting,"bcftools
+plink","1.19
+1.90",1.0,64.0,0.1,1.0,0.1,,
+164,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,PreprocessIntervals,PreprocessIntervals,gatk PreprocessIntervals,4.6.1.0,1.0,2.0,0.1,1.0,8.5,이유빈,"WGS, 30x 기준"
+165,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,AnnotateIntervals,AnnotateIntervals,gatk AnnotateIntervals,4.6.1.0,1.0,2.0,0.8,1.0,15.0,,
+166,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,CollectCounts,CollectCounts,gatk CollectReadCounts,4.6.1.0,1.0,7.0,1.3,10.0,10.0,,
+167,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,FilterIntervals,FilterIntervals,gatk FilterIntervals,4.6.1.0,1.0,7.0,0.1,1.0,8.0,,
+168,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,ScatterIntervals,ScatterIntervals,gatk IntervalListTools,4.6.1.0,1.0,2.0,0.1,1.0,155.5,,
+169,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,DetermineGermlineContigPloidyCohortMode,DetermineGermlineContigPloidyCohortMode,gatk DetermineGermlineContigPloidy,4.6.1.0,1.0,7.0,0.1,1.0,1.5,,
+170,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,GermlineCNVCallerCohortMode,GermlineCNVCallerCohortMode,gatk GermlineCNVCaller,4.6.1.0,1.0,7.0,0.3,267.0,7.0,,
+171,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,ScatterPloidyCallsBySample,ScatterPloidyCallsBySample,bash,-,1.0,2.0,0.2,1.0,0.1,,
+172,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,PostprocessGermlineCNVCalls,PostprocessGermlineCNVCalls,gatk PostprocessGermlineCNVCalls,4.6.1.0,1.0,7.0,0.2,10.0,18.0,,
+173,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,WritePloidyCalls,WritePloidyCalls,python,latest,2.0,7.0,0.1,1.0,0.1,,
+174,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,WriteGCNVCalls,WriteGCNVCalls,bash,-,2.0,7.0,0.1,1.0,1.0,,
+175,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,WriteIntervals,WriteIntervals,python,latest,2.0,7.0,0.1,1.0,0.1,,
+176,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,WriteIntervalIndexes,WriteIntervalIndexes,python,latest,2.0,7.0,0.1,1.0,0.1,,
+177,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,WriteSegments,WriteSegments,python,latest,2.0,7.0,0.1,1.0,0.1,,
+178,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,WriteSegmentIndexes,WriteSegmentIndexes,python,latest,2.0,7.0,0.1,1.0,0.1,,
+179,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,Report,Make summary files,"bash
+gatk VariantsToTable
+python",".
+4.6.1.0
+3.11.8",1.0,1.0,0.1,1.0,105.0,,
+180,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,Report,Make plots,"R
+python","4.4.2
+3.11.8",1.0,1.0,0.1,1.0,3.0,,
+181,Whole Exome Sequencing,Human Germline CNV 분석,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,Report,Report,quarto,1.7.31,1.0,1.0,0.1,1.0,8.0,,
+182,Whole Genome Sequencing,Human Structural Variant 분석,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,nf-core/sarek,3.5.1,PREPARE_INTERVALS,CREATE_INTERVALS_BED,gawk,5.1.0,1.0,1.0,0.1,1.0,0.1,이유빈,"WGS, 30x 기준"
+183,Whole Genome Sequencing,Human Structural Variant 분석,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,nf-core/sarek,3.5.1,PREPARE_INTERVALS,TABIX_BGZIPTABIX_INTERVAL_COMBINED,"bgzip
+tabix",1.20,1.0,1.0,0.1,1.0,0.1,,
+184,Whole Genome Sequencing,Human Structural Variant 분석,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,nf-core/sarek,3.5.1,PREPARE_INTERVALS,TABIX_BGZIPTABIX_INTERVAL_SPLIT,"bgzip
+tabix",1.20,1.0,1.0,0.1,21.0,0.1,,
+185,Whole Genome Sequencing,Human Structural Variant 분석,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,nf-core/sarek,3.5.1,CRAM_SAMPLEQC,CRAM_QC_RECAL,mosdepth,0.3.8,4.0,4.0,0.1,10.0,65.0,,
+186,Whole Genome Sequencing,Human Structural Variant 분석,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,nf-core/sarek,3.5.1,CRAM_SAMPLEQC,CRAM_QC_RECAL,samtools,1.21,1.0,6.0,0.6,10.0,0.2,,
+187,Whole Genome Sequencing,Human Structural Variant 분석,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,nf-core/sarek,3.5.1,BAM_VARIANT_CALLING_GERMLINE_ALL,BAM_VARIANT_CALLING_GERMLINE_MANTA,manta,1.6.0,10.0,8.0,4.0,10.0,1.0,,
+188,Whole Genome Sequencing,Human Structural Variant 분석,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,nf-core/sarek,3.5.1,VCF_QC_BCFTOOLS_VCFTOOLS,BCFTOOLS_STATS,bcftools,1.20,1.0,1.0,0.1,10.0,0.1,,
+189,Whole Genome Sequencing,Human Structural Variant 분석,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,nf-core/sarek,3.5.1,VCF_QC_BCFTOOLS_VCFTOOLS,VCFTOOLS_TSTV_QUAL,vcftools,0.1.16,1.0,1.0,0.1,10.0,0.1,,
+190,Whole Genome Sequencing,Human Structural Variant 분석,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,nf-core/sarek,3.5.1,VCF_QC_BCFTOOLS_VCFTOOLS,VCFTOOLS_TSTV_COUNT,vcftools,0.1.16,1.0,1.0,0.1,10.0,0.1,,
+191,Whole Genome Sequencing,Human Structural Variant 분석,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,nf-core/sarek,3.5.1,VCF_QC_BCFTOOLS_VCFTOOLS,VCFTOOLS_SUMMARY,vcftools,0.1.16,1.0,1.0,0.1,10.0,0.1,,
+192,Whole Genome Sequencing,Human Structural Variant 분석,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,nf-core/sarek,3.5.1,VCF_ANNOTATE_ALL,VCF_ANNOTATE_SNPEFF,SnpEff,5.1d,6.0,36.0,0.1,10.0,6.0,,
+193,Whole Genome Sequencing,Human Structural Variant 분석,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,nf-core/sarek,3.5.1,VCF_ANNOTATE_ALL,TABIX_BGZIPTABIX,"bgzip
+tabix",1.20,1.0,1.0,0.1,10.0,0.1,,
+194,Whole Genome Sequencing,Human Structural Variant 분석,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,Inhouse,1.0.0,Structural Variant Pathogenicity Annotation,Structural Variant Pathogenicity Annotation,AnnotSV,3.5.3,8.0,16.0,0.2,10.0,300.0,,
+195,Whole Genome Sequencing,Human Structural Variant 분석,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,Inhouse,1.0.0,Multiqc,Multiqc,multiqc,1.28,1.0,2.0,0.1,1.0,20.0,,
+196,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Data Normalization,Bridging Normalization,R,4.3.1,1.0,24.0,0.2,1.0,2100.0,이유빈,"Olink Explore HT 패널 기준 (1,665 샘플)
+marker 및 샘플 개수에 따라 output size 변동 큼
+Olink Target 96 패널 및 분석 조합 6개 기준
+분석 조합 및 DEP 개수에 따라 output size 변동 큼"
+197,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Data preprocessing,QC check & Filtering,R,4.3.1,4.0,24.0,0.1,1.0,2.0,,
+198,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Analysis for all samples,PCA,R,4.3.1,4.0,24.0,0.1,1.0,1.0,,
+199,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Analysis for all samples,MDS,R,4.3.1,4.0,24.0,0.1,1.0,1.0,,
+200,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Analysis for all samples,Differentially Expressed Analysis (DEP),R,4.3.1,4.0,24.0,0.1,1.0,65.0,,
+201,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Analysis for all samples,Pathway Enrichment Analysis,R,4.3.1,4.0,24.0,0.1,1.0,10.0,,
+202,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Analysis for all samples,Protein-Protein Interaction Network Analysis,R,4.3.1,4.0,24.0,0.1,1.0,1.5,,
+203,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Analysis for all samples,Correlation Analysis,R,4.3.1,4.0,24.0,0.1,1.0,1.5,,
+204,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Analysis for all samples,Report,python,3.11.9,4.0,24.0,0.1,1.0,18.0,,
+205,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Analysis for QC Pass samples,PCA,R,4.3.1,4.0,24.0,0.1,1.0,1.0,,
+206,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Analysis for QC Pass samples,MDS,R,4.3.1,4.0,24.0,0.1,1.0,1.0,,
+207,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Analysis for QC Pass samples,Differentially Expressed Analysis (DEP),R,4.3.1,4.0,24.0,0.1,1.0,70.0,,
+208,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Analysis for QC Pass samples,Pathway Enrichment Analysis,R,4.3.1,4.0,24.0,0.1,1.0,10.0,,
+209,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Analysis for QC Pass samples,Protein-Protein Interaction Network Analysis,R,4.3.1,4.0,24.0,0.1,1.0,1.5,,
+210,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Analysis for QC Pass samples,Correlation Analysis,R,4.3.1,4.0,24.0,0.1,1.0,1.5,,
+211,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Olink,Inhouse,1.0.0,Analysis for QC Pass samples,Report,python,3.11.9,4.0,24.0,0.1,1.0,18.0,,
+212,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Data preprocessing,QC check & Filtering,R,4.3.1,4.0,24.0,0.1,1.0,25.0,이유빈,"Somascan 11K 및 분석 조합 1개 기준
+분석 조합 및 DEP 개수에 따라 output size 변동 큼
+Output size의 경우, 유의미한 결과가 없어서 Olink와 동일하게 작성함"
+213,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Analysis for all samples,PCA,R,4.3.1,4.0,24.0,0.1,1.0,0.3,,
+214,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Analysis for all samples,MDS,R,4.3.1,4.0,24.0,0.1,1.0,0.3,,
+215,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Analysis for all samples,Differentially Expressed Analysis (DEP),R,4.3.1,4.0,24.0,0.1,1.0,7.0,,
+216,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Analysis for all samples,Pathway Enrichment Analysis,R,4.3.1,4.0,24.0,0.1,1.0,0.5,,
+217,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Analysis for all samples,Protein-Protein Interaction Network Analysis,R,4.3.1,4.0,24.0,0.1,1.0,1.5,,
+218,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Analysis for all samples,Correlation Analysis,R,4.3.1,4.0,24.0,0.1,1.0,1.5,,
+219,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Analysis for all samples,Report,python,3.11.9,4.0,24.0,0.1,1.0,5.0,,
+220,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Analysis for QC Pass samples,PCA,R,4.3.1,4.0,24.0,0.1,1.0,0.3,,
+221,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Analysis for QC Pass samples,MDS,R,4.3.1,4.0,24.0,0.1,1.0,0.3,,
+222,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Analysis for QC Pass samples,Differentially Expressed Analysis (DEP),R,4.3.1,4.0,24.0,0.1,1.0,7.0,,
+223,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Analysis for QC Pass samples,Pathway Enrichment Analysis,R,4.3.1,4.0,24.0,0.1,1.0,0.5,,
+224,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Analysis for QC Pass samples,Protein-Protein Interaction Network Analysis,R,4.3.1,4.0,24.0,0.1,1.0,1.5,,
+225,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Analysis for QC Pass samples,Correlation Analysis,R,4.3.1,4.0,24.0,0.1,1.0,1.5,,
+226,단백질 데이터 통계 분석,통계 기본 분석,Olink-Somascan Proteomics downstream analysis,Somascan,Inhouse,1.0.0,Analysis for QC Pass samples,Report,python,3.11.9,4.0,24.0,0.1,1.0,5.0,,
+227,Pangenome,Fungi Pangenome 분석,Fungi Pangenome construction,PacBio Sequel,Inhouse,1.0.0,AssemblyQCwithQuast,Assembly QC with Quast,Quast,5.2.0,20.0,64.0,0.1,4.0,140.0,이유빈,nTask 개수는 분석 샘플 개수로 설정됨
+228,Pangenome,Fungi Pangenome 분석,Fungi Pangenome construction,PacBio Sequel,Inhouse,1.0.0,MergeQuast,Merge Quast QC results,bash,-,2.0,16.0,0.1,1.0,0.1,,
+229,Pangenome,Fungi Pangenome 분석,Fungi Pangenome construction,PacBio Sequel,Inhouse,1.0.0,AssemblyProcess,Correction & Scaffolding & Gap Filling & Repeat Masking,"RagTag
+TGS-GapCloser
+RepeatModeler
+RepeatMasker","2.1.0
+1.1.1
+2.0.6
+4.1.7-p1",64.0,500.0,8.7,4.0,41000.0,,
+230,Pangenome,Fungi Pangenome 분석,Fungi Pangenome construction,PacBio Sequel,Inhouse,1.0.0,Cactus,Pangenome Graph Construction,Minigraph-Cactus,2.6.13,64.0,64.0,5.1,1.0,4700.0,,
+231,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,InputFormatting,JS_GWAS_format,R,4.4.2,2.0,12.0,0.1,1.0,1100.0,"이유빈, 서윤지",
+232,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,InputFormatting,single_meta_GWAS_format,R,4.4.2,2.0,12.0,0.1,1.0,3994.0,,
+233,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,InputFormatting,multi_meta_GWAS_format,R,4.4.2,2.0,12.0,0.1,1.0,6349.0,,
+234,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,MR_Coloc,Harmonization_trait,R,4.4.2,16.0,64.0,0.3,1.0,1956.0,,
+235,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,MR_Coloc,Harmonization_eqtl,R,4.4.2,16.0,64.0,0.3,1.0,5222.0,,
+236,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,MetaAnalysis,single_meta_Harmonization,R,4.4.2,4.0,32.0,0.5,1.0,3154.0,,
+237,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,MetaAnalysis,multi_meta_Harmonization,R,4.4.2,4.0,32.0,0.8,1.0,7680.0,,
+238,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,FineMapping,Finemap,"plink
+susieR","1.90
+0.14.2",10.0,24.0,0.2,1.0,1900.0,,
+239,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,Genebased,MAGMA,magma,1.10,16.0,64.0,0.2,1.0,335.0,,
+240,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,Genebased,mBAT_combo,gcta64,1.94.1,16.0,64.0,0.4,1.0,483.0,,
+241,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,Genebased,sumFREGAT,sumFREGAT,1.2.5,64.0,500.0,3.7,1.0,2150.0,,
+242,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,Genebased,Gene_based_report,quarto,1.7.31,16.0,32.0,0.1,1.0,9.0,,
+243,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,MetaAnalysis,SingleMeta,METAL,2020-05-05,64.0,16.0,0.5,1.0,2355.0,,
+244,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,MetaAnalysis,MultiMeta,MR-MEGA,0.2,16.0,8.0,0.2,1.0,4300.0,,
+245,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,MR_Coloc,Coloc_GWAS,"python
+coloc
+locuscomparer","3.9.21
+5.2.3
+1.0.0",16.0,4.0,0.6,1.0,2200.0,,
+246,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,MR_Coloc,TwoMR_GWAS,"TwoSampleMR
+MendelianRandomization","0.6.17
+0.10.0",16.0,128.0,0.1,1.0,1.0,,
+247,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,MR_Coloc,Coloc_eQTL,"coloc
+locuscomparer","5.2.3
+1.0.0",16.0,4.0,0.1,1.0,782.0,,
+248,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,MR_Coloc,TwoMR_eQTL,"TwoSampleMR
+MendelianRandomization","0.6.17
+0.10.0",32.0,128.0,0.4,1.0,8.0,,
+249,DNA Chip,Post GWAS,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,report,All_analysis_report,quarto,1.7.31,4.0,8.0,0.1,1.0,380.0,,
+250,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,FlowlessInspection,FlowlessInspection,perl,5.38.2,1.0,8.0,0.01,1.0,7854.08,서윤지,"Axiom, 288ea 샘플 기준"
+251,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,GetVersionAPT,GetVersionAPT,apt_tool,2.11.4,1.0,1.0,0.01,1.0,0.03,,
+252,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,ScatterProbesetList,ScatterProbesetList,bash,4.4.20,1.0,1.0,0.01,1.0,9.8,,
+253,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,AptGenoQC,AptGenoQC,apt-geno-qc,2.10.0,2.0,1.0,0.13,1.0,1.2,,
+254,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,Genotype call,GenotypeCall,"apt-genotype-axiom
+apt-format-result",2.11.3,2.0,16.0,0.43,2.0,8519.68,,
+255,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,Genotype call,GenotypeCallIgnoreDQC,"apt-genotype-axiom
+apt-format-result",2.11.3,2.0,16.0,0.4,2.0,8519.68,,
+256,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,SNPolisher,SNPolisher,"ps-metrics
+ps-classification",2.11.0,2.0,2.0,0.05,2.0,168.78,,
+257,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,SNPolisher,SNPolisherIgnoreDQC,"ps-metrics
+ps-classification",2.11.0,2.0,2.0,0.05,2.0,168.78,,
+258,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,CallToPlink,CallToPlink,"perl
+plink","5.38.2
+v1.9.0-b.7.11",4.0,2.0,0.02,2.0,600.0,,
+259,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,CallToPlink,CallToPlinkIgnoreDQC,"perl
+plink","5.38.2
+v1.9.0-b.7.11",4.0,2.0,0.02,2.0,600.0,,
+260,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,MergePlink,MergePlink,plink,v1.9.0-b.7.11,8.0,2.0,0.01,1.0,81.0,,
+261,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,MergePlink,MergePlinkIgnoreDQC,plink,v1.9.0-b.7.11,8.0,2.0,0.01,1.0,81.0,,
+262,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,PlinkBasicQC,PlinkBasicQC,plink,v1.9.0-b.7.11,4.0,2.0,0.01,1.0,463.0,,
+263,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,PlinkBasicQC,PlinkBasicQCIgnoreDQC,plink,v1.9.0-b.7.11,4.0,2.0,0.02,1.0,463.0,,
+264,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,MakeSummaryAndDB,MakeSummaryAndDB,bash,4.4.20,1.0,1.0,0.01,1.0,0.19,,
+265,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,MakeSummaryAndDB,MakeSummaryAndDBIgnoreDQC,bash,4.4.20,1.0,1.0,0.01,1.0,0.19,,
+266,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,Report,Report,R,4.1.3,1.0,4.0,0.08,1.0,2457.6,,
+267,DNA Chip,Human 기본분석,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,Report,ReportIgnoreDQC,R,4.1.3,1.0,4.0,0.09,1.0,2457.6,,
+268,DNA Chip,Human 보건원분석,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,GetVersionAPT,GetVersionAPT,apt_tool,2.11.4,1.0,1.0,0.01,1.0,0.03,서윤지,"Axiom, 1305ea 샘플 기준"
+269,DNA Chip,Human 보건원분석,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,AptGenoQC,AptGenoQC,apt-geno-qc,2.10.0,2.0,1.0,0.58,1.0,4.2,,
+270,DNA Chip,Human 보건원분석,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,FlowlessInspection,FlowlessInspection,perl,5.38.2,1.0,8.0,0.04,1.0,35840.0,,
+271,DNA Chip,Human 보건원분석,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,FirstGenotypeCall,FirstGenotypeCall,"apt-genotype-axiom
+apt-format-result",2.11.3,2.0,32.0,2.3,1.0,64512.0,,
+272,DNA Chip,Human 보건원분석,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,FirstCallToPlink,FirstCallToPlink,plink,v1.9.0-b.7.11,4.0,8.0,0.08,1.0,5427.2,,
+273,DNA Chip,Human 보건원분석,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,FirstSNPolisher,FirstSNPolisher,"ps-metrics
+ps-classification",2.11.0,2.0,2.0,0.28,1.0,306.0,,
+274,DNA Chip,Human 보건원분석,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,FirstMakeSummaryAndDB,FirstMakeSummaryAndDB,bash,4.4.20,1.0,1.0,0.01,1.0,1.2,,
+275,DNA Chip,Human 보건원분석,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,FirstQC,FirstQC,plink,v1.9.0-b.7.11,1.0,2.0,0.02,1.0,1126.4,,
+276,DNA Chip,Human 보건원분석,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,SecondGenotypeCall,SecondGenotypeCall,"apt-genotype-axiom
+apt-format-result",2.11.3,2.0,32.0,2.2,1.0,64512.0,,
+277,DNA Chip,Human 보건원분석,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,SecondCallToPlink,SecondCallToPlink,plink,v1.9.0-b.7.11,4.0,8.0,0.08,1.0,5017.6,,
+278,DNA Chip,Human 보건원분석,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,SecondMakeSummaryAndDB,SecondMakeSummaryAndDB,"ps-metrics
+ps-classification",2.11.0,1.0,2.0,0.01,1.0,1.3,,
+279,DNA Chip,Human 보건원분석,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,SecondSNPolisher,SecondSNPolisher,bash,4.4.20,2.0,2.0,0.29,1.0,296.0,,
+280,DNA Chip,Human 보건원분석,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,SecondQC,SecondQC,plink,v1.9.0-b.7.11,1.0,2.0,0.05,1.0,2252.8,,
+281,DNA Chip,Human 보건원분석,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,Report,Report,R,4.1.3,1.0,4.0,0.05,1.0,4710.4,,
+282,DNA Chip,GWAS,Genome-Wide Assocication Stuty(GWAS),Microarray,Inhouse,1.0.0,Regression,Regression,plink,v1.9.0-b.7.11,1.0,4.0,0.35,1.0,1843.2,서윤지,427ea 샘플기준
+283,DNA Chip,GWAS,Genome-Wide Assocication Stuty(GWAS),Microarray,Inhouse,1.0.0,VisualInspection,VisualInspection,Python,3.8.12,1.0,2.0,1.0,1.0,400.0,,
+284,DNA Chip,GWAS,Genome-Wide Assocication Stuty(GWAS),Microarray,Inhouse,1.0.0,Cluster QC,Cluster QC,Python,3.8.12,1.0,2.0,0.05,1.0,8.7,,
+285,DNA Chip,GWAS,Genome-Wide Assocication Stuty(GWAS),Microarray,Inhouse,1.0.0,Locuszoom,Locuszoom,locuszoom,1.4,2.0,4.0,0.97,1.0,55.0,,
+286,DNA Chip,GWAS,Genome-Wide Assocication Stuty(GWAS),Microarray,Inhouse,1.0.0,GWAS plot,GWAS plot,R,4.1.3,1.0,2.0,0.02,1.0,0.01,,
+287,DNA Chip,DNAGPS,DNAGPS,Axiom Microarray,Inhouse,1.0.0,Genotype call,GenotypeCall,apt-genotype-axiom,2.11.3,2.0,8.0,0.12,1.0,3.0,서윤지,"VN, 96ea(target 8ea) 샘플 기준"
+288,DNA Chip,DNAGPS,DNAGPS,Axiom Microarray,Inhouse,1.0.0,CallToPlink,CallToPlink,"perl
+plink","5.38.2
+v1.9.0-b.7.11",2.0,4.0,0.02,1.0,0.45,,
+289,DNA Chip,DNAGPS,DNAGPS,Axiom Microarray,Inhouse,1.0.0,SNPolisher,SNPolisher,"ps-metrics
+ps-classification",2.11.0,2.0,4.0,0.02,1.0,0.31,,
+290,DNA Chip,DNAGPS,DNAGPS,Axiom Microarray,Inhouse,1.0.0,Cluster QC,Cluster QC,Python,3.8.12,1.0,2.0,0.02,1.0,40.0,,
+291,DNA Chip,PRS,Polygenic Rist Score(PRS) Analysis,Microarray,Inhouse,1.0.0,plink GRS,plink GRS,plink,v1.9.0-b.7.11,4.0,8.0,0.02,1.0,0.57,서윤지,"1개 phenotype, variant 수 70개 미만 기준"
+292,DNA Chip,PRS,Polygenic Rist Score(PRS) Analysis,Microarray,Inhouse,1.0.0,PRSice2,PRSice2,PRSice2,2.3.5,4.0,8.0,0.02,1.0,0.74,,
+293,DNA Chip,PRS,Polygenic Rist Score(PRS) Analysis,Microarray,Inhouse,1.0.0,PRScs,PRScs,PRScs,v1.1.0,4.0,8.0,0.02,1.0,2.2,,
+294,DNA Chip,PRS,Polygenic Rist Score(PRS) Analysis,Microarray,Inhouse,1.0.0,LDpred2,LDpred2,bigsnpr,1.12.18,4.0,32.0,0.02,1.0,1331.2,,
+295,DNA Chip,Human 기본분석,Illumina Human Analysis,Illumina Microarray,Inhouse,1.0.0,Reprocessing_Sample,Reprocessing_Sample,Python,3.9.12,2.0,4.0,0.02,1.0,0.12,서윤지,"iScan, 48ea 샘플 기준, array-analysis-cli 이용 분석"
+296,DNA Chip,Human 기본분석,Illumina Human Analysis,Illumina Microarray,Inhouse,1.0.0,Genotype call,Genotype call,array-analysis-cli,v1.0,2.0,32.0,0.27,1.0,6553.6,,
+297,DNA Chip,Human 기본분석,Illumina Human Analysis,Illumina Microarray,Inhouse,1.0.0,CallToPlink,CallToPlink,plink2,v2.00a3LM,2.0,4.0,0.05,1.0,1536.0,,
+298,DNA Chip,Human 기본분석,Illumina Human Analysis,Illumina Microarray,Inhouse,1.0.0,Plink2BasicQC,Plink2BasicQC,plink2,v2.00a3LM,2.0,4.0,0.04,1.0,241.0,,
+299,DNA Chip,Human 기본분석,Illumina Human Analysis,Illumina Microarray,Inhouse,1.0.0,SummaryAndReport,SummaryAndReport,"R
+plink2","4.1.3
+v2.00a3LM",2.0,4.0,0.05,1.0,263.0,,
+300,DNA Chip,CNV analysis,Illumina Copy Number Variation(CNV) analysis,Illumina Microarray,Inhouse,1.0.0,Genome Studio cnvPartition,Genome Studio cnvPartition,cnvPartition plugi,3.2.0,4.0,4.0,0.5,1.0,983.0,서윤지,"window 실행, 48ea 샘플 기준"
+301,DNA Chip,CNV analysis,Illumina Copy Number Variation(CNV) analysis,Illumina Microarray,Inhouse,1.0.0,Genome Studio CNV Region Report,Genome Studio CNV Region Report,CNV Region Report plugin,2.1.1,4.0,4.0,2.0,1.0,6348.8,,
+302,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,Individuals,Individuals,bcftools,1.2,4.0,4.0,0.02,1.0,0.06,서윤지,"샘플 860ea, Olink HT (5414개 단백질) 기준"
+303,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,GenoDataInput,GenoDataInput,"bcftools
+plink","1.2
+1,9",32.0,64.0,0.02,1.0,164864.0,,
+304,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,ProteinDataInput,ProteinDataInput,bash,4.4.20,16.0,32.0,0.01,1.0,163.47,,
+305,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,chunk_proteins,chunk_proteins,python,3.7.12,4.0,8.0,0.01,1.0,0.07,,
+306,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,run_GWAS,run_GWAS,plink,v1.90b7.2,16.0,32.0,0.07,1.0,967.0,,
+307,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,GWASsummary,GWASsummary,ldsc,v1.0.1,16.0,32.0,0.01,1.0,639.0,,
+308,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,LDrefData,LDrefData,plink,v1.90b7.2,16.0,32.0,0.06,1.0,63488.0,,
+309,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,FUSION_wgt,FUSION_wgt,R,4.3.3,64.0,500.0,84.0,56.0,7065.6,,
+310,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,PWASO_format,PWASO_format,bash,4.4.20,4.0,4.0,0.07,1.0,7475.2,,
+311,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,PWASO_Model,PWASO_Model,TIGAR,v1,64.0,16.0,2.0,22.0,185.0,,
+312,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,FUSION_assoc_test,FUSION_assoc_test,R,4.3.3,64.0,64.0,0.34,1.0,189.0,,
+313,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,FUSION_assoc_final,FUSION_assoc_final,bash,4.4.20,64.0,64.0,0.01,1.0,0.62,,
+314,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,FUSION_exel,FUSION_exel,R,4.3.3,16.0,8.0,0.02,1.0,0.44,,
+315,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,PWASO_preFusion,PWASO_preFusion,R,4.3.3,16.0,8.0,1.1,1.0,262.0,,
+316,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,PWASO_FusionModel,PWASO_FusionModel,TIGAR,v1,16.0,8.0,0.01,22.0,51.0,,
+317,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,PWASO_PWAS,PWASO_PWAS,TIGAR,v1,16.0,8.0,0.44,22.0,4.5,,
+318,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,PWASO_MergePWAS,PWASO_MergePWAS,bash,4.4.20,4.0,4.0,0.01,1.0,0.69,,
+319,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,PWASO_ACAT,PWASO_ACAT,R,4.3.3,8.0,4.0,0.01,1.0,0.24,,
+320,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,FUSION_plot,FUSION_plot,R,4.3.3,16.0,8.0,0.29,1.0,99.0,,
+321,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,FUSION_report,FUSION_report,R,4.3.3,8.0,4.0,0.03,1.0,190.0,,
+322,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,PWASO_Plot,PWASO_Plot,R,4.3.3,8.0,4.0,0.13,1.0,41.0,,
+323,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,PWASO_Summary,PWASO_Summary,python,3.7.12,4.0,4.0,0.02,1.0,0.52,,
+324,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,PWAS_report,PWAS_report,R,4.3.3,8.0,4.0,0.23,1.0,26624.0,,
+325,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,MR_coloc,MR_prep_genotype,plink,v1.90b7.2,12.0,12.0,0.08,1.0,7884.8,,
+326,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,MR_coloc,OneSampleMR,ivreg,0.6_2,12.0,4.0,0.1,1.0,274.0,,
+327,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,MR_coloc,Colocalization,coloc,5.2.3,16.0,4.0,0.12,1.0,3481.6,,
+328,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,MR_coloc,MR_plot,R,4.3.3,12.0,4.0,0.11,1.0,102.0,,
+329,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,MR_coloc,Coloc_Locuszoom,locuszoom,1.4,16.0,4.0,3.4,1.0,112.0,,
+330,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,MR_coloc,Protein_anno,R,4.3.3,2.0,4.0,0.01,1.0,0.03,,
+331,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,MR_coloc,SNP_anno,snpEff,4.2,2.0,4.0,0.02,1.0,1.0,,
+332,커스텀 분석,PWAS,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,MR_coloc,MR_Coloc_Report,R,4.3.3,2.0,4.0,0.01,1.0,87.0,,
+333,커스텀 분석,모델링 및 시뮬레이션 ,Kinics-ICS,Axiom Microarray,Inhouse,1.0.0,ICS,plinkQC,"plink1.9
+perl","v1.90b7.2
+v5.16.3",2.0,4.0,0.1,1.0,65.0,"박윤기,서윤지",391ea 기준
+334,커스텀 분석,모델링 및 시뮬레이션 ,Kinics-ICS,Axiom Microarray,Inhouse,1.0.0,ICS,Phasing,Shapeit,v2.r904,2.0,8.0,2.0,22.0,47.0,,
+335,커스텀 분석,모델링 및 시뮬레이션 ,Kinics-ICS,Axiom Microarray,Inhouse,1.0.0,ICS,makeIBSvalue,python,3.6.8,2.0,8.0,30.0,22.0,250.0,,
+336,커스텀 분석,모델링 및 시뮬레이션 ,Kinics-ICS,Axiom Microarray,Inhouse,1.0.0,ICS,makeICSsegment,python,3.6.8,2.0,4.0,1.0,682.0,1536.0,,
+337,커스텀 분석,모델링 및 시뮬레이션 ,Kinics-ICS,Axiom Microarray,Inhouse,1.0.0,ICS,ICSintegration,"python
+R","3.6.8
+4.0.5",2.0,1.0,0.5,1.0,110.0,,
+338,커스텀 분석,모델링 및 시뮬레이션 ,Kinics-ICS,Axiom Microarray,Inhouse,1.0.0,ICS,makePlots,R,4.0.5,1.0,1.0,0.1,1.0,1.0,,

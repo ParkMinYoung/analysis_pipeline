@@ -1,0 +1,104 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): DNA Chip
+Analysis Name: DNAGPS
+Platform: Axiom Microarray
+Pipeline: Inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 4
+Number of Steps: 4
+Number of Tools: 4
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 7
+Total Memory: 18 GB
+Total Compute Time: 0.18 hours
+Total Storage: 0.04 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $0.03
+  - Compute Cost: $0.03 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $0.14
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Genotype call:
+  Steps: 1
+  Time: 0.12 hours
+  Cost: $0.02
+  Tools: apt-genotype-axiom
+
+Cluster QC:
+  Steps: 1
+  Time: 0.02 hours
+  Cost: $0.00
+  Tools: Python
+
+CallToPlink:
+  Steps: 1
+  Time: 0.02 hours
+  Cost: $0.00
+  Tools: perl
+plink
+
+SNPolisher:
+  Steps: 1
+  Time: 0.02 hours
+  Cost: $0.00
+  Tools: ps-metrics
+ps-classification
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Genotype call
+Step: GenotypeCall
+Tool: apt-genotype-axiom v2.11.3
+Resources: 2 CPUs, 8 GB RAM, 3 MB storage
+Runtime: 0.12 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0204 (compute: $0.0204, storage: $0.0000)
+
+Group: CallToPlink
+Step: CallToPlink
+Tool: perl
+plink v5.38.2
+v1.9.0-b.7.11
+Resources: 2 CPUs, 4 GB RAM, 0 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: SNPolisher
+Step: SNPolisher
+Tool: ps-metrics
+ps-classification v2.11.0
+Resources: 2 CPUs, 4 GB RAM, 0 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: Cluster QC
+Step: Cluster QC
+Tool: Python v3.8.12
+Resources: 1 CPUs, 2 GB RAM, 40 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

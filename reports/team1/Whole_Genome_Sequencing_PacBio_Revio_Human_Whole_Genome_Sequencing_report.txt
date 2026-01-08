@@ -1,0 +1,357 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Whole Genome Sequencing
+Analysis Name: PacBio Revio Human Whole Genome Sequencing
+Platform: PacBio Revio
+Pipeline: Hifi-human-WGS-WDL, Inhouse v3.1.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 6
+Number of Steps: 34
+Number of Tools: 22
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 317
+Total Memory: 1232 GB
+Total Compute Time: 66.60 hours
+Total Storage: 364.12 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $257.48
+  - Compute Cost: $257.33 (99.9%)
+  - Storage Cost: $0.15 (0.1%)
+Cost per Hour: $3.87
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+upstream:
+  Steps: 16
+  Time: 46.80 hours
+  Cost: $241.69
+  Tools: pbmm2, deepvariant, samtools, fastqc, nanostat, paraphase, mosdepth, mitorsaw, trgt, pindex
+zmwfilter, sawfish
+
+downstream:
+  Steps: 11
+  Time: 14.80 hours
+  Cost: $10.14
+  Tools: python, hiphase, samtools, aligned_bam_to_cpg_scores, pbstarphase, bcftools, bcftools
+mosdepth, methbat, pharmcat
+
+rmkinetic:
+  Steps: 1
+  Time: 4.00 hours
+  Cost: $5.47
+  Tools: python
+
+tertiary:
+  Steps: 4
+  Time: 0.80 hours
+  Cost: $0.17
+  Tools: slivar, svpack, python
+
+consolidate:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: python
+
+multiqc report:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: multiqc
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: consolidate
+Step: consolidate_stats
+Tool: python v3.9
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: downstream
+Step: coverage_dropouts
+Tool: python v3.9
+Resources: 2 CPUs, 4 GB RAM, 1 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.3400 (compute: $0.3400, storage: $0.0000)
+
+Group: downstream
+Step: hiphase
+Tool: hiphase v1.5.0-8af3f1e
+Resources: 16 CPUs, 96 GB RAM, 59463 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.12xlarge @ $2.0400/hr
+Cost: $8.1858 (compute: $8.1600, storage: $0.0258)
+
+Group: downstream
+Step: bam_stats
+Tool: samtools v1.20
+Resources: 2 CPUs, 8 GB RAM, 104 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.3400 (compute: $0.3400, storage: $0.0000)
+
+Group: downstream
+Step: cpg_pileup
+Tool: aligned_bam_to_cpg_scores v3.0.0
+Resources: 16 CPUs, 32 GB RAM, 2917 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.6803 (compute: $0.6800, storage: $0.0003)
+
+Group: downstream
+Step: pbstarphase_diplotype
+Tool: pbstarphase v1.4.1-c0c8c26
+Resources: 2 CPUs, 16 GB RAM, 1 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.3400 (compute: $0.3400, storage: $0.0000)
+
+Group: downstream
+Step: sv_stats
+Tool: bcftools v1.20
+Resources: 2 CPUs, 4 GB RAM, 1 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0850 (compute: $0.0850, storage: $0.0000)
+
+Group: downstream
+Step: bcftools_stats_roh_small_variants
+Tool: bcftools v1.20
+Resources: 2 CPUs, 4 GB RAM, 35 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0850 (compute: $0.0850, storage: $0.0000)
+
+Group: downstream
+Step: filter_preprocessed_vcf
+Tool: bcftools
+mosdepth v1.20
+0.3.9
+Resources: 4 CPUs, 8 GB RAM, 1 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: downstream
+Step: methbat
+Tool: methbat v0.15.0
+Resources: 2 CPUs, 4 GB RAM, 5 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: downstream
+Step: pharmcat_preprocess
+Tool: python v3.9
+Resources: 2 CPUs, 4 GB RAM, 1 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: downstream
+Step: run_pharmcat
+Tool: pharmcat v2.15.4
+Resources: 2 CPUs, 4 GB RAM, 2 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: tertiary
+Step: slivar_small_variant
+Tool: slivar v0.3.1
+Resources: 8 CPUs, 16 GB RAM, 19 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: tertiary
+Step: svpack_filter_annotated
+Tool: svpack v54b54db
+Resources: 2 CPUs, 16 GB RAM, 1 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: tertiary
+Step: slivar_svpack_tsv
+Tool: slivar v0.3.1
+Resources: 2 CPUs, 4 GB RAM, 7 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: tertiary
+Step: write_phrank
+Tool: python v3.9
+Resources: 1 CPUs, 2 GB RAM, 1 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: upstream
+Step: pbmm2_align_wgs
+Tool: pbmm2 v1.17.0
+Resources: 32 CPUs, 128 GB RAM, 61094 MB storage
+Runtime: 5.00 hours × 14 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $190.4331 (compute: $190.4000, storage: $0.0331)
+
+Group: upstream
+Step: deepvariant_make_examples
+Tool: deepvariant v1.9.0
+Resources: 8 CPUs, 32 GB RAM, 16085 MB storage
+Runtime: 4.00 hours × 8 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $21.7670 (compute: $21.7600, storage: $0.0070)
+
+Group: upstream
+Step: bamTofastq
+Tool: samtools v1.21
+Resources: 8 CPUs, 32 GB RAM, 45510 MB storage
+Runtime: 6.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $4.1096 (compute: $4.0800, storage: $0.0296)
+
+Group: upstream
+Step: fastqc
+Tool: fastqc vv0.12.1
+Resources: 8 CPUs, 32 GB RAM, 1 MB storage
+Runtime: 5.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $3.4000 (compute: $3.4000, storage: $0.0000)
+
+Group: upstream
+Step: nanostat
+Tool: nanostat v1.6.0
+Resources: 8 CPUs, 32 GB RAM, 1 MB storage
+Runtime: 5.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $3.4000 (compute: $3.4000, storage: $0.0000)
+
+Group: upstream
+Step: paraphase
+Tool: paraphase v3.3.4
+Resources: 8 CPUs, 16 GB RAM, 262 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $1.3601 (compute: $1.3600, storage: $0.0001)
+
+Group: upstream
+Step: mosdepth
+Tool: mosdepth v0.3.9
+Resources: 4 CPUs, 8 GB RAM, 34 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.5100 (compute: $0.5100, storage: $0.0000)
+
+Group: upstream
+Step: mitorsaw
+Tool: mitorsaw v0.2.4
+Resources: 4 CPUs, 32 GB RAM, 1 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $2.0400 (compute: $2.0400, storage: $0.0000)
+
+Group: upstream
+Step: samtools_stat
+Tool: samtools v1.19.2
+Resources: 8 CPUs, 32 GB RAM, 5 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $2.0400 (compute: $2.0400, storage: $0.0000)
+
+Group: upstream
+Step: merge_hifi_bams
+Tool: samtools v1.20
+Resources: 8 CPUs, 16 GB RAM, 60402 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $1.0397 (compute: $1.0200, storage: $0.0197)
+
+Group: upstream
+Step: trgt
+Tool: trgt v4.0.0
+Resources: 32 CPUs, 64 GB RAM, 3605 MB storage
+Runtime: 1.50 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $2.0406 (compute: $2.0400, storage: $0.0006)
+
+Group: upstream
+Step: split_input_bam
+Tool: pindex
+zmwfilter v3.5.0
+3.5.0
+Resources: 16 CPUs, 32 GB RAM, 60948 MB storage
+Runtime: 1.20 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.8239 (compute: $0.8160, storage: $0.0079)
+
+Group: upstream
+Step: sawfish_discover
+Tool: sawfish v2.1.1
+Resources: 16 CPUs, 128 GB RAM, 168 MB storage
+Runtime: 1.20 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $3.2640 (compute: $3.2640, storage: $0.0000)
+
+Group: upstream
+Step: deepvariant_call_variants_cpu
+Tool: deepvariant v1.9.0
+Resources: 64 CPUs, 256 GB RAM, 185 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $4.0320 (compute: $4.0320, storage: $0.0000)
+
+Group: upstream
+Step: deepvariant_postprocess_variants
+Tool: deepvariant v1.9.0
+Resources: 2 CPUs, 72 GB RAM, 694 MB storage
+Runtime: 0.60 hours × 1 parallel tasks
+Instance: c6i.12xlarge @ $2.0400/hr
+Cost: $1.2240 (compute: $1.2240, storage: $0.0000)
+
+Group: upstream
+Step: sawfish_call
+Tool: sawfish v2.1.1
+Resources: 16 CPUs, 32 GB RAM, 210 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.2040 (compute: $0.2040, storage: $0.0000)
+
+Group: multiqc report
+Step: multiqc report
+Tool: multiqc v1.30
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: rmkinetic
+Step: remove_kinetic
+Tool: python v3.11
+Resources: 8 CPUs, 64 GB RAM, 61094 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $5.4665 (compute: $5.4400, storage: $0.0265)
+
+================================================================================
+END OF REPORT
+================================================================================

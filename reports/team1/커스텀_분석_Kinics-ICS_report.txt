@@ -1,0 +1,103 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): 커스텀 분석
+Analysis Name: Kinics-ICS
+Platform: Axiom Microarray
+Pipeline: Inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 1
+Number of Steps: 6
+Number of Tools: 5
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 11
+Total Memory: 26 GB
+Total Compute Time: 33.70 hours
+Total Storage: 1.96 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $177.71
+  - Compute Cost: $177.71 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $5.27
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+ICS:
+  Steps: 6
+  Time: 33.70 hours
+  Cost: $177.71
+  Tools: plink1.9
+perl, Shapeit, python, python
+R, R
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: ICS
+Step: plinkQC
+Tool: plink1.9
+perl vv1.90b7.2
+v5.16.3
+Resources: 2 CPUs, 4 GB RAM, 65 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: ICS
+Step: Phasing
+Tool: Shapeit vv2.r904
+Resources: 2 CPUs, 8 GB RAM, 47 MB storage
+Runtime: 2.00 hours × 22 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $7.4800 (compute: $7.4800, storage: $0.0000)
+
+Group: ICS
+Step: makeIBSvalue
+Tool: python v3.6.8
+Resources: 2 CPUs, 8 GB RAM, 250 MB storage
+Runtime: 30.00 hours × 22 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $112.2008 (compute: $112.2000, storage: $0.0008)
+
+Group: ICS
+Step: makeICSsegment
+Tool: python v3.6.8
+Resources: 2 CPUs, 4 GB RAM, 1536 MB storage
+Runtime: 1.00 hours × 682 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $57.9702 (compute: $57.9700, storage: $0.0002)
+
+Group: ICS
+Step: ICSintegration
+Tool: python
+R v3.6.8
+4.0.5
+Resources: 2 CPUs, 1 GB RAM, 110 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+Group: ICS
+Step: makePlots
+Tool: R v4.0.5
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

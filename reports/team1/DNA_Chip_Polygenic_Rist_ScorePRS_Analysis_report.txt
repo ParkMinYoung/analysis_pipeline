@@ -1,0 +1,99 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): DNA Chip
+Analysis Name: Polygenic Rist Score(PRS) Analysis
+Platform: Microarray
+Pipeline: Inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 4
+Number of Steps: 4
+Number of Tools: 4
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 16
+Total Memory: 56 GB
+Total Compute Time: 0.08 hours
+Total Storage: 1.30 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $0.02
+  - Compute Cost: $0.02 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $0.30
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+LDpred2:
+  Steps: 1
+  Time: 0.02 hours
+  Cost: $0.01
+  Tools: bigsnpr
+
+PRScs:
+  Steps: 1
+  Time: 0.02 hours
+  Cost: $0.00
+  Tools: PRScs
+
+PRSice2:
+  Steps: 1
+  Time: 0.02 hours
+  Cost: $0.00
+  Tools: PRSice2
+
+plink GRS:
+  Steps: 1
+  Time: 0.02 hours
+  Cost: $0.00
+  Tools: plink
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: plink GRS
+Step: plink GRS
+Tool: plink vv1.9.0-b.7.11
+Resources: 4 CPUs, 8 GB RAM, 1 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: PRSice2
+Step: PRSice2
+Tool: PRSice2 v2.3.5
+Resources: 4 CPUs, 8 GB RAM, 1 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: PRScs
+Step: PRScs
+Tool: PRScs vv1.1.0
+Resources: 4 CPUs, 8 GB RAM, 2 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: LDpred2
+Step: LDpred2
+Tool: bigsnpr v1.12.18
+Resources: 4 CPUs, 32 GB RAM, 1331 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0136 (compute: $0.0136, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

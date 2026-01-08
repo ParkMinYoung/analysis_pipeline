@@ -1,0 +1,71 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): DNA Chip
+Analysis Name: Illumina Copy Number Variation(CNV) analysis
+Platform: Illumina Microarray
+Pipeline: Inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 2
+Number of Steps: 2
+Number of Tools: 2
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 8
+Total Memory: 8 GB
+Total Compute Time: 2.50 hours
+Total Storage: 7.16 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $0.43
+  - Compute Cost: $0.43 (99.7%)
+  - Storage Cost: $0.00 (0.3%)
+Cost per Hour: $0.17
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Genome Studio CNV Region Report:
+  Steps: 1
+  Time: 2.00 hours
+  Cost: $0.34
+  Tools: CNV Region Report plugin
+
+Genome Studio cnvPartition:
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.09
+  Tools: cnvPartition plugi
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Genome Studio cnvPartition
+Step: Genome Studio cnvPartition
+Tool: cnvPartition plugi v3.2.0
+Resources: 4 CPUs, 4 GB RAM, 983 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0851 (compute: $0.0850, storage: $0.0001)
+
+Group: Genome Studio CNV Region Report
+Step: Genome Studio CNV Region Report
+Tool: CNV Region Report plugin v2.1.1
+Resources: 4 CPUs, 4 GB RAM, 6349 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.3414 (compute: $0.3400, storage: $0.0014)
+
+================================================================================
+END OF REPORT
+================================================================================

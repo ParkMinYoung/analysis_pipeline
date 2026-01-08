@@ -1,0 +1,248 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): DNA Chip
+Analysis Name: Post-GWAS downstream analysis
+Platform: Microarray
+Pipeline: Inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 6
+Number of Steps: 19
+Number of Tools: 11
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 332
+Total Memory: 1208 GB
+Total Compute Time: 8.80 hours
+Total Storage: 43.32 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $21.09
+  - Compute Cost: $21.09 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $2.40
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Genebased:
+  Steps: 4
+  Time: 4.40 hours
+  Cost: $15.80
+  Tools: magma, gcta64, sumFREGAT, quarto
+
+MR_Coloc:
+  Steps: 6
+  Time: 1.80 hours
+  Cost: $2.65
+  Tools: R, python
+coloc
+locuscomparer, TwoSampleMR
+MendelianRandomization, coloc
+locuscomparer
+
+MetaAnalysis:
+  Steps: 4
+  Time: 2.00 hours
+  Cost: $2.38
+  Tools: R, METAL, MR-MEGA
+
+FineMapping:
+  Steps: 1
+  Time: 0.20 hours
+  Cost: $0.14
+  Tools: plink
+susieR
+
+InputFormatting:
+  Steps: 3
+  Time: 0.30 hours
+  Cost: $0.10
+  Tools: R
+
+report:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: quarto
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: InputFormatting
+Step: JS_GWAS_format
+Tool: R v4.4.2
+Resources: 2 CPUs, 12 GB RAM, 1100 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: InputFormatting
+Step: single_meta_GWAS_format
+Tool: R v4.4.2
+Resources: 2 CPUs, 12 GB RAM, 3994 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: InputFormatting
+Step: multi_meta_GWAS_format
+Tool: R v4.4.2
+Resources: 2 CPUs, 12 GB RAM, 6349 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0341 (compute: $0.0340, storage: $0.0001)
+
+Group: MR_Coloc
+Step: Harmonization_trait
+Tool: R v4.4.2
+Resources: 16 CPUs, 64 GB RAM, 1956 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.4081 (compute: $0.4080, storage: $0.0001)
+
+Group: MR_Coloc
+Step: Harmonization_eqtl
+Tool: R v4.4.2
+Resources: 16 CPUs, 64 GB RAM, 5222 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.4082 (compute: $0.4080, storage: $0.0002)
+
+Group: MetaAnalysis
+Step: single_meta_Harmonization
+Tool: R v4.4.2
+Resources: 4 CPUs, 32 GB RAM, 3154 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.3402 (compute: $0.3400, storage: $0.0002)
+
+Group: MetaAnalysis
+Step: multi_meta_Harmonization
+Tool: R v4.4.2
+Resources: 4 CPUs, 32 GB RAM, 7680 MB storage
+Runtime: 0.80 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.5447 (compute: $0.5440, storage: $0.0007)
+
+Group: FineMapping
+Step: Finemap
+Tool: plink
+susieR v1.90
+0.14.2
+Resources: 10 CPUs, 24 GB RAM, 1900 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+Group: Genebased
+Step: MAGMA
+Tool: magma v1.10
+Resources: 16 CPUs, 64 GB RAM, 335 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: Genebased
+Step: mBAT_combo
+Tool: gcta64 v1.94.1
+Resources: 16 CPUs, 64 GB RAM, 483 MB storage
+Runtime: 0.40 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.5440 (compute: $0.5440, storage: $0.0000)
+
+Group: Genebased
+Step: sumFREGAT
+Tool: sumFREGAT v1.2.5
+Resources: 64 CPUs, 500 GB RAM, 2150 MB storage
+Runtime: 3.70 hours × 1 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $14.9193 (compute: $14.9184, storage: $0.0009)
+
+Group: Genebased
+Step: Gene_based_report
+Tool: quarto v1.7.31
+Resources: 16 CPUs, 32 GB RAM, 9 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: MetaAnalysis
+Step: SingleMeta
+Tool: METAL v2020-05-05
+Resources: 64 CPUs, 16 GB RAM, 2355 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $1.3601 (compute: $1.3600, storage: $0.0001)
+
+Group: MetaAnalysis
+Step: MultiMeta
+Tool: MR-MEGA v0.2
+Resources: 16 CPUs, 8 GB RAM, 4300 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.1361 (compute: $0.1360, storage: $0.0001)
+
+Group: MR_Coloc
+Step: Coloc_GWAS
+Tool: python
+coloc
+locuscomparer v3.9.21
+5.2.3
+1.0.0
+Resources: 16 CPUs, 4 GB RAM, 2200 MB storage
+Runtime: 0.60 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.4081 (compute: $0.4080, storage: $0.0001)
+
+Group: MR_Coloc
+Step: TwoMR_GWAS
+Tool: TwoSampleMR
+MendelianRandomization v0.6.17
+0.10.0
+Resources: 16 CPUs, 128 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: MR_Coloc
+Step: Coloc_eQTL
+Tool: coloc
+locuscomparer v5.2.3
+1.0.0
+Resources: 16 CPUs, 4 GB RAM, 782 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: MR_Coloc
+Step: TwoMR_eQTL
+Tool: TwoSampleMR
+MendelianRandomization v0.6.17
+0.10.0
+Resources: 32 CPUs, 128 GB RAM, 8 MB storage
+Runtime: 0.40 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $1.0880 (compute: $1.0880, storage: $0.0000)
+
+Group: report
+Step: All_analysis_report
+Tool: quarto v1.7.31
+Resources: 4 CPUs, 8 GB RAM, 380 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

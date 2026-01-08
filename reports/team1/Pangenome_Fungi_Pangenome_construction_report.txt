@@ -1,0 +1,108 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Pangenome
+Analysis Name: Fungi Pangenome construction
+Platform: PacBio Sequel
+Pipeline: Inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 4
+Number of Steps: 4
+Number of Tools: 4
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 150
+Total Memory: 644 GB
+Total Compute Time: 14.00 hours
+Total Storage: 44.77 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $154.80
+  - Compute Cost: $154.76 (100.0%)
+  - Storage Cost: $0.04 (0.0%)
+Cost per Hour: $11.06
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+AssemblyProcess:
+  Steps: 1
+  Time: 8.70 hours
+  Cost: $140.35
+  Tools: RagTag
+TGS-GapCloser
+RepeatModeler
+RepeatMasker
+
+Cactus:
+  Steps: 1
+  Time: 5.10 hours
+  Cost: $13.87
+  Tools: Minigraph-Cactus
+
+AssemblyQCwithQuast:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.54
+  Tools: Quast
+
+MergeQuast:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.03
+  Tools: bash
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: AssemblyQCwithQuast
+Step: Assembly QC with Quast
+Tool: Quast v5.2.0
+Resources: 20 CPUs, 64 GB RAM, 140 MB storage
+Runtime: 0.10 hours × 4 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.5440 (compute: $0.5440, storage: $0.0000)
+
+Group: MergeQuast
+Step: Merge Quast QC results
+Tool: bash v-
+Resources: 2 CPUs, 16 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: AssemblyProcess
+Step: Correction & Scaffolding & Gap Filling & Repeat Masking
+Tool: RagTag
+TGS-GapCloser
+RepeatModeler
+RepeatMasker v2.1.0
+1.1.1
+2.0.6
+4.1.7-p1
+Resources: 64 CPUs, 500 GB RAM, 41000 MB storage
+Runtime: 8.70 hours × 4 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $140.3523 (compute: $140.3136, storage: $0.0387)
+
+Group: Cactus
+Step: Pangenome Graph Construction
+Tool: Minigraph-Cactus v2.6.13
+Resources: 64 CPUs, 64 GB RAM, 4700 MB storage
+Runtime: 5.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $13.8746 (compute: $13.8720, storage: $0.0026)
+
+================================================================================
+END OF REPORT
+================================================================================

@@ -1,0 +1,154 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Whole Exome Sequencing
+Analysis Name: Illumina Novaseq  DNAGPS VN
+Platform: Illumina NoavaSeq
+Pipeline: Inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 7
+Number of Steps: 7
+Number of Tools: 7
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 37
+Total Memory: 400 GB
+Total Compute Time: 2.90 hours
+Total Storage: 27.44 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $3.88
+  - Compute Cost: $3.88 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $1.34
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+AlignBam:
+  Steps: 1
+  Time: 1.50 hours
+  Cost: $2.04
+  Tools: picard SamToFastq
+bwa mem
+picard MergeBamAlignment
+
+Fastq_to_ubam:
+  Steps: 1
+  Time: 0.40 hours
+  Cost: $0.54
+  Tools: gatk FastqToSam
+gatk MarkIlluminaAdapters
+
+MarkDuplicates:
+  Steps: 1
+  Time: 0.40 hours
+  Cost: $0.54
+  Tools: gatk MarkDuplicates
+
+Combine & Genotype GVCFs:
+  Steps: 1
+  Time: 0.20 hours
+  Cost: $0.27
+  Tools: gatk CombineGVCFs
+gatk GenotypeGVCFs
+
+VariantCalling:
+  Steps: 1
+  Time: 0.20 hours
+  Cost: $0.27
+  Tools: gatk HaplotypeCaller
+
+Output formatting:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.14
+  Tools: bcftools
+plink
+
+SortBam:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.07
+  Tools: samtools
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Fastq_to_ubam
+Step: Fastq_to_ubam
+Tool: gatk FastqToSam
+gatk MarkIlluminaAdapters v4.2.2.0
+Resources: 1 CPUs, 64 GB RAM, 9200 MB storage
+Runtime: 0.40 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.5444 (compute: $0.5440, storage: $0.0004)
+
+Group: AlignBam
+Step: SamToFastqAndBwaMemAndMba
+Tool: picard SamToFastq
+bwa mem
+picard MergeBamAlignment v2.25.4
+0.7.17
+2.25.4
+Resources: 16 CPUs, 64 GB RAM, 6300 MB storage
+Runtime: 1.50 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $2.0410 (compute: $2.0400, storage: $0.0010)
+
+Group: MarkDuplicates
+Step: MarkDuplicates
+Tool: gatk MarkDuplicates v4.2.2.0
+Resources: 1 CPUs, 64 GB RAM, 6300 MB storage
+Runtime: 0.40 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.5443 (compute: $0.5440, storage: $0.0003)
+
+Group: SortBam
+Step: SortBam
+Tool: samtools v4.2.2.0
+Resources: 16 CPUs, 16 GB RAM, 6300 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0681 (compute: $0.0680, storage: $0.0001)
+
+Group: VariantCalling
+Step: VariantCalling
+Tool: gatk HaplotypeCaller v4.2.2.0
+Resources: 1 CPUs, 64 GB RAM, 0 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: Combine & Genotype GVCFs
+Step: Combine & Genotype GVCFs
+Tool: gatk CombineGVCFs
+gatk GenotypeGVCFs v4.2.2.0
+Resources: 1 CPUs, 64 GB RAM, 0 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: Output formatting
+Step: Output formatting
+Tool: bcftools
+plink v1.19
+1.90
+Resources: 1 CPUs, 64 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

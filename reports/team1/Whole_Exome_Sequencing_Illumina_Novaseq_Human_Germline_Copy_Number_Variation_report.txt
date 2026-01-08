@@ -1,0 +1,292 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Whole Exome Sequencing
+Analysis Name: Illumina Novaseq Human Germline Copy Number Variation
+Platform: Illumina NoavaSeq
+Pipeline: gatk CNV Germline Cohort Workflow v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 16
+Number of Steps: 18
+Number of Tools: 13
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 24
+Total Memory: 88 GB
+Total Compute Time: 4.10 hours
+Total Storage: 0.33 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $16.43
+  - Compute Cost: $16.43 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $4.01
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+GermlineCNVCallerCohortMode:
+  Steps: 1
+  Time: 0.30 hours
+  Cost: $13.62
+  Tools: gatk GermlineCNVCaller
+
+CollectCounts:
+  Steps: 1
+  Time: 1.30 hours
+  Cost: $2.21
+  Tools: gatk CollectReadCounts
+
+PostprocessGermlineCNVCalls:
+  Steps: 1
+  Time: 0.20 hours
+  Cost: $0.34
+  Tools: gatk PostprocessGermlineCNVCalls
+
+AnnotateIntervals:
+  Steps: 1
+  Time: 0.80 hours
+  Cost: $0.07
+  Tools: gatk AnnotateIntervals
+
+Report:
+  Steps: 3
+  Time: 0.30 hours
+  Cost: $0.03
+  Tools: bash
+gatk VariantsToTable
+python, R
+python, quarto
+
+FilterIntervals:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: gatk FilterIntervals
+
+DetermineGermlineContigPloidyCohortMode:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: gatk DetermineGermlineContigPloidy
+
+WriteGCNVCalls:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: bash
+
+ScatterPloidyCallsBySample:
+  Steps: 1
+  Time: 0.20 hours
+  Cost: $0.02
+  Tools: bash
+
+WriteIntervalIndexes:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: python
+
+WriteIntervals:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: python
+
+WritePloidyCalls:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: python
+
+WriteSegmentIndexes:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: python
+
+WriteSegments:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: python
+
+ScatterIntervals:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: gatk IntervalListTools
+
+PreprocessIntervals:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: gatk PreprocessIntervals
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: PreprocessIntervals
+Step: PreprocessIntervals
+Tool: gatk PreprocessIntervals v4.6.1.0
+Resources: 1 CPUs, 2 GB RAM, 8 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: AnnotateIntervals
+Step: AnnotateIntervals
+Tool: gatk AnnotateIntervals v4.6.1.0
+Resources: 1 CPUs, 2 GB RAM, 15 MB storage
+Runtime: 0.80 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: CollectCounts
+Step: CollectCounts
+Tool: gatk CollectReadCounts v4.6.1.0
+Resources: 1 CPUs, 7 GB RAM, 10 MB storage
+Runtime: 1.30 hours × 10 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $2.2100 (compute: $2.2100, storage: $0.0000)
+
+Group: FilterIntervals
+Step: FilterIntervals
+Tool: gatk FilterIntervals v4.6.1.0
+Resources: 1 CPUs, 7 GB RAM, 8 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: ScatterIntervals
+Step: ScatterIntervals
+Tool: gatk IntervalListTools v4.6.1.0
+Resources: 1 CPUs, 2 GB RAM, 156 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: DetermineGermlineContigPloidyCohortMode
+Step: DetermineGermlineContigPloidyCohortMode
+Tool: gatk DetermineGermlineContigPloidy v4.6.1.0
+Resources: 1 CPUs, 7 GB RAM, 2 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: GermlineCNVCallerCohortMode
+Step: GermlineCNVCallerCohortMode
+Tool: gatk GermlineCNVCaller v4.6.1.0
+Resources: 1 CPUs, 7 GB RAM, 7 MB storage
+Runtime: 0.30 hours × 267 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $13.6170 (compute: $13.6170, storage: $0.0000)
+
+Group: ScatterPloidyCallsBySample
+Step: ScatterPloidyCallsBySample
+Tool: bash v-
+Resources: 1 CPUs, 2 GB RAM, 0 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: PostprocessGermlineCNVCalls
+Step: PostprocessGermlineCNVCalls
+Tool: gatk PostprocessGermlineCNVCalls v4.6.1.0
+Resources: 1 CPUs, 7 GB RAM, 18 MB storage
+Runtime: 0.20 hours × 10 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.3400 (compute: $0.3400, storage: $0.0000)
+
+Group: WritePloidyCalls
+Step: WritePloidyCalls
+Tool: python vlatest
+Resources: 2 CPUs, 7 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: WriteGCNVCalls
+Step: WriteGCNVCalls
+Tool: bash v-
+Resources: 2 CPUs, 7 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: WriteIntervals
+Step: WriteIntervals
+Tool: python vlatest
+Resources: 2 CPUs, 7 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: WriteIntervalIndexes
+Step: WriteIntervalIndexes
+Tool: python vlatest
+Resources: 2 CPUs, 7 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: WriteSegments
+Step: WriteSegments
+Tool: python vlatest
+Resources: 2 CPUs, 7 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: WriteSegmentIndexes
+Step: WriteSegmentIndexes
+Tool: python vlatest
+Resources: 2 CPUs, 7 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: Report
+Step: Make summary files
+Tool: bash
+gatk VariantsToTable
+python v.
+4.6.1.0
+3.11.8
+Resources: 1 CPUs, 1 GB RAM, 105 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Report
+Step: Make plots
+Tool: R
+python v4.4.2
+3.11.8
+Resources: 1 CPUs, 1 GB RAM, 3 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Report
+Step: Report
+Tool: quarto v1.7.31
+Resources: 1 CPUs, 1 GB RAM, 8 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

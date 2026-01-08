@@ -1,0 +1,116 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): DNA Chip
+Analysis Name: Illumina Human Analysis
+Platform: Illumina Microarray
+Pipeline: Inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 5
+Number of Steps: 5
+Number of Tools: 4
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 10
+Total Memory: 48 GB
+Total Compute Time: 0.43 hours
+Total Storage: 8.39 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $0.20
+  - Compute Cost: $0.20 (99.9%)
+  - Storage Cost: $0.00 (0.1%)
+Cost per Hour: $0.46
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Genotype call:
+  Steps: 1
+  Time: 0.27 hours
+  Cost: $0.18
+  Tools: array-analysis-cli
+
+CallToPlink:
+  Steps: 1
+  Time: 0.05 hours
+  Cost: $0.00
+  Tools: plink2
+
+SummaryAndReport:
+  Steps: 1
+  Time: 0.05 hours
+  Cost: $0.00
+  Tools: R
+plink2
+
+Plink2BasicQC:
+  Steps: 1
+  Time: 0.04 hours
+  Cost: $0.00
+  Tools: plink2
+
+Reprocessing_Sample:
+  Steps: 1
+  Time: 0.02 hours
+  Cost: $0.00
+  Tools: Python
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Reprocessing_Sample
+Step: Reprocessing_Sample
+Tool: Python v3.9.12
+Resources: 2 CPUs, 4 GB RAM, 0 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: Genotype call
+Step: Genotype call
+Tool: array-analysis-cli vv1.0
+Resources: 2 CPUs, 32 GB RAM, 6554 MB storage
+Runtime: 0.27 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.1838 (compute: $0.1836, storage: $0.0002)
+
+Group: CallToPlink
+Step: CallToPlink
+Tool: plink2 vv2.00a3LM
+Resources: 2 CPUs, 4 GB RAM, 1536 MB storage
+Runtime: 0.05 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0043 (compute: $0.0043, storage: $0.0000)
+
+Group: Plink2BasicQC
+Step: Plink2BasicQC
+Tool: plink2 vv2.00a3LM
+Resources: 2 CPUs, 4 GB RAM, 241 MB storage
+Runtime: 0.04 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: SummaryAndReport
+Step: SummaryAndReport
+Tool: R
+plink2 v4.1.3
+v2.00a3LM
+Resources: 2 CPUs, 4 GB RAM, 263 MB storage
+Runtime: 0.05 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0043 (compute: $0.0043, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

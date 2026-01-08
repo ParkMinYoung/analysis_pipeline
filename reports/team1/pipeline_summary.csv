@@ -1,0 +1,54 @@
+직무(업무명),Analysis_name,Platform,Pipeline Name,Pipeline Version,n_groups,n_steps,n_tools,tools_list,total_cpu,total_mem_gb,total_time_hr,total_storage_gb,total_cost_usd,compute_cost_usd,storage_cost_usd,cost_per_hour
+DNA Chip,Axiom Human Best Practice Analysis,Axiom Microarray,BestPractice,-,11,18,9,"perl, apt_tool, bash, apt-geno-qc, apt-genotype-axiom
+apt-format-result, ps-metrics
+ps-classification, perl
+plink, plink, R",49.0,69.0,1.3700000000000003,31.685166015624997,0.6383272909396702,0.6375000000000002,0.000827290939670139,0.46593232915304383
+DNA Chip,Axiom Human KNIH Protocol Analysis,Axiom Microarray,KNIHprotocol,-,14,14,8,"apt_tool, apt-geno-qc, perl, apt-genotype-axiom
+apt-format-result, plink, ps-metrics
+ps-classification, bash, R",25.0,105.0,5.999999999999999,179.69446289062498,3.236305322623698,3.2044999999999995,0.03180532262369792,0.5393842204372831
+DNA Chip,DNAGPS,Axiom Microarray,Inhouse,1.0.0,4,4,4,"apt-genotype-axiom, perl
+plink, ps-metrics
+ps-classification, Python",7.0,18.0,0.17999999999999997,0.042734375,0.025500127517361113,0.025500000000000002,1.2751736111111114e-07,0.14166737509645067
+DNA Chip,Genome-Wide Assocication Stuty(GWAS),Microarray,Inhouse,1.0.0,5,5,4,"plink, Python, locuszoom, R",6.0,14.0,2.39,2.252841796875,0.20326923884548614,0.20315000000000003,0.00011923884548611112,0.08504989073032893
+DNA Chip,Illumina Copy Number Variation(CNV) analysis,Illumina Microarray,Inhouse,1.0.0,2,2,2,"cnvPartition plugi, CNV Region Report plugin",8.0,8.0,2.5,7.1599609375,0.42643110894097225,0.42500000000000004,0.0014311089409722224,0.1705724435763889
+DNA Chip,Illumina Human Analysis,Illumina Microarray,Inhouse,1.0.0,5,5,4,"Python, array-analysis-cli, plink2, R
+plink2",10.0,48.0,0.43,8.392304687500001,0.19740280646701389,0.19720000000000001,0.00020280646701388894,0.45907629410933465
+DNA Chip,Polygenic Rist Score(PRS) Analysis,Microarray,Inhouse,1.0.0,4,4,4,"plink, PRSice2, PRScs, bigsnpr",16.0,56.0,0.08,1.303427734375,0.023802896506076393,0.023799999999999998,2.8965060763888895e-06,0.2975362063259549
+DNA Chip,Post-GWAS downstream analysis,Microarray,Inhouse,1.0.0,6,19,11,"R, plink
+susieR, magma, gcta64, sumFREGAT, quarto, METAL, MR-MEGA, python
+coloc
+locuscomparer, TwoSampleMR
+MendelianRandomization...",332.0,1208.0,8.799999999999999,43.318359375,21.09190562065972,21.0894,0.0025056206597222227,2.3968074568931503
+Pangenome,Fungi Pangenome construction,PacBio Sequel,Inhouse,1.0.0,4,4,4,"Quast, bash, RagTag
+TGS-GapCloser
+RepeatModeler
+RepeatMasker, Minigraph-Cactus",150.0,644.0,13.999999999999998,44.76572265625,154.80490685872394,154.7636,0.041306858723958326,11.057493347051711
+Whole Exome Sequencing,Illumina Novaseq  DNAGPS VN,Illumina NoavaSeq,Inhouse,1.0.0,7,7,7,"gatk FastqToSam
+gatk MarkIlluminaAdapters, picard SamToFastq
+bwa mem
+picard MergeBamAlignment, gatk MarkDuplicates, samtools, gatk HaplotypeCaller, gatk CombineGVCFs
+gatk GenotypeGVCFs, bcftools
+plink",37.0,400.0,2.9000000000000004,27.441796874999998,3.8777665006510422,3.8760000000000003,0.001766500651041667,1.3371608622934628
+Whole Exome Sequencing,Illumina Novaseq Human Germline Copy Number Variation,Illumina NoavaSeq,gatk CNV Germline Cohort Workflow,1.0.0,16,18,13,"gatk PreprocessIntervals, gatk AnnotateIntervals, gatk CollectReadCounts, gatk FilterIntervals, gatk IntervalListTools, gatk DetermineGermlineContigPloidy, gatk GermlineCNVCaller, bash, gatk PostprocessGermlineCNVCalls, python...",24.0,88.0,4.1,0.33310546874999997,16.430506490885417,16.430500000000002,6.490885416666667e-06,4.007440607533029
+Whole Exome Sequencing,Illumina Novaseq Human Whole Exome Sequencing,Illumina NovaSeq,"Inhouse, warp - ExomeGermlineSingleSample, warp - JointGenotyping",1.0.0,24,44,39,"gatk FastqToSam
+gatk MarkIlluminaAdapters, bedtools, picard CollectQualityYieldMetrics, picard SamToFastq
+bwa mem
+picard MergeBamAlignment, python, picard CollectMultipleMetrics, picard MarkDuplicates, picard SortSam, picard CrossCheckFingerprints, gatk BaseRecalibrator...",169.0,429.0,9.2,65.8423828125,7.049355241970487,7.046499999999998,0.0028552419704861113,0.7662342654315747
+Whole Genome Sequencing,Illumina Novaseq Human Structural Variant,Illumina NovaSeq,"nf-core/sarek, Inhouse",3.5.1,7,14,10,"gawk, bgzip
+tabix, mosdepth, samtools, manta, bcftools, vcftools, SnpEff, AnnotSV, multiqc",38.0,80.0,5.899999999999999,0.3837890625,31.05900795355904,31.05900000000001,7.953559027777779e-06,5.264238636196448
+Whole Genome Sequencing,Illumina Novaseq Human Whole Genome Sequencing,Illumina NovaSeq,"Inhouse, warp - WholeGenomeGermlineSingleSample, warp - JointGenotyping",1.0.0,24,46,40,"gatk FastqToSam
+gatk MarkIlluminaAdapters, picard CollectQualityYieldMetrics, picard SplitSamByNumberOfReads, picard SamToFastq
+bwa mem
+picard MergeBamAlignment, picard GatherBamFiles, python, picard CollectMultipleMetrics, picard MarkDuplicates, picard SortSam, picard CrossCheckFingerprints...",172.0,574.0,82.4,520.98486328125,216.80102281901043,216.61400000000003,0.18702281901041667,2.6310803740171167
+Whole Genome Sequencing,Illumina Novaseq non-Human Whole Genome Sequencing,Illumina NovaSeq,"Inhouse, warp - WholeGenomeGermlineSingleSample, warp - JointGenotyping",1.0.0,17,32,29,"gatk FastqToSam
+gatk MarkIlluminaAdapters, picard CollectQualityYieldMetrics, picard SamToFastq
+bwa mem
+picard MergeBamAlignment, python, picard CollectMultipleMetrics, picard MarkDuplicates, picard SortSam, picard GatherBamFiles, picard CalculateReadGroupChecksum, picard IntervalListTools...",151.0,366.0,48.099999999999994,428.15966796875,227.6372420019531,226.99250000000004,0.644742001953125,4.732582993803599
+Whole Genome Sequencing,PacBio Revio Human Whole Genome Sequencing,PacBio Revio,"Hifi-human-WGS-WDL, Inhouse",3.1.0,6,34,22,"python, hiphase, samtools, aligned_bam_to_cpg_scores, pbstarphase, bcftools, bcftools
+mosdepth, methbat, pharmcat, slivar...",317.0,1232.0,66.6,364.12109375,257.482831890191,257.33200000000005,0.15083189019097223,3.866108586939805
+단백질 데이터 통계 분석,Olink-Somascan Proteomics downstream analysis,"Olink, Somascan",Inhouse,1.0.0,4,31,2,"R, python",121.0,744.0,3.200000000000001,2.3048828125000007,2.176048396267361,2.1760000000000006,4.839626736111112e-05,0.68001512383355
+커스텀 분석,Kinics-ICS,Axiom Microarray,Inhouse,1.0.0,1,6,5,"plink1.9
+perl, Shapeit, python, python
+R, R",11.0,26.0,33.7,1.9619140625,177.7104973524306,177.70950000000002,0.0009973524305555558,5.273308526778355
+커스텀 분석,Proteome-Wide Association Study(PWAS),"Olink, Microarray",Inhouse,1.0.0,24,31,12,"bcftools, bcftools
+plink, bash, python, plink, ldsc, R, TIGAR, ivreg, coloc...",558.0,956.0,92.75999999999999,277.5906640625,19097.798442911415,19097.732300000003,0.06614291141493052,205.8839849386742

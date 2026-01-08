@@ -1,0 +1,113 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): DNA Chip
+Analysis Name: Genome-Wide Assocication Stuty(GWAS)
+Platform: Microarray
+Pipeline: Inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 5
+Number of Steps: 5
+Number of Tools: 4
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 6
+Total Memory: 14 GB
+Total Compute Time: 2.39 hours
+Total Storage: 2.25 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $0.20
+  - Compute Cost: $0.20 (99.9%)
+  - Storage Cost: $0.00 (0.1%)
+Cost per Hour: $0.09
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+VisualInspection:
+  Steps: 1
+  Time: 1.00 hours
+  Cost: $0.09
+  Tools: Python
+
+Locuszoom:
+  Steps: 1
+  Time: 0.97 hours
+  Cost: $0.08
+  Tools: locuszoom
+
+Regression:
+  Steps: 1
+  Time: 0.35 hours
+  Cost: $0.03
+  Tools: plink
+
+Cluster QC:
+  Steps: 1
+  Time: 0.05 hours
+  Cost: $0.00
+  Tools: Python
+
+GWAS plot:
+  Steps: 1
+  Time: 0.02 hours
+  Cost: $0.00
+  Tools: R
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Regression
+Step: Regression
+Tool: plink vv1.9.0-b.7.11
+Resources: 1 CPUs, 4 GB RAM, 1843 MB storage
+Runtime: 0.35 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0298 (compute: $0.0297, storage: $0.0001)
+
+Group: VisualInspection
+Step: VisualInspection
+Tool: Python v3.8.12
+Resources: 1 CPUs, 2 GB RAM, 400 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0850 (compute: $0.0850, storage: $0.0000)
+
+Group: Cluster QC
+Step: Cluster QC
+Tool: Python v3.8.12
+Resources: 1 CPUs, 2 GB RAM, 9 MB storage
+Runtime: 0.05 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0043 (compute: $0.0043, storage: $0.0000)
+
+Group: Locuszoom
+Step: Locuszoom
+Tool: locuszoom v1.4
+Resources: 2 CPUs, 4 GB RAM, 55 MB storage
+Runtime: 0.97 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0825 (compute: $0.0825, storage: $0.0000)
+
+Group: GWAS plot
+Step: GWAS plot
+Tool: R v4.1.3
+Resources: 1 CPUs, 2 GB RAM, 0 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

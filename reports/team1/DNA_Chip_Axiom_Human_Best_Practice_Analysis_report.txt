@@ -1,0 +1,264 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): DNA Chip
+Analysis Name: Axiom Human Best Practice Analysis
+Platform: Axiom Microarray
+Pipeline: BestPractice v-
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 11
+Number of Steps: 18
+Number of Tools: 9
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 49
+Total Memory: 69 GB
+Total Compute Time: 1.37 hours
+Total Storage: 31.69 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $0.64
+  - Compute Cost: $0.64 (99.9%)
+  - Storage Cost: $0.00 (0.1%)
+Cost per Hour: $0.47
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Genotype call:
+  Steps: 2
+  Time: 0.83 hours
+  Cost: $0.57
+  Tools: apt-genotype-axiom
+apt-format-result
+
+SNPolisher:
+  Steps: 2
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: ps-metrics
+ps-classification
+
+Report:
+  Steps: 2
+  Time: 0.17 hours
+  Cost: $0.01
+  Tools: R
+
+CallToPlink:
+  Steps: 2
+  Time: 0.04 hours
+  Cost: $0.01
+  Tools: perl
+plink
+
+AptGenoQC:
+  Steps: 1
+  Time: 0.13 hours
+  Cost: $0.01
+  Tools: apt-geno-qc
+
+MergePlink:
+  Steps: 2
+  Time: 0.02 hours
+  Cost: $0.01
+  Tools: plink
+
+PlinkBasicQC:
+  Steps: 2
+  Time: 0.03 hours
+  Cost: $0.01
+  Tools: plink
+
+FlowlessInspection:
+  Steps: 1
+  Time: 0.01 hours
+  Cost: $0.00
+  Tools: perl
+
+MakeSummaryAndDB:
+  Steps: 2
+  Time: 0.02 hours
+  Cost: $0.00
+  Tools: bash
+
+ScatterProbesetList:
+  Steps: 1
+  Time: 0.01 hours
+  Cost: $0.00
+  Tools: bash
+
+GetVersionAPT:
+  Steps: 1
+  Time: 0.01 hours
+  Cost: $0.00
+  Tools: apt_tool
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: FlowlessInspection
+Step: FlowlessInspection
+Tool: perl v5.38.2
+Resources: 1 CPUs, 8 GB RAM, 7854 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: GetVersionAPT
+Step: GetVersionAPT
+Tool: apt_tool v2.11.4
+Resources: 1 CPUs, 1 GB RAM, 0 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+
+Group: ScatterProbesetList
+Step: ScatterProbesetList
+Tool: bash v4.4.20
+Resources: 1 CPUs, 1 GB RAM, 10 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+
+Group: AptGenoQC
+Step: AptGenoQC
+Tool: apt-geno-qc v2.10.0
+Resources: 2 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.13 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0111 (compute: $0.0111, storage: $0.0000)
+
+Group: Genotype call
+Step: GenotypeCall
+Tool: apt-genotype-axiom
+apt-format-result v2.11.3
+Resources: 2 CPUs, 16 GB RAM, 8520 MB storage
+Runtime: 0.43 hours × 2 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.2928 (compute: $0.2924, storage: $0.0004)
+
+Group: Genotype call
+Step: GenotypeCallIgnoreDQC
+Tool: apt-genotype-axiom
+apt-format-result v2.11.3
+Resources: 2 CPUs, 16 GB RAM, 8520 MB storage
+Runtime: 0.40 hours × 2 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.2724 (compute: $0.2720, storage: $0.0004)
+
+Group: SNPolisher
+Step: SNPolisher
+Tool: ps-metrics
+ps-classification v2.11.0
+Resources: 2 CPUs, 2 GB RAM, 169 MB storage
+Runtime: 0.05 hours × 2 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: SNPolisher
+Step: SNPolisherIgnoreDQC
+Tool: ps-metrics
+ps-classification v2.11.0
+Resources: 2 CPUs, 2 GB RAM, 169 MB storage
+Runtime: 0.05 hours × 2 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: CallToPlink
+Step: CallToPlink
+Tool: perl
+plink v5.38.2
+v1.9.0-b.7.11
+Resources: 4 CPUs, 2 GB RAM, 600 MB storage
+Runtime: 0.02 hours × 2 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0068 (compute: $0.0068, storage: $0.0000)
+
+Group: CallToPlink
+Step: CallToPlinkIgnoreDQC
+Tool: perl
+plink v5.38.2
+v1.9.0-b.7.11
+Resources: 4 CPUs, 2 GB RAM, 600 MB storage
+Runtime: 0.02 hours × 2 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0068 (compute: $0.0068, storage: $0.0000)
+
+Group: MergePlink
+Step: MergePlink
+Tool: plink vv1.9.0-b.7.11
+Resources: 8 CPUs, 2 GB RAM, 81 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: MergePlink
+Step: MergePlinkIgnoreDQC
+Tool: plink vv1.9.0-b.7.11
+Resources: 8 CPUs, 2 GB RAM, 81 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: PlinkBasicQC
+Step: PlinkBasicQC
+Tool: plink vv1.9.0-b.7.11
+Resources: 4 CPUs, 2 GB RAM, 463 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: PlinkBasicQC
+Step: PlinkBasicQCIgnoreDQC
+Tool: plink vv1.9.0-b.7.11
+Resources: 4 CPUs, 2 GB RAM, 463 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
+
+Group: MakeSummaryAndDB
+Step: MakeSummaryAndDB
+Tool: bash v4.4.20
+Resources: 1 CPUs, 1 GB RAM, 0 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+
+Group: MakeSummaryAndDB
+Step: MakeSummaryAndDBIgnoreDQC
+Tool: bash v4.4.20
+Resources: 1 CPUs, 1 GB RAM, 0 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+
+Group: Report
+Step: Report
+Tool: R v4.1.3
+Resources: 1 CPUs, 4 GB RAM, 2458 MB storage
+Runtime: 0.08 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0068 (compute: $0.0068, storage: $0.0000)
+
+Group: Report
+Step: ReportIgnoreDQC
+Tool: R v4.1.3
+Resources: 1 CPUs, 4 GB RAM, 2458 MB storage
+Runtime: 0.09 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0077 (compute: $0.0076, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

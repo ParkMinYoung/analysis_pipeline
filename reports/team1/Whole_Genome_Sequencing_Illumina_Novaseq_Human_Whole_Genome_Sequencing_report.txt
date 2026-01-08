@@ -1,0 +1,578 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Whole Genome Sequencing
+Analysis Name: Illumina Novaseq Human Whole Genome Sequencing
+Platform: Illumina NovaSeq
+Pipeline: Inhouse, warp - WholeGenomeGermlineSingleSample, warp - JointGenotyping v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 24
+Number of Steps: 46
+Number of Tools: 40
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 172
+Total Memory: 574 GB
+Total Compute Time: 82.40 hours
+Total Storage: 520.98 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $216.80
+  - Compute Cost: $216.61 (99.9%)
+  - Storage Cost: $0.19 (0.1%)
+Cost per Hour: $2.63
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+UnmappedBamToAlignedBam:
+  Steps: 14
+  Time: 41.00 hours
+  Cost: $90.99
+  Tools: picard CollectQualityYieldMetrics, picard SplitSamByNumberOfReads, picard SamToFastq
+bwa mem
+picard MergeBamAlignment, picard GatherBamFiles, python, picard CollectMultipleMetrics, picard MarkDuplicates, picard SortSam, picard CrossCheckFingerprints, gatk BaseRecalibrator, VerifyBamID, gatk GatherBQSRReports, gatk ApplyBQSR
+
+ImportGVFs:
+  Steps: 1
+  Time: 1.40 hours
+  Cost: $44.74
+  Tools: gatk GenomicsDBImport
+
+GenotypeGVCFs:
+  Steps: 1
+  Time: 1.10 hours
+  Cost: $35.16
+  Tools: gatk GenotypeGVCFs
+
+BamToGvcf:
+  Steps: 6
+  Time: 6.70 hours
+  Cost: $18.16
+  Tools: picard IntervalListTools, gatk PrintReads
+gatk HaplotypeCaller, picard MergeVcfs, gatk ReblockGVCF, picard CollectVariantCallingMetrics, gatk VcfToIntervalList
+gatk ValidateVariants
+
+Variant Annotation & Make Summary file:
+  Steps: 1
+  Time: 10.00 hours
+  Cost: $13.63
+  Tools: SnpEff
+svdb
+
+CrossCheckFingerprintSolo:
+  Steps: 1
+  Time: 1.50 hours
+  Cost: $4.08
+  Tools: gatk CrosscheckFingerprints
+
+Bam QC:
+  Steps: 1
+  Time: 2.00 hours
+  Cost: $2.72
+  Tools: qualimap
+samtools
+
+ApplyRecalibration:
+  Steps: 1
+  Time: 0.20 hours
+  Cost: $1.60
+  Tools: gatk ApplyVQSR
+
+AggregatedBamQC:
+  Steps: 3
+  Time: 6.40 hours
+  Cost: $1.09
+  Tools: picard CalculateReadGroupChecksum, picard CollectMultipleMetrics
+
+Fastq_to_ubam:
+  Steps: 1
+  Time: 3.00 hours
+  Cost: $1.05
+  Tools: gatk FastqToSam
+gatk MarkIlluminaAdapters
+
+BamToCram:
+  Steps: 3
+  Time: 3.00 hours
+  Cost: $0.69
+  Tools: python, samtools, picard ValidateSamFile
+
+VCF QC:
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.68
+  Tools: gatk GenotypeGVCFs
+bcftools
+
+Fastq QC:
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.68
+  Tools: FastQ Screen
+
+SNPsVariantRecalibratorClassic:
+  Steps: 1
+  Time: 0.70 hours
+  Cost: $0.48
+  Tools: gatk VariantRecalibrator
+
+HardFilterAndMakeSitesOnlyVcf:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.40
+  Tools: gatk VariantFiltration
+gatk MakeSitesOnlyVCF
+
+CollectRawWgsMetrics:
+  Steps: 1
+  Time: 1.70 hours
+  Cost: $0.29
+  Tools: picard CollectRawWgsMetrics
+
+CollectWgsMetrics:
+  Steps: 1
+  Time: 1.70 hours
+  Cost: $0.14
+  Tools: picard CollectWgsMetrics
+
+IndelsVariantRecalibrator:
+  Steps: 1
+  Time: 0.20 hours
+  Cost: $0.14
+  Tools: gatk VariantRecalibrator
+
+CollectMetricsOnFullVcf:
+  Steps: 1
+  Time: 0.20 hours
+  Cost: $0.03
+  Tools: gatk CollectVariantCallingMetrics
+
+FinalGatherVcf:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: gatk GatherVcfsCloud
+
+SitesOnlyGatherVcf:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: gatk GatherVcfsCloud
+
+Multiqc Report:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: multiqc
+
+SplitIntervalList:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: gatk SplitIntervals
+
+CheckSamplesUnique:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: bash
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Fastq_to_ubam
+Step: Fastq_to_ubam
+Tool: gatk FastqToSam
+gatk MarkIlluminaAdapters v4.2.2.0
+Resources: 2 CPUs, 12 GB RAM, 80000 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $1.0460 (compute: $1.0200, storage: $0.0260)
+
+Group: UnmappedBamToAlignedBam
+Step: CollectQualityYieldMeterics
+Tool: picard CollectQualityYieldMetrics v2.26.10
+Resources: 2 CPUs, 4 GB RAM, 0 MB storage
+Runtime: 0.60 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0510 (compute: $0.0510, storage: $0.0000)
+
+Group: UnmappedBamToAlignedBam
+Step: SamSplitter
+Tool: picard SplitSamByNumberOfReads v2.26.10
+Resources: 2 CPUs, 4 GB RAM, 80400 MB storage
+Runtime: 1.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.1031 (compute: $0.0935, storage: $0.0096)
+
+Group: UnmappedBamToAlignedBam
+Step: SamToFastqAndBwaMemAndMba
+Tool: picard SamToFastq
+bwa mem
+picard MergeBamAlignment v2.26.10
+0.7.15
+2.26.10
+Resources: 16 CPUs, 14 GB RAM, 6000 MB storage
+Runtime: 5.70 hours × 19 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $73.6477 (compute: $73.6440, storage: $0.0037)
+
+Group: UnmappedBamToAlignedBam
+Step: GatherMonolithicBamFile
+Tool: picard GatherBamFiles v2.26.10
+Resources: 2 CPUs, 3 GB RAM, 98200 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0478 (compute: $0.0425, storage: $0.0053)
+
+Group: UnmappedBamToAlignedBam
+Step: CreateSequenceGroupingTSV
+Tool: python v3.9
+Resources: 2 CPUs, 2 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: UnmappedBamToAlignedBam
+Step: CollectUnsortedReadgroupBamQualityMetrics
+Tool: picard CollectMultipleMetrics v2.26.10
+Resources: 2 CPUs, 7 GB RAM, 0 MB storage
+Runtime: 1.70 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.2890 (compute: $0.2890, storage: $0.0000)
+
+Group: UnmappedBamToAlignedBam
+Step: MarkDuplicates
+Tool: picard MarkDuplicates v2.26.10
+Resources: 2 CPUs, 8 GB RAM, 108000 MB storage
+Runtime: 2.50 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.4543 (compute: $0.4250, storage: $0.0293)
+
+Group: UnmappedBamToAlignedBam
+Step: SortSampleBam
+Tool: picard SortSam v2.26.10
+Resources: 1 CPUs, 5 GB RAM, 48100 MB storage
+Runtime: 14.80 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $2.5932 (compute: $2.5160, storage: $0.0772)
+
+Group: UnmappedBamToAlignedBam
+Step: CrossCheckFingerprints
+Tool: picard CrossCheckFingerprints v2.26.10
+Resources: 2 CPUs, 4 GB RAM, 0 MB storage
+Runtime: 2.80 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.2380 (compute: $0.2380, storage: $0.0000)
+
+Group: UnmappedBamToAlignedBam
+Step: BaseRecalibrator
+Tool: gatk BaseRecalibrator v4.3.0.0
+Resources: 2 CPUs, 6 GB RAM, 0 MB storage
+Runtime: 2.90 hours × 18 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $8.8740 (compute: $8.8740, storage: $0.0000)
+
+Group: UnmappedBamToAlignedBam
+Step: CheckContamination
+Tool: VerifyBamID v1.0.1
+Resources: 2 CPUs, 8 GB RAM, 0 MB storage
+Runtime: 5.40 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.9180 (compute: $0.9180, storage: $0.0000)
+
+Group: UnmappedBamToAlignedBam
+Step: GatherBqsrReports
+Tool: gatk GatherBQSRReports v4.3.0.0
+Resources: 2 CPUs, 4 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: UnmappedBamToAlignedBam
+Step: ApplyBQSR
+Tool: gatk ApplyBQSR v4.3.0.0
+Resources: 2 CPUs, 4 GB RAM, 4000 MB storage
+Runtime: 2.30 hours × 19 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $3.7155 (compute: $3.7145, storage: $0.0010)
+
+Group: UnmappedBamToAlignedBam
+Step: GatherBamFiles
+Tool: picard GatherBamFiles v2.26.10
+Resources: 2 CPUs, 3 GB RAM, 46000 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0450 (compute: $0.0425, storage: $0.0025)
+
+Group: AggregatedBamQC
+Step: CalculateReadGroupChecksum
+Tool: picard CalculateReadGroupChecksum v2.26.10
+Resources: 2 CPUs, 6 GB RAM, 0 MB storage
+Runtime: 0.70 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.1190 (compute: $0.1190, storage: $0.0000)
+
+Group: AggregatedBamQC
+Step: CollectReadgroupBamQualityMetrics
+Tool: picard CollectMultipleMetrics v2.26.10
+Resources: 2 CPUs, 7 GB RAM, 0 MB storage
+Runtime: 1.70 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.2890 (compute: $0.2890, storage: $0.0000)
+
+Group: AggregatedBamQC
+Step: CollectAggregationMetrics
+Tool: picard CollectMultipleMetrics v2.26.10
+Resources: 2 CPUs, 7 GB RAM, 1 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.6800 (compute: $0.6800, storage: $0.0000)
+
+Group: BamToGvcf
+Step: ScatterIntervalList
+Tool: picard IntervalListTools v2.26.10
+Resources: 2 CPUs, 2 GB RAM, 7 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: BamToGvcf
+Step: HaplotypeCallerGATK3
+Tool: gatk PrintReads
+gatk HaplotypeCaller v4.3.0.0
+Resources: 1 CPUs, 10 GB RAM, 5000 MB storage
+Runtime: 5.30 hours × 10 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $18.0229 (compute: $18.0200, storage: $0.0029)
+
+Group: BamToGvcf
+Step: MergeVCFs
+Tool: picard MergeVcfs v2.26.10
+Resources: 2 CPUs, 3 GB RAM, 3500 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0256 (compute: $0.0255, storage: $0.0001)
+
+Group: BamToGvcf
+Step: Reblock
+Tool: gatk ReblockGVCF v4.3.0.0
+Resources: 2 CPUs, 4 GB RAM, 660 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+Group: BamToGvcf
+Step: CollectVariantCallingMetrics
+Tool: picard CollectVariantCallingMetrics v2.26.10
+Resources: 2 CPUs, 3 GB RAM, 0 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: BamToGvcf
+Step: ValidateVCF
+Tool: gatk VcfToIntervalList
+gatk ValidateVariants v4.3.0.0
+Resources: 2 CPUs, 7 GB RAM, 0 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: CollectWgsMetrics
+Step: CollectWgsMetrics
+Tool: picard CollectWgsMetrics v2.26.10
+Resources: 2 CPUs, 3 GB RAM, 0 MB storage
+Runtime: 1.70 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.1445 (compute: $0.1445, storage: $0.0000)
+
+Group: CollectRawWgsMetrics
+Step: CollectRawWgsMetrics
+Tool: picard CollectRawWgsMetrics v2.26.10
+Resources: 2 CPUs, 5 GB RAM, 0 MB storage
+Runtime: 1.70 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.2890 (compute: $0.2890, storage: $0.0000)
+
+Group: BamToCram
+Step: CheckPreValidation
+Tool: python v3.9
+Resources: 2 CPUs, 2 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: BamToCram
+Step: ConvertToCram
+Tool: samtools v1.0.2
+Resources: 1 CPUs, 3 GB RAM, 10600 MB storage
+Runtime: 1.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.1034 (compute: $0.1020, storage: $0.0014)
+
+Group: BamToCram
+Step: ValidateCram
+Tool: picard ValidateSamFile v2.26.10
+Resources: 2 CPUs, 16 GB RAM, 0 MB storage
+Runtime: 1.70 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.5780 (compute: $0.5780, storage: $0.0000)
+
+Group: CheckSamplesUnique
+Step: CheckSamplesUnique
+Tool: bash v-
+Resources: 2 CPUs, 1 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: SplitIntervalList
+Step: SplitIntervalList
+Tool: gatk SplitIntervals v4.6.1.0
+Resources: 2 CPUs, 4 GB RAM, 26 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: ImportGVFs
+Step: ImportGVFs
+Tool: gatk GenomicsDBImport v4.6.1.0
+Resources: 4 CPUs, 30 GB RAM, 3000 MB storage
+Runtime: 1.40 hours × 47 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $44.7445 (compute: $44.7440, storage: $0.0005)
+
+Group: GenotypeGVCFs
+Step: GenotypeGVCFs
+Tool: gatk GenotypeGVCFs v4.6.1.0
+Resources: 2 CPUs, 26 GB RAM, 400 MB storage
+Runtime: 1.10 hours × 47 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $35.1560 (compute: $35.1560, storage: $0.0000)
+
+Group: HardFilterAndMakeSitesOnlyVcf
+Step: HardFilterAndMakeSitesOnlyVcf
+Tool: gatk VariantFiltration
+gatk MakeSitesOnlyVCF v4.6.1.0
+Resources: 1 CPUs, 4 GB RAM, 400 MB storage
+Runtime: 0.10 hours × 47 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.3995 (compute: $0.3995, storage: $0.0000)
+
+Group: SitesOnlyGatherVcf
+Step: SitesOnlyGatherVcf
+Tool: gatk GatherVcfsCloud v4.6.1.0
+Resources: 1 CPUs, 7 GB RAM, 1320 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: IndelsVariantRecalibrator
+Step: IndelsVariantRecalibrator
+Tool: gatk VariantRecalibrator v4.6.1.0
+Resources: 2 CPUs, 26 GB RAM, 230 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+Group: SNPsVariantRecalibratorClassic
+Step: SNPsVariantRecalibratorClassic
+Tool: gatk VariantRecalibrator v4.6.1.0
+Resources: 2 CPUs, 27 GB RAM, 1200 MB storage
+Runtime: 0.70 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.4761 (compute: $0.4760, storage: $0.0001)
+
+Group: ApplyRecalibration
+Step: ApplyRecalibration
+Tool: gatk ApplyVQSR v4.6.1.0
+Resources: 1 CPUs, 7 GB RAM, 2000 MB storage
+Runtime: 0.20 hours × 47 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $1.5980 (compute: $1.5980, storage: $0.0000)
+
+Group: FinalGatherVcf
+Step: FinalGatherVcf
+Tool: gatk GatherVcfsCloud v4.6.1.0
+Resources: 1 CPUs, 7 GB RAM, 9100 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0171 (compute: $0.0170, storage: $0.0001)
+
+Group: CollectMetricsOnFullVcf
+Step: CollectMetricsOnFullVcf
+Tool: gatk CollectVariantCallingMetrics v4.6.1.0
+Resources: 2 CPUs, 8 GB RAM, 0 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: CrossCheckFingerprintSolo
+Step: CrossCheckFingerprintSolo
+Tool: gatk CrosscheckFingerprints v4.6.1.0
+Resources: 2 CPUs, 120 GB RAM, 0 MB storage
+Runtime: 1.50 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $4.0800 (compute: $4.0800, storage: $0.0000)
+
+Group: Variant Annotation & Make Summary file
+Step: Variant Annotation & Make Summary file
+Tool: SnpEff
+svdb v4.2
+2.8.2
+Resources: 32 CPUs, 36 GB RAM, 25000 MB storage
+Runtime: 10.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $13.6271 (compute: $13.6000, storage: $0.0271)
+
+Group: Fastq QC
+Step: Fastq QC
+Tool: FastQ Screen v0.16.0
+Resources: 16 CPUs, 36 GB RAM, 10 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.6800 (compute: $0.6800, storage: $0.0000)
+
+Group: Bam QC
+Step: Bam QC
+Tool: qualimap
+samtools v2.2.2
+1.6
+Resources: 16 CPUs, 36 GB RAM, 3 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $2.7200 (compute: $2.7200, storage: $0.0000)
+
+Group: VCF QC
+Step: gVCF genotyping & VCF stats
+Tool: gatk GenotypeGVCFs
+bcftools v4.6.1.0
+1.19
+Resources: 16 CPUs, 36 GB RAM, 300 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.6800 (compute: $0.6800, storage: $0.0000)
+
+Group: Multiqc Report
+Step: Multiqc Report
+Tool: multiqc v1.30
+Resources: 1 CPUs, 2 GB RAM, 30 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

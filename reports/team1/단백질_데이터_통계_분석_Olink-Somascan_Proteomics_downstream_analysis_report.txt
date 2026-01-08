@@ -1,0 +1,315 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): 단백질 데이터 통계 분석
+Analysis Name: Olink-Somascan Proteomics downstream analysis
+Platform: Olink, Somascan
+Pipeline: Inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 4
+Number of Steps: 31
+Number of Tools: 2
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 121
+Total Memory: 744 GB
+Total Compute Time: 3.20 hours
+Total Storage: 2.30 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $2.18
+  - Compute Cost: $2.18 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $0.68
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Analysis for QC Pass samples:
+  Steps: 14
+  Time: 1.40 hours
+  Cost: $0.95
+  Tools: R, python
+
+Analysis for all samples:
+  Steps: 14
+  Time: 1.40 hours
+  Cost: $0.95
+  Tools: R, python
+
+Data Normalization:
+  Steps: 1
+  Time: 0.20 hours
+  Cost: $0.14
+  Tools: R
+
+Data preprocessing:
+  Steps: 2
+  Time: 0.20 hours
+  Cost: $0.14
+  Tools: R
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Data Normalization
+Step: Bridging Normalization
+Tool: R v4.3.1
+Resources: 1 CPUs, 24 GB RAM, 2100 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+Group: Data preprocessing
+Step: QC check & Filtering
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 2 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for all samples
+Step: PCA
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for all samples
+Step: MDS
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for all samples
+Step: Differentially Expressed Analysis (DEP)
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 65 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for all samples
+Step: Pathway Enrichment Analysis
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 10 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for all samples
+Step: Protein-Protein Interaction Network Analysis
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 2 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for all samples
+Step: Correlation Analysis
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 2 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for all samples
+Step: Report
+Tool: python v3.11.9
+Resources: 4 CPUs, 24 GB RAM, 18 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for QC Pass samples
+Step: PCA
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for QC Pass samples
+Step: MDS
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for QC Pass samples
+Step: Differentially Expressed Analysis (DEP)
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 70 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for QC Pass samples
+Step: Pathway Enrichment Analysis
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 10 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for QC Pass samples
+Step: Protein-Protein Interaction Network Analysis
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 2 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for QC Pass samples
+Step: Correlation Analysis
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 2 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for QC Pass samples
+Step: Report
+Tool: python v3.11.9
+Resources: 4 CPUs, 24 GB RAM, 18 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Data preprocessing
+Step: QC check & Filtering
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 25 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for all samples
+Step: PCA
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for all samples
+Step: MDS
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for all samples
+Step: Differentially Expressed Analysis (DEP)
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 7 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for all samples
+Step: Pathway Enrichment Analysis
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for all samples
+Step: Protein-Protein Interaction Network Analysis
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 2 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for all samples
+Step: Correlation Analysis
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 2 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for all samples
+Step: Report
+Tool: python v3.11.9
+Resources: 4 CPUs, 24 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for QC Pass samples
+Step: PCA
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for QC Pass samples
+Step: MDS
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for QC Pass samples
+Step: Differentially Expressed Analysis (DEP)
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 7 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for QC Pass samples
+Step: Pathway Enrichment Analysis
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 0 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for QC Pass samples
+Step: Protein-Protein Interaction Network Analysis
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 2 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for QC Pass samples
+Step: Correlation Analysis
+Tool: R v4.3.1
+Resources: 4 CPUs, 24 GB RAM, 2 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: Analysis for QC Pass samples
+Step: Report
+Tool: python v3.11.9
+Resources: 4 CPUs, 24 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================
