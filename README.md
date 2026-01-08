@@ -8,10 +8,11 @@
 팀별로 독립적인 분석이 가능하며, 각 팀의 파이프라인 비용을 개별적으로 추적할 수 있습니다.
 
 ### 분석 대상
+- **Team 1**: 19개 파이프라인, 338 steps (WGS, WES, DNA Chip, Pangenome, 단백질 분석, 커스텀 분석)
 - **Team 2**: 22개 파이프라인, 351 steps (Short RNA, Single Cell RNA, Spatial 등)
 - **Team 3**: 8개 파이프라인, 122 steps (Assembly, Microbiome)
-- **총 파이프라인**: 30개 (팀별로 상이)
-- **플랫폼**: PacBio Revio, Illumina NovaSeq/MiSeq, Nanopore PromethION
+- **총 파이프라인**: 49개 (팀별로 상이)
+- **플랫폼**: PacBio Revio/Sequel, Illumina NovaSeq/MiSeq, Nanopore PromethION, Axiom/Illumina Microarray
 
 ## 디렉토리 구조
 
@@ -113,6 +114,19 @@ python3 scripts/03_analyze_pipelines.py 3
 
 ## 주요 결과
 
+### Team 1 비용 요약
+- **총 비용**: $20,218.67
+- **총 파이프라인**: 19개
+- **총 실행 시간**: 384.61 hours
+- **주요 직무**: 커스텀 분석 ($19,275.51), Whole Genome Sequencing ($732.98), Pangenome ($154.80)
+
+**Top 5 고비용 파이프라인 (Team 1):**
+1. PWAS (Proteome-Wide Association Study): $19,097.80
+2. PacBio Revio Human WGS: $257.48
+3. Illumina NovaSeq non-Human WGS: $227.64
+4. Illumina NovaSeq Human WGS: $216.80
+5. Kinics-ICS: $177.71
+
 ### Team 2 비용 요약
 - **총 비용**: $51,688.29
 - **총 파이프라인**: 22개
@@ -142,7 +156,17 @@ python3 scripts/03_analyze_pipelines.py 3
 
 > 각 팀의 상세 결과는 `reports/team{N}/00_SUMMARY_ALL_PIPELINES.txt`에서 확인할 수 있습니다.
 
-### 가장 비용이 높은 작업 단계 (Team 3 기준)
+### 가장 비용이 높은 작업 단계
+
+#### Team 1 고비용 단계:
+1. **FUSION_wgt** (PWAS): $18,966.59
+   - r6i.16xlarge (64 vCPU, 500 GB), 84 hours × 56 parallel tasks
+2. **pbmm2_align_wgs** (PacBio WGS): $190.43
+   - c6i.16xlarge (32 vCPU, 128 GB), 5 hours × 14 parallel tasks
+3. **Correction & Scaffolding** (Pangenome): $140.35
+   - r6i.16xlarge (64 vCPU, 500 GB), 8.7 hours × 4 parallel tasks
+
+#### Team 3 고비용 단계:
 
 1. **Flye Assembly** (Shotgun metagenome): $979.77
    - c6i.24xlarge (96 vCPU, 192 GB), 240 hours
@@ -236,8 +260,10 @@ python3 scripts/03_analyze_pipelines.py 3
 분석에 대한 질문이나 추가 요청사항이 있으시면 연락 주세요.
 
 ---
-**최종 업데이트**: 2026-01-06
-**분석 완료**: Team 2 (22 pipelines), Team 3 (8 pipelines)
+**최종 업데이트**: 2026-01-08
+**분석 완료**: Team 1 (19 pipelines), Team 2 (22 pipelines), Team 3 (8 pipelines)
+**총 파이프라인**: 49개
+**총 예상 비용**: $75,209.43
 **분석 도구**: Python 3.11, pandas, numpy
 **AWS 리전**: us-east-1 (N. Virginia)
 **지원 팀**: Team 1, Team 2, Team 3
