@@ -4,7 +4,7 @@ PIPELINE COST ANALYSIS REPORT
 
 직무 (Job): 커스텀 분석
 Analysis Name: Proteome-Wide Association Study(PWAS)
-Platform: Olink, Microarray
+Platform: Microarray, Olink
 Pipeline: Inhouse v1.0.0
 
 --------------------------------------------------------------------------------
@@ -12,23 +12,23 @@ OVERVIEW
 --------------------------------------------------------------------------------
 Number of Groups: 24
 Number of Steps: 31
-Number of Tools: 12
+Number of Tools: 11
 
 --------------------------------------------------------------------------------
 RESOURCE REQUIREMENTS
 --------------------------------------------------------------------------------
 Total CPUs: 558
-Total Memory: 956 GB
+Total Memory: 488 GB
 Total Compute Time: 92.76 hours
 Total Storage: 277.59 GB
 
 --------------------------------------------------------------------------------
 COST SUMMARY
 --------------------------------------------------------------------------------
-Total Cost: $19097.80
-  - Compute Cost: $19097.73 (100.0%)
+Total Cost: $12926.15
+  - Compute Cost: $12926.08 (100.0%)
   - Storage Cost: $0.07 (0.0%)
-Cost per Hour: $205.88
+Cost per Hour: $139.35
 
 --------------------------------------------------------------------------------
 COST BREAKDOWN BY GROUP
@@ -37,7 +37,7 @@ COST BREAKDOWN BY GROUP
 FUSION_wgt:
   Steps: 1
   Time: 84.00 hours
-  Cost: $18966.59
+  Cost: $12794.94
   Tools: R
 
 PWASO_Model:
@@ -110,8 +110,7 @@ GenoDataInput:
   Steps: 1
   Time: 0.02 hours
   Cost: $0.03
-  Tools: bcftools
-plink
+  Tools: bcftools/plink
 
 FUSION_assoc_final:
   Steps: 1
@@ -193,9 +192,7 @@ Cost: $0.0034 (compute: $0.0034, storage: $0.0000)
 
 Group: GenoDataInput
 Step: GenoDataInput
-Tool: bcftools
-plink v1.2
-1,9
+Tool: bcftools/plink v1.2/1,9
 Resources: 32 CPUs, 64 GB RAM, 164864 MB storage
 Runtime: 0.02 hours × 1 parallel tasks
 Instance: c6i.8xlarge @ $1.3600/hr
@@ -244,10 +241,10 @@ Cost: $0.0412 (compute: $0.0408, storage: $0.0004)
 Group: FUSION_wgt
 Step: FUSION_wgt
 Tool: R v4.3.3
-Resources: 64 CPUs, 500 GB RAM, 7066 MB storage
+Resources: 64 CPUs, 32 GB RAM, 7066 MB storage
 Runtime: 84.00 hours × 56 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $18966.5924 (compute: $18966.5280, storage: $0.0644)
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $12794.9444 (compute: $12794.8800, storage: $0.0644)
 
 Group: PWASO_format
 Step: PWASO_format
@@ -415,7 +412,7 @@ Tool: R v4.3.3
 Resources: 2 CPUs, 4 GB RAM, 0 MB storage
 Runtime: 0.01 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr
-Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+Cost: $0.0009 (compute: $0.0008, storage: $0.0000)
 
 Group: MR_coloc
 Step: SNP_anno
@@ -431,7 +428,7 @@ Tool: R v4.3.3
 Resources: 2 CPUs, 4 GB RAM, 87 MB storage
 Runtime: 0.01 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr
-Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+Cost: $0.0009 (compute: $0.0008, storage: $0.0000)
 
 ================================================================================
 END OF REPORT

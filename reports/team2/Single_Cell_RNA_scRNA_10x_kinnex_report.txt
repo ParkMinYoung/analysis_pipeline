@@ -4,7 +4,7 @@ PIPELINE COST ANALYSIS REPORT
 
 직무 (Job): Single Cell RNA
 Analysis Name: scRNA_10x_kinnex
-Platform: 10x genomics, PacBio Revio MARS-Seq, All Single-cell platform
+Platform: 10x genomics, All Single-cell platform, PacBio Revio MARS-Seq
 Pipeline: Pre-processing(10x_pacbio), inhouse v25.1.0.257715
 
 --------------------------------------------------------------------------------
@@ -12,23 +12,23 @@ OVERVIEW
 --------------------------------------------------------------------------------
 Number of Groups: 3
 Number of Steps: 24
-Number of Tools: 18
+Number of Tools: 19
 
 --------------------------------------------------------------------------------
 RESOURCE REQUIREMENTS
 --------------------------------------------------------------------------------
-Total CPUs: 399
-Total Memory: 1113 GB
-Total Compute Time: 104.60 hours
+Total CPUs: 84
+Total Memory: 662 GB
+Total Compute Time: 80.60 hours
 Total Storage: 1601.83 GB
 
 --------------------------------------------------------------------------------
 COST SUMMARY
 --------------------------------------------------------------------------------
-Total Cost: $9355.57
-  - Compute Cost: $9354.37 (100.0%)
-  - Storage Cost: $1.20 (0.0%)
-Cost per Hour: $89.44
+Total Cost: $40.96
+  - Compute Cost: $39.81 (97.2%)
+  - Storage Cost: $1.15 (2.8%)
+Cost per Hour: $0.51
 
 --------------------------------------------------------------------------------
 COST BREAKDOWN BY GROUP
@@ -36,14 +36,14 @@ COST BREAKDOWN BY GROUP
 
 Post-processing:
   Steps: 5
-  Time: 36.00 hours
-  Cost: $9289.81
-  Tools: Seurat, clusterprofiler
+  Time: 12.00 hours
+  Cost: $21.91
+  Tools: R, Seurat, clusterprofiler
 
 Single-Cell Iso-Seq:
   Steps: 10
   Time: 52.30 hours
-  Cost: $60.19
+  Cost: $13.47
   Tools: lima, isoseq_tag, isoseq_refine, isoseq_correct, samtools, isoseq_bcstats, isoseq_groupdedup, pbmm2, isoseq, pigeon_sort, pigeon_classify, pigeon_filter, pigeon_report, pigeon_make-seurat, python
 
 Read Segmentation:
@@ -116,49 +116,49 @@ Group: Single-Cell Iso-Seq
 Step: call-isoseq_correct
 Tool: isoseq_correct v1.0.1
 Resources: 7 CPUs, 8 GB RAM, 410000 MB storage
-Runtime: 0.10 hours × 7 parallel tasks
+Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.2xlarge @ $0.3400/hr
-Cost: $0.2424 (compute: $0.2380, storage: $0.0044)
+Cost: $0.0384 (compute: $0.0340, storage: $0.0044)
 
 Group: Single-Cell Iso-Seq
 Step: nan
 Tool: samtools v1.17
 Resources: 7 CPUs, 1 GB RAM, 205000 MB storage
-Runtime: 0.10 hours × 7 parallel tasks
+Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.2xlarge @ $0.3400/hr
-Cost: $0.2402 (compute: $0.2380, storage: $0.0022)
+Cost: $0.0362 (compute: $0.0340, storage: $0.0022)
 
 Group: Single-Cell Iso-Seq
 Step: call-isoseq_bcstats
 Tool: isoseq_bcstats v1.0.1
 Resources: 7 CPUs, 10 GB RAM, 7 MB storage
-Runtime: 0.10 hours × 7 parallel tasks
+Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.2xlarge @ $0.3400/hr
-Cost: $0.2380 (compute: $0.2380, storage: $0.0000)
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
 
 Group: Single-Cell Iso-Seq
 Step: call-isoseq_dedup
 Tool: isoseq_groupdedup v1.0.1
 Resources: 7 CPUs, 7 GB RAM, 62000 MB storage
-Runtime: 0.10 hours × 7 parallel tasks
+Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.2xlarge @ $0.3400/hr
-Cost: $0.2387 (compute: $0.2380, storage: $0.0007)
+Cost: $0.0347 (compute: $0.0340, storage: $0.0007)
 
 Group: Single-Cell Iso-Seq
 Step: call-pbmm2_align
 Tool: pbmm2 v1.0.1
 Resources: 7 CPUs, 19 GB RAM, 8000 MB storage
-Runtime: 10.00 hours × 7 parallel tasks
+Runtime: 10.00 hours × 1 parallel tasks
 Instance: c6i.4xlarge @ $0.6800/hr
-Cost: $47.6087 (compute: $47.6000, storage: $0.0087)
+Cost: $6.8087 (compute: $6.8000, storage: $0.0087)
 
 Group: Single-Cell Iso-Seq
 Step: call-isoseq_collapse
 Tool: isoseq v1.0.1
 Resources: 7 CPUs, 12 GB RAM, 10000 MB storage
-Runtime: 1.20 hours × 7 parallel tasks
+Runtime: 1.20 hours × 1 parallel tasks
 Instance: c6i.2xlarge @ $0.3400/hr
-Cost: $2.8573 (compute: $2.8560, storage: $0.0013)
+Cost: $0.4093 (compute: $0.4080, storage: $0.0013)
 
 Group: Single-Cell Iso-Seq
 Step: call-pigeon
@@ -172,9 +172,9 @@ Group: Single-Cell Iso-Seq
 Step: nan
 Tool: pigeon_classify v1.2.0
 Resources: 7 CPUs, 15 GB RAM, 21000 MB storage
-Runtime: 0.30 hours × 7 parallel tasks
+Runtime: 0.30 hours × 1 parallel tasks
 Instance: c6i.2xlarge @ $0.3400/hr
-Cost: $0.7147 (compute: $0.7140, storage: $0.0007)
+Cost: $0.1027 (compute: $0.1020, storage: $0.0007)
 
 Group: Single-Cell Iso-Seq
 Step: nan
@@ -196,9 +196,9 @@ Group: Single-Cell Iso-Seq
 Step: nan
 Tool: pigeon_make-seurat v1.2.0
 Resources: 7 CPUs, 26 GB RAM, 21000 MB storage
-Runtime: 0.50 hours × 7 parallel tasks
+Runtime: 0.50 hours × 1 parallel tasks
 Instance: c6i.4xlarge @ $0.6800/hr
-Cost: $2.3811 (compute: $2.3800, storage: $0.0011)
+Cost: $0.3411 (compute: $0.3400, storage: $0.0011)
 
 Group: Single-Cell Iso-Seq
 Step: call-pbreports_sc_isoseq
@@ -210,43 +210,43 @@ Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
 
 Group: Post-processing
 Step: qc_merge
-Tool: Seurat v5.2.1
-Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
-Runtime: 6.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $1548.3023 (compute: $1548.2880, storage: $0.0143)
+Tool: R v5.2.1
+Resources: 1 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: r6i.8xlarge @ $2.0160/hr
+Cost: $2.0184 (compute: $2.0160, storage: $0.0024)
 
 Group: Post-processing
 Step: integration_annot
 Tool: Seurat v5.2.1
-Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
-Runtime: 12.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $3096.6046 (compute: $3096.5760, storage: $0.0286)
+Resources: 1 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 8.00 hours × 1 parallel tasks
+Instance: r6i.8xlarge @ $2.0160/hr
+Cost: $16.1471 (compute: $16.1280, storage: $0.0191)
 
 Group: Post-processing
 Step: select
 Tool: Seurat v5.2.1
-Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
-Runtime: 6.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $1548.3023 (compute: $1548.2880, storage: $0.0143)
+Resources: 1 CPUs, 80 GB RAM, 22000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.12xlarge @ $2.0400/hr
+Cost: $2.0424 (compute: $2.0400, storage: $0.0024)
 
 Group: Post-processing
 Step: DE
 Tool: Seurat v5.2.1
-Resources: 64 CPUs, 200 GB RAM, 17000 MB storage
-Runtime: 6.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $1548.2991 (compute: $1548.2880, storage: $0.0111)
+Resources: 1 CPUs, 57 GB RAM, 17000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $1.3618 (compute: $1.3600, storage: $0.0018)
 
 Group: Post-processing
 Step: Functional Analysis
 Tool: clusterprofiler v4.18.4
-Resources: 64 CPUs, 200 GB RAM, 17000 MB storage
-Runtime: 6.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $1548.2991 (compute: $1548.2880, storage: $0.0111)
+Resources: 1 CPUs, 12 GB RAM, 17000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.3418 (compute: $0.3400, storage: $0.0018)
 
 ================================================================================
 END OF REPORT

@@ -25,10 +25,10 @@ Total Storage: 14.65 GB
 --------------------------------------------------------------------------------
 COST SUMMARY
 --------------------------------------------------------------------------------
-Total Cost: $3096.60
-  - Compute Cost: $3096.58 (100.0%)
-  - Storage Cost: $0.03 (0.0%)
-Cost per Hour: $86.02
+Total Cost: $48.41
+  - Compute Cost: $48.38 (99.9%)
+  - Storage Cost: $0.03 (0.1%)
+Cost per Hour: $1.34
 
 --------------------------------------------------------------------------------
 COST BREAKDOWN BY GROUP
@@ -37,7 +37,7 @@ COST BREAKDOWN BY GROUP
 Post-processing:
   Steps: 1
   Time: 12.00 hours
-  Cost: $3096.59
+  Cost: $48.40
   Tools: Giotto
 
 Pre-processing:
@@ -62,9 +62,9 @@ Group: Post-processing
 Step: Post-processing
 Tool: Giotto v4.2.2
 Resources: 64 CPUs, 200 GB RAM, 10000 MB storage
-Runtime: 12.00 hours × 64 parallel tasks
+Runtime: 12.00 hours × 1 parallel tasks
 Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $3096.5890 (compute: $3096.5760, storage: $0.0130)
+Cost: $48.3970 (compute: $48.3840, storage: $0.0130)
 
 ================================================================================
 END OF REPORT

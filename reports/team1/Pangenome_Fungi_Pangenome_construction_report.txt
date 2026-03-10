@@ -12,7 +12,7 @@ OVERVIEW
 --------------------------------------------------------------------------------
 Number of Groups: 4
 Number of Steps: 4
-Number of Tools: 4
+Number of Tools: 7
 
 --------------------------------------------------------------------------------
 RESOURCE REQUIREMENTS
@@ -38,10 +38,7 @@ AssemblyProcess:
   Steps: 1
   Time: 8.70 hours
   Cost: $140.35
-  Tools: RagTag
-TGS-GapCloser
-RepeatModeler
-RepeatMasker
+  Tools: RagTag/TGS-GapCloser/RepeatModeler/RepeatMasker
 
 Cactus:
   Steps: 1
@@ -83,13 +80,7 @@ Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
 
 Group: AssemblyProcess
 Step: Correction & Scaffolding & Gap Filling & Repeat Masking
-Tool: RagTag
-TGS-GapCloser
-RepeatModeler
-RepeatMasker v2.1.0
-1.1.1
-2.0.6
-4.1.7-p1
+Tool: RagTag/TGS-GapCloser/RepeatModeler/RepeatMasker v2.1.0/1.1.1/2.0.6/4.1.7-p1
 Resources: 64 CPUs, 500 GB RAM, 41000 MB storage
 Runtime: 8.70 hours × 4 parallel tasks
 Instance: r6i.16xlarge @ $4.0320/hr

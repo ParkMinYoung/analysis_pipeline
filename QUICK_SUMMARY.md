@@ -12,67 +12,65 @@
 
 ## 전체 요약
 
-### 📊 3개 팀 통합 현황
+### 3개 팀 통합 현황
 
 | 항목 | Team 1 | Team 2 | Team 3 | 합계 |
 |------|--------|--------|--------|------|
 | **파이프라인 수** | 19개 | 22개 | 8개 | 49개 |
-| **총 비용** | **$20,218.67** | **$51,688.29** | **$3,302.47** | **$75,209.43** |
-| **총 단계 수** | 338 steps | 351 steps | 122 steps | 811 steps |
-| **총 실행 시간** | 384.61 hours | 651.34 hours | 602.80 hours | 1,638.75 hours |
-| **평균 파이프라인 비용** | $1,064.14 | $2,349.47 | $412.81 | $1,535.91 |
+| **총 비용** | **$14,045.62** | **$505.14** | **$3,302.47** | **$17,853.23** |
+| **총 단계 수** | 338 steps | 354 steps | 122 steps | 814 steps |
+| **총 실행 시간** | 382.64 hours | 534.04 hours | 602.80 hours | 1,519.48 hours |
+| **평균 파이프라인 비용** | $739.24 | $22.96 | $412.81 | $364.35 |
 
-### 주요 차이점
+### 주요 특징
 
 **Team 1 특징:**
 - 다양한 분석 영역 커버 (WGS, WES, DNA Chip, Pangenome, 커스텀 분석)
-- PWAS(커스텀 분석)가 전체 비용의 94.5% 차지
+- PWAS(커스텀 분석)가 전체 비용의 92.0% 차지
 - 주요 플랫폼: PacBio Revio, Illumina NovaSeq, Axiom/Illumina Microarray
 
 **Team 2 특징:**
-- Single Cell RNA 분석 중심 (전체 비용의 93%)
-- 고비용 파이프라인 집중 ($9,000 ~ $10,000/pipeline)
-- 주요 플랫폼: Parse Bioscience, 10x Genomics, Scale Bio
+- 9개 직무 영역의 다양한 파이프라인 보유 (Short RNA, Single Cell RNA, WGBS, Spatial 등)
+- 비용이 고르게 분산된 구조
+- 주요 플랫폼: Illumina NovaSeq, PacBio Revio, 10x Genomics, Parse Bioscience
 
 **Team 3 특징:**
 - Assembly와 Microbiome 분석 중심
-- 상대적으로 저비용 구조
+- 장시간 실행 작업 집중 (602.80 hours)
 - 주요 플랫폼: PacBio Revio, Illumina, Nanopore
 
 ---
 
 ## Team 1 분석
 
-### 📊 전체 요약
+### 전체 요약
 
 | 항목 | 값 |
 |------|-----|
 | **총 파이프라인 수** | 19개 |
 | **총 그룹 수** | 185 groups |
 | **총 분석 단계 수** | 338 steps |
-| **총 예상 비용** | **$20,218.67** |
-| **총 실행 시간** | 384.61 hours |
-| **총 CPU 사용량** | 2,201 cores |
-| **총 메모리 사용량** | 7,065 GB |
-| **총 스토리지** | 2,007.74 GB |
-| **평균 시간당 비용** | $52.57/hour |
+| **총 예상 비용** | **$14,045.62** |
+| **총 실행 시간** | 382.64 hours |
+| **총 CPU 사용량** | 2,171 cores |
+| **총 메모리 사용량** | 6,277 GB |
+| **총 스토리지** | 1,814.40 GB |
 
 ---
 
-### 💰 직무별 비용 (Team 1)
+### 직무별 비용 (Team 1)
 
 #### 커스텀 분석 - 2개 파이프라인
-- **총 비용**: $19,275.51 (전체의 95.3%)
+- **총 비용**: $13,103.86 (전체의 93.3%)
 - **그룹 수**: 25 groups
 - **단계 수**: 37 steps
-- **실행 시간**: 126.5 hours
 - **주요 파이프라인**:
-  1. PWAS (Proteome-Wide Association Study): $19,097.80
+  1. PWAS (Proteome-Wide Association Study): $12,926.15
   2. Kinics-ICS: $177.71
 
 #### Whole Genome Sequencing - 3개 파이프라인
-- **총 비용**: $732.98 (3.6%)
-- **그룹 수**: 54 groups
+- **총 비용**: $732.98 (5.2%)
+- **그룹 수**: 37 groups
 - **단계 수**: 126 steps
 - **주요 파이프라인**:
   1. PacBio Revio Human WGS: $257.48
@@ -82,16 +80,16 @@
 #### 기타 분석
 - Pangenome (Fungi): $154.80
 - Whole Exome Sequencing: $27.36
-- DNA Chip: $25.84
-- 단백질 데이터 통계 분석: $2.18
+- DNA Chip: $25.57
+- 단백질 데이터 통계 분석: $1.05
 
 ---
 
-### 🔝 가장 비용이 높은 파이프라인 Top 10 (Team 1)
+### 가장 비용이 높은 파이프라인 Top 10 (Team 1)
 
 | 순위 | 직무 | Analysis Name | 비용 (USD) | 시간 (hr) | Groups | Steps |
 |------|------|---------------|-----------|----------|--------|-------|
-| 1 | 커스텀 분석 | PWAS | $19,097.80 | 92.8 | 24 | 31 |
+| 1 | 커스텀 분석 | PWAS | $12,926.15 | 92.8 | 24 | 31 |
 | 2 | WGS | PacBio Revio Human WGS | $257.48 | 66.6 | 6 | 34 |
 | 3 | WGS | Illumina NovaSeq non-Human WGS | $227.64 | 48.1 | 17 | 32 |
 | 4 | WGS | Illumina NovaSeq Human WGS | $216.80 | 82.4 | 24 | 46 |
@@ -104,32 +102,30 @@
 
 ---
 
-### 💸 가장 비용이 높은 분석 단계 Top 5 (Team 1)
+### 가장 비용이 높은 분석 단계 Top 5 (Team 1)
 
 | 순위 | 파이프라인 | 단계 | 도구 | 비용 | 인스턴스 | 시간 |
 |------|-----------|------|------|------|----------|------|
-| 1 | PWAS | FUSION_wgt | R | $18,966.59 | r6i.16xlarge | 84h × 56 |
-| 2 | PacBio WGS | pbmm2_align_wgs | pbmm2 | $190.43 | c6i.16xlarge | 5h × 14 |
-| 3 | Pangenome | Assembly Process | RagTag/TGS | $140.35 | r6i.16xlarge | 8.7h × 4 |
-| 4 | Non-Human WGS | Variant Annotation | perl | $123.77 | c6i.4xlarge | 0.5h × 364 |
-| 5 | PWAS | PWASO_Model | TIGAR | $119.68 | c6i.16xlarge | 2h × 22 |
+| 1 | PWAS | FUSION_wgt | R | $12,794.94 | c6i.16xlarge | 84h x 56 |
+| 2 | PacBio WGS | pbmm2_align_wgs | pbmm2 | $190.43 | c6i.16xlarge | 5h x 14 |
+| 3 | Pangenome | Correction & Scaffolding | RagTag/TGS | $140.35 | r6i.16xlarge | 8.7h x 4 |
+| 4 | Non-Human WGS | Variant Annotation | perl | $123.77 | c6i.4xlarge | 0.5h x 364 |
+| 5 | PWAS | PWASO_Model | TIGAR | $119.68 | c6i.16xlarge | 2h x 22 |
 
 ---
 
-### 🎯 주요 인사이트 (Team 1)
+### 주요 인사이트 (Team 1)
 
 #### 1. 비용 집중도
-- **PWAS (커스텀 분석)** 파이프라인이 전체 비용의 **94.5%** 차지
-- FUSION_wgt 단일 단계가 전체 비용의 **93.8%** 차지
-- 극단적인 비용 편중 현상 (단일 파이프라인 집중)
+- **PWAS (커스텀 분석)** 파이프라인이 전체 비용의 **92.0%** 차지
+- FUSION_wgt 단일 단계가 전체 비용의 **91.1%** 차지
 
 #### 2. PWAS 분석 특징
-- FUSION_wgt 단계: r6i.16xlarge (64 vCPU, 500GB 메모리) × 56 병렬 작업
+- FUSION_wgt 단계: c6i.16xlarge (64 vCPU, 32GB) x 56 병렬 작업
 - 84시간 장시간 실행
-- 메모리 집약적 분석
 
 #### 3. 비용 최적화 포인트
-- **PWAS FUSION_wgt**: $18,966 → Spot Instance 적용 시 약 $5,690 (70% 절감)
+- **PWAS FUSION_wgt**: $12,795 -> Spot Instance 적용 시 약 $3,838 (70% 절감)
 - **WGS 파이프라인**: 비교적 합리적인 비용 구조
 - **DNA Chip & WES**: 매우 저비용 구조
 
@@ -137,55 +133,58 @@
 
 ## Team 2 분석
 
-### 📊 전체 요약
+### 전체 요약
 
 | 항목 | 값 |
 |------|-----|
 | **총 파이프라인 수** | 22개 |
-| **총 그룹 수** | 128 groups |
-| **총 분석 단계 수** | 351 steps |
-| **총 예상 비용** | **$51,688.29** |
-| **총 실행 시간** | 651.34 hours |
-| **총 CPU 사용량** | 3,841 cores |
-| **총 메모리 사용량** | 9,693 GB |
-| **총 스토리지** | 5,929.41 GB |
-| **평균 시간당 비용** | $79.37/hour |
+| **총 그룹 수** | 129 groups |
+| **총 분석 단계 수** | 354 steps |
+| **총 예상 비용** | **$505.14** |
+| **총 실행 시간** | 534.04 hours |
+| **총 CPU 사용량** | 2,269 cores |
+| **총 메모리 사용량** | 7,462 GB |
+| **총 스토리지** | 5,935.40 GB |
 
 ---
 
-### 💰 직무별 비용 (Team 2)
+### 직무별 비용 (Team 2)
 
 #### Single Cell RNA - 5개 파이프라인
-- **총 비용**: $48,288.78 (전체의 93.4%)
-- **그룹 수**: 22 groups
+- **총 비용**: $169.25 (전체의 33.5%)
+- **그룹 수**: 17 groups
 - **단계 수**: 80 steps
-- **실행 시간**: 287.6 hours
 - **주요 파이프라인**:
-  1. scRNA_parse_kinnex: $10,445.01
-  2. scRNA_parse_illumina: $9,812.05
-  3. scRNA_10x_illumina: $9,376.85
-  4. scRNA_10x_kinnex: $9,355.57
-  5. scRNA_scale_illumina: $9,299.30
+  1. scRNA_parse_kinnex: $50.36
+  2. scRNA_10x_kinnex: $40.96
+  3. scRNA_parse_illumina: $30.08
+  4. scRNA_10x_illumina: $24.63
+  5. scRNA_scale_illumina: $23.22
 
-#### Spatial - 2개 파이프라인
-- **총 비용**: $3,114.01 (6.0%)
-- **그룹 수**: 3 groups
-- **단계 수**: 3 steps
+#### Whole Genome Bisulfite Sequencing - 2개 파이프라인
+- **총 비용**: $136.17 (27.0%)
+- **그룹 수**: 11 groups
+- **단계 수**: 31 steps
 - **주요 파이프라인**:
-  1. cosmx: $3,096.60
-  2. geomx: $17.41
+  1. WGBS DMR 분석 - human/mouse 외: $69.45
+  2. WGBS DMR 분석 - human/mouse: $66.72
 
 #### Short RNA Sequencing - 7개 파이프라인
-- **총 비용**: $126.92 (0.25%)
-- **그룹 수**: 56 groups
-- **단계 수**: 165 steps
+- **총 비용**: $128.64 (25.5%)
+- **그룹 수**: 33 groups
+- **단계 수**: 168 steps
 - **주요 파이프라인**:
-  1. RNASeq_BAM_DEG: $42.32
+  1. RNASeq_BAM_DEG: $44.04
   2. RNASeq_noREF_DEG: $41.44
   3. RNASeq_DEG_AS_SNP: $14.12
 
+#### Spatial - 2개 파이프라인
+- **총 비용**: $48.68 (9.6%)
+- **주요 파이프라인**:
+  1. cosmx: $48.41
+  2. geomx: $0.27
+
 #### 기타 분석
-- Whole Genome Bisulfite Sequencing: $136.17
 - Methylation Chip: $11.63
 - Targeted Methylation Sequencing: $6.50
 - Long RNA Sequencing: $3.65
@@ -194,45 +193,55 @@
 
 ---
 
-### 🔝 가장 비용이 높은 파이프라인 Top 10 (Team 2)
+### 가장 비용이 높은 파이프라인 Top 10 (Team 2)
 
 | 순위 | 직무 | Analysis Name | 비용 (USD) | 시간 (hr) | Groups | Steps |
 |------|------|---------------|-----------|----------|--------|-------|
-| 1 | Single Cell RNA | scRNA_parse_kinnex | $10,445.01 | 68.5 | 6 | 18 |
-| 2 | Single Cell RNA | scRNA_parse_illumina | $9,812.05 | 39.0 | 2 | 7 |
-| 3 | Single Cell RNA | scRNA_10x_illumina | $9,376.85 | 37.0 | 2 | 6 |
-| 4 | Single Cell RNA | scRNA_10x_kinnex | $9,355.57 | 104.6 | 3 | 24 |
-| 5 | Single Cell RNA | scRNA_scale_illumina | $9,299.30 | 38.5 | 9 | 25 |
-| 6 | Spatial | cosmx | $3,096.60 | 36.0 | 2 | 2 |
-| 7 | WGBS | DMR 분석 - human/mouse 외 | $69.45 | 87.1 | 11 | 16 |
-| 8 | WGBS | DMR 분석 - human/mouse | $66.72 | 84.9 | 11 | 15 |
-| 9 | Short RNA | RNASeq_BAM_DEG | $42.32 | 50.3 | 10 | 22 |
-| 10 | Short RNA | RNASeq_noREF_DEG | $41.44 | 29.1 | 12 | 25 |
+| 1 | WGBS | WGBS DMR 분석 - human/mouse 외 | $69.45 | 87.1 | 11 | 16 |
+| 2 | WGBS | WGBS DMR 분석 - human/mouse | $66.72 | 84.9 | 11 | 15 |
+| 3 | Single Cell RNA | scRNA_parse_kinnex | $50.36 | 44.5 | 6 | 18 |
+| 4 | Spatial | cosmx | $48.41 | 36.0 | 2 | 2 |
+| 5 | Short RNA | RNASeq_BAM_DEG | $44.04 | 53.0 | 11 | 25 |
+| 6 | Short RNA | RNASeq_noREF_DEG | $41.44 | 29.1 | 12 | 25 |
+| 7 | Single Cell RNA | scRNA_10x_kinnex | $40.96 | 80.6 | 3 | 24 |
+| 8 | Single Cell RNA | scRNA_parse_illumina | $30.08 | 15.0 | 2 | 7 |
+| 9 | Single Cell RNA | scRNA_10x_illumina | $24.63 | 13.0 | 2 | 6 |
+| 10 | Single Cell RNA | scRNA_scale_illumina | $23.22 | 14.5 | 9 | 25 |
 
 ---
 
-### 🎯 주요 인사이트 (Team 2)
+### 가장 비용이 높은 분석 단계 Top 5 (Team 2)
 
-#### 1. 비용 집중도
-- **Single Cell RNA** 파이프라인이 전체 비용의 **93.4%** 차지
-- 상위 5개 파이프라인이 전체 비용의 **93.2%** 차지
-- 극단적인 비용 편중 현상
+| 순위 | 파이프라인 | 단계 | 도구 | 비용 | 인스턴스 | 시간 |
+|------|-----------|------|------|------|----------|------|
+| 1 | cosmx | Post-processing | Giotto | $48.40 | r6i.16xlarge | 12h |
+| 2 | WGBS human/mouse | BISMARK | bismark | $47.29 | c6i.8xlarge | 34.5h |
+| 3 | WGBS human/mouse 외 | BISMARK_ALIGN | bismark | $47.29 | c6i.8xlarge | 34.5h |
+| 4 | RNASeq_noREF_DEG | Assembly | Trinity | $24.48 | c6i.24xlarge | 6h |
+| 5 | scRNA_10x_illumina | integration_annot | Seurat | $16.15 | r6i.8xlarge | 8h |
 
-#### 2. Single Cell RNA 분석 특징
-- 평균 파이프라인 비용: **$9,657.71**
-- 주요 비용 발생: **Post-processing** 단계
-- 고사양 인스턴스 장시간 사용 (36~104 hours)
+---
+
+### 주요 인사이트 (Team 2)
+
+#### 1. 비용 분산 구조
+- 비용이 3개 직무에 고르게 분산: Single Cell RNA (33.5%), WGBS (27.0%), Short RNA (25.5%)
+- 가장 고비용 파이프라인이 $69.45로 비교적 저비용
+
+#### 2. 주요 비용 발생 단계
+- **BISMARK alignment** (WGBS): 34.5시간 장시간 실행
+- **Post-processing** (cosmx Spatial): r6i.16xlarge 메모리 집약적 분석
+- **integration_annot** (Single Cell RNA): Seurat 기반 200GB 메모리 사용
 
 #### 3. 비용 최적화 포인트
-- **Single Cell RNA Post-processing**: 각 파이프라인당 $9,000 이상 소요
-- **Spatial (CosMx)**: 단일 분석에 $3,096 소요
-- 이 두 영역에 집중된 최적화로 큰 절감 효과 기대
+- 전체 비용이 $505로 이미 효율적인 구조
+- Spot Instance 적용 시 추가 70% 절감 가능
 
 ---
 
 ## Team 3 분석
 
-### 📊 전체 요약
+### 전체 요약
 
 | 항목 | 값 |
 |------|-----|
@@ -244,21 +253,19 @@
 | **총 CPU 사용량** | 4,924 cores |
 | **총 메모리 사용량** | 2,634 GB |
 | **총 스토리지** | 4,200.4 GB |
-| **평균 시간당 비용** | $5.48/hour |
 
 ---
 
-### 💰 직무별 비용 (Team 3)
+### 직무별 비용 (Team 3)
 
 #### Assembly (유전체 조립) - 3개 파이프라인
 - **총 비용**: $1,934.48
-- **그룹 수**: 19 groups
+- **그룹 수**: 16 groups
 - **단계 수**: 54 steps
 - **실행 시간**: 211.6 hours
 - **CPU 사용량**: 1,689 cores
 - **메모리 사용량**: 1,823 GB
 - **스토리지**: 3,792 GB
-- **평균 단계당 비용**: $35.82
 
 **파이프라인 상세:**
 1. **Large Genome Assembly - All** (Human, Animal, Plant)
@@ -278,13 +285,12 @@
 
 #### Microbiome (마이크로바이옴) - 5개 파이프라인
 - **총 비용**: $1,367.99
-- **그룹 수**: 29 groups
+- **그룹 수**: 15 groups
 - **단계 수**: 68 steps
 - **실행 시간**: 391.2 hours
 - **CPU 사용량**: 3,235 cores
 - **메모리 사용량**: 811 GB
 - **스토리지**: 408.4 GB
-- **평균 단계당 비용**: $20.12
 
 **파이프라인 상세:**
 1. **shotgun metagenome 분석 - Pacbio** (PacBio Revio, HiFi-MAG-Pipeline)
@@ -314,7 +320,7 @@
 
 ---
 
-### 🔝 가장 비용이 높은 파이프라인 Top 8 (Team 3)
+### 가장 비용이 높은 파이프라인 Top 8 (Team 3)
 
 | 순위 | 직무 | Analysis Name | 비용 (USD) | 시간 (hr) | Groups | Steps |
 |------|------|---------------|-----------|----------|--------|-------|
@@ -329,27 +335,27 @@
 
 ---
 
-### 💸 가장 비용이 높은 분석 단계 Top 10 (Team 3)
+### 가장 비용이 높은 분석 단계 Top 10 (Team 3)
 
 | 순위 | 파이프라인 | 단계 | 도구 | 비용 | 인스턴스 | 시간 |
 |------|-----------|------|------|------|----------|------|
 | 1 | Shotgun metagenome | Assembly | flye | $979.77 | c6i.24xlarge | 240h |
-| 2 | Large Genome | Gene Prediction | maker | $871.62 | r6i.16xlarge | 36h × 6 |
-| 3 | Large Genome | Assembly (verkko) | verkko | $392.48 | c6i.16xlarge | 18h × 8 |
-| 4 | Large Genome | Assembly (nextdenovo) | nextdenovo | $217.70 | c6i.16xlarge | 10h × 8 |
-| 5 | 16S rRNA | ASV Clustering | qiime2 | $136.00 | c6i.16xlarge | 50h |
-| 6 | Large Genome | Error Correction | nextpolish | $131.04 | c6i.16xlarge | 6h × 8 |
-| 7 | 16S rRNA | Phylogeny | qiime2 | $130.66 | c6i.16xlarge | 48h |
+| 2 | Large Genome | Gene Prediction | maker | $871.62 | r6i.16xlarge | 36h x 6 |
+| 3 | Large Genome | Assembly (verkko) | verkko | $392.48 | c6i.16xlarge | 18h x 8 |
+| 4 | Large Genome | Assembly (nextdenovo) | nextdenovo | $217.70 | c6i.16xlarge | 10h x 8 |
+| 5 | 16S rRNA Pacbio | ASV Clustering | qiime2 | $136.00 | c6i.16xlarge | 50h |
+| 6 | Large Genome | Error Correction | nextpolish | $131.04 | c6i.16xlarge | 6h x 8 |
+| 7 | 16S rRNA Pacbio | Phylogeny | qiime2 | $130.66 | c6i.16xlarge | 48h |
 | 8 | Small Genome | Assembly | unicycler | $65.28 | c6i.16xlarge | 24h |
 | 9 | Large Genome | Assembly (hifiasm+HiC) | hifiasm | $38.11 | c6i.16xlarge | 14h |
 | 10 | Large Genome | Assembly (hifiasm) | hifiasm | $32.66 | c6i.16xlarge | 12h |
 
 ---
 
-### 🎯 주요 인사이트 (Team 3)
+### 주요 인사이트 (Team 3)
 
 #### 1. 비용 집중 영역
-- **상위 3개 파이프라인**이 전체 비용의 **94%** 차지
+- **상위 3개 파이프라인**이 전체 비용의 **93%** 차지
   - Large Genome Assembly: $1,772 (54%)
   - Shotgun metagenome (PacBio): $998 (30%)
   - 16S rRNA (PacBio): $318 (10%)
@@ -362,7 +368,6 @@
 | 파이프라인 수 | 3개 | 5개 |
 | 총 비용 | $1,934 | $1,368 |
 | 평균 비용/파이프라인 | $645 | $274 |
-| 평균 비용/단계 | $35.82 | $20.12 |
 | CPU 사용량 | 1,689 cores | 3,235 cores |
 | 메모리 사용량 | 1,823 GB | 811 GB |
 
@@ -378,81 +383,43 @@
 
 ---
 
-## 💡 종합 비용 절감 전략
+## 종합 비용 절감 전략
 
-### 🎯 Team 1 최적화 전략 (최우선순위)
+### Team 1 최적화 전략 (최우선순위)
 
 #### 1. PWAS FUSION_wgt 최적화
 ```
-현재 비용: $18,966 (전체의 93.8%)
+현재 비용: $12,795 (전체의 91.1%)
 목표: 70% 절감
 
 조치 사항:
 1. Spot Instances 적용 (최우선)
-   - 예상 절감: $13,276 (70%)
-   - 최종 비용: $5,690
+   - 예상 절감: $8,957 (70%)
+   - 최종 비용: $3,838
 
 2. 병렬 작업 수 조정
    - 현재: 56 parallel tasks
    - 검토: 최적 병렬 수 분석
-   - 리소스 효율성 개선
 
 3. 알고리즘 최적화
    - FUSION 파라미터 튜닝
-   - 메모리 사용량 분석
    - 중간 결과 캐싱
 ```
 
-#### 2. 기타 파이프라인
+### Team 2 최적화 전략
+
 ```
-WGS/WES/DNA Chip: 이미 최적화된 상태
-총 비용: $943 (매우 합리적)
+현재 비용: $505 (이미 효율적)
+Spot Instances 적용 시: ~$152 (70% 절감)
 추가 최적화 여지: 제한적
 ```
 
-### 🎯 Team 2 최적화 전략 (우선순위 높음)
-
-#### 1. Single Cell RNA Post-processing 최적화
-```
-현재 비용: $45,000+ (전체의 87%)
-목표: 30-40% 절감
-
-조치 사항:
-1. Spot Instances 적용 (70% 절감 가능)
-   - 예상 절감: $31,500
-
-2. 인스턴스 크기 최적화
-   - Post-processing 단계 분석
-   - 실제 CPU/메모리 사용률 모니터링
-   - 예상 절감: $4,500 (10%)
-
-3. 파이프라인 병렬화 개선
-   - 현재: 순차 처리
-   - 개선: 샘플별 병렬 처리
-   - 시간 단축 → 비용 절감
-```
-
-#### 2. Spatial 분석 최적화
-```
-현재 비용: $3,114
-목표: 20-30% 절감
-
-조치 사항:
-- CosMx 분석 단계별 검토
-- 불필요한 고사양 인스턴스 사용 확인
-- 예상 절감: $622-934
-```
-
-### 🎯 Team 3 최적화 전략
+### Team 3 최적화 전략
 
 #### 1. Spot Instances 사용
 ```
-예상 절감액: $2,311 (70% 절감)
+예상 절감액: $2,312 (70% 절감)
 적용 대상: 모든 배치 작업
-
-우선 적용:
-- Assembly 파이프라인
-- Microbiome 파이프라인
 ```
 
 #### 2. 고비용 작업 타깃 최적화
@@ -465,24 +432,20 @@ Top 2 비용 작업:
 2. Maker gene prediction ($872):
    - 병렬 처리 조정
    - 중간 결과 재사용
-
-예상 절감: $200-400
 ```
 
-### 📊 종합 최적화 효과 예상
+### 종합 최적화 효과 예상
 
-| 팀 | 현재 비용 | 최적화 목표 | 예상 절감 | 절감률 |
-|-----|----------|------------|----------|--------|
-| Team 1 | $20,219 | Spot Instances (PWAS) | $13,300 | 66% |
-| Team 2 | $51,688 | Spot + 인스턴스 최적화 | $36,000 | 70% |
-| Team 3 | $3,302 | Spot + 작업 최적화 | $2,500 | 76% |
-| **합계** | **$75,209** | **병행 적용** | **$51,800** | **69%** |
-
-**최적화 후 예상 총 비용**: $23,409 (현재: $75,209)
+| 팀 | 현재 비용 | 예상 절감 | 절감률 | 최적화 후 |
+|-----|----------|----------|--------|----------|
+| Team 1 | $14,046 | $8,957 | 64% | $5,089 |
+| Team 2 | $505 | $354 | 70% | $152 |
+| Team 3 | $3,302 | $2,312 | 70% | $991 |
+| **합계** | **$17,853** | **$11,623** | **65%** | **$6,231** |
 
 ---
 
-## 📁 주요 파일 위치
+## 주요 파일 위치
 
 ### Team 1 파일
 
@@ -523,21 +486,6 @@ Top 2 비용 작업:
 ### 공통 스크립트
 
 ```bash
-# Team 1 분석
-python3 scripts/01_process_data.py 1
-python3 scripts/02_calculate_aws_costs.py 1
-python3 scripts/03_analyze_pipelines.py 1
-
-# Team 2 분석
-python3 scripts/01_process_data.py 2
-python3 scripts/02_calculate_aws_costs.py 2
-python3 scripts/03_analyze_pipelines.py 2
-
-# Team 3 분석
-python3 scripts/01_process_data.py 3
-python3 scripts/02_calculate_aws_costs.py 3
-python3 scripts/03_analyze_pipelines.py 3
-
 # 전체 팀 한번에 실행
 for team in 1 2 3; do
   python3 scripts/01_process_data.py $team && \
@@ -548,8 +496,7 @@ done
 
 ---
 
-**분석 완료일**: 2026-01-08
+**분석 완료일**: 2026-03-10
 **분석 대상**: Team 1 (19 pipelines), Team 2 (22 pipelines), Team 3 (8 pipelines)
 **총 파이프라인**: 49개
-**총 예상 비용**: $75,209.43
-**다음 업데이트**: 분기별 또는 파이프라인 변경 시
+**총 예상 비용**: $17,853.23

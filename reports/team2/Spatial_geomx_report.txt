@@ -25,10 +25,10 @@ Total Storage: 137.70 GB
 --------------------------------------------------------------------------------
 COST SUMMARY
 --------------------------------------------------------------------------------
-Total Cost: $17.41
-  - Compute Cost: $17.41 (100.0%)
-  - Storage Cost: $0.00 (0.0%)
-Cost per Hour: $174.10
+Total Cost: $0.27
+  - Compute Cost: $0.27 (99.4%)
+  - Storage Cost: $0.00 (0.6%)
+Cost per Hour: $2.74
 
 --------------------------------------------------------------------------------
 COST BREAKDOWN BY GROUP
@@ -37,7 +37,7 @@ COST BREAKDOWN BY GROUP
 Pre-processing:
   Steps: 1
   Time: 0.10 hours
-  Cost: $17.41
+  Cost: $0.27
   Tools: geomxngspipeline
 
 --------------------------------------------------------------------------------
@@ -48,9 +48,9 @@ Group: Pre-processing
 Step: Process_DCC
 Tool: geomxngspipeline v3.2.0.35
 Resources: 64 CPUs, 10 GB RAM, 141000 MB storage
-Runtime: 0.10 hours × 64 parallel tasks
+Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.16xlarge @ $2.7200/hr
-Cost: $17.4095 (compute: $17.4080, storage: $0.0015)
+Cost: $0.2735 (compute: $0.2720, storage: $0.0015)
 
 ================================================================================
 END OF REPORT

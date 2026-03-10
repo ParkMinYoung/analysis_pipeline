@@ -4,7 +4,7 @@ PIPELINE COST ANALYSIS REPORT
 
 직무 (Job): Single Cell RNA
 Analysis Name: scRNA_parse_illumina
-Platform: All Single-cell platform, Parse Bioscience(Evercode all type), Illumina
+Platform: All Single-cell platform, Illumina, Parse Bioscience(Evercode all type)
 Pipeline: Pre-processing(parse_illumina), inhouse v1.6.3
 
 --------------------------------------------------------------------------------
@@ -17,18 +17,18 @@ Number of Tools: 4
 --------------------------------------------------------------------------------
 RESOURCE REQUIREMENTS
 --------------------------------------------------------------------------------
-Total CPUs: 448
-Total Memory: 1064 GB
-Total Compute Time: 39.00 hours
+Total CPUs: 133
+Total Memory: 613 GB
+Total Compute Time: 15.00 hours
 Total Storage: 122.07 GB
 
 --------------------------------------------------------------------------------
 COST SUMMARY
 --------------------------------------------------------------------------------
-Total Cost: $9812.05
-  - Compute Cost: $9811.97 (100.0%)
-  - Storage Cost: $0.08 (0.0%)
-Cost per Hour: $251.59
+Total Cost: $30.08
+  - Compute Cost: $30.04 (99.9%)
+  - Storage Cost: $0.03 (0.1%)
+Cost per Hour: $2.01
 
 --------------------------------------------------------------------------------
 COST BREAKDOWN BY GROUP
@@ -36,14 +36,14 @@ COST BREAKDOWN BY GROUP
 
 Post-processing:
   Steps: 5
-  Time: 36.00 hours
-  Cost: $9289.81
+  Time: 12.00 hours
+  Cost: $21.91
   Tools: Seurat, clusterprofiler
 
 Pre-processing(parse_illumina):
   Steps: 2
   Time: 3.00 hours
-  Cost: $522.24
+  Cost: $8.16
   Tools: split-pipe_all, split-pipe_comb
 
 --------------------------------------------------------------------------------
@@ -54,57 +54,57 @@ Group: Pre-processing(parse_illumina)
 Step: split-pipe_all
 Tool: split-pipe_all v1.6.3
 Resources: 64 CPUs, 32 GB RAM, 15000 MB storage
-Runtime: 2.00 hours × 64 parallel tasks
+Runtime: 2.00 hours × 1 parallel tasks
 Instance: c6i.16xlarge @ $2.7200/hr
-Cost: $348.1633 (compute: $348.1600, storage: $0.0033)
+Cost: $5.4433 (compute: $5.4400, storage: $0.0033)
 
 Group: Pre-processing(parse_illumina)
 Step: split-pipe_comb
 Tool: split-pipe_comb v1.6.3
 Resources: 64 CPUs, 32 GB RAM, 10000 MB storage
-Runtime: 1.00 hours × 64 parallel tasks
+Runtime: 1.00 hours × 1 parallel tasks
 Instance: c6i.16xlarge @ $2.7200/hr
-Cost: $174.0811 (compute: $174.0800, storage: $0.0011)
+Cost: $2.7211 (compute: $2.7200, storage: $0.0011)
 
 Group: Post-processing
 Step: qc_merge
 Tool: Seurat v5.2.1
-Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
-Runtime: 6.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $1548.3023 (compute: $1548.2880, storage: $0.0143)
+Resources: 1 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: r6i.8xlarge @ $2.0160/hr
+Cost: $2.0184 (compute: $2.0160, storage: $0.0024)
 
 Group: Post-processing
 Step: integration_annot
 Tool: Seurat v5.2.1
-Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
-Runtime: 12.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $3096.6046 (compute: $3096.5760, storage: $0.0286)
+Resources: 1 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 8.00 hours × 1 parallel tasks
+Instance: r6i.8xlarge @ $2.0160/hr
+Cost: $16.1471 (compute: $16.1280, storage: $0.0191)
 
 Group: Post-processing
 Step: select
 Tool: Seurat v5.2.1
-Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
-Runtime: 6.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $1548.3023 (compute: $1548.2880, storage: $0.0143)
+Resources: 1 CPUs, 80 GB RAM, 22000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.12xlarge @ $2.0400/hr
+Cost: $2.0424 (compute: $2.0400, storage: $0.0024)
 
 Group: Post-processing
 Step: DE
 Tool: Seurat v5.2.1
-Resources: 64 CPUs, 200 GB RAM, 17000 MB storage
-Runtime: 6.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $1548.2991 (compute: $1548.2880, storage: $0.0111)
+Resources: 1 CPUs, 57 GB RAM, 17000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $1.3618 (compute: $1.3600, storage: $0.0018)
 
 Group: Post-processing
 Step: Functional Analysis
 Tool: clusterprofiler v4.18.4
-Resources: 64 CPUs, 200 GB RAM, 17000 MB storage
-Runtime: 6.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $1548.2991 (compute: $1548.2880, storage: $0.0111)
+Resources: 1 CPUs, 12 GB RAM, 17000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.3418 (compute: $0.3400, storage: $0.0018)
 
 ================================================================================
 END OF REPORT

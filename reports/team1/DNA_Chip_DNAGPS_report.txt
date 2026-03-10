@@ -12,7 +12,7 @@ OVERVIEW
 --------------------------------------------------------------------------------
 Number of Groups: 4
 Number of Steps: 4
-Number of Tools: 4
+Number of Tools: 6
 
 --------------------------------------------------------------------------------
 RESOURCE REQUIREMENTS
@@ -50,15 +50,13 @@ CallToPlink:
   Steps: 1
   Time: 0.02 hours
   Cost: $0.00
-  Tools: perl
-plink
+  Tools: perl/plink
 
 SNPolisher:
   Steps: 1
   Time: 0.02 hours
   Cost: $0.00
-  Tools: ps-metrics
-ps-classification
+  Tools: ps-metrics/ps-classification
 
 --------------------------------------------------------------------------------
 DETAILED STEP-BY-STEP BREAKDOWN
@@ -74,9 +72,7 @@ Cost: $0.0204 (compute: $0.0204, storage: $0.0000)
 
 Group: CallToPlink
 Step: CallToPlink
-Tool: perl
-plink v5.38.2
-v1.9.0-b.7.11
+Tool: perl/plink v5.38.2/v1.9.0-b.7.11
 Resources: 2 CPUs, 4 GB RAM, 0 MB storage
 Runtime: 0.02 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr
@@ -84,8 +80,7 @@ Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
 
 Group: SNPolisher
 Step: SNPolisher
-Tool: ps-metrics
-ps-classification v2.11.0
+Tool: ps-metrics/ps-classification v2.11.0
 Resources: 2 CPUs, 4 GB RAM, 0 MB storage
 Runtime: 0.02 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr

@@ -12,7 +12,7 @@ OVERVIEW
 --------------------------------------------------------------------------------
 Number of Groups: 6
 Number of Steps: 19
-Number of Tools: 11
+Number of Tools: 14
 
 --------------------------------------------------------------------------------
 RESOURCE REQUIREMENTS
@@ -44,11 +44,7 @@ MR_Coloc:
   Steps: 6
   Time: 1.80 hours
   Cost: $2.65
-  Tools: R, python
-coloc
-locuscomparer, TwoSampleMR
-MendelianRandomization, coloc
-locuscomparer
+  Tools: R, python/coloc/locuscomparer, TwoSampleMR/MendelianRandomization, coloc/locuscomparer
 
 MetaAnalysis:
   Steps: 4
@@ -60,8 +56,7 @@ FineMapping:
   Steps: 1
   Time: 0.20 hours
   Cost: $0.14
-  Tools: plink
-susieR
+  Tools: plink/susieR
 
 InputFormatting:
   Steps: 3
@@ -137,9 +132,7 @@ Cost: $0.5447 (compute: $0.5440, storage: $0.0007)
 
 Group: FineMapping
 Step: Finemap
-Tool: plink
-susieR v1.90
-0.14.2
+Tool: plink/susieR v1.90/0.14.2
 Resources: 10 CPUs, 24 GB RAM, 1900 MB storage
 Runtime: 0.20 hours × 1 parallel tasks
 Instance: c6i.4xlarge @ $0.6800/hr
@@ -195,11 +188,7 @@ Cost: $0.1361 (compute: $0.1360, storage: $0.0001)
 
 Group: MR_Coloc
 Step: Coloc_GWAS
-Tool: python
-coloc
-locuscomparer v3.9.21
-5.2.3
-1.0.0
+Tool: python/coloc/locuscomparer v3.9.21/5.2.3/1.0.0
 Resources: 16 CPUs, 4 GB RAM, 2200 MB storage
 Runtime: 0.60 hours × 1 parallel tasks
 Instance: c6i.4xlarge @ $0.6800/hr
@@ -207,9 +196,7 @@ Cost: $0.4081 (compute: $0.4080, storage: $0.0001)
 
 Group: MR_Coloc
 Step: TwoMR_GWAS
-Tool: TwoSampleMR
-MendelianRandomization v0.6.17
-0.10.0
+Tool: TwoSampleMR/MendelianRandomization v0.6.17/0.10.0
 Resources: 16 CPUs, 128 GB RAM, 1 MB storage
 Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.16xlarge @ $2.7200/hr
@@ -217,9 +204,7 @@ Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
 
 Group: MR_Coloc
 Step: Coloc_eQTL
-Tool: coloc
-locuscomparer v5.2.3
-1.0.0
+Tool: coloc/locuscomparer v5.2.3/1.0.0
 Resources: 16 CPUs, 4 GB RAM, 782 MB storage
 Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.4xlarge @ $0.6800/hr
@@ -227,9 +212,7 @@ Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
 
 Group: MR_Coloc
 Step: TwoMR_eQTL
-Tool: TwoSampleMR
-MendelianRandomization v0.6.17
-0.10.0
+Tool: TwoSampleMR/MendelianRandomization v0.6.17/0.10.0
 Resources: 32 CPUs, 128 GB RAM, 8 MB storage
 Runtime: 0.40 hours × 1 parallel tasks
 Instance: c6i.16xlarge @ $2.7200/hr

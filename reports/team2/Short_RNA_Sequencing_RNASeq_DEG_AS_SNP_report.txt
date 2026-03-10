@@ -86,7 +86,7 @@ Tool: GATK v4.5.0.0
 Resources: 1 CPUs, 4 GB RAM, 122 MB storage
 Runtime: 0.01 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr
-Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+Cost: $0.0009 (compute: $0.0008, storage: $0.0000)
 
 Group: Reference indexing
 Step: fasta indexing
@@ -94,7 +94,7 @@ Tool: samtools v1.21
 Resources: 1 CPUs, 4 GB RAM, 122 MB storage
 Runtime: 0.01 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr
-Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+Cost: $0.0009 (compute: $0.0008, storage: $0.0000)
 
 Group: Reference indexing
 Step: gtfToCallingIntervals
@@ -102,7 +102,7 @@ Tool: GATK v4.5.0.0
 Resources: 1 CPUs, 4 GB RAM, 3 MB storage
 Runtime: 0.01 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr
-Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+Cost: $0.0009 (compute: $0.0008, storage: $0.0000)
 
 Group: Reference indexing
 Step: StarGenerateReferences
@@ -126,7 +126,7 @@ Tool: awk vnan
 Resources: 1 CPUs, 4 GB RAM, 30 MB storage
 Runtime: 0.01 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr
-Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+Cost: $0.0009 (compute: $0.0008, storage: $0.0000)
 
 Group: QC
 Step: ribopicker_1

@@ -4,7 +4,7 @@ PIPELINE COST ANALYSIS REPORT
 
 직무 (Job): Single Cell RNA
 Analysis Name: scRNA_scale_illumina
-Platform: All Single-cell platform, QuatumScale, Illumina
+Platform: All Single-cell platform, Illumina, QuatumScale
 Pipeline: Pre-processing(scalebio_illumina), inhouse v2.1.0
 
 --------------------------------------------------------------------------------
@@ -17,18 +17,18 @@ Number of Tools: 10
 --------------------------------------------------------------------------------
 RESOURCE REQUIREMENTS
 --------------------------------------------------------------------------------
-Total CPUs: 397
-Total Memory: 1162 GB
-Total Compute Time: 38.50 hours
+Total CPUs: 82
+Total Memory: 711 GB
+Total Compute Time: 14.50 hours
 Total Storage: 840.21 GB
 
 --------------------------------------------------------------------------------
 COST SUMMARY
 --------------------------------------------------------------------------------
-Total Cost: $9299.30
-  - Compute Cost: $9299.20 (100.0%)
-  - Storage Cost: $0.10 (0.0%)
-Cost per Hour: $241.54
+Total Cost: $23.22
+  - Compute Cost: $23.18 (99.8%)
+  - Storage Cost: $0.05 (0.2%)
+Cost per Hour: $1.60
 
 --------------------------------------------------------------------------------
 COST BREAKDOWN BY GROUP
@@ -36,27 +36,27 @@ COST BREAKDOWN BY GROUP
 
 Post-processing:
   Steps: 5
-  Time: 36.00 hours
-  Cost: $9289.81
+  Time: 12.00 hours
+  Cost: $21.91
   Tools: Seurat, clusterprofiler
 
 INPUT_READS:
   Steps: 7
   Time: 1.10 hours
-  Cost: $5.52
+  Cost: $0.74
   Tools: python, bcl-convert, cutadapt, bc_parser, fastqc, multiqc
-
-ALIGNMENT:
-  Steps: 3
-  Time: 0.30 hours
-  Cost: $2.05
-  Tools: STAR, pigz, python
 
 CELL_CALLING:
   Steps: 5
   Time: 0.60 hours
-  Cost: $1.87
+  Cost: $0.37
   Tools: python, pigz
+
+ALIGNMENT:
+  Steps: 3
+  Time: 0.30 hours
+  Cost: $0.15
+  Tools: STAR, pigz, python
 
 LibraryMetricsGeneration:
   Steps: 1
@@ -112,17 +112,17 @@ Group: INPUT_READS
 Step: BclConvert
 Tool: bcl-convert v3.9.3
 Resources: 8 CPUs, 40 GB RAM, 238000 MB storage
-Runtime: 0.50 hours × 8 parallel tasks
+Runtime: 0.50 hours × 1 parallel tasks
 Instance: c6i.8xlarge @ $1.3600/hr
-Cost: $5.4529 (compute: $5.4400, storage: $0.0129)
+Cost: $0.6929 (compute: $0.6800, storage: $0.0129)
 
 Group: INPUT_READS
 Step: TrimFq
 Tool: cutadapt v5.0
 Resources: 2 CPUs, 1 GB RAM, 788 MB storage
-Runtime: 0.10 hours × 2 parallel tasks
+Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr
-Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
 
 Group: INPUT_READS
 Step: BarcodeParser
@@ -136,9 +136,9 @@ Group: INPUT_READS
 Step: FastQC
 Tool: fastqc v0.12.1
 Resources: 2 CPUs, 0 GB RAM, 2 MB storage
-Runtime: 0.10 hours × 2 parallel tasks
+Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr
-Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
 
 Group: INPUT_READS
 Step: MultiQC
@@ -160,17 +160,17 @@ Group: ALIGNMENT
 Step: StarSolo
 Tool: STAR v2.7.11a
 Resources: 14 CPUs, 0 GB RAM, 520000 MB storage
-Runtime: 0.10 hours × 14 parallel tasks
+Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.4xlarge @ $0.6800/hr
-Cost: $0.9576 (compute: $0.9520, storage: $0.0056)
+Cost: $0.0736 (compute: $0.0680, storage: $0.0056)
 
 Group: ALIGNMENT
 Step: StarSolo
 Tool: pigz v2.8
 Resources: 16 CPUs, 0 GB RAM, 44 MB storage
-Runtime: 0.10 hours × 16 parallel tasks
+Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.4xlarge @ $0.6800/hr
-Cost: $1.0880 (compute: $1.0880, storage: $0.0000)
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
 
 Group: ALIGNMENT
 Step: MergeStar
@@ -184,41 +184,41 @@ Group: CELL_CALLING
 Step: CellMetricsGeneration
 Tool: python v3.12.4
 Resources: 5 CPUs, 30 GB RAM, 13 MB storage
-Runtime: 0.10 hours × 5 parallel tasks
+Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.4xlarge @ $0.6800/hr
-Cost: $0.3400 (compute: $0.3400, storage: $0.0000)
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
 
 Group: CELL_CALLING
 Step: BeadFiltering
 Tool: python v3.12.4
 Resources: 5 CPUs, 30 GB RAM, 2 MB storage
-Runtime: 0.10 hours × 5 parallel tasks
+Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.4xlarge @ $0.6800/hr
-Cost: $0.3400 (compute: $0.3400, storage: $0.0000)
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
 
 Group: CELL_CALLING
 Step: FilteredMatrixGeneration
 Tool: python v3.12.4
 Resources: 5 CPUs, 30 GB RAM, 496 MB storage
-Runtime: 0.20 hours × 5 parallel tasks
+Runtime: 0.20 hours × 1 parallel tasks
 Instance: c6i.4xlarge @ $0.6800/hr
-Cost: $0.6800 (compute: $0.6800, storage: $0.0000)
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
 
 Group: CELL_CALLING
 Step: FilteredMatrixGeneration
 Tool: pigz v2.8
 Resources: 5 CPUs, 0 GB RAM, 630 MB storage
-Runtime: 0.10 hours × 5 parallel tasks
+Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.2xlarge @ $0.3400/hr
-Cost: $0.1700 (compute: $0.1700, storage: $0.0000)
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
 
 Group: CELL_CALLING
 Step: SampleStats
 Tool: python v3.12.4
 Resources: 5 CPUs, 30 GB RAM, 0 MB storage
-Runtime: 0.10 hours × 5 parallel tasks
+Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.4xlarge @ $0.6800/hr
-Cost: $0.3400 (compute: $0.3400, storage: $0.0000)
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
 
 Group: SAMPLE_REPORTING
 Step: SampleReportGeneration
@@ -255,42 +255,42 @@ Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
 Group: Post-processing
 Step: qc_merge
 Tool: Seurat v5.2.1
-Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
-Runtime: 6.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $1548.3023 (compute: $1548.2880, storage: $0.0143)
+Resources: 1 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: r6i.8xlarge @ $2.0160/hr
+Cost: $2.0184 (compute: $2.0160, storage: $0.0024)
 
 Group: Post-processing
 Step: integration_annot
 Tool: Seurat v5.2.1
-Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
-Runtime: 12.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $3096.6046 (compute: $3096.5760, storage: $0.0286)
+Resources: 1 CPUs, 200 GB RAM, 22000 MB storage
+Runtime: 8.00 hours × 1 parallel tasks
+Instance: r6i.8xlarge @ $2.0160/hr
+Cost: $16.1471 (compute: $16.1280, storage: $0.0191)
 
 Group: Post-processing
 Step: select
 Tool: Seurat v5.2.1
-Resources: 64 CPUs, 200 GB RAM, 22000 MB storage
-Runtime: 6.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $1548.3023 (compute: $1548.2880, storage: $0.0143)
+Resources: 1 CPUs, 80 GB RAM, 22000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.12xlarge @ $2.0400/hr
+Cost: $2.0424 (compute: $2.0400, storage: $0.0024)
 
 Group: Post-processing
 Step: DE
 Tool: Seurat v5.2.1
-Resources: 64 CPUs, 200 GB RAM, 17000 MB storage
-Runtime: 6.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $1548.2991 (compute: $1548.2880, storage: $0.0111)
+Resources: 1 CPUs, 57 GB RAM, 17000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $1.3618 (compute: $1.3600, storage: $0.0018)
 
 Group: Post-processing
 Step: Functional Analysis
 Tool: clusterprofiler v4.18.4
-Resources: 64 CPUs, 200 GB RAM, 17000 MB storage
-Runtime: 6.00 hours × 64 parallel tasks
-Instance: r6i.16xlarge @ $4.0320/hr
-Cost: $1548.2991 (compute: $1548.2880, storage: $0.0111)
+Resources: 1 CPUs, 12 GB RAM, 17000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.3418 (compute: $0.3400, storage: $0.0018)
 
 ================================================================================
 END OF REPORT

@@ -42,17 +42,26 @@ def analyze_pipeline_structure(df):
         n_groups = group['Group'].nunique()
         n_steps = len(group)
 
-        # Get unique tools
-        tools_list = group['tools'].dropna().unique().tolist()
+        # Get unique tools ("/"로 결합된 도구를 개별 분리 후 unique 처리)
+        raw_tools = group['tools'].dropna().unique().tolist()
+        tools_set = set()
+        for t in raw_tools:
+            for part in t.split('/'):
+                tools_set.add(part.strip())
+        tools_list = sorted(tools_set)
         n_tools = len(tools_list)
 
         # Get pipeline names (may be multiple)
         pipeline_names = group['Pipeline Name'].dropna().unique()
         pipeline_name = ', '.join(pipeline_names) if len(pipeline_names) > 1 else pipeline_names[0]
 
-        # Get platforms and versions (may be multiple)
-        platforms = group['Platfom'].dropna().unique()
-        platform_str = ', '.join(sorted(set(platforms)))
+        # Get platforms and versions (may be multiple, ","로 결합된 값도 개별 분리 후 unique 처리)
+        raw_platforms = group['Platfom'].dropna().unique()
+        platform_set = set()
+        for p in raw_platforms:
+            for part in p.split(','):
+                platform_set.add(part.strip())
+        platform_str = ', '.join(sorted(platform_set))
 
         versions = group['Pipeline Version'].dropna().unique()
         version = versions[0] if len(versions) > 0 else 'N/A'
@@ -326,9 +335,14 @@ def generate_detailed_reports(df, pipeline_df, team):
 
     print(f"\n   ✓ Generated summary: {summary_file.name}")
 
-    # Save pipeline summary as CSV
+    # Save pipeline summary as CSV (숫자 포맷 적용)
     pipeline_csv = TEAM_REPORTS_DIR / "pipeline_summary.csv"
-    pipeline_df.drop('groups_breakdown', axis=1).to_csv(pipeline_csv, index=False, encoding='utf-8')
+    save_df = pipeline_df.drop('groups_breakdown', axis=1).copy()
+    save_df['total_cpu'] = save_df['total_cpu'].astype(int)
+    save_df['total_mem_gb'] = save_df['total_mem_gb'].astype(int)
+    for col in ['total_time_hr', 'total_storage_gb', 'total_cost_usd', 'compute_cost_usd', 'storage_cost_usd', 'cost_per_hour']:
+        save_df[col] = save_df[col].round(1)
+    save_df.to_csv(pipeline_csv, index=False, encoding='utf-8')
     print(f"   ✓ Saved pipeline summary: {pipeline_csv.name}")
 
     return pipeline_df

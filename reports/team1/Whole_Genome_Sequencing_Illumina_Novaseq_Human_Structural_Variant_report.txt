@@ -12,7 +12,7 @@ OVERVIEW
 --------------------------------------------------------------------------------
 Number of Groups: 7
 Number of Steps: 14
-Number of Tools: 10
+Number of Tools: 11
 
 --------------------------------------------------------------------------------
 RESOURCE REQUIREMENTS
@@ -44,8 +44,7 @@ VCF_ANNOTATE_ALL:
   Steps: 2
   Time: 0.20 hours
   Cost: $1.45
-  Tools: SnpEff, bgzip
-tabix
+  Tools: SnpEff, bgzip/tabix
 
 CRAM_SAMPLEQC:
   Steps: 2
@@ -69,8 +68,7 @@ PREPARE_INTERVALS:
   Steps: 3
   Time: 0.30 hours
   Cost: $0.20
-  Tools: gawk, bgzip
-tabix
+  Tools: gawk, bgzip/tabix
 
 Multiqc:
   Steps: 1
@@ -92,8 +90,7 @@ Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
 
 Group: PREPARE_INTERVALS
 Step: TABIX_BGZIPTABIX_INTERVAL_COMBINED
-Tool: bgzip
-tabix v1.20
+Tool: bgzip/tabix v1.20
 Resources: 1 CPUs, 1 GB RAM, 0 MB storage
 Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr
@@ -101,8 +98,7 @@ Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
 
 Group: PREPARE_INTERVALS
 Step: TABIX_BGZIPTABIX_INTERVAL_SPLIT
-Tool: bgzip
-tabix v1.20
+Tool: bgzip/tabix v1.20
 Resources: 1 CPUs, 1 GB RAM, 0 MB storage
 Runtime: 0.10 hours × 21 parallel tasks
 Instance: c6i.large @ $0.0850/hr
@@ -174,8 +170,7 @@ Cost: $1.3600 (compute: $1.3600, storage: $0.0000)
 
 Group: VCF_ANNOTATE_ALL
 Step: TABIX_BGZIPTABIX
-Tool: bgzip
-tabix v1.20
+Tool: bgzip/tabix v1.20
 Resources: 1 CPUs, 1 GB RAM, 0 MB storage
 Runtime: 0.10 hours × 10 parallel tasks
 Instance: c6i.large @ $0.0850/hr

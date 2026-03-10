@@ -56,7 +56,7 @@ Tool: python v3.9.6
 Resources: 1 CPUs, 1 GB RAM, 1 MB storage
 Runtime: 0.01 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr
-Cost: $0.0009 (compute: $0.0009, storage: $0.0000)
+Cost: $0.0009 (compute: $0.0008, storage: $0.0000)
 
 Group: Read Segmentation
 Step: call-skera

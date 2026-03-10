@@ -62,10 +62,7 @@ Report:
   Steps: 3
   Time: 0.30 hours
   Cost: $0.03
-  Tools: bash
-gatk VariantsToTable
-python, R
-python, quarto
+  Tools: bash/gatk VariantsToTable/python, R/python, quarto
 
 FilterIntervals:
   Steps: 1
@@ -91,6 +88,12 @@ ScatterPloidyCallsBySample:
   Cost: $0.02
   Tools: bash
 
+WriteSegmentIndexes:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: python
+
 WriteIntervalIndexes:
   Steps: 1
   Time: 0.10 hours
@@ -103,19 +106,13 @@ WriteIntervals:
   Cost: $0.02
   Tools: python
 
-WritePloidyCalls:
-  Steps: 1
-  Time: 0.10 hours
-  Cost: $0.02
-  Tools: python
-
-WriteSegmentIndexes:
-  Steps: 1
-  Time: 0.10 hours
-  Cost: $0.02
-  Tools: python
-
 WriteSegments:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: python
+
+WritePloidyCalls:
   Steps: 1
   Time: 0.10 hours
   Cost: $0.02
@@ -259,11 +256,7 @@ Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
 
 Group: Report
 Step: Make summary files
-Tool: bash
-gatk VariantsToTable
-python v.
-4.6.1.0
-3.11.8
+Tool: bash/gatk VariantsToTable/python v./4.6.1.0/3.11.8
 Resources: 1 CPUs, 1 GB RAM, 105 MB storage
 Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr
@@ -271,9 +264,7 @@ Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
 
 Group: Report
 Step: Make plots
-Tool: R
-python v4.4.2
-3.11.8
+Tool: R/python v4.4.2/3.11.8
 Resources: 1 CPUs, 1 GB RAM, 3 MB storage
 Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr

@@ -10,25 +10,25 @@ Pipeline: QC, Tophat_cufflink_DEG, Functional Analysis(GO, KEGG) v1.0.0
 --------------------------------------------------------------------------------
 OVERVIEW
 --------------------------------------------------------------------------------
-Number of Groups: 10
-Number of Steps: 22
-Number of Tools: 15
+Number of Groups: 11
+Number of Steps: 25
+Number of Tools: 16
 
 --------------------------------------------------------------------------------
 RESOURCE REQUIREMENTS
 --------------------------------------------------------------------------------
-Total CPUs: 191
-Total Memory: 288 GB
-Total Compute Time: 50.30 hours
-Total Storage: 16.22 GB
+Total CPUs: 194
+Total Memory: 312 GB
+Total Compute Time: 53.00 hours
+Total Storage: 22.22 GB
 
 --------------------------------------------------------------------------------
 COST SUMMARY
 --------------------------------------------------------------------------------
-Total Cost: $42.32
-  - Compute Cost: $42.31 (100.0%)
+Total Cost: $44.04
+  - Compute Cost: $44.03 (100.0%)
   - Storage Cost: $0.01 (0.0%)
-Cost per Hour: $0.84
+Cost per Hour: $0.83
 
 --------------------------------------------------------------------------------
 COST BREAKDOWN BY GROUP
@@ -63,6 +63,12 @@ Otholog Annotation:
   Time: 2.10 hours
   Cost: $2.90
   Tools: diamond, python
+
+Reference Prepare:
+  Steps: 3
+  Time: 2.70 hours
+  Cost: $1.72
+  Tools: bowtie2, gffread, python
 
 rRNA:
   Steps: 1
@@ -137,6 +143,30 @@ Resources: 2 CPUs, 6 GB RAM, 1 MB storage
 Runtime: 2.00 hours × 1 parallel tasks
 Instance: c6i.xlarge @ $0.1700/hr
 Cost: $0.3400 (compute: $0.3400, storage: $0.0000)
+
+Group: Reference Prepare
+Step: Reference Indexing
+Tool: bowtie2 v2.2.9
+Resources: 1 CPUs, 20 GB RAM, 5632 MB storage
+Runtime: 2.50 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $1.7015 (compute: $1.7000, storage: $0.0015)
+
+Group: Reference Prepare
+Step: Reference Prepare
+Tool: gffread v0.12.7
+Resources: 1 CPUs, 3 GB RAM, 500 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Reference Prepare
+Step: Annotation parsing
+Tool: python v3.6.8
+Resources: 1 CPUs, 1 GB RAM, 10 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
 
 Group: Trimming
 Step: Adapter Trimming

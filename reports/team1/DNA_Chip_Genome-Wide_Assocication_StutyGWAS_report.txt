@@ -98,7 +98,7 @@ Tool: locuszoom v1.4
 Resources: 2 CPUs, 4 GB RAM, 55 MB storage
 Runtime: 0.97 hours × 1 parallel tasks
 Instance: c6i.large @ $0.0850/hr
-Cost: $0.0825 (compute: $0.0825, storage: $0.0000)
+Cost: $0.0825 (compute: $0.0824, storage: $0.0000)
 
 Group: GWAS plot
 Step: GWAS plot

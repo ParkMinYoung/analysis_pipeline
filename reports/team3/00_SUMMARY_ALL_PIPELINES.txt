@@ -42,7 +42,7 @@ DETAILED PIPELINE INFORMATION
 [1] Assembly - Large Genome Assembly - All
 --------------------------------------------------------------------------------
 Pipeline: inhouse v1.0.0
-Platform: Illumina NovaSeq, PacBio Revio, PacBio Revio, Illumina NovaSeq, PacBio Revio, Nanopore PromethION, PacBio Revio, Nanopore PromethION, Illumina NovaSeq
+Platform: Illumina NovaSeq, Nanopore PromethION, PacBio Revio
 
 Structure:
   Groups: 9
@@ -158,7 +158,7 @@ Group Breakdown:
 [4] Assembly - Small Genome Assembly - Bacteria__Fungi
 --------------------------------------------------------------------------------
 Pipeline: inhouse v1.0.0
-Platform: PacBio Revio, PacBio Revio, illumina Novaseq, illumina Novaseq
+Platform: PacBio Revio, illumina Novaseq
 
 Structure:
   Groups: 7

@@ -1,8 +1,8 @@
 # 팀별 분석 설정 가이드
 
-이 가이드는 Team 1이 파이프라인 비용 분석을 시작하기 위한 단계별 지침을 제공합니다.
+이 가이드는 파이프라인 비용 분석을 시작하기 위한 단계별 지침을 제공합니다.
 
-> **완료된 팀**: Team 2 (22 pipelines), Team 3 (8 pipelines)
+> **분석 완료**: Team 1 (19 pipelines), Team 2 (22 pipelines), Team 3 (8 pipelines)
 
 ## 사전 요구사항
 
@@ -11,6 +11,10 @@
 3. 필요한 라이브러리 설치: `pip install pandas numpy`
 
 ## 1단계: Google Sheets 데이터 준비
+
+### Google Sheets URL
+
+팀별 시트 URL은 `docs/team_url.md`를 참조하세요.
 
 ### 필수 컬럼 구조
 
@@ -45,95 +49,60 @@ Google Sheets에는 다음 컬럼들이 포함되어야 합니다:
    - 동일한 분석이라도 플랫폼별로 구분하려면 Analysis_name을 다르게 설정하세요
    - 예: "16S rRNA metagenome - Illumina", "16S rRNA metagenome - Pacbio"
 
-2. **병합된 셀**: 같은 파이프라인 내에서 반복되는 값(직무, 업무세부내역, Analysis_name, Pipeline Name 등)은 병합된 상태로 두셔도 됩니다. 스크립트가 자동으로 처리합니다.
+2. **tools 컬럼의 "/" 구분자**: 하나의 Step에 여러 도구를 사용하는 경우 "/"로 구분합니다.
+   - 예: `gatk FastqToSam/gatk MarkIlluminaAdapters`
+   - 셀 내 줄바꿈(Alt+Enter)은 사용하지 마세요 (CSV 내보내기 시 문제 발생)
 
-3. **숫자 형식**: 숫자 필드에 쉼표가 포함되어 있어도 괜찮습니다 (예: 1,000). 스크립트가 자동으로 제거합니다.
+3. **병합된 셀**: 같은 파이프라인 내에서 반복되는 값은 병합된 상태로 두셔도 됩니다. 스크립트가 자동으로 forward fill 처리합니다.
 
-4. **빈 값**: 데이터가 없는 경우 빈 칸 또는 '-'로 표시하면 됩니다.
+4. **숫자 형식**: 숫자 필드에 쉼표가 포함되어 있어도 괜찮습니다 (예: 1,000). 스크립트가 자동으로 제거합니다.
+
+5. **빈 값**: 데이터가 없는 경우 빈 칸 또는 '-'로 표시하면 됩니다.
 
 ## 2단계: CSV 파일 다운로드
 
-1. Google Sheets에서 파일 → 다운로드 → 쉼표로 구분된 값(.csv, 현재 시트)
+1. Google Sheets에서 파일 -> 다운로드 -> 쉼표로 구분된 값(.csv, 현재 시트)
 2. 파일명을 `analysis_raw.csv`로 변경
 3. 프로젝트의 해당 팀 폴더에 저장:
    ```bash
-   # Team 1의 경우
-   cp ~/Downloads/analysis_raw.csv /path/to/pipeline_price/data/team1/
-
-   # Team 2의 경우
-   cp ~/Downloads/analysis_raw.csv /path/to/pipeline_price/data/team2/
+   cp ~/Downloads/analysis_raw.csv /path/to/pipeline_price/data/team{N}/
    ```
 
 ## 3단계: 분석 실행
 
-### Team 1 분석 실행
-
 ```bash
 cd /path/to/pipeline_price
 
-# 1단계: 데이터 전처리
-python3 scripts/01_process_data.py 1
-
-# 2단계: 비용 계산
-python3 scripts/02_calculate_aws_costs.py 1
-
-# 3단계: 리포트 생성
-python3 scripts/03_analyze_pipelines.py 1
-```
-
-### Team 2 분석 실행
-
-```bash
-cd /path/to/pipeline_price
-
-# 1단계: 데이터 전처리
-python3 scripts/01_process_data.py 2
-
-# 2단계: 비용 계산
-python3 scripts/02_calculate_aws_costs.py 2
-
-# 3단계: 리포트 생성
-python3 scripts/03_analyze_pipelines.py 2
-```
-
-### 한 번에 전체 실행
-
-```bash
-# Team 1
+# 특정 팀 전체 실행 (예: Team 1)
 python3 scripts/01_process_data.py 1 && \
 python3 scripts/02_calculate_aws_costs.py 1 && \
 python3 scripts/03_analyze_pipelines.py 1
 
-# Team 2
-python3 scripts/01_process_data.py 2 && \
-python3 scripts/02_calculate_aws_costs.py 2 && \
-python3 scripts/03_analyze_pipelines.py 2
+# 전체 팀 한번에 실행
+for team in 1 2 3; do
+  python3 scripts/01_process_data.py $team && \
+  python3 scripts/02_calculate_aws_costs.py $team && \
+  python3 scripts/03_analyze_pipelines.py $team
+done
 ```
 
 ## 4단계: 결과 확인
 
 ### 생성된 파일 위치
 
-#### Team 1
 ```
-data/team1/
+data/team{N}/
 ├── analysis_raw.csv          # 원본 데이터
 ├── analysis_processed.csv    # 전처리된 데이터
 └── analysis_with_costs.csv   # 비용 계산 완료 데이터
 
-reports/team1/
+reports/team{N}/
 ├── 00_SUMMARY_ALL_PIPELINES.txt  # 전체 요약
 ├── pipeline_summary.csv           # 파이프라인별 요약 (CSV)
 └── *_report.txt                   # 각 파이프라인별 상세 리포트
-```
 
-#### Team 2
-```
-data/team2/
-└── (동일 구조)
-
-reports/team2/
-└── (동일 구조)
+reports/
+└── pipeline_summary_all.csv       # 3개 팀 통합 요약
 ```
 
 ### 주요 리포트 내용
@@ -147,7 +116,11 @@ reports/team2/
    - 파이프라인별 요약 데이터 (엑셀에서 열기 가능)
    - 비용, 시간, 리소스 정보
 
-3. **개별 파이프라인 리포트 (*_report.txt)**
+3. **pipeline_summary_all.csv** (통합)
+   - 3개 팀 49개 파이프라인 전체 통합 요약
+   - Team 컬럼으로 팀 구분
+
+4. **개별 파이프라인 리포트 (*_report.txt)**
    - 파이프라인 상세 정보
    - Group별 비용 분석
    - Step-by-step 비용 breakdown
@@ -159,8 +132,8 @@ reports/team2/
 ```
 총 비용 = Compute 비용 + Storage 비용
 
-Compute 비용 = 시간당 인스턴스 요금 × 실행시간 × 병렬 작업 수
-Storage 비용 = 스토리지 용량(GB) × 시간 × $0.000111/GB-hour
+Compute 비용 = 시간당 인스턴스 요금 x 실행시간 x 병렬 작업 수
+Storage 비용 = 스토리지 용량(GB) x 시간 x $0.000111/GB-hour
 ```
 
 ### EC2 인스턴스 자동 선택
@@ -184,7 +157,7 @@ Storage 비용 = 스토리지 용량(GB) × 시간 × $0.000111/GB-hour
 #### 1. "File not found" 오류
 ```bash
 # 해결: data/team{N} 폴더에 analysis_raw.csv 파일이 있는지 확인
-ls -la data/team1/analysis_raw.csv
+ls -la data/team{N}/analysis_raw.csv
 ```
 
 #### 2. "No module named 'pandas'" 오류
@@ -197,32 +170,17 @@ pip install pandas numpy
 - Google Sheets의 숫자 필드에 특수 문자나 텍스트가 섞여있지 않은지 확인
 - 쉼표, 빈 칸, '-' 등은 스크립트가 자동 처리하므로 괜찮습니다
 
-#### 4. 병합 셀 관련 문제
-- 병합된 셀은 스크립트가 자동으로 forward fill 처리합니다
-- CSV로 다운로드 시 병합 정보가 유지되는지 확인하세요
-
-## 완료된 팀 예시 참고
-
-Team 2와 Team 3의 분석 결과를 참고하시면 도움이 됩니다:
-
-**Team 2 (Short RNA, Single Cell RNA 등):**
-- `reports/team2/00_SUMMARY_ALL_PIPELINES.txt` - 전체 요약 예시 (22 pipelines)
-- `reports/team2/pipeline_summary.csv` - CSV 형식 예시
-- `reports/team2/*_report.txt` - 상세 리포트 예시
-
-**Team 3 (Assembly, Microbiome):**
-- `reports/team3/00_SUMMARY_ALL_PIPELINES.txt` - 전체 요약 예시 (8 pipelines)
-- `reports/team3/pipeline_summary.csv` - CSV 형식 예시
-- `reports/team3/*_report.txt` - 상세 리포트 예시
+#### 4. tools 컬럼 줄바꿈 문제
+- Google Sheets에서 셀 내 줄바꿸(Alt+Enter)이 있으면 CSV 내보내기 시 multiline field가 됩니다
+- 해결: 셀 내 줄바꿈을 "/"로 치환 후 CSV 다운로드
 
 ## 추가 지원
 
 분석 중 문제가 발생하거나 질문이 있으시면:
 1. `docs/rule.md` 파일의 분석 규칙 확인
-2. README.md 파일의 상세 설명 참고
+2. `README.md` 파일의 상세 설명 참고
 3. 프로젝트 관리자에게 문의
 
 ---
-**작성일**: 2026-01-06
-**버전**: 1.0
-**대상**: Team 1, Team 2
+**최종 업데이트**: 2026-03-10
+**대상**: Team 1, Team 2, Team 3

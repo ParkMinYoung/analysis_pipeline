@@ -12,7 +12,7 @@ OVERVIEW
 --------------------------------------------------------------------------------
 Number of Groups: 24
 Number of Steps: 46
-Number of Tools: 40
+Number of Tools: 47
 
 --------------------------------------------------------------------------------
 RESOURCE REQUIREMENTS
@@ -38,9 +38,7 @@ UnmappedBamToAlignedBam:
   Steps: 14
   Time: 41.00 hours
   Cost: $90.99
-  Tools: picard CollectQualityYieldMetrics, picard SplitSamByNumberOfReads, picard SamToFastq
-bwa mem
-picard MergeBamAlignment, picard GatherBamFiles, python, picard CollectMultipleMetrics, picard MarkDuplicates, picard SortSam, picard CrossCheckFingerprints, gatk BaseRecalibrator, VerifyBamID, gatk GatherBQSRReports, gatk ApplyBQSR
+  Tools: picard CollectQualityYieldMetrics, picard SplitSamByNumberOfReads, picard SamToFastq/bwa mem/picard MergeBamAlignment, picard GatherBamFiles, python, picard CollectMultipleMetrics, picard MarkDuplicates, picard SortSam, picard CrossCheckFingerprints, gatk BaseRecalibrator, VerifyBamID, gatk GatherBQSRReports, gatk ApplyBQSR
 
 ImportGVFs:
   Steps: 1
@@ -58,16 +56,13 @@ BamToGvcf:
   Steps: 6
   Time: 6.70 hours
   Cost: $18.16
-  Tools: picard IntervalListTools, gatk PrintReads
-gatk HaplotypeCaller, picard MergeVcfs, gatk ReblockGVCF, picard CollectVariantCallingMetrics, gatk VcfToIntervalList
-gatk ValidateVariants
+  Tools: picard IntervalListTools, gatk PrintReads/gatk HaplotypeCaller, picard MergeVcfs, gatk ReblockGVCF, picard CollectVariantCallingMetrics, gatk VcfToIntervalList/gatk ValidateVariants
 
 Variant Annotation & Make Summary file:
   Steps: 1
   Time: 10.00 hours
   Cost: $13.63
-  Tools: SnpEff
-svdb
+  Tools: SnpEff/svdb
 
 CrossCheckFingerprintSolo:
   Steps: 1
@@ -79,8 +74,7 @@ Bam QC:
   Steps: 1
   Time: 2.00 hours
   Cost: $2.72
-  Tools: qualimap
-samtools
+  Tools: qualimap/samtools
 
 ApplyRecalibration:
   Steps: 1
@@ -98,8 +92,7 @@ Fastq_to_ubam:
   Steps: 1
   Time: 3.00 hours
   Cost: $1.05
-  Tools: gatk FastqToSam
-gatk MarkIlluminaAdapters
+  Tools: gatk FastqToSam/gatk MarkIlluminaAdapters
 
 BamToCram:
   Steps: 3
@@ -111,8 +104,7 @@ VCF QC:
   Steps: 1
   Time: 0.50 hours
   Cost: $0.68
-  Tools: gatk GenotypeGVCFs
-bcftools
+  Tools: gatk GenotypeGVCFs/bcftools
 
 Fastq QC:
   Steps: 1
@@ -130,8 +122,7 @@ HardFilterAndMakeSitesOnlyVcf:
   Steps: 1
   Time: 0.10 hours
   Cost: $0.40
-  Tools: gatk VariantFiltration
-gatk MakeSitesOnlyVCF
+  Tools: gatk VariantFiltration/gatk MakeSitesOnlyVCF
 
 CollectRawWgsMetrics:
   Steps: 1
@@ -193,8 +184,7 @@ DETAILED STEP-BY-STEP BREAKDOWN
 
 Group: Fastq_to_ubam
 Step: Fastq_to_ubam
-Tool: gatk FastqToSam
-gatk MarkIlluminaAdapters v4.2.2.0
+Tool: gatk FastqToSam/gatk MarkIlluminaAdapters v4.2.2.0
 Resources: 2 CPUs, 12 GB RAM, 80000 MB storage
 Runtime: 3.00 hours × 1 parallel tasks
 Instance: c6i.2xlarge @ $0.3400/hr
@@ -218,11 +208,7 @@ Cost: $0.1031 (compute: $0.0935, storage: $0.0096)
 
 Group: UnmappedBamToAlignedBam
 Step: SamToFastqAndBwaMemAndMba
-Tool: picard SamToFastq
-bwa mem
-picard MergeBamAlignment v2.26.10
-0.7.15
-2.26.10
+Tool: picard SamToFastq/bwa mem/picard MergeBamAlignment v2.26.10/0.7.15/2.26.10
 Resources: 16 CPUs, 14 GB RAM, 6000 MB storage
 Runtime: 5.70 hours × 19 parallel tasks
 Instance: c6i.4xlarge @ $0.6800/hr
@@ -350,8 +336,7 @@ Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
 
 Group: BamToGvcf
 Step: HaplotypeCallerGATK3
-Tool: gatk PrintReads
-gatk HaplotypeCaller v4.3.0.0
+Tool: gatk PrintReads/gatk HaplotypeCaller v4.3.0.0
 Resources: 1 CPUs, 10 GB RAM, 5000 MB storage
 Runtime: 5.30 hours × 10 parallel tasks
 Instance: c6i.2xlarge @ $0.3400/hr
@@ -383,8 +368,7 @@ Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
 
 Group: BamToGvcf
 Step: ValidateVCF
-Tool: gatk VcfToIntervalList
-gatk ValidateVariants v4.3.0.0
+Tool: gatk VcfToIntervalList/gatk ValidateVariants v4.3.0.0
 Resources: 2 CPUs, 7 GB RAM, 0 MB storage
 Runtime: 0.20 hours × 1 parallel tasks
 Instance: c6i.xlarge @ $0.1700/hr
@@ -464,8 +448,7 @@ Cost: $35.1560 (compute: $35.1560, storage: $0.0000)
 
 Group: HardFilterAndMakeSitesOnlyVcf
 Step: HardFilterAndMakeSitesOnlyVcf
-Tool: gatk VariantFiltration
-gatk MakeSitesOnlyVCF v4.6.1.0
+Tool: gatk VariantFiltration/gatk MakeSitesOnlyVCF v4.6.1.0
 Resources: 1 CPUs, 4 GB RAM, 400 MB storage
 Runtime: 0.10 hours × 47 parallel tasks
 Instance: c6i.large @ $0.0850/hr
@@ -529,9 +512,7 @@ Cost: $4.0800 (compute: $4.0800, storage: $0.0000)
 
 Group: Variant Annotation & Make Summary file
 Step: Variant Annotation & Make Summary file
-Tool: SnpEff
-svdb v4.2
-2.8.2
+Tool: SnpEff/svdb v4.2/2.8.2
 Resources: 32 CPUs, 36 GB RAM, 25000 MB storage
 Runtime: 10.00 hours × 1 parallel tasks
 Instance: c6i.8xlarge @ $1.3600/hr
@@ -547,9 +528,7 @@ Cost: $0.6800 (compute: $0.6800, storage: $0.0000)
 
 Group: Bam QC
 Step: Bam QC
-Tool: qualimap
-samtools v2.2.2
-1.6
+Tool: qualimap/samtools v2.2.2/1.6
 Resources: 16 CPUs, 36 GB RAM, 3 MB storage
 Runtime: 2.00 hours × 1 parallel tasks
 Instance: c6i.8xlarge @ $1.3600/hr
@@ -557,9 +536,7 @@ Cost: $2.7200 (compute: $2.7200, storage: $0.0000)
 
 Group: VCF QC
 Step: gVCF genotyping & VCF stats
-Tool: gatk GenotypeGVCFs
-bcftools v4.6.1.0
-1.19
+Tool: gatk GenotypeGVCFs/bcftools v4.6.1.0/1.19
 Resources: 16 CPUs, 36 GB RAM, 300 MB storage
 Runtime: 0.50 hours × 1 parallel tasks
 Instance: c6i.8xlarge @ $1.3600/hr
