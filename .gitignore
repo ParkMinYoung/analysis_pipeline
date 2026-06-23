@@ -46,6 +46,11 @@ env/
 *.bak
 *.log
 
+# deep-auto execution logs (local only, not shared)
+DECISIONS.md
+PENDING.md
+SCOPE.md
+
 # OS
 Thumbs.db
 .DS_Store
