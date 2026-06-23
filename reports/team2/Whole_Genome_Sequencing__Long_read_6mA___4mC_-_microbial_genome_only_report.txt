@@ -46,17 +46,17 @@ PB_BASEMODS_HIFI:
   Cost: $0.15
   Tools: ccs-kinetics-bystrandify, pbmm2, python3
 
-PLOTS:
-  Steps: 2
-  Time: 0.30 hours
-  Cost: $0.03
-  Tools: R
-
 COVERAGE_REPORTS:
   Steps: 3
   Time: 0.30 hours
   Cost: $0.03
   Tools: summarize-coverage, python3
+
+PLOTS:
+  Steps: 2
+  Time: 0.30 hours
+  Cost: $0.03
+  Tools: R
 
 DEV_MICROBIAL_ANALYSIS:
   Steps: 2

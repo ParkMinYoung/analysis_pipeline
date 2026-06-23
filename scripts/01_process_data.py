@@ -57,7 +57,7 @@ def main(team):
 
             # Forward fill
             df[col] = df[col].replace('', np.nan)
-            df[col] = df[col].fillna(method='ffill')
+            df[col] = df[col].ffill()
 
             # Count empty cells after
             empty_after = df[col].isna().sum()

@@ -5,16 +5,16 @@ Team 2 Analysis - AWS Batch Cost Analysis
 
 OVERVIEW
 --------------------------------------------------------------------------------
-Total Pipelines: 22
-Total Groups: 129
-Total Steps: 354
-Total Cost: $505.14
-  - Compute Cost: $501.65
-  - Storage Cost: $3.49
-Total Compute Time: 534.04 hours
-Total Storage: 5935.40 GB
-Total CPUs: 2269
-Total Memory: 7462 GB
+Total Pipelines: 28
+Total Groups: 162
+Total Steps: 411
+Total Cost: $764.98
+  - Compute Cost: $761.41
+  - Storage Cost: $3.57
+Total Compute Time: 623.63 hours
+Total Storage: 6495.49 GB
+Total CPUs: 2577
+Total Memory: 9393 GB
 
 COST BY JOB TYPE
 --------------------------------------------------------------------------------
@@ -23,44 +23,80 @@ COST BY JOB TYPE
 Long RNA Sequencing                           3.65              3.64              0.00         4       30           5.76             58.88
 Methylation Chip                             11.63             11.63              0.01         2        4           3.70             21.53
 Microarray                                    0.05              0.05              0.00         3        3           0.30              0.10
-Short RNA Sequencing                        128.64            128.60              0.03        57      168         137.08            440.30
+Short RNA Sequencing                        153.68            153.56              0.12        87      221         159.57           1000.37
 Single Cell RNA                             169.25            167.14              2.10        22       80         167.60           4366.46
 Spatial                                      48.68             48.66              0.03         3        3          36.10            152.34
 Targeted Methylation Sequencing               6.50              6.49              0.01        10       15           9.20             44.49
-Whole Genome Bisulfite Sequencing           136.17            134.86              1.31        22       31         172.00            822.71
+Whole Genome Bisulfite Sequencing           370.96            369.65              1.31        25       35         239.10            822.73
 Whole Genome Sequencing                       0.58              0.58              0.00         6       20           2.30             28.59
 
 ALL PIPELINES RANKED BY COST
 --------------------------------------------------------------------------------
 Rank | Job | Analysis Name | Cost (USD) | Time (hr) | Groups | Steps | Total CPU | Total Mem (GB) | Storage (GB)
 --------------------------------------------------------------------------------
-   1 | Whole Geno | WGBS DMR 분석 - human/mouse | $    69.45 |      87.1 |     11 |    16 |        71 |            382 |       417.6
-   2 | Whole Geno | WGBS DMR 분석 - human/mouse | $    66.72 |      84.9 |     11 |    15 |        70 |            174 |       405.1
-   3 | Single Cel | scRNA_parse_kinnex        | $    50.36 |      44.5 |      6 |    18 |       235 |            643 |      1694.9
-   4 | Spatial    | cosmx                     | $    48.41 |      36.0 |      2 |     2 |        64 |            200 |        14.6
-   5 | Short RNA  | RNASeq_BAM_DEG            | $    44.04 |      53.0 |     11 |    25 |       194 |            312 |        22.2
-   6 | Short RNA  | RNASeq_noREF_DEG          | $    41.44 |      29.1 |     12 |    25 |       251 |            489 |         9.0
-   7 | Single Cel | scRNA_10x_kinnex          | $    40.96 |      80.6 |      3 |    24 |        84 |            662 |      1601.8
-   8 | Single Cel | scRNA_parse_illumina      | $    30.08 |      15.0 |      2 |     7 |       133 |            613 |       122.1
-   9 | Single Cel | scRNA_10x_illumina        | $    24.63 |      13.0 |      2 |     6 |        37 |            662 |       107.4
-  10 | Single Cel | scRNA_scale_illumina      | $    23.22 |      14.5 |      9 |    25 |        82 |            711 |       840.2
-  11 | Short RNA  | RNASeq_DEG_AS_SNP         | $    14.12 |      21.0 |      7 |    30 |       200 |            800 |        66.8
-  12 | Methylatio | Methylation array QC / DM | $    11.63 |       3.7 |      2 |     4 |        23 |            195 |        21.5
-  13 | Short RNA  | RNASeq_noBAM_DEG          | $    11.46 |      18.9 |     10 |    19 |       111 |            156 |         2.3
-  14 | Short RNA  | IsoSeq_DEG                | $     8.43 |       6.7 |      4 |     8 |       134 |            198 |         4.6
-  15 | Short RNA  | circRNA                   | $     8.07 |       4.5 |      7 |    43 |       141 |            816 |       328.3
-  16 | Targeted M | Target BS DMR 분석 - human/ | $     6.50 |       9.2 |     10 |    15 |        70 |            104 |        44.5
-  17 | Long RNA S | IsoSeq                    | $     1.82 |       2.9 |      2 |    15 |        80 |             91 |        29.4
-  18 | Long RNA S | IsoSeq_DEG                | $     1.82 |       2.9 |      2 |    15 |        80 |             91 |        29.4
-  19 | Short RNA  | Immune_TCR_BCR            | $     1.08 |       3.9 |      6 |    18 |        55 |            113 |         7.1
-  20 | Whole Geno | Long read 6mA / 4mC - mic | $     0.58 |       2.3 |      6 |    20 |        82 |             33 |        28.6
-  21 | Spatial    | geomx                     | $     0.27 |       0.1 |      1 |     1 |        64 |             10 |       137.7
-  22 | Microarray | microarray                | $     0.05 |       0.3 |      3 |     3 |         8 |              6 |         0.1
+   1 | Whole Geno | brmh_JSW custom analysis  | $   234.79 |      67.1 |      3 |     4 |       158 |           1123 |         0.0
+   2 | Whole Geno | WGBS DMR 분석 - human/mouse | $    69.45 |      87.1 |     11 |    16 |        71 |            382 |       417.6
+   3 | Whole Geno | WGBS DMR 분석 - human/mouse | $    66.72 |      84.9 |     11 |    15 |        70 |            174 |       405.1
+   4 | Single Cel | scRNA_parse_kinnex        | $    50.36 |      44.5 |      6 |    18 |       235 |            643 |      1694.9
+   5 | Spatial    | cosmx                     | $    48.41 |      36.0 |      2 |     2 |        64 |            200 |        14.6
+   6 | Short RNA  | RNASeq_BAM_DEG            | $    44.04 |      53.0 |     11 |    25 |       194 |            312 |        22.2
+   7 | Short RNA  | RNASeq_noREF_DEG          | $    41.44 |      29.1 |     12 |    25 |       251 |            489 |         9.0
+   8 | Single Cel | scRNA_10x_kinnex          | $    40.96 |      80.6 |      3 |    24 |        84 |            662 |      1601.8
+   9 | Single Cel | scRNA_parse_illumina      | $    30.08 |      15.0 |      2 |     7 |       133 |            613 |       122.1
+  10 | Single Cel | scRNA_10x_illumina        | $    24.63 |      13.0 |      2 |     6 |        37 |            662 |       107.4
+  11 | Single Cel | scRNA_scale_illumina      | $    23.22 |      14.5 |      9 |    25 |        82 |            711 |       840.2
+  12 | Short RNA  | circRNA                   | $    17.69 |       9.7 |      9 |    45 |       145 |            856 |       328.4
+  13 | Short RNA  | RNASeq_DEG_AS_SNP         | $    14.17 |      21.5 |      8 |    31 |       201 |            801 |        66.9
+  14 | Methylatio | Methylation array QC / DM | $    11.63 |       3.7 |      2 |     4 |        23 |            195 |        21.5
+  15 | Short RNA  | RNASeq_noBAM_DEG          | $    11.46 |      18.9 |     10 |    19 |       111 |            156 |         2.3
+  16 | Short RNA  | FusineGene                | $    11.07 |       4.0 |     13 |    26 |        67 |            471 |       539.4
+  17 | Short RNA  | IsoSeq_DEG                | $     8.43 |       6.7 |      4 |     8 |       134 |            198 |         4.6
+  18 | Targeted M | Target BS DMR 분석 - human/ | $     6.50 |       9.2 |     10 |    15 |        70 |            104 |        44.5
+  19 | Short RNA  | RNASeq_XENOGRAFT_FILTERIN | $     3.75 |       6.1 |      7 |    15 |        69 |            289 |        20.5
+  20 | Long RNA S | IsoSeq                    | $     1.82 |       2.9 |      2 |    15 |        80 |             91 |        29.4
+  21 | Long RNA S | IsoSeq_DEG                | $     1.82 |       2.9 |      2 |    15 |        80 |             91 |        29.4
+  22 | Short RNA  | Immune_TCR_BCR            | $     1.08 |       3.9 |      6 |    18 |        55 |            113 |         7.1
+  23 | Whole Geno | Long read 6mA / 4mC - mic | $     0.58 |       2.3 |      6 |    20 |        82 |             33 |        28.6
+  24 | Short RNA  | Custom plot               | $     0.40 |       4.7 |      3 |     3 |         3 |              2 |         0.0
+  25 | Spatial    | geomx                     | $     0.27 |       0.1 |      1 |     1 |        64 |             10 |       137.7
+  26 | Short RNA  | 20250605_CNBU_SONGMINSEOK | $     0.10 |       1.2 |      2 |     4 |         4 |              4 |         0.0
+  27 | Short RNA  | LeeJinWuk_ontology Custom | $     0.06 |       0.7 |      2 |     2 |         2 |              1 |         0.0
+  28 | Microarray | microarray                | $     0.05 |       0.3 |      3 |     3 |         8 |              6 |         0.1
 
 DETAILED PIPELINE INFORMATION
 ================================================================================
 
-[1] Whole Genome Bisulfite Sequencing  - WGBS DMR 분석 - human/mouse 외
+[1] Whole Genome Bisulfite Sequencing  - brmh_JSW custom analysis
+--------------------------------------------------------------------------------
+Pipeline: inhouse v1.1.1
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 3
+  Steps:  4
+  Tools:  2
+
+Resources:
+  Total CPU:      158 cores
+  Total Memory:   1123 GB
+  Total Time:     67.1 hours
+  Total Storage:  0.0 GB
+
+Cost:
+  Total:   $234.79
+  Compute: $234.79 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $3.50/hr
+
+Group Breakdown:
+  CUSTOM_PLOTS:
+    Steps: 2, Time: 64.0h, Cost: $230.99
+  COUNT_CHR:
+    Steps: 1, Time: 2.5h, Cost: $3.40
+  TARGET_DMR:
+    Steps: 1, Time: 0.6h, Cost: $0.41
+
+[2] Whole Genome Bisulfite Sequencing  - WGBS DMR 분석 - human/mouse 외
 --------------------------------------------------------------------------------
 Pipeline: inhouse v1.1.1
 Platform: Illumina NovaSeq
@@ -106,7 +142,7 @@ Group Breakdown:
   FASTQ_QC:
     Steps: 1, Time: 0.1h, Cost: $0.01
 
-[2] Whole Genome Bisulfite Sequencing  - WGBS DMR 분석 - human/mouse
+[3] Whole Genome Bisulfite Sequencing  - WGBS DMR 분석 - human/mouse
 --------------------------------------------------------------------------------
 Pipeline: inhouse v1.1.1
 Platform: Illumina NovaSeq
@@ -152,7 +188,7 @@ Group Breakdown:
   FASTQ_QC:
     Steps: 1, Time: 0.1h, Cost: $0.01
 
-[3] Single Cell RNA - scRNA_parse_kinnex
+[4] Single Cell RNA - scRNA_parse_kinnex
 --------------------------------------------------------------------------------
 Pipeline: Pre-processing(parse_pacbio), inhouse v25.1.0.257715
 Platform: All Single-cell platform, PacBio Revio MARS-Seq, Parse Bioscience(Evercode all type)
@@ -188,7 +224,7 @@ Group Breakdown:
   split-pipe comb:
     Steps: 1, Time: 1.0h, Cost: $2.72
 
-[4] Spatial - cosmx
+[5] Spatial - cosmx
 --------------------------------------------------------------------------------
 Pipeline: AtoMx, inhouse v1.0.0
 Platform: Bruker Nanostring_CosMx
@@ -216,7 +252,7 @@ Group Breakdown:
   Pre-processing:
     Steps: 1, Time: 24.0h, Cost: $0.01
 
-[5] Short RNA Sequencing - RNASeq_BAM_DEG
+[6] Short RNA Sequencing - RNASeq_BAM_DEG
 --------------------------------------------------------------------------------
 Pipeline: QC, Tophat_cufflink_DEG, Functional Analysis(GO, KEGG) v1.0.0
 Platform: Illumina NovaSeq
@@ -262,7 +298,7 @@ Group Breakdown:
   Report:
     Steps: 2, Time: 0.2h, Cost: $0.02
 
-[6] Short RNA Sequencing - RNASeq_noREF_DEG
+[7] Short RNA Sequencing - RNASeq_noREF_DEG
 --------------------------------------------------------------------------------
 Pipeline: QC, Denovo Transcriptome Assembly, Kallisto_DEG, Functional Analysis(GO, KEGG) v1.0.0
 Platform: Illumina NovaSeq
@@ -310,7 +346,7 @@ Group Breakdown:
   Rawdata Prepare:
     Steps: 1, Time: 0.1h, Cost: $0.02
 
-[7] Single Cell RNA - scRNA_10x_kinnex
+[8] Single Cell RNA - scRNA_10x_kinnex
 --------------------------------------------------------------------------------
 Pipeline: Pre-processing(10x_pacbio), inhouse v25.1.0.257715
 Platform: 10x genomics, All Single-cell platform, PacBio Revio MARS-Seq
@@ -340,7 +376,7 @@ Group Breakdown:
   Read Segmentation:
     Steps: 4, Time: 16.3h, Cost: $5.57
 
-[8] Single Cell RNA - scRNA_parse_illumina
+[9] Single Cell RNA - scRNA_parse_illumina
 --------------------------------------------------------------------------------
 Pipeline: Pre-processing(parse_illumina), inhouse v1.6.3
 Platform: All Single-cell platform, Illumina, Parse Bioscience(Evercode all type)
@@ -368,7 +404,7 @@ Group Breakdown:
   Pre-processing(parse_illumina):
     Steps: 2, Time: 3.0h, Cost: $8.16
 
-[9] Single Cell RNA - scRNA_10x_illumina
+[10] Single Cell RNA - scRNA_10x_illumina
 --------------------------------------------------------------------------------
 Pipeline: Pre-processing(10x_ilumina), inhouse vv1.0.0
 Platform: 10x genomics, All Single-cell platform, Illumina
@@ -396,7 +432,7 @@ Group Breakdown:
   Pre-processing(10x_ilumina):
     Steps: 1, Time: 1.0h, Cost: $2.72
 
-[10] Single Cell RNA - scRNA_scale_illumina
+[11] Single Cell RNA - scRNA_scale_illumina
 --------------------------------------------------------------------------------
 Pipeline: Pre-processing(scalebio_illumina), inhouse v2.1.0
 Platform: All Single-cell platform, Illumina, QuatumScale
@@ -438,27 +474,69 @@ Group Breakdown:
   SAMPLE_REPORTING:
     Steps: 1, Time: 0.1h, Cost: $0.01
 
-[11] Short RNA Sequencing - RNASeq_DEG_AS_SNP
+[12] Short RNA Sequencing - circRNA
 --------------------------------------------------------------------------------
-Pipeline: RNASeq통합분석 v1.0.0
+Pipeline: circrna v1.0.0
 Platform: Illumina NovaSeq
 
 Structure:
-  Groups: 7
-  Steps:  30
-  Tools:  11
+  Groups: 9
+  Steps:  45
+  Tools:  20
 
 Resources:
-  Total CPU:      200 cores
-  Total Memory:   800 GB
-  Total Time:     21.0 hours
-  Total Storage:  66.8 GB
+  Total CPU:      145 cores
+  Total Memory:   856 GB
+  Total Time:     9.7 hours
+  Total Storage:  328.4 GB
 
 Cost:
-  Total:   $14.12
-  Compute: $14.12 (100.0%)
+  Total:   $17.69
+  Compute: $17.65 (99.8%)
+  Storage: $0.03 (0.2%)
+  Per Hour: $1.81/hr
+
+Group Breakdown:
+  QUANTIFICATION:
+    Steps: 16, Time: 5.2h, Cost: $10.42
+  CIRCRNA_DISCOVERY:
+    Steps: 18, Time: 2.4h, Cost: $4.64
+  PREPARE_GENOME:
+    Steps: 4, Time: 1.1h, Cost: $1.70
+  FASTQC_TRIMGALORE:
+    Steps: 2, Time: 0.3h, Cost: $0.55
+  circR:
+    Steps: 1, Time: 0.5h, Cost: $0.34
+  CAT_FASTQ:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  CIRCTEST:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  STATISTICAL_TESTS:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  MULTIQC:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+
+[13] Short RNA Sequencing - RNASeq_DEG_AS_SNP
+--------------------------------------------------------------------------------
+Pipeline: RNASeq통합분석, Functional Analysis(GO, KEGG) v1.0.0
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 8
+  Steps:  31
+  Tools:  12
+
+Resources:
+  Total CPU:      201 cores
+  Total Memory:   801 GB
+  Total Time:     21.5 hours
+  Total Storage:  66.9 GB
+
+Cost:
+  Total:   $14.17
+  Compute: $14.16 (100.0%)
   Storage: $0.00 (0.0%)
-  Per Hour: $0.67/hr
+  Per Hour: $0.66/hr
 
 Group Breakdown:
   VariantCall:
@@ -473,10 +551,12 @@ Group Breakdown:
     Steps: 2, Time: 0.5h, Cost: $0.34
   Abundance Estimation:
     Steps: 1, Time: 0.4h, Cost: $0.27
+  Enrichment Analysis:
+    Steps: 1, Time: 0.5h, Cost: $0.04
   Differential gene expression:
     Steps: 2, Time: 0.2h, Cost: $0.03
 
-[12] Methylation Chip - Methylation array QC / DMR 분석
+[14] Methylation Chip - Methylation array QC / DMR 분석
 --------------------------------------------------------------------------------
 Pipeline: inhouse v1.0.1
 Platform: Illumina iScan
@@ -504,7 +584,7 @@ Group Breakdown:
   DMR_ANALYSIS:
     Steps: 1, Time: 0.4h, Cost: $0.54
 
-[13] Short RNA Sequencing - RNASeq_noBAM_DEG
+[15] Short RNA Sequencing - RNASeq_noBAM_DEG
 --------------------------------------------------------------------------------
 Pipeline: QC, Kallisto_DEG, Functional Analysis(GO, KEGG) v1.0.0
 Platform: Illumina NovaSeq
@@ -548,7 +628,57 @@ Group Breakdown:
   Rawdata Prepare:
     Steps: 1, Time: 0.1h, Cost: $0.02
 
-[14] Short RNA Sequencing - IsoSeq_DEG
+[16] Short RNA Sequencing - FusineGene
+--------------------------------------------------------------------------------
+Pipeline: RNAFUSION v4.1.0
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 13
+  Steps:  26
+  Tools:  16
+
+Resources:
+  Total CPU:      67 cores
+  Total Memory:   471 GB
+  Total Time:     4.0 hours
+  Total Storage:  539.4 GB
+
+Cost:
+  Total:   $11.07
+  Compute: $11.00 (99.4%)
+  Storage: $0.07 (0.6%)
+  Per Hour: $2.75/hr
+
+Group Breakdown:
+  FUSIONCATCHER_WORKFLOW:
+    Steps: 1, Time: 2.4h, Cost: $9.73
+  FUSIONINSPECTOR_WORKFLOW:
+    Steps: 4, Time: 0.6h, Cost: $0.63
+  QC_WORKFLOW:
+    Steps: 3, Time: 0.4h, Cost: $0.18
+  FASTQ_ALIGN_STAR:
+    Steps: 6, Time: 0.2h, Cost: $0.17
+  FASTQ_FASTQC_UMITOOLS_FASTP:
+    Steps: 3, Time: 0.1h, Cost: $0.15
+  SALMON_QUANT:
+    Steps: 1, Time: 0.1h, Cost: $0.10
+  MULTIQC:
+    Steps: 1, Time: 0.0h, Cost: $0.05
+  STARFUSION_DETECT:
+    Steps: 1, Time: 0.1h, Cost: $0.02
+  CTATSPLICING:
+    Steps: 1, Time: 0.0h, Cost: $0.02
+  ARRIBA:
+    Steps: 1, Time: 0.0h, Cost: $0.01
+  BAM_STRINGTIE_MERGE:
+    Steps: 2, Time: 0.1h, Cost: $0.01
+  FUSIONREPORT_DETECT:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+  SAMTOOLS_INDEX:
+    Steps: 1, Time: 0.0h, Cost: $0.00
+
+[17] Short RNA Sequencing - IsoSeq_DEG
 --------------------------------------------------------------------------------
 Pipeline: Denovo Transcriptome Assembly, Functional Analysis(GO, KEGG) v1.0.0
 Platform: Illumina NovaSeq
@@ -580,45 +710,7 @@ Group Breakdown:
   Functional Analysis(GO, KEGG):
     Steps: 1, Time: 0.5h, Cost: $0.04
 
-[15] Short RNA Sequencing - circRNA
---------------------------------------------------------------------------------
-Pipeline: circrna v1.0.0
-Platform: Illumina NovaSeq
-
-Structure:
-  Groups: 7
-  Steps:  43
-  Tools:  19
-
-Resources:
-  Total CPU:      141 cores
-  Total Memory:   816 GB
-  Total Time:     4.5 hours
-  Total Storage:  328.3 GB
-
-Cost:
-  Total:   $8.07
-  Compute: $8.05 (99.7%)
-  Storage: $0.02 (0.3%)
-  Per Hour: $1.78/hr
-
-Group Breakdown:
-  CIRCRNA_DISCOVERY:
-    Steps: 18, Time: 2.4h, Cost: $4.64
-  PREPARE_GENOME:
-    Steps: 4, Time: 1.1h, Cost: $1.70
-  QUANTIFICATION:
-    Steps: 16, Time: 0.6h, Cost: $1.16
-  FASTQC_TRIMGALORE:
-    Steps: 2, Time: 0.3h, Cost: $0.55
-  CAT_FASTQ:
-    Steps: 1, Time: 0.1h, Cost: $0.02
-  MULTIQC:
-    Steps: 1, Time: 0.0h, Cost: $0.00
-  STATISTICAL_TESTS:
-    Steps: 1, Time: 0.0h, Cost: $0.00
-
-[16] Targeted Methylation Sequencing - Target BS DMR 분석 - human/mouse
+[18] Targeted Methylation Sequencing - Target BS DMR 분석 - human/mouse
 --------------------------------------------------------------------------------
 Pipeline: inhouse v1.1.1
 Platform: Illumina NovaSeq
@@ -662,7 +754,45 @@ Group Breakdown:
   FASTQ_QC:
     Steps: 1, Time: 0.1h, Cost: $0.01
 
-[17] Long RNA Sequencing - IsoSeq
+[19] Short RNA Sequencing - RNASeq_XENOGRAFT_FILTERING
+--------------------------------------------------------------------------------
+Pipeline: RNASeq통합분석, xeno_filtering, Functional Analysis(GO, KEGG) v1.0.0
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 7
+  Steps:  15
+  Tools:  10
+
+Resources:
+  Total CPU:      69 cores
+  Total Memory:   289 GB
+  Total Time:     6.1 hours
+  Total Storage:  20.5 GB
+
+Cost:
+  Total:   $3.75
+  Compute: $3.75 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $0.61/hr
+
+Group Breakdown:
+  Alignment:
+    Steps: 3, Time: 3.0h, Cost: $2.04
+  Reference indexing:
+    Steps: 5, Time: 1.0h, Cost: $0.68
+  QC:
+    Steps: 2, Time: 0.5h, Cost: $0.34
+  Xenograft filtering:
+    Steps: 1, Time: 0.5h, Cost: $0.34
+  Abundance Estimation:
+    Steps: 1, Time: 0.4h, Cost: $0.27
+  Enrichment Analysis:
+    Steps: 1, Time: 0.5h, Cost: $0.04
+  Differential gene expression:
+    Steps: 2, Time: 0.2h, Cost: $0.03
+
+[20] Long RNA Sequencing - IsoSeq
 --------------------------------------------------------------------------------
 Pipeline: Isoseq v25.2
 Platform: Pacbio Revio
@@ -690,7 +820,7 @@ Group Breakdown:
   Iso-seq:
     Steps: 11, Time: 0.9h, Cost: $0.58
 
-[18] Long RNA Sequencing - IsoSeq_DEG
+[21] Long RNA Sequencing - IsoSeq_DEG
 --------------------------------------------------------------------------------
 Pipeline: Isoseq v25.2
 Platform: Pacbio Revio
@@ -718,7 +848,7 @@ Group Breakdown:
   Iso-seq:
     Steps: 11, Time: 0.9h, Cost: $0.58
 
-[19] Short RNA Sequencing - Immune_TCR_BCR
+[22] Short RNA Sequencing - Immune_TCR_BCR
 --------------------------------------------------------------------------------
 Pipeline: Immune Repertoire Analysis, clonal expansion v1.0.0
 Platform: MiSeq
@@ -754,7 +884,7 @@ Group Breakdown:
   CDR length analysis:
     Steps: 1, Time: 0.1h, Cost: $0.01
 
-[20] Whole Genome Sequencing  - Long read 6mA / 4mC - microbial genome only
+[23] Whole Genome Sequencing  - Long read 6mA / 4mC - microbial genome only
 --------------------------------------------------------------------------------
 Pipeline: smrtlink, inhouse v25.2
 Platform: Pacbio Revio
@@ -790,7 +920,37 @@ Group Breakdown:
   PREPARE_INPUT:
     Steps: 1, Time: 0.1h, Cost: $0.01
 
-[21] Spatial - geomx
+[24] Short RNA Sequencing - Custom plot
+--------------------------------------------------------------------------------
+Pipeline: inhouse v1.0.0
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 3
+  Steps:  3
+  Tools:  2
+
+Resources:
+  Total CPU:      3 cores
+  Total Memory:   2 GB
+  Total Time:     4.7 hours
+  Total Storage:  0.0 GB
+
+Cost:
+  Total:   $0.40
+  Compute: $0.40 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $0.09/hr
+
+Group Breakdown:
+  CUSTOM_test:
+    Steps: 1, Time: 4.0h, Cost: $0.34
+  CUSTOM_Plot:
+    Steps: 1, Time: 0.5h, Cost: $0.04
+  CUSTOM_Data Seperate:
+    Steps: 1, Time: 0.2h, Cost: $0.02
+
+[25] Spatial - geomx
 --------------------------------------------------------------------------------
 Pipeline: GeoMxDSP v3.2
 Platform: Bruker Nanostring_GeoMx
@@ -816,7 +976,63 @@ Group Breakdown:
   Pre-processing:
     Steps: 1, Time: 0.1h, Cost: $0.27
 
-[22] Microarray - microarray
+[26] Short RNA Sequencing - 20250605_CNBU_SONGMINSEOK
+--------------------------------------------------------------------------------
+Pipeline: inhouse v1.0.0
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 2
+  Steps:  4
+  Tools:  1
+
+Resources:
+  Total CPU:      4 cores
+  Total Memory:   4 GB
+  Total Time:     1.2 hours
+  Total Storage:  0.0 GB
+
+Cost:
+  Total:   $0.10
+  Compute: $0.10 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $0.09/hr
+
+Group Breakdown:
+  Custom plot:
+    Steps: 2, Time: 1.0h, Cost: $0.09
+  DATA PARSING:
+    Steps: 2, Time: 0.2h, Cost: $0.02
+
+[27] Short RNA Sequencing - LeeJinWuk_ontology Custom plot
+--------------------------------------------------------------------------------
+Pipeline: inhouse v1.0.0
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 2
+  Steps:  2
+  Tools:  2
+
+Resources:
+  Total CPU:      2 cores
+  Total Memory:   1 GB
+  Total Time:     0.7 hours
+  Total Storage:  0.0 GB
+
+Cost:
+  Total:   $0.06
+  Compute: $0.06 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $0.09/hr
+
+Group Breakdown:
+  CUSTOM_Plot:
+    Steps: 1, Time: 0.5h, Cost: $0.04
+  CUSTOM_Data Seperate:
+    Steps: 1, Time: 0.2h, Cost: $0.02
+
+[28] Microarray - microarray
 --------------------------------------------------------------------------------
 Pipeline: inhouse v1.0.0
 Platform: Microarray

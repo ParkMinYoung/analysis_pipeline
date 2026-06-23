@@ -4,7 +4,7 @@
 
 1. [전체 요약 (Team 1 + Team 2 + Team 3)](#전체-요약)
 2. [Team 1 분석 (19 pipelines)](#team-1-분석)
-3. [Team 2 분석 (22 pipelines)](#team-2-분석)
+3. [Team 2 분석 (28 pipelines)](#team-2-분석)
 4. [Team 3 분석 (8 pipelines)](#team-3-분석)
 5. [주요 파일 위치](#주요-파일-위치)
 
@@ -16,11 +16,11 @@
 
 | 항목 | Team 1 | Team 2 | Team 3 | 합계 |
 |------|--------|--------|--------|------|
-| **파이프라인 수** | 19개 | 22개 | 8개 | 49개 |
-| **총 비용** | **$14,045.62** | **$505.14** | **$3,302.47** | **$17,853.23** |
-| **총 단계 수** | 338 steps | 354 steps | 122 steps | 814 steps |
-| **총 실행 시간** | 382.64 hours | 534.04 hours | 602.80 hours | 1,519.48 hours |
-| **평균 파이프라인 비용** | $739.24 | $22.96 | $412.81 | $364.35 |
+| **파이프라인 수** | 19개 | 28개 | 8개 | 55개 |
+| **총 비용** | **$14,045.62** | **$764.98** | **$3,302.47** | **$18,113.07** |
+| **총 단계 수** | 338 steps | 411 steps | 122 steps | 871 steps |
+| **총 실행 시간** | 382.64 hours | 623.63 hours | 602.80 hours | 1,609.07 hours |
+| **평균 파이프라인 비용** | $739.24 | $27.32 | $412.81 | $329.33 |
 
 ### 주요 특징
 
@@ -31,7 +31,7 @@
 
 **Team 2 특징:**
 - 9개 직무 영역의 다양한 파이프라인 보유 (Short RNA, Single Cell RNA, WGBS, Spatial 등)
-- 비용이 고르게 분산된 구조
+- WGBS 직무가 전체의 48.5% 차지 (brmh_JSW custom analysis $234.79 포함)
 - 주요 플랫폼: Illumina NovaSeq, PacBio Revio, 10x Genomics, Parse Bioscience
 
 **Team 3 특징:**
@@ -137,22 +137,31 @@
 
 | 항목 | 값 |
 |------|-----|
-| **총 파이프라인 수** | 22개 |
-| **총 그룹 수** | 129 groups |
-| **총 분석 단계 수** | 354 steps |
-| **총 예상 비용** | **$505.14** |
-| **총 실행 시간** | 534.04 hours |
-| **총 CPU 사용량** | 2,269 cores |
-| **총 메모리 사용량** | 7,462 GB |
-| **총 스토리지** | 5,935.40 GB |
+| **총 파이프라인 수** | 28개 |
+| **총 그룹 수** | 162 groups |
+| **총 분석 단계 수** | 411 steps |
+| **총 예상 비용** | **$764.98** |
+| **총 실행 시간** | 623.63 hours |
+| **총 CPU 사용량** | 2,577 cores |
+| **총 메모리 사용량** | 9,393 GB |
+| **총 스토리지** | 6,495.49 GB |
 
 ---
 
 ### 직무별 비용 (Team 2)
 
+#### Whole Genome Bisulfite Sequencing - 3개 파이프라인
+- **총 비용**: $370.96 (전체의 48.5%)
+- **그룹 수**: 25 groups
+- **단계 수**: 35 steps
+- **주요 파이프라인**:
+  1. brmh_JSW custom analysis: $234.79
+  2. WGBS DMR 분석 - human/mouse 외: $69.45
+  3. WGBS DMR 분석 - human/mouse: $66.72
+
 #### Single Cell RNA - 5개 파이프라인
-- **총 비용**: $169.25 (전체의 33.5%)
-- **그룹 수**: 17 groups
+- **총 비용**: $169.25 (전체의 22.1%)
+- **그룹 수**: 22 groups
 - **단계 수**: 80 steps
 - **주요 파이프라인**:
   1. scRNA_parse_kinnex: $50.36
@@ -161,25 +170,20 @@
   4. scRNA_10x_illumina: $24.63
   5. scRNA_scale_illumina: $23.22
 
-#### Whole Genome Bisulfite Sequencing - 2개 파이프라인
-- **총 비용**: $136.17 (27.0%)
-- **그룹 수**: 11 groups
-- **단계 수**: 31 steps
-- **주요 파이프라인**:
-  1. WGBS DMR 분석 - human/mouse 외: $69.45
-  2. WGBS DMR 분석 - human/mouse: $66.72
-
-#### Short RNA Sequencing - 7개 파이프라인
-- **총 비용**: $128.64 (25.5%)
-- **그룹 수**: 33 groups
-- **단계 수**: 168 steps
+#### Short RNA Sequencing - 12개 파이프라인
+- **총 비용**: $153.68 (전체의 20.1%)
+- **그룹 수**: 87 groups
+- **단계 수**: 221 steps
 - **주요 파이프라인**:
   1. RNASeq_BAM_DEG: $44.04
   2. RNASeq_noREF_DEG: $41.44
-  3. RNASeq_DEG_AS_SNP: $14.12
+  3. circRNA: $17.69
+  4. RNASeq_DEG_AS_SNP: $14.17
+  5. RNASeq_noBAM_DEG: $11.46
+  6. FusineGene: $11.07
 
 #### Spatial - 2개 파이프라인
-- **총 비용**: $48.68 (9.6%)
+- **총 비용**: $48.68 (6.4%)
 - **주요 파이프라인**:
   1. cosmx: $48.41
   2. geomx: $0.27
@@ -197,16 +201,16 @@
 
 | 순위 | 직무 | Analysis Name | 비용 (USD) | 시간 (hr) | Groups | Steps |
 |------|------|---------------|-----------|----------|--------|-------|
-| 1 | WGBS | WGBS DMR 분석 - human/mouse 외 | $69.45 | 87.1 | 11 | 16 |
-| 2 | WGBS | WGBS DMR 분석 - human/mouse | $66.72 | 84.9 | 11 | 15 |
-| 3 | Single Cell RNA | scRNA_parse_kinnex | $50.36 | 44.5 | 6 | 18 |
-| 4 | Spatial | cosmx | $48.41 | 36.0 | 2 | 2 |
-| 5 | Short RNA | RNASeq_BAM_DEG | $44.04 | 53.0 | 11 | 25 |
-| 6 | Short RNA | RNASeq_noREF_DEG | $41.44 | 29.1 | 12 | 25 |
-| 7 | Single Cell RNA | scRNA_10x_kinnex | $40.96 | 80.6 | 3 | 24 |
-| 8 | Single Cell RNA | scRNA_parse_illumina | $30.08 | 15.0 | 2 | 7 |
-| 9 | Single Cell RNA | scRNA_10x_illumina | $24.63 | 13.0 | 2 | 6 |
-| 10 | Single Cell RNA | scRNA_scale_illumina | $23.22 | 14.5 | 9 | 25 |
+| 1 | WGBS | brmh_JSW custom analysis | $234.79 | 67.1 | 3 | 4 |
+| 2 | WGBS | WGBS DMR 분석 - human/mouse 외 | $69.45 | 87.1 | 11 | 16 |
+| 3 | WGBS | WGBS DMR 분석 - human/mouse | $66.72 | 84.9 | 11 | 15 |
+| 4 | Single Cell RNA | scRNA_parse_kinnex | $50.36 | 44.5 | 6 | 18 |
+| 5 | Spatial | cosmx | $48.41 | 36.0 | 2 | 2 |
+| 6 | Short RNA | RNASeq_BAM_DEG | $44.04 | 53.0 | 11 | 25 |
+| 7 | Short RNA | RNASeq_noREF_DEG | $41.44 | 29.1 | 12 | 25 |
+| 8 | Single Cell RNA | scRNA_10x_kinnex | $40.96 | 80.6 | 3 | 24 |
+| 9 | Single Cell RNA | scRNA_parse_illumina | $30.08 | 15.0 | 2 | 7 |
+| 10 | Single Cell RNA | scRNA_10x_illumina | $24.63 | 13.0 | 2 | 6 |
 
 ---
 
@@ -214,27 +218,29 @@
 
 | 순위 | 파이프라인 | 단계 | 도구 | 비용 | 인스턴스 | 시간 |
 |------|-----------|------|------|------|----------|------|
-| 1 | cosmx | Post-processing | Giotto | $48.40 | r6i.16xlarge | 12h |
-| 2 | WGBS human/mouse | BISMARK | bismark | $47.29 | c6i.8xlarge | 34.5h |
-| 3 | WGBS human/mouse 외 | BISMARK_ALIGN | bismark | $47.29 | c6i.8xlarge | 34.5h |
-| 4 | RNASeq_noREF_DEG | Assembly | Trinity | $24.48 | c6i.24xlarge | 6h |
-| 5 | scRNA_10x_illumina | integration_annot | Seurat | $16.15 | r6i.8xlarge | 8h |
+| 1 | brmh_JSW | CIRCOS_PLOTS | R | $201.55 | c6i.24xlarge | 49.4h |
+| 2 | cosmx | Post-processing | Giotto | $48.40 | r6i.16xlarge | 12h |
+| 3 | WGBS human/mouse | BISMARK | bismark | $47.29 | c6i.8xlarge | 34.5h |
+| 4 | WGBS human/mouse 외 | BISMARK_ALIGN | bismark | $47.29 | c6i.8xlarge | 34.5h |
+| 5 | brmh_JSW | FEATURE_PLOTS | R | $29.43 | r6i.8xlarge | 14.6h |
 
 ---
 
 ### 주요 인사이트 (Team 2)
 
-#### 1. 비용 분산 구조
-- 비용이 3개 직무에 고르게 분산: Single Cell RNA (33.5%), WGBS (27.0%), Short RNA (25.5%)
-- 가장 고비용 파이프라인이 $69.45로 비교적 저비용
+#### 1. 비용 집중 구조 (brmh_JSW 신규 추가)
+- brmh_JSW custom analysis 신규 추가로 WGBS 직무가 48.5%로 1위 상승
+- WGBS (48.5%), Single Cell RNA (22.1%), Short RNA (20.1%) 순
+- 가장 고비용 파이프라인은 brmh_JSW custom analysis $234.79
 
 #### 2. 주요 비용 발생 단계
+- **CIRCOS_PLOTS** (brmh_JSW): R 기반 c6i.24xlarge 49.4시간, $201.55
 - **BISMARK alignment** (WGBS): 34.5시간 장시간 실행
 - **Post-processing** (cosmx Spatial): r6i.16xlarge 메모리 집약적 분석
-- **integration_annot** (Single Cell RNA): Seurat 기반 200GB 메모리 사용
+- **integration_annot** (Single Cell RNA): Seurat 기반 메모리 집약적 분석
 
 #### 3. 비용 최적화 포인트
-- 전체 비용이 $505로 이미 효율적인 구조
+- brmh_JSW custom analysis CIRCOS_PLOTS 단계가 Team 2 전체 비용의 약 26% 단독 차지
 - Spot Instance 적용 시 추가 70% 절감 가능
 
 ---
@@ -409,9 +415,9 @@
 ### Team 2 최적화 전략
 
 ```
-현재 비용: $505 (이미 효율적)
-Spot Instances 적용 시: ~$152 (70% 절감)
-추가 최적화 여지: 제한적
+현재 비용: $765
+Spot Instances 적용 시: ~$229 (70% 절감)
+고비용 타깃: brmh_JSW CIRCOS_PLOTS ($201.55) → R 스크립트 최적화 검토
 ```
 
 ### Team 3 최적화 전략
@@ -439,9 +445,9 @@ Top 2 비용 작업:
 | 팀 | 현재 비용 | 예상 절감 | 절감률 | 최적화 후 |
 |-----|----------|----------|--------|----------|
 | Team 1 | $14,046 | $8,957 | 64% | $5,089 |
-| Team 2 | $505 | $354 | 70% | $152 |
+| Team 2 | $765 | $535 | 70% | $229 |
 | Team 3 | $3,302 | $2,312 | 70% | $991 |
-| **합계** | **$17,853** | **$11,623** | **65%** | **$6,231** |
+| **합계** | **$18,113** | **$11,804** | **65%** | **$6,309** |
 
 ---
 
@@ -469,7 +475,7 @@ Top 2 비용 작업:
 **리포트:**
 - `reports/team2/00_SUMMARY_ALL_PIPELINES.txt` - 전체 요약
 - `reports/team2/pipeline_summary.csv` - 파이프라인별 요약 (CSV)
-- `reports/team2/*_report.txt` - 22개 파이프라인 상세 리포트
+- `reports/team2/*_report.txt` - 28개 파이프라인 상세 리포트
 
 ### Team 3 파일
 
@@ -496,7 +502,7 @@ done
 
 ---
 
-**분석 완료일**: 2026-03-10
-**분석 대상**: Team 1 (19 pipelines), Team 2 (22 pipelines), Team 3 (8 pipelines)
-**총 파이프라인**: 49개
-**총 예상 비용**: $17,853.23
+**분석 완료일**: 2026-06-23
+**분석 대상**: Team 1 (19 pipelines), Team 2 (28 pipelines), Team 3 (8 pipelines)
+**총 파이프라인**: 55개
+**총 예상 비용**: $18,113.07

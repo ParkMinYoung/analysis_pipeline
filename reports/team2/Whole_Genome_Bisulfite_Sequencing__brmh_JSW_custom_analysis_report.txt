@@ -1,0 +1,93 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Whole Genome Bisulfite Sequencing 
+Analysis Name: brmh_JSW custom analysis
+Platform: Illumina NovaSeq
+Pipeline: inhouse v1.1.1
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 3
+Number of Steps: 4
+Number of Tools: 2
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 158
+Total Memory: 1123 GB
+Total Compute Time: 67.10 hours
+Total Storage: 0.01 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $234.79
+  - Compute Cost: $234.79 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $3.50
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+CUSTOM_PLOTS:
+  Steps: 2
+  Time: 64.00 hours
+  Cost: $230.99
+  Tools: R
+
+COUNT_CHR:
+  Steps: 1
+  Time: 2.50 hours
+  Cost: $3.40
+  Tools: awk
+
+TARGET_DMR:
+  Steps: 1
+  Time: 0.60 hours
+  Cost: $0.41
+  Tools: R
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: COUNT_CHR
+Step: COUNT_CHR
+Tool: awk v4.2.1
+Resources: 18 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 2.50 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $3.4000 (compute: $3.4000, storage: $0.0000)
+
+Group: CUSTOM_PLOTS
+Step: FEATURE_PLOTS
+Tool: R v4.4.2
+Resources: 1 CPUs, 228 GB RAM, 1 MB storage
+Runtime: 14.60 hours × 1 parallel tasks
+Instance: r6i.8xlarge @ $2.0160/hr
+Cost: $29.4336 (compute: $29.4336, storage: $0.0000)
+
+Group: CUSTOM_PLOTS
+Step: CIRCOS_PLOTS
+Tool: R v4.4.2
+Resources: 138 CPUs, 867 GB RAM, 1 MB storage
+Runtime: 49.40 hours × 1 parallel tasks
+Instance: c6i.24xlarge @ $4.0800/hr
+Cost: $201.5520 (compute: $201.5520, storage: $0.0000)
+
+Group: TARGET_DMR
+Step: DMR_ANALYSIS
+Tool: R v4.4.2
+Resources: 1 CPUs, 27 GB RAM, 11 MB storage
+Runtime: 0.60 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.4080 (compute: $0.4080, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

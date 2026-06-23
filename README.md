@@ -9,9 +9,9 @@
 
 ### 분석 대상
 - **Team 1**: 19개 파이프라인, 338 steps (WGS, WES, DNA Chip, Pangenome, 단백질 분석, 커스텀 분석)
-- **Team 2**: 22개 파이프라인, 354 steps (Short RNA, Single Cell RNA, Spatial 등)
+- **Team 2**: 28개 파이프라인, 411 steps (Short RNA, Single Cell RNA, WGBS, Spatial 등)
 - **Team 3**: 8개 파이프라인, 122 steps (Assembly, Microbiome)
-- **총 파이프라인**: 49개 (팀별로 상이)
+- **총 파이프라인**: 55개 (팀별로 상이)
 - **플랫폼**: PacBio Revio/Sequel, Illumina NovaSeq/MiSeq, Nanopore PromethION, Axiom/Illumina Microarray
 
 ## 디렉토리 구조
@@ -122,17 +122,17 @@ done
 5. Kinics-ICS: $177.71
 
 ### Team 2 비용 요약
-- **총 비용**: $505.14
-- **총 파이프라인**: 22개
-- **총 실행 시간**: 534.04 hours
-- **주요 직무**: Single Cell RNA ($169.25), WGBS ($136.17), Short RNA Sequencing ($128.64)
+- **총 비용**: $764.98
+- **총 파이프라인**: 28개
+- **총 실행 시간**: 623.63 hours
+- **주요 직무**: Whole Genome Bisulfite Sequencing ($370.96), Single Cell RNA ($169.25), Short RNA Sequencing ($153.68)
 
 **Top 5 고비용 파이프라인 (Team 2):**
-1. WGBS DMR 분석 - human/mouse 외: $69.45
-2. WGBS DMR 분석 - human/mouse: $66.72
-3. scRNA_parse_kinnex: $50.36
-4. cosmx: $48.41
-5. RNASeq_BAM_DEG: $44.04
+1. brmh_JSW custom analysis: $234.79
+2. WGBS DMR 분석 - human/mouse 외: $69.45
+3. WGBS DMR 분석 - human/mouse: $66.72
+4. scRNA_parse_kinnex: $50.36
+5. cosmx: $48.41
 
 ### Team 3 비용 요약
 - **총 비용**: $3,302.47
@@ -161,12 +161,12 @@ done
    - r6i.16xlarge (64 vCPU, 500 GB), 8.7 hours × 4 parallel tasks
 
 #### Team 2 고비용 단계:
-1. **Post-processing** (cosmx): $48.40
+1. **CIRCOS_PLOTS** (brmh_JSW custom analysis): $201.55
+   - c6i.24xlarge (96 vCPU, 192 GB), 49.4 hours
+2. **Post-processing** (cosmx): $48.40
    - r6i.16xlarge (64 vCPU, 200 GB), 12 hours
-2. **BISMARK** (WGBS human/mouse): $47.29
-   - c6i.8xlarge (30 vCPU, 60 GB), 34.5 hours
-3. **BISMARK_ALIGN** (WGBS human/mouse 외): $47.29
-   - c6i.8xlarge (30 vCPU, 60 GB), 34.5 hours
+3. **BISMARK/BISMARK_ALIGN** (WGBS): $47.29
+   - c6i.8xlarge (32 vCPU, 64 GB), 34.5 hours
 
 #### Team 3 고비용 단계:
 1. **Flye Assembly** (Shotgun metagenome): $979.77
@@ -239,10 +239,10 @@ done
 분석에 대한 질문이나 추가 요청사항이 있으시면 연락 주세요.
 
 ---
-**최종 업데이트**: 2026-03-10
-**분석 완료**: Team 1 (19 pipelines), Team 2 (22 pipelines), Team 3 (8 pipelines)
-**총 파이프라인**: 49개
-**총 예상 비용**: $17,853.23
+**최종 업데이트**: 2026-06-23
+**분석 완료**: Team 1 (19 pipelines), Team 2 (28 pipelines), Team 3 (8 pipelines)
+**총 파이프라인**: 55개
+**총 예상 비용**: $18,113.07
 **분석 도구**: Python 3.11, pandas, numpy
 **AWS 리전**: us-east-1 (N. Virginia)
 **지원 팀**: Team 1, Team 2, Team 3

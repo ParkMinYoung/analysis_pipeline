@@ -1,0 +1,87 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Short RNA Sequencing
+Analysis Name: 20250605_CNBU_SONGMINSEOK
+Platform: Illumina NovaSeq
+Pipeline: inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 2
+Number of Steps: 4
+Number of Tools: 1
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 4
+Total Memory: 4 GB
+Total Compute Time: 1.20 hours
+Total Storage: 0.03 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $0.10
+  - Compute Cost: $0.10 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $0.09
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Custom plot:
+  Steps: 2
+  Time: 1.00 hours
+  Cost: $0.09
+  Tools: R
+
+DATA PARSING:
+  Steps: 2
+  Time: 0.20 hours
+  Cost: $0.02
+  Tools: R
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: DATA PARSING
+Step: DATA SELECTION
+Tool: R v4.2.0
+Resources: 1 CPUs, 1 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: DATA PARSING
+Step: Rrprocessing
+Tool: R v4.2.0
+Resources: 1 CPUs, 1 GB RAM, 10 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: Custom plot
+Step: Data processing
+Tool: R v4.2.0
+Resources: 1 CPUs, 1 GB RAM, 10 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+Group: Custom plot
+Step: Visualization
+Tool: R v4.2.0
+Resources: 1 CPUs, 1 GB RAM, 2 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

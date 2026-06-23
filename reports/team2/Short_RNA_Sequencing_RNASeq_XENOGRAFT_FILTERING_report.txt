@@ -1,0 +1,205 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Short RNA Sequencing
+Analysis Name: RNASeq_XENOGRAFT_FILTERING
+Platform: Illumina NovaSeq
+Pipeline: RNASeq통합분석, xeno_filtering, Functional Analysis(GO, KEGG) v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 7
+Number of Steps: 15
+Number of Tools: 10
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 69
+Total Memory: 289 GB
+Total Compute Time: 6.14 hours
+Total Storage: 20.50 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $3.75
+  - Compute Cost: $3.75 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $0.61
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+Alignment:
+  Steps: 3
+  Time: 3.00 hours
+  Cost: $2.04
+  Tools: STAR
+
+Reference indexing:
+  Steps: 5
+  Time: 1.03 hours
+  Cost: $0.68
+  Tools: GATK, samtools, STAR, RSEM
+
+QC:
+  Steps: 2
+  Time: 0.51 hours
+  Cost: $0.34
+  Tools: awk, bwa
+
+Xenograft filtering:
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.34
+  Tools: XenofilteR
+
+Abundance Estimation:
+  Steps: 1
+  Time: 0.40 hours
+  Cost: $0.27
+  Tools: RSEM
+
+Enrichment Analysis:
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.04
+  Tools: clusterprofiler
+
+Differential gene expression:
+  Steps: 2
+  Time: 0.20 hours
+  Cost: $0.03
+  Tools: trinity, R
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: Reference indexing
+Step: reference dictionary
+Tool: GATK v4.5.0.0
+Resources: 1 CPUs, 4 GB RAM, 122 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0008, storage: $0.0000)
+
+Group: Reference indexing
+Step: fasta indexing
+Tool: samtools v1.21
+Resources: 1 CPUs, 4 GB RAM, 122 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0008, storage: $0.0000)
+
+Group: Reference indexing
+Step: gtfToCallingIntervals
+Tool: GATK v4.5.0.0
+Resources: 1 CPUs, 4 GB RAM, 3 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0008, storage: $0.0000)
+
+Group: Reference indexing
+Step: StarGenerateReferences
+Tool: STAR v2.5.3a
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 0.80 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.5441 (compute: $0.5440, storage: $0.0001)
+
+Group: Reference indexing
+Step: RsemGenerateReferences
+Tool: RSEM v1.3.1
+Resources: 8 CPUs, 32 GB RAM, 1690 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+Group: QC
+Step: splfq1
+Tool: awk vnan
+Resources: 1 CPUs, 4 GB RAM, 30 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0008, storage: $0.0000)
+
+Group: QC
+Step: ribopicker_1
+Tool: bwa v0.5.9-r16
+Resources: 8 CPUs, 32 GB RAM, 6450 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.3403 (compute: $0.3400, storage: $0.0003)
+
+Group: Alignment
+Step: StarAlign_human
+Tool: STAR v2.5.3a
+Resources: 8 CPUs, 32 GB RAM, 2300 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.6802 (compute: $0.6800, storage: $0.0002)
+
+Group: Alignment
+Step: StarAlign_mouse
+Tool: STAR v2.5.3a
+Resources: 8 CPUs, 32 GB RAM, 2300 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.6802 (compute: $0.6800, storage: $0.0002)
+
+Group: Alignment
+Step: StarAlign_after_filtering
+Tool: STAR v2.5.3a
+Resources: 8 CPUs, 32 GB RAM, 2300 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.6802 (compute: $0.6800, storage: $0.0002)
+
+Group: Xenograft filtering
+Step: Xenofiltering
+Tool: XenofilteR v1.6.0
+Resources: 4 CPUs, 32 GB RAM, 2100 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.3401 (compute: $0.3400, storage: $0.0001)
+
+Group: Abundance Estimation
+Step: rsem_exp
+Tool: RSEM v1.3.1
+Resources: 8 CPUs, 32 GB RAM, 40 MB storage
+Runtime: 0.40 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: Differential gene expression
+Step: trinity_DEG
+Tool: trinity v2.14
+Resources: 2 CPUs, 8 GB RAM, 120 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: Differential gene expression
+Step: pre_heatmap
+Tool: R v4.1.0
+Resources: 2 CPUs, 8 GB RAM, 1690 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: Enrichment Analysis
+Step: KEGG, Ontology Analysis
+Tool: clusterprofiler v3.18.1
+Resources: 1 CPUs, 1 GB RAM, 40 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

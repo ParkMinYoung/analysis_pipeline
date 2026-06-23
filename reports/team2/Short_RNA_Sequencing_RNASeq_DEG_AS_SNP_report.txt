@@ -5,30 +5,30 @@ PIPELINE COST ANALYSIS REPORT
 직무 (Job): Short RNA Sequencing
 Analysis Name: RNASeq_DEG_AS_SNP
 Platform: Illumina NovaSeq
-Pipeline: RNASeq통합분석 v1.0.0
+Pipeline: RNASeq통합분석, Functional Analysis(GO, KEGG) v1.0.0
 
 --------------------------------------------------------------------------------
 OVERVIEW
 --------------------------------------------------------------------------------
-Number of Groups: 7
-Number of Steps: 30
-Number of Tools: 11
+Number of Groups: 8
+Number of Steps: 31
+Number of Tools: 12
 
 --------------------------------------------------------------------------------
 RESOURCE REQUIREMENTS
 --------------------------------------------------------------------------------
-Total CPUs: 200
-Total Memory: 800 GB
-Total Compute Time: 20.95 hours
-Total Storage: 66.84 GB
+Total CPUs: 201
+Total Memory: 801 GB
+Total Compute Time: 21.45 hours
+Total Storage: 66.88 GB
 
 --------------------------------------------------------------------------------
 COST SUMMARY
 --------------------------------------------------------------------------------
-Total Cost: $14.12
-  - Compute Cost: $14.12 (100.0%)
+Total Cost: $14.17
+  - Compute Cost: $14.16 (100.0%)
   - Storage Cost: $0.00 (0.0%)
-Cost per Hour: $0.67
+Cost per Hour: $0.66
 
 --------------------------------------------------------------------------------
 COST BREAKDOWN BY GROUP
@@ -69,6 +69,12 @@ Abundance Estimation:
   Time: 0.40 hours
   Cost: $0.27
   Tools: RSEM
+
+Enrichment Analysis:
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.04
+  Tools: clusterprofiler
 
 Differential gene expression:
   Steps: 2
@@ -319,6 +325,14 @@ Resources: 2 CPUs, 8 GB RAM, 1690 MB storage
 Runtime: 0.10 hours × 1 parallel tasks
 Instance: c6i.xlarge @ $0.1700/hr
 Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: Enrichment Analysis
+Step: KEGG, Ontology Analysis
+Tool: clusterprofiler v3.18.1
+Resources: 1 CPUs, 1 GB RAM, 40 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
 
 ================================================================================
 END OF REPORT

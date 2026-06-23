@@ -88,12 +88,6 @@ ScatterPloidyCallsBySample:
   Cost: $0.02
   Tools: bash
 
-WriteSegmentIndexes:
-  Steps: 1
-  Time: 0.10 hours
-  Cost: $0.02
-  Tools: python
-
 WriteIntervalIndexes:
   Steps: 1
   Time: 0.10 hours
@@ -106,13 +100,19 @@ WriteIntervals:
   Cost: $0.02
   Tools: python
 
-WriteSegments:
+WritePloidyCalls:
   Steps: 1
   Time: 0.10 hours
   Cost: $0.02
   Tools: python
 
-WritePloidyCalls:
+WriteSegmentIndexes:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.02
+  Tools: python
+
+WriteSegments:
   Steps: 1
   Time: 0.10 hours
   Cost: $0.02

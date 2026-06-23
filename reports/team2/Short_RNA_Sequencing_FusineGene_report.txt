@@ -1,0 +1,329 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Short RNA Sequencing
+Analysis Name: FusineGene
+Platform: Illumina NovaSeq
+Pipeline: RNAFUSION v4.1.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 13
+Number of Steps: 26
+Number of Tools: 16
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 67
+Total Memory: 471 GB
+Total Compute Time: 4.03 hours
+Total Storage: 539.42 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $11.07
+  - Compute Cost: $11.00 (99.4%)
+  - Storage Cost: $0.07 (0.6%)
+Cost per Hour: $2.75
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+FUSIONCATCHER_WORKFLOW:
+  Steps: 1
+  Time: 2.37 hours
+  Cost: $9.73
+  Tools: fusioncatcher
+
+FUSIONINSPECTOR_WORKFLOW:
+  Steps: 4
+  Time: 0.57 hours
+  Cost: $0.63
+  Tools: FusionInspector, agat, python, arriba
+
+QC_WORKFLOW:
+  Steps: 3
+  Time: 0.41 hours
+  Cost: $0.18
+  Tools: star, samtools, picard
+
+FASTQ_ALIGN_STAR:
+  Steps: 6
+  Time: 0.18 hours
+  Cost: $0.17
+  Tools: star, samtools
+
+FASTQ_FASTQC_UMITOOLS_FASTP:
+  Steps: 3
+  Time: 0.12 hours
+  Cost: $0.15
+  Tools: fastp, fastqc
+
+SALMON_QUANT:
+  Steps: 1
+  Time: 0.14 hours
+  Cost: $0.10
+  Tools: salmon
+
+MULTIQC:
+  Steps: 1
+  Time: 0.04 hours
+  Cost: $0.05
+  Tools: multiqc
+
+STARFUSION_DETECT:
+  Steps: 1
+  Time: 0.07 hours
+  Cost: $0.02
+  Tools: STAR-Fusion
+
+CTATSPLICING:
+  Steps: 1
+  Time: 0.03 hours
+  Cost: $0.02
+  Tools: ctat-splicing
+
+ARRIBA:
+  Steps: 1
+  Time: 0.04 hours
+  Cost: $0.01
+  Tools: arriba
+
+BAM_STRINGTIE_MERGE:
+  Steps: 2
+  Time: 0.06 hours
+  Cost: $0.01
+  Tools: stringtie
+
+FUSIONREPORT_DETECT:
+  Steps: 1
+  Time: 0.00 hours
+  Cost: $0.00
+  Tools: fusion_report
+
+SAMTOOLS_INDEX:
+  Steps: 1
+  Time: 0.00 hours
+  Cost: $0.00
+  Tools: samtools
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: FASTQ_FASTQC_UMITOOLS_FASTP
+Step: FASTP
+Tool: fastp v0.24.0
+Resources: 9 CPUs, 2 GB RAM, 3277 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0136 (compute: $0.0136, storage: $0.0000)
+
+Group: FASTQ_FASTQC_UMITOOLS_FASTP
+Step: FASTQC_RAW
+Tool: fastqc v0.12.1
+Resources: 2 CPUs, 40 GB RAM, 3277 MB storage
+Runtime: 0.05 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: FASTQ_FASTQC_UMITOOLS_FASTP
+Step: FASTQC_TRIM
+Tool: fastqc v0.12.1
+Resources: 2 CPUs, 40 GB RAM, 2867 MB storage
+Runtime: 0.05 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.0680 (compute: $0.0680, storage: $0.0000)
+
+Group: QC_WORKFLOW
+Step: PICARD_COLLECTINSERTSIZEMETRICS
+Tool: star v2.7.11b
+Resources: 1 CPUs, 9 GB RAM, 2253 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0068 (compute: $0.0068, storage: $0.0000)
+
+Group: QC_WORKFLOW
+Step: GATK4_MARKDUPLICATES
+Tool: samtools v1.21
+Resources: 2 CPUs, 24 GB RAM, 5427 MB storage
+Runtime: 0.11 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0749 (compute: $0.0748, storage: $0.0001)
+
+Group: QC_WORKFLOW
+Step: PICARD_COLLECTRNASEQMETRICS
+Tool: picard v3.3.0
+Resources: 1 CPUs, 11 GB RAM, 5325 MB storage
+Runtime: 0.28 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0954 (compute: $0.0952, storage: $0.0002)
+
+Group: FASTQ_ALIGN_STAR
+Step: STAR_ALIGN
+Tool: star v2.7.11b
+Resources: 8 CPUs, 34 GB RAM, 69632 MB storage
+Runtime: 0.12 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.1641 (compute: $0.1632, storage: $0.0009)
+
+Group: FASTQ_ALIGN_STAR
+Step: BAM_SORT_STATS_SAMTOOLS_GENOME:SAMTOOLS_SORT
+Tool: samtools v1.21
+Resources: 3 CPUs, 6 GB RAM, 6554 MB storage
+Runtime: 0.03 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0051 (compute: $0.0051, storage: $0.0000)
+
+Group: FASTQ_ALIGN_STAR
+Step: BAM_SORT_STATS_SAMTOOLS_GENOME:SAMTOOLS_INDEX
+Tool: samtools v1.21
+Resources: 3 CPUs, 0 GB RAM, 1946 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: FASTQ_ALIGN_STAR
+Step: BAM_SORT_STATS_SAMTOOLS_GENOME:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Tool: samtools v1.21
+Resources: 1 CPUs, 0 GB RAM, 3 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: FASTQ_ALIGN_STAR
+Step: BAM_SORT_STATS_SAMTOOLS_GENOME:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Tool: samtools v1.21
+Resources: 1 CPUs, 0 GB RAM, 1946 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0008, storage: $0.0000)
+
+Group: FASTQ_ALIGN_STAR
+Step: BAM_SORT_STATS_SAMTOOLS_GENOME:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Tool: samtools v1.21
+Resources: 1 CPUs, 0 GB RAM, 1946 MB storage
+Runtime: 0.02 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0017 (compute: $0.0017, storage: $0.0000)
+
+Group: SAMTOOLS_INDEX
+Step: indexing
+Tool: samtools v1.21
+Resources: 3 CPUs, 0 GB RAM, 2253 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: STARFUSION_DETECT
+Step: STARFUSION
+Tool: STAR-Fusion v1.15.1
+Resources: 5 CPUs, 9 GB RAM, 16589 MB storage
+Runtime: 0.07 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0239 (compute: $0.0238, storage: $0.0001)
+
+Group: SALMON_QUANT
+Step: Quantification
+Tool: salmon v1.10.3
+Resources: 5 CPUs, 24 GB RAM, 21504 MB storage
+Runtime: 0.14 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0955 (compute: $0.0952, storage: $0.0003)
+
+Group: FUSIONREPORT_DETECT
+Step: Make_report
+Tool: fusion_report v4.0.1
+Resources: 1 CPUs, 9 GB RAM, 264 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: CTATSPLICING
+Step: STARTOCANCERINTRONS
+Tool: ctat-splicing v0.0.2
+Resources: 1 CPUs, 18 GB RAM, 1638 MB storage
+Runtime: 0.03 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.0204 (compute: $0.0204, storage: $0.0000)
+
+Group: ARRIBA
+Step: ARRIBA
+Tool: arriba v2.5.0
+Resources: 1 CPUs, 7 GB RAM, 6861 MB storage
+Runtime: 0.04 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0068 (compute: $0.0068, storage: $0.0000)
+
+Group: BAM_STRINGTIE_MERGE
+Step: STRINGTIE_STRINGTIE
+Tool: stringtie v2.2.3
+Resources: 1 CPUs, 1 GB RAM, 3891 MB storage
+Runtime: 0.05 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0043 (compute: $0.0043, storage: $0.0000)
+
+Group: BAM_STRINGTIE_MERGE
+Step: STRINGTIE_MERGE
+Tool: stringtie v2.2.1
+Resources: 1 CPUs, 0 GB RAM, 1638 MB storage
+Runtime: 0.01 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0009 (compute: $0.0008, storage: $0.0000)
+
+Group: FUSIONINSPECTOR_WORKFLOW
+Step: FUSIONINSPECTOR
+Tool: FusionInspector v2.10.0
+Resources: 2 CPUs, 40 GB RAM, 163430 MB storage
+Runtime: 0.43 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.5924 (compute: $0.5848, storage: $0.0076)
+
+Group: FUSIONINSPECTOR_WORKFLOW
+Step: AGAT_CONVERTSPGFF2TSV
+Tool: agat vv1.4.1
+Resources: 1 CPUs, 0 GB RAM, 101 MB storage
+Runtime: 0.03 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0026 (compute: $0.0026, storage: $0.0000)
+
+Group: FUSIONINSPECTOR_WORKFLOW
+Step: VCF_COLLECT
+Tool: python v3.11.0
+Resources: 5 CPUs, 9 GB RAM, 48 MB storage
+Runtime: 0.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0000 (compute: $0.0000, storage: $0.0000)
+
+Group: FUSIONINSPECTOR_WORKFLOW
+Step: ARRIBA_VISUALISATION
+Tool: arriba v2.5.0
+Resources: 1 CPUs, 11 GB RAM, 2355 MB storage
+Runtime: 0.11 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0374 (compute: $0.0374, storage: $0.0000)
+
+Group: FUSIONCATCHER_WORKFLOW
+Step: FUSIONCATCHER_FUSIONCATCHER
+Tool: fusioncatcher v1.35
+Resources: 4 CPUs, 130 GB RAM, 227226 MB storage
+Runtime: 2.37 hours × 1 parallel tasks
+Instance: c6i.24xlarge @ $4.0800/hr
+Cost: $9.7280 (compute: $9.6696, storage: $0.0584)
+
+Group: MULTIQC
+Step: MULTIQC
+Tool: multiqc v1.30.0
+Resources: 2 CPUs, 46 GB RAM, 122 MB storage
+Runtime: 0.04 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.0544 (compute: $0.0544, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================
