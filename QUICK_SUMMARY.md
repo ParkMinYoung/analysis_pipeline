@@ -5,7 +5,7 @@
 1. [전체 요약 (Team 1 + Team 2 + Team 3)](#전체-요약)
 2. [Team 1 분석 (19 pipelines)](#team-1-분석)
 3. [Team 2 분석 (28 pipelines)](#team-2-분석)
-4. [Team 3 분석 (8 pipelines)](#team-3-분석)
+4. [Team 3 분석 (21 pipelines)](#team-3-분석)
 5. [주요 파일 위치](#주요-파일-위치)
 
 ---
@@ -16,11 +16,11 @@
 
 | 항목 | Team 1 | Team 2 | Team 3 | 합계 |
 |------|--------|--------|--------|------|
-| **파이프라인 수** | 19개 | 28개 | 8개 | 55개 |
-| **총 비용** | **$14,045.62** | **$764.98** | **$3,302.47** | **$18,113.07** |
-| **총 단계 수** | 338 steps | 411 steps | 122 steps | 871 steps |
-| **총 실행 시간** | 382.64 hours | 623.63 hours | 602.80 hours | 1,609.07 hours |
-| **평균 파이프라인 비용** | $739.24 | $27.32 | $412.81 | $329.33 |
+| **파이프라인 수** | 19개 | 28개 | 21개 | 68개 |
+| **총 비용** | **$14,045.62** | **$764.98** | **$2,418.89** | **$17,229.49** |
+| **총 단계 수** | 338 steps | 411 steps | 242 steps | 991 steps |
+| **총 실행 시간** | 382.64 hours | 623.63 hours | 1,015.7 hours | 2,021.97 hours |
+| **평균 파이프라인 비용** | $739.24 | $27.32 | $115.19 | $253.38 |
 
 ### 주요 특징
 
@@ -35,8 +35,8 @@
 - 주요 플랫폼: Illumina NovaSeq, PacBio Revio, 10x Genomics, Parse Bioscience
 
 **Team 3 특징:**
-- Assembly와 Microbiome 분석 중심
-- 장시간 실행 작업 집중 (602.80 hours)
+- Large/Small Genome Analysis, Microbiome, Virus Analysis로 세분화 (21개)
+- 시트 대폭 확장 (8→21): genome 크기별 assembly, variant call, kmer, virus 등 추가
 - 주요 플랫폼: PacBio Revio, Illumina, Nanopore
 
 ---
@@ -251,78 +251,27 @@
 
 | 항목 | 값 |
 |------|-----|
-| **총 파이프라인 수** | 8개 (Assembly 3개, Microbiome 5개) |
-| **총 그룹 수** | 48 groups |
-| **총 분석 단계 수** | 122 steps |
-| **총 예상 비용** | **$3,302.47** |
-| **총 실행 시간** | 602.8 hours |
-| **총 CPU 사용량** | 4,924 cores |
-| **총 메모리 사용량** | 2,634 GB |
-| **총 스토리지** | 4,200.4 GB |
+| **총 파이프라인 수** | 21개 (Large Genome 11, Microbiome 5, Small Genome 2, Virus 3) |
+| **총 그룹 수** | 108 groups |
+| **총 분석 단계 수** | 242 steps |
+| **총 예상 비용** | **$2,418.89** |
+| **총 실행 시간** | 1,015.7 hours |
+| **총 CPU 사용량** | 7,015 cores |
+| **총 메모리 사용량** | 7,493 GB |
+| **총 스토리지** | 948.9 GB |
 
 ---
 
 ### 직무별 비용 (Team 3)
 
-#### Assembly (유전체 조립) - 3개 파이프라인
-- **총 비용**: $1,934.48
-- **그룹 수**: 16 groups
-- **단계 수**: 54 steps
-- **실행 시간**: 211.6 hours
-- **CPU 사용량**: 1,689 cores
-- **메모리 사용량**: 1,823 GB
-- **스토리지**: 3,792 GB
+> 2026-06-23 시트 대폭 확장: 기존 Assembly가 Large/Small Genome Analysis로 세분화되고 Virus Analysis가 신규 추가됨.
 
-**파이프라인 상세:**
-1. **Large Genome Assembly - All** (Human, Animal, Plant)
-   - 9 groups, 30 steps
-   - CPU: 719 cores, Memory: 1,378 GB
-   - $1,772.34
-
-2. **Small Genome Assembly - Bacteria/Fungi**
-   - 7 groups, 19 steps
-   - CPU: 761 cores, Memory: 52 GB
-   - $84.52
-
-3. **Organelle Assembly - CP/MT**
-   - 3 groups, 5 steps
-   - CPU: 209 cores, Memory: 393 GB
-   - $77.62
-
-#### Microbiome (마이크로바이옴) - 5개 파이프라인
-- **총 비용**: $1,367.99
-- **그룹 수**: 15 groups
-- **단계 수**: 68 steps
-- **실행 시간**: 391.2 hours
-- **CPU 사용량**: 3,235 cores
-- **메모리 사용량**: 811 GB
-- **스토리지**: 408.4 GB
-
-**파이프라인 상세:**
-1. **shotgun metagenome 분석 - Pacbio** (PacBio Revio, HiFi-MAG-Pipeline)
-   - 7 groups, 14 steps
-   - CPU: 528 cores, Memory: 274 GB
-   - $997.53
-
-2. **16S rRNA metagenome - Pacbio** (PacBio Revio, full-length)
-   - 6 groups, 19 steps
-   - CPU: 1,088 cores, Memory: 264 GB
-   - $318.48
-
-3. **shotgun metagenome - Illumina** (Illumina Novaseq)
-   - 6 groups, 12 steps
-   - CPU: 433 cores, Memory: 170 GB
-   - $21.34
-
-4. **16S rRNA metagenome - Microbiome Consortium**
-   - 4 groups, 4 steps
-   - CPU: 98 cores, Memory: 71 GB
-   - $23.16
-
-5. **16S rRNA metagenome - Illumina** (Illumina Miseq, V3-V4)
-   - 6 groups, 19 steps
-   - CPU: 1,088 cores, Memory: 32 GB
-   - $7.48
+| 직무 | 파이프라인 | 비용 | 구성 |
+|------|-----------|------|------|
+| **Microbiome** | 5개 | $1,368.00 | shotgun/16S (PacBio, Illumina, Consortium) — 기존과 동일 |
+| **Large Genome Analysis** | 11개 | $837.10 | genome 크기별 assembly(3-5GB, 1-3GB, algae, under 1GB) + annotation + variant call + kmer + organelle |
+| **Virus Analysis** | 3개 | $127.90 | virus (pacbio, ont, illumina) — 신규 |
+| **Small Genome Analysis** | 2개 | $85.90 | Assembly (Bacteria, Fungi) |
 
 ---
 
@@ -330,61 +279,54 @@
 
 | 순위 | 직무 | Analysis Name | 비용 (USD) | 시간 (hr) | Groups | Steps |
 |------|------|---------------|-----------|----------|--------|-------|
-| 1 | Assembly | Large Genome Assembly - All | $1,772.34 | 148.9 | 9 | 30 |
-| 2 | Microbiome | shotgun metagenome 분석 - Pacbio | $997.53 | 250.5 | 7 | 14 |
-| 3 | Microbiome | 16S rRNA metagenome - Pacbio | $318.48 | 117.9 | 6 | 19 |
-| 4 | Assembly | Small Genome Assembly - Bacteria/Fungi | $84.52 | 32.6 | 7 | 19 |
-| 5 | Assembly | Organelle Assembly - CP/MT | $77.62 | 30.1 | 3 | 5 |
-| 6 | Microbiome | 16S rRNA metagenome - Microbiome Consortium | $23.16 | 9.2 | 4 | 4 |
-| 7 | Microbiome | shotgun metagenome - Illumina | $21.34 | 10.6 | 6 | 12 |
-| 8 | Microbiome | 16S rRNA metagenome - Illumina | $7.48 | 3.0 | 6 | 19 |
+| 1 | Microbiome | shotgun metagenome (PacBio) | $997.50 | 250.5 | 7 | 14 |
+| 2 | Large Genome | assembly (genome 3-5GB) | $332.00 | 96.2 | 5 | 17 |
+| 3 | Microbiome | 16S rRNA metagenome (PacBio) | $318.50 | 117.9 | 6 | 19 |
+| 4 | Large Genome | annotation | $118.70 | 179.1 | 3 | 7 |
+| 5 | Large Genome | assembly (genome 1-3GB) | $106.50 | 43.3 | 5 | 17 |
+| 6 | Small Genome | Assembly (Bacteria,Fungi) | $81.60 | 30.5 | 5 | 13 |
+| 7 | Large Genome | assembly (algae species) | $78.20 | 31.4 | 6 | 13 |
+| 8 | Large Genome | variant call (non-human, pacbio) | $58.60 | 37.7 | 6 | 9 |
 
 ---
 
-### 가장 비용이 높은 분석 단계 Top 10 (Team 3)
+### 가장 비용이 높은 분석 단계 Top 5 (Team 3)
 
 | 순위 | 파이프라인 | 단계 | 도구 | 비용 | 인스턴스 | 시간 |
 |------|-----------|------|------|------|----------|------|
-| 1 | Shotgun metagenome | Assembly | flye | $979.77 | c6i.24xlarge | 240h |
-| 2 | Large Genome | Gene Prediction | maker | $871.62 | r6i.16xlarge | 36h x 6 |
-| 3 | Large Genome | Assembly (verkko) | verkko | $392.48 | c6i.16xlarge | 18h x 8 |
-| 4 | Large Genome | Assembly (nextdenovo) | nextdenovo | $217.70 | c6i.16xlarge | 10h x 8 |
-| 5 | 16S rRNA Pacbio | ASV Clustering | qiime2 | $136.00 | c6i.16xlarge | 50h |
-| 6 | Large Genome | Error Correction | nextpolish | $131.04 | c6i.16xlarge | 6h x 8 |
-| 7 | 16S rRNA Pacbio | Phylogeny | qiime2 | $130.66 | c6i.16xlarge | 48h |
-| 8 | Small Genome | Assembly | unicycler | $65.28 | c6i.16xlarge | 24h |
-| 9 | Large Genome | Assembly (hifiasm+HiC) | hifiasm | $38.11 | c6i.16xlarge | 14h |
-| 10 | Large Genome | Assembly (hifiasm) | hifiasm | $32.66 | c6i.16xlarge | 12h |
+| 1 | shotgun metagenome (PacBio) | ASSEMBLY | flye | $979.77 | c6i.24xlarge | 240h |
+| 2 | assembly (genome 3-5GB) | HIFIASM_ASSEMBLE | hifiasm | $258.15 | r6i.16xlarge | 64h |
+| 3 | 16S rRNA (PacBio) | ASV CLUSTERING | qiime2 | $136.00 | c6i.16xlarge | 50h |
+| 4 | 16S rRNA (PacBio) | PHYLOGENY | qiime2 | $130.66 | c6i.16xlarge | 48h |
+| 5 | assembly (genome 1-3GB) | HIFIASM_ASSEMBLE | hifiasm | $65.30 | c6i.16xlarge | 24h |
 
 ---
 
 ### 주요 인사이트 (Team 3)
 
-#### 1. 비용 집중 영역
-- **상위 3개 파이프라인**이 전체 비용의 **93%** 차지
-  - Large Genome Assembly: $1,772 (54%)
-  - Shotgun metagenome (PacBio): $998 (30%)
-  - 16S rRNA (PacBio): $318 (10%)
-- **Gene prediction (maker)**와 **Assembly (flye)** 두 단계가 전체의 **56%**
+#### 1. 시트 확장에도 비용 감소 (-27%)
+- 파이프라인 8→21개(2.6배)로 확장되었으나 총비용은 **$3,302.47 → $2,418.89 (-27%)** 감소.
+- 원인: 기존 고비용 Large Genome Assembly(flye/maker 기반 $1,772)가 세분화되면서 Large Genome Analysis 전체가 $837로 감소. maker gene prediction($871) 단계가 신규 시트 구성에서 제외됨.
 
-#### 2. Assembly vs Microbiome 비교
+#### 2. 비용 집중 영역 (역전)
+- **Microbiome**($1,368, 56%)이 Large Genome Analysis($837, 35%)을 역전 — shotgun metagenome PacBio의 flye 단일 단계($980)가 견인.
+- shotgun metagenome (PacBio) 단일 파이프라인이 Team 3 전체의 **41%**.
 
-| 구분 | Assembly | Microbiome |
-|------|----------|------------|
-| 파이프라인 수 | 3개 | 5개 |
-| 총 비용 | $1,934 | $1,368 |
-| 평균 비용/파이프라인 | $645 | $274 |
-| CPU 사용량 | 1,689 cores | 3,235 cores |
-| 메모리 사용량 | 1,823 GB | 811 GB |
+#### 3. Large Genome Analysis vs Microbiome 비교 (갱신)
 
-**결론**:
-- Assembly가 파이프라인당 비용이 2.4배 높음
-- Microbiome이 CPU를 2배 더 많이 사용하지만 비용은 더 낮음
-- Assembly는 메모리 집약적, Microbiome은 CPU 집약적
+| 구분 | Large Genome Analysis | Microbiome |
+|------|----------------------|------------|
+| 파이프라인 수 | 11개 | 5개 |
+| 총 비용 | $837 | $1,368 |
+| 평균 비용/파이프라인 | $76 | $274 |
+| 특징 | 세분화로 저비용화 | PacBio 장시간 작업 집중 |
 
-#### 3. Compute vs Storage 비용
-- **Compute 비용**: $3,298.39 (99.9%)
-- **Storage 비용**: $4.07 (0.1%)
+**결론**: 세분화 덕에 Large Genome Analysis는 파이프라인당 $76로 저비용화. 반면 Microbiome은 PacBio 장시간(flye 240h) 작업에 비용이 집중.
+
+#### 4. Compute vs Storage 비용
+- **Compute 비용**: $2,417.81 (99.96%)
+- **Storage 비용**: $1.08 (0.04%)
+- 결론: 스토리지 최적화보다 인스턴스(특히 PacBio flye 단계) 최적화가 압도적으로 중요.
 - **결론**: 스토리지 최적화보다 **인스턴스 최적화**가 훨씬 중요
 
 ---
@@ -424,20 +366,17 @@ Spot Instances 적용 시: ~$229 (70% 절감)
 
 #### 1. Spot Instances 사용
 ```
-예상 절감액: $2,312 (70% 절감)
+예상 절감액: $1,693 (70% 절감)
 적용 대상: 모든 배치 작업
 ```
 
 #### 2. 고비용 작업 타깃 최적화
 ```
-Top 2 비용 작업:
-1. Flye assembly ($980):
-   - 파라미터 튜닝
-   - 대체 도구 검토
-
-2. Maker gene prediction ($872):
-   - 병렬 처리 조정
-   - 중간 결과 재사용
+Top 2 비용 작업 (시트 확장 후 maker 제외):
+1. Flye assembly ($980, shotgun metagenome PacBio):
+   - 파라미터 튜닝 / 대체 도구 검토
+2. HIFIASM_ASSEMBLE ($258, assembly genome 3-5GB):
+   - 병렬 처리 조정 / 중간 결과 재사용
 ```
 
 ### 종합 최적화 효과 예상
@@ -446,8 +385,8 @@ Top 2 비용 작업:
 |-----|----------|----------|--------|----------|
 | Team 1 | $14,046 | $8,957 | 64% | $5,089 |
 | Team 2 | $765 | $535 | 70% | $229 |
-| Team 3 | $3,302 | $2,312 | 70% | $991 |
-| **합계** | **$18,113** | **$11,804** | **65%** | **$6,309** |
+| Team 3 | $2,419 | $1,693 | 70% | $726 |
+| **합계** | **$17,229** | **$11,185** | **65%** | **$6,044** |
 
 ---
 
@@ -487,7 +426,7 @@ Top 2 비용 작업:
 **리포트:**
 - `reports/team3/00_SUMMARY_ALL_PIPELINES.txt` - 전체 요약
 - `reports/team3/pipeline_summary.csv` - 파이프라인별 요약 (CSV)
-- `reports/team3/*_report.txt` - 8개 파이프라인 상세 리포트
+- `reports/team3/*_report.txt` - 21개 파이프라인 상세 리포트
 
 ### 공통 스크립트
 
@@ -503,6 +442,6 @@ done
 ---
 
 **분석 완료일**: 2026-06-23
-**분석 대상**: Team 1 (19 pipelines), Team 2 (28 pipelines), Team 3 (8 pipelines)
-**총 파이프라인**: 55개
-**총 예상 비용**: $18,113.07
+**분석 대상**: Team 1 (19 pipelines), Team 2 (28 pipelines), Team 3 (21 pipelines)
+**총 파이프라인**: 68개
+**총 예상 비용**: $17,229.49

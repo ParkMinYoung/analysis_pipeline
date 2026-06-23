@@ -1,0 +1,175 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Large Genome Analysis
+Analysis Name: variant call (non-human, illumina)
+Platform: Illumina NovaSeq
+Pipeline: inhouse v2.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 6
+Number of Steps: 12
+Number of Tools: 10
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 99
+Total Memory: 294 GB
+Total Compute Time: 49.70 hours
+Total Storage: 88.92 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $43.63
+  - Compute Cost: $43.58 (99.9%)
+  - Storage Cost: $0.05 (0.1%)
+Cost per Hour: $0.88
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+SNV:
+  Steps: 5
+  Time: 27.00 hours
+  Cost: $31.97
+  Tools: snippy, gatk4
+
+ALIGNMENT:
+  Steps: 2
+  Time: 12.00 hours
+  Cost: $8.20
+  Tools: bwa-mem2, picard (gatk4)
+
+SV:
+  Steps: 2
+  Time: 8.00 hours
+  Cost: $2.72
+  Tools: manta, delly
+
+QC:
+  Steps: 1
+  Time: 2.00 hours
+  Cost: $0.68
+  Tools: fastp
+
+REPORT:
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.04
+  Tools: python / bcftools
+
+PREFLIGHT:
+  Steps: 1
+  Time: 0.20 hours
+  Cost: $0.02
+  Tools: variant-preflight
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: PREFLIGHT
+Step: REFERENCE_RESOLVE
+Tool: variant-preflight v-
+Resources: 1 CPUs, 2 GB RAM, 1 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: QC
+Step: PREPROCESS_FASTP
+Tool: fastp v1.0.0
+Resources: 8 CPUs, 8 GB RAM, 20000 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.6843 (compute: $0.6800, storage: $0.0043)
+
+Group: ALIGNMENT
+Step: ALIGN_BWA_MEM2
+Tool: bwa-mem2 v2.2.1
+Resources: 16 CPUs, 32 GB RAM, 30000 MB storage
+Runtime: 8.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $5.4660 (compute: $5.4400, storage: $0.0260)
+
+Group: ALIGNMENT
+Step: MARK_DUPLICATES
+Tool: picard (gatk4) v4.5.0
+Resources: 4 CPUs, 32 GB RAM, 30000 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $2.7330 (compute: $2.7200, storage: $0.0130)
+
+Group: SNV
+Step: CALL_SNIPPY
+Tool: snippy v4.6.0
+Resources: 16 CPUs, 16 GB RAM, 2000 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $2.0407 (compute: $2.0400, storage: $0.0007)
+
+Group: SNV
+Step: CALL_GATK4_HC_GVCF
+Tool: gatk4 v4.5.0
+Resources: 16 CPUs, 64 GB RAM, 3000 MB storage
+Runtime: 12.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $16.3239 (compute: $16.3200, storage: $0.0039)
+
+Group: SNV
+Step: REBLOCK_GVCF
+Tool: gatk4 v4.5.0
+Resources: 4 CPUs, 20 GB RAM, 1000 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $1.3602 (compute: $1.3600, storage: $0.0002)
+
+Group: SNV
+Step: GENOTYPE_GVCFS
+Tool: gatk4 v4.5.0
+Resources: 16 CPUs, 64 GB RAM, 2000 MB storage
+Runtime: 8.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $10.8817 (compute: $10.8800, storage: $0.0017)
+
+Group: SNV
+Step: GATK_HARD_FILTER
+Tool: gatk4 v4.5.0
+Resources: 4 CPUs, 20 GB RAM, 2000 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $1.3604 (compute: $1.3600, storage: $0.0004)
+
+Group: SV
+Step: CALL_SV_MANTA
+Tool: manta v1.6.0
+Resources: 8 CPUs, 16 GB RAM, 500 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $1.3602 (compute: $1.3600, storage: $0.0002)
+
+Group: SV
+Step: CALL_SV_DELLY
+Tool: delly v1.2.6
+Resources: 4 CPUs, 16 GB RAM, 500 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $1.3602 (compute: $1.3600, storage: $0.0002)
+
+Group: REPORT
+Step: VARIANT_REPORT
+Tool: python / bcftools v1.21
+Resources: 2 CPUs, 4 GB RAM, 50 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

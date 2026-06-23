@@ -1,0 +1,109 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Large Genome Analysis
+Analysis Name: profiling
+Platform: PacBio Revio
+Pipeline: inhouse v2.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 3
+Number of Steps: 6
+Number of Tools: 4
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 194
+Total Memory: 594 GB
+Total Compute Time: 16.20 hours
+Total Storage: 29.40 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $45.84
+  - Compute Cost: $45.83 (100.0%)
+  - Storage Cost: $0.02 (0.0%)
+Cost per Hour: $2.83
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+TRACK1_KRAKEN2:
+  Steps: 2
+  Time: 6.10 hours
+  Cost: $24.21
+  Tools: kraken2, python
+
+TRACK2_MAPPING:
+  Steps: 3
+  Time: 10.00 hours
+  Cost: $21.62
+  Tools: minimap2 / samtools, kraken2
+
+REPORTING:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: python
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: TRACK1_KRAKEN2
+Step: KRAKEN2_READS
+Tool: kraken2 v2.1.2
+Resources: 64 CPUs, 256 GB RAM, 20000 MB storage
+Runtime: 6.00 hours × 1 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $24.2050 (compute: $24.1920, storage: $0.0130)
+
+Group: TRACK1_KRAKEN2
+Step: SPECIES_SUMMARY
+Tool: python v-
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: TRACK2_MAPPING
+Step: MINIMAP2_READS_TO_REF
+Tool: minimap2 / samtools v2.24 / 1.21
+Resources: 32 CPUs, 48 GB RAM, 8000 MB storage
+Runtime: 6.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $8.1652 (compute: $8.1600, storage: $0.0052)
+
+Group: TRACK2_MAPPING
+Step: CONTIG_KRAKEN2
+Tool: kraken2 v2.1.2
+Resources: 64 CPUs, 256 GB RAM, 100 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $12.0960 (compute: $12.0960, storage: $0.0000)
+
+Group: TRACK2_MAPPING
+Step: MINIMAP2_CONTIG_TO_REF
+Tool: minimap2 / samtools v2.24 / 1.21
+Resources: 32 CPUs, 32 GB RAM, 2000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $1.3602 (compute: $1.3600, storage: $0.0002)
+
+Group: REPORTING
+Step: PROFILING_REPORT
+Tool: python v-
+Resources: 1 CPUs, 1 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

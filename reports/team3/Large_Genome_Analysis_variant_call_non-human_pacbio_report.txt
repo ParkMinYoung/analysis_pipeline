@@ -1,0 +1,151 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Large Genome Analysis
+Analysis Name: variant call (non-human, pacbio)
+Platform: PacBio Revio
+Pipeline: inhouse v2.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 6
+Number of Steps: 9
+Number of Tools: 10
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 227
+Total Memory: 486 GB
+Total Compute Time: 37.70 hours
+Total Storage: 38.14 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $58.56
+  - Compute Cost: $58.54 (100.0%)
+  - Storage Cost: $0.02 (0.0%)
+Cost per Hour: $1.55
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+SNV:
+  Steps: 2
+  Time: 20.00 hours
+  Cost: $35.36
+  Tools: deepvariant, gatk4
+
+PHASING:
+  Steps: 2
+  Time: 7.00 hours
+  Cost: $9.52
+  Tools: hiphase, whatshap
+
+SV:
+  Steps: 2
+  Time: 6.00 hours
+  Cost: $8.16
+  Tools: sawfish, sniffles
+
+ALIGNMENT:
+  Steps: 1
+  Time: 4.00 hours
+  Cost: $5.45
+  Tools: pbmm2
+
+REPORT:
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.04
+  Tools: python / bcftools
+
+PREFLIGHT:
+  Steps: 1
+  Time: 0.20 hours
+  Cost: $0.02
+  Tools: variant-preflight
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: PREFLIGHT
+Step: REFERENCE_RESOLVE
+Tool: variant-preflight v-
+Resources: 1 CPUs, 2 GB RAM, 1 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0170 (compute: $0.0170, storage: $0.0000)
+
+Group: ALIGNMENT
+Step: ALIGN_PBMM2
+Tool: pbmm2 v1.17.0
+Resources: 32 CPUs, 64 GB RAM, 30000 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $5.4530 (compute: $5.4400, storage: $0.0130)
+
+Group: SNV
+Step: CALL_SNV_DEEPVARIANT
+Tool: deepvariant v1.10.0
+Resources: 32 CPUs, 64 GB RAM, 2000 MB storage
+Runtime: 8.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $10.8817 (compute: $10.8800, storage: $0.0017)
+
+Group: SNV
+Step: CALL_SNV_GATK4_POLYPLOID
+Tool: gatk4 v4.5.0
+Resources: 32 CPUs, 96 GB RAM, 2000 MB storage
+Runtime: 12.00 hours × 1 parallel tasks
+Instance: c6i.12xlarge @ $2.0400/hr
+Cost: $24.4826 (compute: $24.4800, storage: $0.0026)
+
+Group: SV
+Step: CALL_SV_SAWFISH
+Tool: sawfish v2.2.1
+Resources: 32 CPUs, 64 GB RAM, 500 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $5.4402 (compute: $5.4400, storage: $0.0002)
+
+Group: SV
+Step: CALL_SV_SNIFFLES2
+Tool: sniffles v2.4
+Resources: 32 CPUs, 64 GB RAM, 500 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $2.7201 (compute: $2.7200, storage: $0.0001)
+
+Group: PHASING
+Step: PHASE_HIPHASE
+Tool: hiphase v1.4.0
+Resources: 32 CPUs, 64 GB RAM, 2000 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $4.0807 (compute: $4.0800, storage: $0.0007)
+
+Group: PHASING
+Step: PHASE_WHATSHAP_POLYPHASE
+Tool: whatshap v2.2
+Resources: 32 CPUs, 64 GB RAM, 2000 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $5.4409 (compute: $5.4400, storage: $0.0009)
+
+Group: REPORT
+Step: VARIANT_REPORT
+Tool: python / bcftools v1.21
+Resources: 2 CPUs, 4 GB RAM, 50 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

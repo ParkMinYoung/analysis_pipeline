@@ -1,0 +1,117 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Large Genome Analysis
+Analysis Name: annotation
+Platform: PacBio Revio
+Pipeline: inhouse v2.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 3
+Number of Steps: 7
+Number of Tools: 7
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 63
+Total Memory: 245 GB
+Total Compute Time: 179.10 hours
+Total Storage: 4.14 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $118.68
+  - Compute Cost: $118.67 (100.0%)
+  - Storage Cost: $0.02 (0.0%)
+Cost per Hour: $0.66
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+STRUCTURAL_ANNOTATION:
+  Steps: 2
+  Time: 144.00 hours
+  Cost: $73.45
+  Tools: braker4, egapx / nextflow
+
+FUNCTIONAL_ANNOTATION:
+  Steps: 3
+  Time: 34.00 hours
+  Cost: $44.89
+  Tools: eggnog-mapper, python, interproscan
+
+VIRULENCE:
+  Steps: 2
+  Time: 1.10 hours
+  Cost: $0.35
+  Tools: diamond, python
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: STRUCTURAL_ANNOTATION
+Step: BRAKER4_RUN (기본 track)
+Tool: braker4 v0.4.0
+Resources: 2 CPUs, 4 GB RAM, 500 MB storage
+Runtime: 96.00 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $8.1652 (compute: $8.1600, storage: $0.0052)
+
+Group: STRUCTURAL_ANNOTATION
+Step: EGAPx (대안 track)
+Tool: egapx / nextflow v0.4.1
+Resources: 16 CPUs, 64 GB RAM, 500 MB storage
+Runtime: 48.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $65.2826 (compute: $65.2800, storage: $0.0026)
+
+Group: FUNCTIONAL_ANNOTATION
+Step: EGGNOG_MAPPER
+Tool: eggnog-mapper v2.1.13
+Resources: 16 CPUs, 64 GB RAM, 150 MB storage
+Runtime: 8.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $10.8801 (compute: $10.8800, storage: $0.0001)
+
+Group: FUNCTIONAL_ANNOTATION
+Step: MERGE_FUNCTIONAL
+Tool: python v-
+Resources: 4 CPUs, 32 GB RAM, 50 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $1.3600 (compute: $1.3600, storage: $0.0000)
+
+Group: FUNCTIONAL_ANNOTATION
+Step: INTERPROSCAN
+Tool: interproscan v5.72-103.0
+Resources: 16 CPUs, 64 GB RAM, 3000 MB storage
+Runtime: 24.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $32.6478 (compute: $32.6400, storage: $0.0078)
+
+Group: VIRULENCE
+Step: PHIBASE_DIAMOND_BLASTP
+Tool: diamond v2.1
+Resources: 8 CPUs, 16 GB RAM, 30 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.3400 (compute: $0.3400, storage: $0.0000)
+
+Group: VIRULENCE
+Step: PHIBASE_SUMMARIZE
+Tool: python v-
+Resources: 1 CPUs, 1 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

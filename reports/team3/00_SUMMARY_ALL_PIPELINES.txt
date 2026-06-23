@@ -5,83 +5,56 @@ Team 3 Analysis - AWS Batch Cost Analysis
 
 OVERVIEW
 --------------------------------------------------------------------------------
-Total Pipelines: 8
-Total Groups: 48
-Total Steps: 122
-Total Cost: $3302.47
-  - Compute Cost: $3298.39
-  - Storage Cost: $4.07
-Total Compute Time: 602.80 hours
-Total Storage: 4200.41 GB
-Total CPUs: 4924
-Total Memory: 2634 GB
+Total Pipelines: 21
+Total Groups: 108
+Total Steps: 242
+Total Cost: $2418.89
+  - Compute Cost: $2417.81
+  - Storage Cost: $1.08
+Total Compute Time: 1015.70 hours
+Total Storage: 948.86 GB
+Total CPUs: 7015
+Total Memory: 7493 GB
 
 COST BY JOB TYPE
 --------------------------------------------------------------------------------
-            total_cost_usd  compute_cost_usd  storage_cost_usd  n_groups  n_steps  total_time_hr  total_storage_gb
-직무(업무명)                                                                                                           
-Assembly           1934.48           1931.16              3.32        19       54          211.6            3792.0
-Microbiome         1367.99           1367.23              0.75        29       68          391.2             408.4
+                       total_cost_usd  compute_cost_usd  storage_cost_usd  n_groups  n_steps  total_time_hr  total_storage_gb
+직무(업무명)                                                                                                                      
+Large Genome Analysis          837.12            836.82              0.31        47      111          487.5            397.74
+Microbiome                    1367.99           1367.23              0.75        29       68          391.2            408.40
+Small Genome Analysis           85.91             85.89              0.02         8       21           33.7            138.82
+Virus Analysis                 127.87            127.87              0.00        24       42          103.3              3.90
 
 ALL PIPELINES RANKED BY COST
 --------------------------------------------------------------------------------
 Rank | Job | Analysis Name | Cost (USD) | Time (hr) | Groups | Steps | Total CPU | Total Mem (GB) | Storage (GB)
 --------------------------------------------------------------------------------
-   1 | Assembly   | Large Genome Assembly - A | $  1772.34 |     148.9 |      9 |    30 |       719 |           1378 |      3550.7
-   2 | Microbiome | shotgun metagenome 분석 - P | $   997.53 |     250.5 |      7 |    14 |       528 |            274 |       207.2
-   3 | Microbiome | 16S rRNA metagenome - Pac | $   318.48 |     117.9 |      6 |    19 |      1088 |            264 |        29.1
-   4 | Assembly   | Small Genome Assembly - B | $    84.52 |      32.6 |      7 |    19 |       761 |             52 |       119.3
-   5 | Assembly   | Organelle Assembly - CP__ | $    77.62 |      30.1 |      3 |     5 |       209 |            393 |       122.1
-   6 | Microbiome | 16S rRNA metagenome - Mic | $    23.16 |       9.2 |      4 |     4 |        98 |             71 |        73.2
-   7 | Microbiome | shotgun metagenome - Illu | $    21.34 |      10.6 |      6 |    12 |       433 |            170 |        91.6
-   8 | Microbiome | 16S rRNA metagenome - Ill | $     7.48 |       3.0 |      6 |    19 |      1088 |             32 |         7.3
+   1 | Microbiome | shotgun metagenome (PacBi | $   997.53 |     250.5 |      7 |    14 |       528 |            274 |       207.2
+   2 | Large Geno | assembly (genome 3-5GB)   | $   332.05 |      96.2 |      5 |    17 |       430 |           1441 |        88.0
+   3 | Microbiome | 16S rRNA metagenome (PacB | $   318.48 |     117.9 |      6 |    19 |      1088 |            264 |        29.1
+   4 | Large Geno | annotation                | $   118.68 |     179.1 |      3 |     7 |        63 |            245 |         4.1
+   5 | Large Geno | assembly (genome 1-3GB)   | $   106.54 |      43.3 |      5 |    17 |       430 |           1023 |        50.3
+   6 | Small Geno | Assembly (Bacteria,Fungi) | $    81.62 |      30.5 |      5 |    13 |       536 |             39 |       103.1
+   7 | Large Geno | assembly (algae species)  | $    78.16 |      31.4 |      6 |    13 |       288 |            405 |        34.2
+   8 | Large Geno | variant call (non-human,  | $    58.56 |      37.7 |      6 |     9 |       227 |            486 |        38.1
+   9 | Virus Anal | virus (ont)               | $    49.31 |      41.1 |      8 |    15 |       265 |            401 |         1.4
+  10 | Virus Anal | virus (pacbio)            | $    46.76 |      36.1 |      8 |    14 |       253 |            345 |         1.6
+  11 | Large Geno | profiling                 | $    45.84 |      16.2 |      3 |     6 |       194 |            594 |        29.4
+  12 | Large Geno | variant call (non-human,  | $    43.63 |      49.7 |      6 |    12 |        99 |            294 |        88.9
+  13 | Large Geno | assembly (genome under 1G | $    34.41 |      14.1 |      5 |    17 |       430 |            871 |        19.2
+  14 | Virus Anal | virus (illumina)          | $    31.80 |      26.1 |      8 |    13 |       189 |            289 |         0.9
+  15 | Microbiome | Microbiome Consortium     | $    23.16 |       9.2 |      4 |     4 |        98 |             71 |        73.2
+  16 | Microbiome | shotgun metagenome (Illum | $    21.34 |      10.6 |      6 |    12 |       433 |            170 |        91.6
+  17 | Large Geno | kmer (illumina)           | $     8.30 |       7.0 |      2 |     3 |        22 |             72 |        11.7
+  18 | Microbiome | 16S rRNA metagenome (Illu | $     7.48 |       3.0 |      6 |    19 |      1088 |             32 |         7.3
+  19 | Large Geno | kmer (pacbio)             | $     6.87 |       6.7 |      3 |     5 |        24 |            105 |        24.4
+  20 | Small Geno | Annotation (Bacteria, Fun | $     4.30 |       3.2 |      3 |     8 |       265 |             15 |        35.7
+  21 | Large Geno | organelle                 | $     4.09 |       6.1 |      3 |     5 |        65 |             57 |         9.3
 
 DETAILED PIPELINE INFORMATION
 ================================================================================
 
-[1] Assembly - Large Genome Assembly - All
---------------------------------------------------------------------------------
-Pipeline: inhouse v1.0.0
-Platform: Illumina NovaSeq, Nanopore PromethION, PacBio Revio
-
-Structure:
-  Groups: 9
-  Steps:  30
-  Tools:  23
-
-Resources:
-  Total CPU:      719 cores
-  Total Memory:   1378 GB
-  Total Time:     148.9 hours
-  Total Storage:  3550.7 GB
-
-Cost:
-  Total:   $1772.34
-  Compute: $1769.13 (99.8%)
-  Storage: $3.21 (0.2%)
-  Per Hour: $11.90/hr
-
-Group Breakdown:
-  STRUCTIONAL_ANNOTATION:
-    Steps: 3, Time: 46.0h, Cost: $894.66
-  DE_NOVO_ASSEMBLY:
-    Steps: 4, Time: 54.0h, Cost: $680.95
-  POLISHING:
-    Steps: 1, Time: 6.0h, Cost: $131.04
-  FUNCTIONAL_ANNOTATION:
-    Steps: 5, Time: 15.2h, Cost: $35.46
-  PURGE_HAPLOTIGS:
-    Steps: 5, Time: 3.7h, Cost: $12.55
-  GENOME_SCAFFOLDING:
-    Steps: 7, Time: 19.6h, Cost: $12.16
-  GENOME_ASSESSMENT:
-    Steps: 1, Time: 4.0h, Cost: $5.47
-  MAKE_DATASET:
-    Steps: 3, Time: 0.3h, Cost: $0.05
-  MAKE_REPORT:
-    Steps: 1, Time: 0.1h, Cost: $0.01
-
-[2] Microbiome - shotgun metagenome 분석 - Pacbio
+[1] Microbiome - shotgun metagenome (PacBio)
 --------------------------------------------------------------------------------
 Pipeline: HiFi-MAG-Pipeline+inhouse vv3.3.2
 Platform: PacBio Revio
@@ -119,7 +92,41 @@ Group Breakdown:
   REPORTING:
     Steps: 2, Time: 0.5h, Cost: $0.58
 
-[3] Microbiome - 16S rRNA metagenome - Pacbio
+[2] Large Genome Analysis - assembly (genome 3-5GB)
+--------------------------------------------------------------------------------
+Pipeline: inhouse v2.0.0
+Platform: PacBio Revio
+
+Structure:
+  Groups: 5
+  Steps:  17
+  Tools:  11
+
+Resources:
+  Total CPU:      430 cores
+  Total Memory:   1441 GB
+  Total Time:     96.2 hours
+  Total Storage:  88.0 GB
+
+Cost:
+  Total:   $332.05
+  Compute: $331.92 (100.0%)
+  Storage: $0.13 (0.0%)
+  Per Hour: $3.45/hr
+
+Group Breakdown:
+  ASSEMBLY:
+    Steps: 2, Time: 64.5h, Cost: $258.24
+  FCS_GX:
+    Steps: 7, Time: 11.9h, Cost: $31.86
+  PAQMAN:
+    Steps: 2, Time: 10.2h, Cost: $20.42
+  PURGE_DUPS:
+    Steps: 5, Time: 8.1h, Cost: $19.49
+  GENOME_ASSESSMENT:
+    Steps: 1, Time: 1.5h, Cost: $2.04
+
+[3] Microbiome - 16S rRNA metagenome (PacBio)
 --------------------------------------------------------------------------------
 Pipeline: 16S full-length (inhouse) v1.0.0
 Platform: PacBio Revio
@@ -155,35 +162,95 @@ Group Breakdown:
   REPORTING:
     Steps: 2, Time: 0.2h, Cost: $0.27
 
-[4] Assembly - Small Genome Assembly - Bacteria__Fungi
+[4] Large Genome Analysis - annotation
+--------------------------------------------------------------------------------
+Pipeline: inhouse v2.0.0
+Platform: PacBio Revio
+
+Structure:
+  Groups: 3
+  Steps:  7
+  Tools:  7
+
+Resources:
+  Total CPU:      63 cores
+  Total Memory:   245 GB
+  Total Time:     179.1 hours
+  Total Storage:  4.1 GB
+
+Cost:
+  Total:   $118.68
+  Compute: $118.67 (100.0%)
+  Storage: $0.02 (0.0%)
+  Per Hour: $0.66/hr
+
+Group Breakdown:
+  STRUCTURAL_ANNOTATION:
+    Steps: 2, Time: 144.0h, Cost: $73.45
+  FUNCTIONAL_ANNOTATION:
+    Steps: 3, Time: 34.0h, Cost: $44.89
+  VIRULENCE:
+    Steps: 2, Time: 1.1h, Cost: $0.35
+
+[5] Large Genome Analysis - assembly (genome 1-3GB)
+--------------------------------------------------------------------------------
+Pipeline: inhouse v2.0.0
+Platform: PacBio Revio
+
+Structure:
+  Groups: 5
+  Steps:  17
+  Tools:  11
+
+Resources:
+  Total CPU:      430 cores
+  Total Memory:   1023 GB
+  Total Time:     43.3 hours
+  Total Storage:  50.3 GB
+
+Cost:
+  Total:   $106.54
+  Compute: $106.51 (100.0%)
+  Storage: $0.03 (0.0%)
+  Per Hour: $2.46/hr
+
+Group Breakdown:
+  ASSEMBLY:
+    Steps: 2, Time: 24.3h, Cost: $65.35
+  FCS_GX:
+    Steps: 7, Time: 7.7h, Cost: $21.96
+  PURGE_DUPS:
+    Steps: 5, Time: 4.2h, Cost: $9.69
+  PAQMAN:
+    Steps: 2, Time: 6.1h, Cost: $8.17
+  GENOME_ASSESSMENT:
+    Steps: 1, Time: 1.0h, Cost: $1.36
+
+[6] Small Genome Analysis - Assembly (Bacteria,Fungi)
 --------------------------------------------------------------------------------
 Pipeline: inhouse v1.0.0
 Platform: PacBio Revio, illumina Novaseq
 
 Structure:
-  Groups: 7
-  Steps:  19
-  Tools:  16
+  Groups: 5
+  Steps:  13
+  Tools:  11
 
 Resources:
-  Total CPU:      761 cores
-  Total Memory:   52 GB
-  Total Time:     32.6 hours
-  Total Storage:  119.3 GB
+  Total CPU:      536 cores
+  Total Memory:   39 GB
+  Total Time:     30.5 hours
+  Total Storage:  103.1 GB
 
 Cost:
-  Total:   $84.52
-  Compute: $84.50 (100.0%)
+  Total:   $81.62
+  Compute: $81.60 (100.0%)
   Storage: $0.02 (0.0%)
-  Per Hour: $2.59/hr
+  Per Hour: $2.68/hr
 
 Group Breakdown:
   DE_NOVO_ASSEMBLY:
     Steps: 3, Time: 28.5h, Cost: $78.38
-  MAPPING:
-    Steps: 2, Time: 1.1h, Cost: $1.50
-  ANNOTATION:
-    Steps: 2, Time: 1.0h, Cost: $1.40
   REPORTING:
     Steps: 2, Time: 1.1h, Cost: $1.40
   POLISHING:
@@ -193,37 +260,299 @@ Group Breakdown:
   ASSESSMENT:
     Steps: 1, Time: 0.1h, Cost: $0.07
 
-[5] Assembly - Organelle Assembly - CP__MT
+[7] Large Genome Analysis - assembly (algae species)
 --------------------------------------------------------------------------------
-Pipeline: inhouse, chlorobox v1.0.0
-Platform: Illumina NovaSeq
+Pipeline: inhouse v2.0.0
+Platform: PacBio Revio
+
+Structure:
+  Groups: 6
+  Steps:  13
+  Tools:  12
+
+Resources:
+  Total CPU:      288 cores
+  Total Memory:   405 GB
+  Total Time:     31.4 hours
+  Total Storage:  34.2 GB
+
+Cost:
+  Total:   $78.16
+  Compute: $78.13 (100.0%)
+  Storage: $0.03 (0.0%)
+  Per Hour: $2.49/hr
+
+Group Breakdown:
+  ASSEMBLY:
+    Steps: 2, Time: 24.3h, Cost: $65.35
+  PURGE_DUPS:
+    Steps: 5, Time: 4.2h, Cost: $9.69
+  GENOME_ASSESSMENT:
+    Steps: 2, Time: 2.0h, Cost: $2.72
+  DECONTAM:
+    Steps: 2, Time: 0.7h, Cost: $0.37
+  SELECT_BEST:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+  REPORTING:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+
+[8] Large Genome Analysis - variant call (non-human, pacbio)
+--------------------------------------------------------------------------------
+Pipeline: inhouse v2.0.0
+Platform: PacBio Revio
+
+Structure:
+  Groups: 6
+  Steps:  9
+  Tools:  10
+
+Resources:
+  Total CPU:      227 cores
+  Total Memory:   486 GB
+  Total Time:     37.7 hours
+  Total Storage:  38.1 GB
+
+Cost:
+  Total:   $58.56
+  Compute: $58.54 (100.0%)
+  Storage: $0.02 (0.0%)
+  Per Hour: $1.55/hr
+
+Group Breakdown:
+  SNV:
+    Steps: 2, Time: 20.0h, Cost: $35.36
+  PHASING:
+    Steps: 2, Time: 7.0h, Cost: $9.52
+  SV:
+    Steps: 2, Time: 6.0h, Cost: $8.16
+  ALIGNMENT:
+    Steps: 1, Time: 4.0h, Cost: $5.45
+  REPORT:
+    Steps: 1, Time: 0.5h, Cost: $0.04
+  PREFLIGHT:
+    Steps: 1, Time: 0.2h, Cost: $0.02
+
+[9] Virus Analysis - virus (ont)
+--------------------------------------------------------------------------------
+Pipeline: inhouse v1.0.0
+Platform: Nanopore PromethION
+
+Structure:
+  Groups: 8
+  Steps:  15
+  Tools:  13
+
+Resources:
+  Total CPU:      265 cores
+  Total Memory:   401 GB
+  Total Time:     41.1 hours
+  Total Storage:  1.4 GB
+
+Cost:
+  Total:   $49.31
+  Compute: $49.31 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $1.20/hr
+
+Group Breakdown:
+  DENOVO_ASSEMBLY:
+    Steps: 3, Time: 20.0h, Cost: $24.48
+  ANNOTATION:
+    Steps: 5, Time: 12.0h, Cost: $20.23
+  REF_CONSENSUS:
+    Steps: 1, Time: 2.0h, Cost: $1.36
+  REF_VARIANTS:
+    Steps: 1, Time: 2.0h, Cost: $1.36
+  NORMALIZE:
+    Steps: 2, Time: 2.0h, Cost: $1.02
+  INPUT_PREP:
+    Steps: 1, Time: 2.0h, Cost: $0.68
+  COVERAGE:
+    Steps: 1, Time: 1.0h, Cost: $0.17
+  REPORTING:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+
+[10] Virus Analysis - virus (pacbio)
+--------------------------------------------------------------------------------
+Pipeline: inhouse v1.0.0
+Platform: PacBio Revio
+
+Structure:
+  Groups: 8
+  Steps:  14
+  Tools:  13
+
+Resources:
+  Total CPU:      253 cores
+  Total Memory:   345 GB
+  Total Time:     36.1 hours
+  Total Storage:  1.6 GB
+
+Cost:
+  Total:   $46.76
+  Compute: $46.76 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $1.30/hr
+
+Group Breakdown:
+  DENOVO_ASSEMBLY:
+    Steps: 2, Time: 16.0h, Cost: $21.76
+  ANNOTATION:
+    Steps: 5, Time: 12.0h, Cost: $20.23
+  REF_MAPPING:
+    Steps: 1, Time: 2.0h, Cost: $2.72
+  NORMALIZE:
+    Steps: 2, Time: 2.0h, Cost: $1.02
+  INPUT_PREP:
+    Steps: 1, Time: 2.0h, Cost: $0.68
+  COVERAGE:
+    Steps: 1, Time: 1.0h, Cost: $0.17
+  REF_VARIANTS:
+    Steps: 1, Time: 1.0h, Cost: $0.17
+  REPORTING:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+
+[11] Large Genome Analysis - profiling
+--------------------------------------------------------------------------------
+Pipeline: inhouse v2.0.0
+Platform: PacBio Revio
 
 Structure:
   Groups: 3
-  Steps:  5
-  Tools:  5
+  Steps:  6
+  Tools:  4
 
 Resources:
-  Total CPU:      209 cores
-  Total Memory:   393 GB
-  Total Time:     30.1 hours
-  Total Storage:  122.1 GB
+  Total CPU:      194 cores
+  Total Memory:   594 GB
+  Total Time:     16.2 hours
+  Total Storage:  29.4 GB
 
 Cost:
-  Total:   $77.62
-  Compute: $77.53 (99.9%)
-  Storage: $0.09 (0.1%)
-  Per Hour: $2.58/hr
+  Total:   $45.84
+  Compute: $45.83 (100.0%)
+  Storage: $0.02 (0.0%)
+  Per Hour: $2.83/hr
 
 Group Breakdown:
-  ORGANELLE_ASSEMBLY:
-    Steps: 3, Time: 28.0h, Cost: $76.25
-  DATA_FILTERING:
-    Steps: 1, Time: 2.0h, Cost: $1.37
-  ANNOTATION:
+  TRACK1_KRAKEN2:
+    Steps: 2, Time: 6.1h, Cost: $24.21
+  TRACK2_MAPPING:
+    Steps: 3, Time: 10.0h, Cost: $21.62
+  REPORTING:
     Steps: 1, Time: 0.1h, Cost: $0.01
 
-[6] Microbiome - 16S rRNA metagenome - Microbiome Consortium
+[12] Large Genome Analysis - variant call (non-human, illumina)
+--------------------------------------------------------------------------------
+Pipeline: inhouse v2.0.0
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 6
+  Steps:  12
+  Tools:  10
+
+Resources:
+  Total CPU:      99 cores
+  Total Memory:   294 GB
+  Total Time:     49.7 hours
+  Total Storage:  88.9 GB
+
+Cost:
+  Total:   $43.63
+  Compute: $43.58 (99.9%)
+  Storage: $0.05 (0.1%)
+  Per Hour: $0.88/hr
+
+Group Breakdown:
+  SNV:
+    Steps: 5, Time: 27.0h, Cost: $31.97
+  ALIGNMENT:
+    Steps: 2, Time: 12.0h, Cost: $8.20
+  SV:
+    Steps: 2, Time: 8.0h, Cost: $2.72
+  QC:
+    Steps: 1, Time: 2.0h, Cost: $0.68
+  REPORT:
+    Steps: 1, Time: 0.5h, Cost: $0.04
+  PREFLIGHT:
+    Steps: 1, Time: 0.2h, Cost: $0.02
+
+[13] Large Genome Analysis - assembly (genome under 1GB)
+--------------------------------------------------------------------------------
+Pipeline: inhouse v2.0.0
+Platform: PacBio Revio
+
+Structure:
+  Groups: 5
+  Steps:  17
+  Tools:  11
+
+Resources:
+  Total CPU:      430 cores
+  Total Memory:   871 GB
+  Total Time:     14.1 hours
+  Total Storage:  19.2 GB
+
+Cost:
+  Total:   $34.41
+  Compute: $34.41 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $2.44/hr
+
+Group Breakdown:
+  FCS_GX:
+    Steps: 7, Time: 5.0h, Cost: $15.79
+  ASSEMBLY:
+    Steps: 2, Time: 4.2h, Cost: $10.92
+  PURGE_DUPS:
+    Steps: 5, Time: 1.8h, Cost: $3.62
+  PAQMAN:
+    Steps: 2, Time: 2.1h, Cost: $2.73
+  GENOME_ASSESSMENT:
+    Steps: 1, Time: 1.0h, Cost: $1.36
+
+[14] Virus Analysis - virus (illumina)
+--------------------------------------------------------------------------------
+Pipeline: inhouse v1.0.0
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 8
+  Steps:  13
+  Tools:  13
+
+Resources:
+  Total CPU:      189 cores
+  Total Memory:   289 GB
+  Total Time:     26.1 hours
+  Total Storage:  0.9 GB
+
+Cost:
+  Total:   $31.80
+  Compute: $31.80 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $1.22/hr
+
+Group Breakdown:
+  ANNOTATION:
+    Steps: 5, Time: 12.0h, Cost: $20.23
+  DENOVO_ASSEMBLY:
+    Steps: 1, Time: 6.0h, Cost: $8.16
+  REF_MAPPING:
+    Steps: 1, Time: 2.0h, Cost: $1.36
+  NORMALIZE:
+    Steps: 2, Time: 2.0h, Cost: $1.02
+  INPUT_PREP:
+    Steps: 1, Time: 2.0h, Cost: $0.68
+  COVERAGE:
+    Steps: 1, Time: 1.0h, Cost: $0.17
+  REF_VARIANTS:
+    Steps: 1, Time: 1.0h, Cost: $0.17
+  REPORTING:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+
+[15] Microbiome - Microbiome Consortium
 --------------------------------------------------------------------------------
 Pipeline: inhouse v1.0.0
 Platform: PacBio Revio
@@ -255,7 +584,7 @@ Group Breakdown:
   MAKE_DATASET:
     Steps: 1, Time: 0.1h, Cost: $0.01
 
-[7] Microbiome - shotgun metagenome - Illumina
+[16] Microbiome - shotgun metagenome (Illumina)
 --------------------------------------------------------------------------------
 Pipeline: inhouse v1.0.0
 Platform: Illumina Novaseq
@@ -291,7 +620,35 @@ Group Breakdown:
   REPORTING:
     Steps: 2, Time: 0.5h, Cost: $0.58
 
-[8] Microbiome - 16S rRNA metagenome - Illumina
+[17] Large Genome Analysis - kmer (illumina)
+--------------------------------------------------------------------------------
+Pipeline: inhouse v2.0.0
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 2
+  Steps:  3
+  Tools:  2
+
+Resources:
+  Total CPU:      22 cores
+  Total Memory:   72 GB
+  Total Time:     7.0 hours
+  Total Storage:  11.7 GB
+
+Cost:
+  Total:   $8.30
+  Compute: $8.29 (99.9%)
+  Storage: $0.01 (0.1%)
+  Per Hour: $1.19/hr
+
+Group Breakdown:
+  KMER_COUNT:
+    Steps: 2, Time: 6.5h, Cost: $8.25
+  GENOME_SIZE_EST:
+    Steps: 1, Time: 0.5h, Cost: $0.04
+
+[18] Microbiome - 16S rRNA metagenome (Illumina)
 --------------------------------------------------------------------------------
 Pipeline: 16S V3-V4 (inhouse) v1.0.0
 Platform: Illumina Miseq
@@ -326,5 +683,95 @@ Group Breakdown:
     Steps: 2, Time: 0.2h, Cost: $0.27
   IMPORT DATA:
     Steps: 1, Time: 0.1h, Cost: $0.14
+
+[19] Large Genome Analysis - kmer (pacbio)
+--------------------------------------------------------------------------------
+Pipeline: inhouse v2.0.0
+Platform: PacBio Revio
+
+Structure:
+  Groups: 3
+  Steps:  5
+  Tools:  3
+
+Resources:
+  Total CPU:      24 cores
+  Total Memory:   105 GB
+  Total Time:     6.7 hours
+  Total Storage:  24.4 GB
+
+Cost:
+  Total:   $6.87
+  Compute: $6.86 (99.9%)
+  Storage: $0.01 (0.1%)
+  Per Hour: $1.03/hr
+
+Group Breakdown:
+  KMER_COUNT:
+    Steps: 3, Time: 6.1h, Cost: $6.82
+  GENOME_SIZE_EST:
+    Steps: 1, Time: 0.5h, Cost: $0.04
+  REPORTING:
+    Steps: 1, Time: 0.1h, Cost: $0.01
+
+[20] Small Genome Analysis - Annotation (Bacteria, Fungi)
+--------------------------------------------------------------------------------
+Pipeline: inhouse v1.0.0
+Platform: PacBio Revio, illumina Novaseq
+
+Structure:
+  Groups: 3
+  Steps:  8
+  Tools:  7
+
+Resources:
+  Total CPU:      265 cores
+  Total Memory:   15 GB
+  Total Time:     3.2 hours
+  Total Storage:  35.7 GB
+
+Cost:
+  Total:   $4.30
+  Compute: $4.29 (99.9%)
+  Storage: $0.00 (0.1%)
+  Per Hour: $1.34/hr
+
+Group Breakdown:
+  MAPPING:
+    Steps: 2, Time: 1.1h, Cost: $1.50
+  ANNOTATION:
+    Steps: 2, Time: 1.0h, Cost: $1.40
+  REPORTING:
+    Steps: 2, Time: 1.1h, Cost: $1.40
+
+[21] Large Genome Analysis - organelle
+--------------------------------------------------------------------------------
+Pipeline: inhouse v2.0.0
+Platform: Illumina NovaSeq
+
+Structure:
+  Groups: 3
+  Steps:  5
+  Tools:  5
+
+Resources:
+  Total CPU:      65 cores
+  Total Memory:   57 GB
+  Total Time:     6.1 hours
+  Total Storage:  9.3 GB
+
+Cost:
+  Total:   $4.09
+  Compute: $4.09 (100.0%)
+  Storage: $0.00 (0.0%)
+  Per Hour: $0.67/hr
+
+Group Breakdown:
+  ORGANELLE_ASSEMBLY:
+    Steps: 3, Time: 5.0h, Cost: $3.40
+  DATA_FILTERING:
+    Steps: 1, Time: 1.0h, Cost: $0.68
+  ANNOTATION:
+    Steps: 1, Time: 0.1h, Cost: $0.01
 
 ================================================================================

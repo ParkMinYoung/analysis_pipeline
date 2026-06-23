@@ -1,0 +1,209 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Large Genome Analysis
+Analysis Name: assembly (genome 1-3GB)
+Platform: PacBio Revio
+Pipeline: inhouse v2.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 5
+Number of Steps: 17
+Number of Tools: 11
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 430
+Total Memory: 1023 GB
+Total Compute Time: 43.30 hours
+Total Storage: 50.30 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $106.54
+  - Compute Cost: $106.51 (100.0%)
+  - Storage Cost: $0.03 (0.0%)
+Cost per Hour: $2.46
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+ASSEMBLY:
+  Steps: 2
+  Time: 24.30 hours
+  Cost: $65.35
+  Tools: hifiasm, gfatools
+
+FCS_GX:
+  Steps: 7
+  Time: 7.70 hours
+  Cost: $21.96
+  Tools: fcs-gx, minimap2, pbcstat / calcuts, purge_dups, get_seqs
+
+PURGE_DUPS:
+  Steps: 5
+  Time: 4.20 hours
+  Cost: $9.69
+  Tools: minimap2, pbcstat / calcuts, purge_dups, get_seqs
+
+PAQMAN:
+  Steps: 2
+  Time: 6.10 hours
+  Cost: $8.17
+  Tools: paqman, python
+
+GENOME_ASSESSMENT:
+  Steps: 1
+  Time: 1.00 hours
+  Cost: $1.36
+  Tools: busco
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: ASSEMBLY
+Step: HIFIASM_ASSEMBLE
+Tool: hifiasm v0.25.0
+Resources: 64 CPUs, 128 GB RAM, 9000 MB storage
+Runtime: 24.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $65.3034 (compute: $65.2800, storage: $0.0234)
+
+Group: ASSEMBLY
+Step: GFA_TO_FASTA
+Tool: gfatools v0.5.5
+Resources: 1 CPUs, 8 GB RAM, 3000 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0511 (compute: $0.0510, storage: $0.0001)
+
+Group: PURGE_DUPS
+Step: RAWDATA_MAPPING
+Tool: minimap2 v2.28
+Resources: 64 CPUs, 32 GB RAM, 5000 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $8.1616 (compute: $8.1600, storage: $0.0016)
+
+Group: PURGE_DUPS
+Step: MAKE_STATS
+Tool: pbcstat / calcuts v1.2.6
+Resources: 4 CPUs, 8 GB RAM, 1 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: PURGE_DUPS
+Step: PURGE_DUPS_STEP1
+Tool: purge_dups v1.2.6
+Resources: 64 CPUs, 64 GB RAM, 5000 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $1.3603 (compute: $1.3600, storage: $0.0003)
+
+Group: PURGE_DUPS
+Step: PURGE_DUPS_STEP2
+Tool: purge_dups v1.2.6
+Resources: 4 CPUs, 16 GB RAM, 2500 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.1021 (compute: $0.1020, storage: $0.0001)
+
+Group: PURGE_DUPS
+Step: PURGE_DUPS_STEP3 (get_seqs)
+Tool: get_seqs v1.2.6
+Resources: 4 CPUs, 8 GB RAM, 2500 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0341 (compute: $0.0340, storage: $0.0001)
+
+Group: FCS_GX
+Step: FCS_GX_SCREEN
+Tool: fcs-gx v0.5.5
+Resources: 32 CPUs, 510 GB RAM, 5 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: r6i.16xlarge @ $4.0320/hr
+Cost: $12.0960 (compute: $12.0960, storage: $0.0000)
+
+Group: FCS_GX
+Step: FCS_GX_CLEAN
+Tool: fcs-gx v0.5.5
+Resources: 4 CPUs, 16 GB RAM, 3000 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.1702 (compute: $0.1700, storage: $0.0002)
+
+Group: FCS_GX
+Step: FCS_GX_REMAP_READS
+Tool: minimap2 v2.28
+Resources: 64 CPUs, 32 GB RAM, 5000 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $8.1616 (compute: $8.1600, storage: $0.0016)
+
+Group: FCS_GX
+Step: FCS_GX_MAKE_STATS
+Tool: pbcstat / calcuts v1.2.6
+Resources: 4 CPUs, 8 GB RAM, 1 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: FCS_GX
+Step: FCS_GX_PURGE_STEP1
+Tool: purge_dups v1.2.6
+Resources: 64 CPUs, 64 GB RAM, 5000 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $1.3603 (compute: $1.3600, storage: $0.0003)
+
+Group: FCS_GX
+Step: FCS_GX_PURGE_STEP2
+Tool: purge_dups v1.2.6
+Resources: 4 CPUs, 16 GB RAM, 2500 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.1021 (compute: $0.1020, storage: $0.0001)
+
+Group: FCS_GX
+Step: FCS_GX_PURGE_STEP3 (get_seqs)
+Tool: get_seqs v1.2.6
+Resources: 4 CPUs, 8 GB RAM, 2500 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0341 (compute: $0.0340, storage: $0.0001)
+
+Group: PAQMAN
+Step: PAQMAN_EVAL (7-metric A/B)
+Tool: paqman vinhouse
+Resources: 16 CPUs, 64 GB RAM, 3000 MB storage
+Runtime: 6.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $8.1620 (compute: $8.1600, storage: $0.0020)
+
+Group: PAQMAN
+Step: PAQMAN_COMPARE (select best)
+Tool: python v-
+Resources: 1 CPUs, 1 GB RAM, 2500 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: GENOME_ASSESSMENT
+Step: BUSCO
+Tool: busco v6.0.0
+Resources: 32 CPUs, 40 GB RAM, 1000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $1.3601 (compute: $1.3600, storage: $0.0001)
+
+================================================================================
+END OF REPORT
+================================================================================

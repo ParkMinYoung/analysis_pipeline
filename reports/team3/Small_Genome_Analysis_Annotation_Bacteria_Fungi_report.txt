@@ -1,0 +1,125 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Small Genome Analysis
+Analysis Name: Annotation (Bacteria, Fungi)
+Platform: PacBio Revio, illumina Novaseq
+Pipeline: inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 3
+Number of Steps: 8
+Number of Tools: 7
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 265
+Total Memory: 15 GB
+Total Compute Time: 3.20 hours
+Total Storage: 35.67 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $4.30
+  - Compute Cost: $4.29 (99.9%)
+  - Storage Cost: $0.00 (0.1%)
+Cost per Hour: $1.34
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+MAPPING:
+  Steps: 2
+  Time: 1.10 hours
+  Cost: $1.50
+  Tools: samtools, bwa, minimap2
+
+ANNOTATION:
+  Steps: 2
+  Time: 1.00 hours
+  Cost: $1.40
+  Tools: prokka, diamond, blast2go
+
+REPORTING:
+  Steps: 2
+  Time: 1.10 hours
+  Cost: $1.40
+  Tools: python
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: ANNOTATION
+Step: GENE PREDICTION
+Tool: prokka v1.14.6
+Resources: 64 CPUs, 1 GB RAM, 110 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $0.2720 (compute: $0.2720, storage: $0.0000)
+
+Group: ANNOTATION
+Step: FUNCTIONAL ANNOTATION
+Tool: diamond v2.1.11
+Resources: 64 CPUs, 8 GB RAM, 800 MB storage
+Runtime: 0.40 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $1.0880 (compute: $1.0880, storage: $0.0000)
+
+Group: ANNOTATION
+Step: nan
+Tool: blast2go v1.5.1
+Resources: 1 CPUs, 1 GB RAM, 600 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+Group: MAPPING
+Step: GENOME COVERAGE
+Tool: samtools v1.9
+Resources: 32 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.1360 (compute: $0.1360, storage: $0.0000)
+
+Group: MAPPING
+Step: GENE ALIGNMENT
+Tool: bwa v1.9
+Resources: 32 CPUs, 1 GB RAM, 5000 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.6803 (compute: $0.6800, storage: $0.0003)
+
+Group: MAPPING
+Step: nan
+Tool: minimap2 v2.17
+Resources: 32 CPUs, 1 GB RAM, 10000 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $0.6805 (compute: $0.6800, storage: $0.0005)
+
+Group: REPORTING
+Step: MAKE RESULT
+Tool: python v-
+Resources: 32 CPUs, 1 GB RAM, 20000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $1.3622 (compute: $1.3600, storage: $0.0022)
+
+Group: REPORTING
+Step: MAKE REPORT
+Tool: python v-
+Resources: 8 CPUs, 1 GB RAM, 20 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

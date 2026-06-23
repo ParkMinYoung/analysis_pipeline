@@ -1,0 +1,183 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Large Genome Analysis
+Analysis Name: assembly (algae species)
+Platform: PacBio Revio
+Pipeline: inhouse v2.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 6
+Number of Steps: 13
+Number of Tools: 12
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 288
+Total Memory: 405 GB
+Total Compute Time: 31.40 hours
+Total Storage: 34.18 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $78.16
+  - Compute Cost: $78.13 (100.0%)
+  - Storage Cost: $0.03 (0.0%)
+Cost per Hour: $2.49
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+ASSEMBLY:
+  Steps: 2
+  Time: 24.30 hours
+  Cost: $65.35
+  Tools: hifiasm, gfatools
+
+PURGE_DUPS:
+  Steps: 5
+  Time: 4.20 hours
+  Cost: $9.69
+  Tools: minimap2, pbcstat / calcuts, purge_dups, get_seqs
+
+GENOME_ASSESSMENT:
+  Steps: 2
+  Time: 2.00 hours
+  Cost: $2.72
+  Tools: busco
+
+DECONTAM:
+  Steps: 2
+  Time: 0.70 hours
+  Cost: $0.37
+  Tools: tiara, seqkit / python
+
+SELECT_BEST:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: python
+
+REPORTING:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: assembly-stats
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: ASSEMBLY
+Step: HIFIASM_ASSEMBLE
+Tool: hifiasm v0.25.0
+Resources: 64 CPUs, 128 GB RAM, 9000 MB storage
+Runtime: 24.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $65.3034 (compute: $65.2800, storage: $0.0234)
+
+Group: ASSEMBLY
+Step: GFA_TO_FASTA
+Tool: gfatools v0.5.5
+Resources: 1 CPUs, 8 GB RAM, 3000 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0511 (compute: $0.0510, storage: $0.0001)
+
+Group: DECONTAM
+Step: TIARA_CLASSIFY
+Tool: tiara v1.0.3
+Resources: 16 CPUs, 16 GB RAM, 1500 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.3401 (compute: $0.3400, storage: $0.0001)
+
+Group: DECONTAM
+Step: EXTRACT_PLANT
+Tool: seqkit / python v2.5
+Resources: 1 CPUs, 8 GB RAM, 2000 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: PURGE_DUPS
+Step: REMAP_READS
+Tool: minimap2 v2.28
+Resources: 64 CPUs, 32 GB RAM, 5000 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $8.1616 (compute: $8.1600, storage: $0.0016)
+
+Group: PURGE_DUPS
+Step: MAKE_STATS
+Tool: pbcstat / calcuts v1.2.6
+Resources: 4 CPUs, 8 GB RAM, 1 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0340 (compute: $0.0340, storage: $0.0000)
+
+Group: PURGE_DUPS
+Step: PURGE_STEP1
+Tool: purge_dups v1.2.6
+Resources: 64 CPUs, 80 GB RAM, 5000 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $1.3603 (compute: $1.3600, storage: $0.0003)
+
+Group: PURGE_DUPS
+Step: PURGE_STEP2
+Tool: purge_dups v1.2.6
+Resources: 4 CPUs, 16 GB RAM, 2500 MB storage
+Runtime: 0.30 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.1021 (compute: $0.1020, storage: $0.0001)
+
+Group: PURGE_DUPS
+Step: PURGE_STEP3 (get_seqs)
+Tool: get_seqs v1.2.6
+Resources: 4 CPUs, 8 GB RAM, 2500 MB storage
+Runtime: 0.20 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0341 (compute: $0.0340, storage: $0.0001)
+
+Group: GENOME_ASSESSMENT
+Step: BUSCO_OPTION_A
+Tool: busco v6.0.0
+Resources: 32 CPUs, 48 GB RAM, 1000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $1.3601 (compute: $1.3600, storage: $0.0001)
+
+Group: GENOME_ASSESSMENT
+Step: BUSCO_OPTION_B
+Tool: busco v6.0.0
+Resources: 32 CPUs, 48 GB RAM, 1000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $1.3601 (compute: $1.3600, storage: $0.0001)
+
+Group: SELECT_BEST
+Step: SELECT_BEST (A vs B)
+Tool: python v-
+Resources: 1 CPUs, 1 GB RAM, 2500 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: REPORTING
+Step: ASSEMBLY_STATS
+Tool: assembly-stats v1.0.1
+Resources: 1 CPUs, 4 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

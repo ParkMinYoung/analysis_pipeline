@@ -1,0 +1,101 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Large Genome Analysis
+Analysis Name: organelle
+Platform: Illumina NovaSeq
+Pipeline: inhouse v2.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 3
+Number of Steps: 5
+Number of Tools: 5
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 65
+Total Memory: 57 GB
+Total Compute Time: 6.10 hours
+Total Storage: 9.28 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $4.09
+  - Compute Cost: $4.09 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $0.67
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+ORGANELLE_ASSEMBLY:
+  Steps: 3
+  Time: 5.00 hours
+  Cost: $3.40
+  Tools: get_organelle, mtgrasp, mitofinder
+
+DATA_FILTERING:
+  Steps: 1
+  Time: 1.00 hours
+  Cost: $0.68
+  Tools: faQCs
+
+ANNOTATION:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: chlorobox
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: DATA_FILTERING
+Step: ADAPTER_TRIMMING
+Tool: faQCs v2.1
+Resources: 16 CPUs, 8 GB RAM, 8000 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.6809 (compute: $0.6800, storage: $0.0009)
+
+Group: ORGANELLE_ASSEMBLY
+Step: REFERENCE_BASED_ASSEMBLY
+Tool: get_organelle v1.7.7
+Resources: 16 CPUs, 16 GB RAM, 500 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.6801 (compute: $0.6800, storage: $0.0001)
+
+Group: ORGANELLE_ASSEMBLY
+Step: REFERENCE_BASED_ASSEMBLY
+Tool: mtgrasp v1.1.8
+Resources: 16 CPUs, 16 GB RAM, 500 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.6801 (compute: $0.6800, storage: $0.0001)
+
+Group: ORGANELLE_ASSEMBLY
+Step: REFERENCE_BASED_ASSEMBLY
+Tool: mitofinder v1.4.2
+Resources: 16 CPUs, 16 GB RAM, 500 MB storage
+Runtime: 3.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $2.0402 (compute: $2.0400, storage: $0.0002)
+
+Group: ANNOTATION
+Step: ANNOTATION_VISUALIZATION
+Tool: chlorobox vweb
+Resources: 1 CPUs, 1 GB RAM, 5 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

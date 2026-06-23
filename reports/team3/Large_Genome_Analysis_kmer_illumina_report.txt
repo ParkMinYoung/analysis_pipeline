@@ -1,0 +1,79 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Large Genome Analysis
+Analysis Name: kmer (illumina)
+Platform: Illumina NovaSeq
+Pipeline: inhouse v2.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 2
+Number of Steps: 3
+Number of Tools: 2
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 22
+Total Memory: 72 GB
+Total Compute Time: 7.00 hours
+Total Storage: 11.72 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $8.30
+  - Compute Cost: $8.29 (99.9%)
+  - Storage Cost: $0.01 (0.1%)
+Cost per Hour: $1.19
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+KMER_COUNT:
+  Steps: 2
+  Time: 6.50 hours
+  Cost: $8.25
+  Tools: jellyfish
+
+GENOME_SIZE_EST:
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.04
+  Tools: genomescope2
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: KMER_COUNT
+Step: JELLYFISH_COUNT
+Tool: jellyfish v2.3.1
+Resources: 16 CPUs, 64 GB RAM, 12000 MB storage
+Runtime: 6.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $8.1678 (compute: $8.1600, storage: $0.0078)
+
+Group: KMER_COUNT
+Step: JELLYFISH_HISTO
+Tool: jellyfish v2.3.1
+Resources: 4 CPUs, 4 GB RAM, 1 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.0850 (compute: $0.0850, storage: $0.0000)
+
+Group: GENOME_SIZE_EST
+Step: GENOMESCOPE_ILLUMINA
+Tool: genomescope2 v2
+Resources: 2 CPUs, 4 GB RAM, 5 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

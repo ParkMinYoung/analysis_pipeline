@@ -10,8 +10,8 @@
 ### 분석 대상
 - **Team 1**: 19개 파이프라인, 338 steps (WGS, WES, DNA Chip, Pangenome, 단백질 분석, 커스텀 분석)
 - **Team 2**: 28개 파이프라인, 411 steps (Short RNA, Single Cell RNA, WGBS, Spatial 등)
-- **Team 3**: 8개 파이프라인, 122 steps (Assembly, Microbiome)
-- **총 파이프라인**: 55개 (팀별로 상이)
+- **Team 3**: 21개 파이프라인, 242 steps (Large/Small Genome Analysis, Microbiome, Virus)
+- **총 파이프라인**: 68개 (팀별로 상이)
 - **플랫폼**: PacBio Revio/Sequel, Illumina NovaSeq/MiSeq, Nanopore PromethION, Axiom/Illumina Microarray
 
 ## 디렉토리 구조
@@ -135,18 +135,18 @@ done
 5. cosmx: $48.41
 
 ### Team 3 비용 요약
-- **총 비용**: $3,302.47
-- **총 파이프라인**: 8개
-- **총 실행 시간**: 602.80 hours
-- **Assembly 비용**: $1,934.48 (54 steps)
-- **Microbiome 비용**: $1,367.99 (68 steps)
+- **총 비용**: $2,418.89
+- **총 파이프라인**: 21개
+- **총 실행 시간**: 1,015.7 hours
+- **Large Genome Analysis 비용**: $837.10 (genome 크기별 세분화)
+- **Microbiome 비용**: $1,368.00
 
 **Top 5 고비용 파이프라인 (Team 3):**
-1. Large Genome Assembly - All: $1,772.34
-2. shotgun metagenome 분석 - Pacbio: $997.53
-3. 16S rRNA metagenome - Pacbio: $318.48
-4. Small Genome Assembly - Bacteria/Fungi: $84.52
-5. Organelle Assembly - CP/MT: $77.62
+1. shotgun metagenome (PacBio): $997.50
+2. assembly (genome 3-5GB): $332.00
+3. 16S rRNA metagenome (PacBio): $318.50
+4. annotation: $118.70
+5. assembly (genome 1-3GB): $106.50
 
 > 각 팀의 상세 결과는 `reports/team{N}/00_SUMMARY_ALL_PIPELINES.txt`에서 확인할 수 있습니다.
 
@@ -170,11 +170,11 @@ done
 
 #### Team 3 고비용 단계:
 1. **Flye Assembly** (Shotgun metagenome): $979.77
-   - c6i.24xlarge (64 vCPU, 160 GB), 240 hours
-2. **Maker Gene Prediction** (Large genome): $871.62
-   - r6i.16xlarge (64 vCPU, 256 GB), 36 hours × 6 parallel tasks
-3. **Verkko Assembly** (Large genome with Hi-C): $392.48
-   - c6i.16xlarge (64 vCPU, 128 GB), 18 hours × 8 parallel tasks
+   - c6i.24xlarge (96 vCPU, 192 GB), 240 hours
+2. **HIFIASM_ASSEMBLE** (assembly genome 3-5GB): $258.15
+   - r6i.16xlarge (64 vCPU, 512 GB), 64 hours
+3. **ASV Clustering** (16S rRNA PacBio): $136.00
+   - c6i.16xlarge (64 vCPU, 128 GB), 50 hours
 
 ## 리포트 파일 설명
 
@@ -240,9 +240,9 @@ done
 
 ---
 **최종 업데이트**: 2026-06-23
-**분석 완료**: Team 1 (19 pipelines), Team 2 (28 pipelines), Team 3 (8 pipelines)
-**총 파이프라인**: 55개
-**총 예상 비용**: $18,113.07
+**분석 완료**: Team 1 (19 pipelines), Team 2 (28 pipelines), Team 3 (21 pipelines)
+**총 파이프라인**: 68개
+**총 예상 비용**: $17,229.49
 **분석 도구**: Python 3.11, pandas, numpy
 **AWS 리전**: us-east-1 (N. Virginia)
 **지원 팀**: Team 1, Team 2, Team 3

@@ -46,11 +46,24 @@ Team,직무(업무명),Analysis_name,Platform,Pipeline Name,Pipeline Version,n_g
 2,Whole Genome Bisulfite Sequencing ,WGBS DMR 분석 - human/mouse 외,Illumina NovaSeq,inhouse,1.1.1,11,16,13,"C, R, bismark, bismark2bedGraph, bismark_genome_preparation, bismark_methylation_extractor, cgh_lh, deduplicate_bismark, fastqc, mosdepth...",71,382,87.1,417.6,69.5,68.8,0.7,0.8
 2,Whole Genome Bisulfite Sequencing ,brmh_JSW custom analysis,Illumina NovaSeq,inhouse,1.1.1,3,4,2,"R, awk",158,1123,67.1,0.0,234.8,234.8,0.0,3.5
 2,Whole Genome Sequencing ,Long read 6mA / 4mC - microbial genome only,Pacbio Revio,"smrtlink, inhouse",25.2,6,20,8,"R, ccs-kinetics-bystrandify, dataset, ipdsummary, pbmm2, pbmotifmaker, python3, summarize-coverage",82,33,2.3,28.6,0.6,0.6,0.0,0.3
-3,Assembly,Large Genome Assembly - All,"Illumina NovaSeq, Nanopore PromethION, PacBio Revio",inhouse,1.0.0,9,30,23,"3d-dna, Interproscan, blast, blast2go, busco, bwa, circos, get_seqs, hifiasm, juicebox...",719,1378,148.9,3550.7,1772.3,1769.1,3.2,11.9
-3,Assembly,Organelle Assembly - CP__MT,Illumina NovaSeq,"inhouse, chlorobox",1.0.0,3,5,5,"chlorobox, faQCs, get_organelle, mitofinder, mtgrasp",209,393,30.1,122.1,77.6,77.5,0.1,2.6
-3,Assembly,Small Genome Assembly - Bacteria__Fungi,"PacBio Revio, illumina Novaseq",inhouse,1.0.0,7,19,16,"blast2go, busco, bwa, circos, circulator, diamond, flye, gatk, lima, minimap2...",761,52,32.6,119.3,84.5,84.5,0.0,2.6
-3,Microbiome,16S rRNA metagenome - Illumina,Illumina Miseq,16S V3-V4 (inhouse),1.0.0,6,19,2,"python, qiime2",1088,32,3.0,7.3,7.5,7.5,0.0,2.5
-3,Microbiome,16S rRNA metagenome - Microbiome Consortium,PacBio Revio,inhouse,1.0.0,4,4,4,"cutadapt, dada2, lima, smrtlink dataset",98,71,9.2,73.2,23.2,23.1,0.0,2.5
-3,Microbiome,16S rRNA metagenome - Pacbio,PacBio Revio,16S full-length (inhouse),1.0.0,6,19,2,"python, qiime2",1088,264,117.9,29.1,318.5,318.4,0.1,2.7
-3,Microbiome,shotgun metagenome - Illumina,Illumina Novaseq,inhouse,1.0.0,6,12,10,"bwa, checkm2, dastools, fastq, gtdbtk, mOTUs, metawrap, prokka, python, quarto",433,170,10.6,91.6,21.3,21.3,0.0,2.0
-3,Microbiome,shotgun metagenome 분석 - Pacbio,PacBio Revio,HiFi-MAG-Pipeline+inhouse,v3.3.2,7,14,10,"checkm2, dastool, flye, gtdbtk, metabat, minimap2, prokka, python, quarto, semibin",528,274,250.5,207.2,997.5,996.9,0.6,4.0
+3,Large Genome Analysis,annotation,PacBio Revio,inhouse,2.0.0,3,7,7,"braker4, diamond, egapx, eggnog-mapper, interproscan, nextflow, python",63,245,179.1,4.1,118.7,118.7,0.0,0.7
+3,Large Genome Analysis,assembly (algae species),PacBio Revio,inhouse,2.0.0,6,13,12,"assembly-stats, busco, calcuts, get_seqs, gfatools, hifiasm, minimap2, pbcstat, purge_dups, python...",288,405,31.4,34.2,78.2,78.1,0.0,2.5
+3,Large Genome Analysis,assembly (genome 1-3GB),PacBio Revio,inhouse,2.0.0,5,17,11,"busco, calcuts, fcs-gx, get_seqs, gfatools, hifiasm, minimap2, paqman, pbcstat, purge_dups...",430,1023,43.3,50.3,106.5,106.5,0.0,2.5
+3,Large Genome Analysis,assembly (genome 3-5GB),PacBio Revio,inhouse,2.0.0,5,17,11,"busco, calcuts, fcs-gx, get_seqs, gfatools, hifiasm, minimap2, paqman, pbcstat, purge_dups...",430,1441,96.2,88.0,332.0,331.9,0.1,3.5
+3,Large Genome Analysis,assembly (genome under 1GB),PacBio Revio,inhouse,2.0.0,5,17,11,"busco, calcuts, fcs-gx, get_seqs, gfatools, hifiasm, minimap2, paqman, pbcstat, purge_dups...",430,871,14.1,19.2,34.4,34.4,0.0,2.4
+3,Large Genome Analysis,kmer (illumina),Illumina NovaSeq,inhouse,2.0.0,2,3,2,"genomescope2, jellyfish",22,72,7.0,11.7,8.3,8.3,0.0,1.2
+3,Large Genome Analysis,kmer (pacbio),PacBio Revio,inhouse,2.0.0,3,5,3,"genomescope2, meryl, python",24,105,6.7,24.4,6.9,6.9,0.0,1.0
+3,Large Genome Analysis,organelle,Illumina NovaSeq,inhouse,2.0.0,3,5,5,"chlorobox, faQCs, get_organelle, mitofinder, mtgrasp",65,57,6.1,9.3,4.1,4.1,0.0,0.7
+3,Large Genome Analysis,profiling,PacBio Revio,inhouse,2.0.0,3,6,4,"kraken2, minimap2, python, samtools",194,594,16.2,29.4,45.8,45.8,0.0,2.8
+3,Large Genome Analysis,"variant call (non-human, illumina)",Illumina NovaSeq,inhouse,2.0.0,6,12,10,"bcftools, bwa-mem2, delly, fastp, gatk4, manta, picard (gatk4), python, snippy, variant-preflight",99,294,49.7,88.9,43.6,43.6,0.1,0.9
+3,Large Genome Analysis,"variant call (non-human, pacbio)",PacBio Revio,inhouse,2.0.0,6,9,10,"bcftools, deepvariant, gatk4, hiphase, pbmm2, python, sawfish, sniffles, variant-preflight, whatshap",227,486,37.7,38.1,58.6,58.5,0.0,1.6
+3,Microbiome,16S rRNA metagenome (Illumina),Illumina Miseq,16S V3-V4 (inhouse),1.0.0,6,19,2,"python, qiime2",1088,32,3.0,7.3,7.5,7.5,0.0,2.5
+3,Microbiome,16S rRNA metagenome (PacBio),PacBio Revio,16S full-length (inhouse),1.0.0,6,19,2,"python, qiime2",1088,264,117.9,29.1,318.5,318.4,0.1,2.7
+3,Microbiome,Microbiome Consortium,PacBio Revio,inhouse,1.0.0,4,4,4,"cutadapt, dada2, lima, smrtlink dataset",98,71,9.2,73.2,23.2,23.1,0.0,2.5
+3,Microbiome,shotgun metagenome (Illumina),Illumina Novaseq,inhouse,1.0.0,6,12,10,"bwa, checkm2, dastools, fastq, gtdbtk, mOTUs, metawrap, prokka, python, quarto",433,170,10.6,91.6,21.3,21.3,0.0,2.0
+3,Microbiome,shotgun metagenome (PacBio),PacBio Revio,HiFi-MAG-Pipeline+inhouse,v3.3.2,7,14,10,"checkm2, dastool, flye, gtdbtk, metabat, minimap2, prokka, python, quarto, semibin",528,274,250.5,207.2,997.5,996.9,0.6,4.0
+3,Small Genome Analysis,"Annotation (Bacteria, Fungi)","PacBio Revio, illumina Novaseq",inhouse,1.0.0,3,8,7,"blast2go, bwa, diamond, minimap2, prokka, python, samtools",265,15,3.2,35.7,4.3,4.3,0.0,1.3
+3,Small Genome Analysis,"Assembly (Bacteria,Fungi)","PacBio Revio, illumina Novaseq",inhouse,1.0.0,5,13,11,"busco, circos, circulator, flye, gatk, lima, pbcromwell, pilon, python, samtools...",536,39,30.5,103.1,81.6,81.6,0.0,2.7
+3,Virus Analysis,virus (illumina),Illumina NovaSeq,inhouse,1.0.0,8,13,13,"bcftools, bwa-mem2, checkv, dnaapler, fastp, mummer4, nextclade, pharokka, phold, python...",189,289,26.1,0.9,31.8,31.8,0.0,1.2
+3,Virus Analysis,virus (ont),Nanopore PromethION,inhouse,1.0.0,8,15,13,"checkv, clair3, dnaapler, flye, hybracter, medaka, mummer4, nextclade, pharokka, phold...",265,401,41.1,1.4,49.3,49.3,0.0,1.2
+3,Virus Analysis,virus (pacbio),PacBio Revio,inhouse,1.0.0,8,14,13,"bcftools, checkv, dnaapler, flye, hybracter, minimap2, mummer4, nextclade, pharokka, phold...",253,345,36.1,1.6,46.8,46.8,0.0,1.3

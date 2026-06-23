@@ -1,0 +1,203 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Virus Analysis
+Analysis Name: virus (pacbio)
+Platform: PacBio Revio
+Pipeline: inhouse v1.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 8
+Number of Steps: 14
+Number of Tools: 13
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 253
+Total Memory: 345 GB
+Total Compute Time: 36.10 hours
+Total Storage: 1.59 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $46.76
+  - Compute Cost: $46.76 (100.0%)
+  - Storage Cost: $0.00 (0.0%)
+Cost per Hour: $1.30
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+DENOVO_ASSEMBLY:
+  Steps: 2
+  Time: 16.00 hours
+  Cost: $21.76
+  Tools: hybracter, flye
+
+ANNOTATION:
+  Steps: 5
+  Time: 12.00 hours
+  Cost: $20.23
+  Tools: vadr, pharokka, phold, checkv, nextclade
+
+REF_MAPPING:
+  Steps: 1
+  Time: 2.00 hours
+  Cost: $2.72
+  Tools: minimap2
+
+NORMALIZE:
+  Steps: 2
+  Time: 2.00 hours
+  Cost: $1.02
+  Tools: checkv / mummer4, dnaapler
+
+INPUT_PREP:
+  Steps: 1
+  Time: 2.00 hours
+  Cost: $0.68
+  Tools: samtools
+
+COVERAGE:
+  Steps: 1
+  Time: 1.00 hours
+  Cost: $0.17
+  Tools: samtools
+
+REF_VARIANTS:
+  Steps: 1
+  Time: 1.00 hours
+  Cost: $0.17
+  Tools: bcftools
+
+REPORTING:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: python
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: INPUT_PREP
+Step: HIFI_TO_FASTQ
+Tool: samtools v1.21
+Resources: 8 CPUs, 16 GB RAM, 1000 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.6802 (compute: $0.6800, storage: $0.0002)
+
+Group: DENOVO_ASSEMBLY
+Step: ASSEMBLE_HYBRACTER (기본)
+Tool: hybracter v0.12.0
+Resources: 32 CPUs, 64 GB RAM, 200 MB storage
+Runtime: 10.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $13.6002 (compute: $13.6000, storage: $0.0002)
+
+Group: DENOVO_ASSEMBLY
+Step: ASSEMBLE_HIFI (폴백)
+Tool: flye v2.9.5
+Resources: 32 CPUs, 48 GB RAM, 100 MB storage
+Runtime: 6.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $8.1601 (compute: $8.1600, storage: $0.0001)
+
+Group: REF_MAPPING
+Step: MAP_HIFI
+Tool: minimap2 v2.24
+Resources: 32 CPUs, 32 GB RAM, 200 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $2.7200 (compute: $2.7200, storage: $0.0000)
+
+Group: REF_VARIANTS
+Step: CALL_HIFI
+Tool: bcftools v1.21
+Resources: 4 CPUs, 8 GB RAM, 1 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.1700 (compute: $0.1700, storage: $0.0000)
+
+Group: NORMALIZE
+Step: DTR_TRIM
+Tool: checkv / mummer4 v1.0.1 / 4.0
+Resources: 8 CPUs, 16 GB RAM, 1 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.3400 (compute: $0.3400, storage: $0.0000)
+
+Group: NORMALIZE
+Step: REORIENT
+Tool: dnaapler v1.3
+Resources: 16 CPUs, 16 GB RAM, 1 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $0.6800 (compute: $0.6800, storage: $0.0000)
+
+Group: ANNOTATION
+Step: VADR (non-phage)
+Tool: vadr v1.6.4
+Resources: 8 CPUs, 16 GB RAM, 10 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.6800 (compute: $0.6800, storage: $0.0000)
+
+Group: ANNOTATION
+Step: PHAROKKA (phage)
+Tool: pharokka v1.7.0
+Resources: 8 CPUs, 16 GB RAM, 50 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.2xlarge @ $0.3400/hr
+Cost: $0.3400 (compute: $0.3400, storage: $0.0000)
+
+Group: ANNOTATION
+Step: PHOLD (phage)
+Tool: phold v1.2.5
+Resources: 64 CPUs, 64 GB RAM, 50 MB storage
+Runtime: 6.00 hours × 1 parallel tasks
+Instance: c6i.16xlarge @ $2.7200/hr
+Cost: $16.3200 (compute: $16.3200, storage: $0.0000)
+
+Group: ANNOTATION
+Step: CHECKV (phage)
+Tool: checkv v1.0.1
+Resources: 32 CPUs, 32 GB RAM, 10 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $2.7200 (compute: $2.7200, storage: $0.0000)
+
+Group: ANNOTATION
+Step: NEXTCLADE (non-phage)
+Tool: nextclade v3
+Resources: 4 CPUs, 8 GB RAM, 1 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.1700 (compute: $0.1700, storage: $0.0000)
+
+Group: COVERAGE
+Step: SAMTOOLS_DEPTH
+Tool: samtools v1.21
+Resources: 4 CPUs, 8 GB RAM, 5 MB storage
+Runtime: 1.00 hours × 1 parallel tasks
+Instance: c6i.xlarge @ $0.1700/hr
+Cost: $0.1700 (compute: $0.1700, storage: $0.0000)
+
+Group: REPORTING
+Step: VIRUS_SUMMARY
+Tool: python v-
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================

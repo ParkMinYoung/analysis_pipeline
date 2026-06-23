@@ -1,0 +1,101 @@
+================================================================================
+PIPELINE COST ANALYSIS REPORT
+================================================================================
+
+직무 (Job): Large Genome Analysis
+Analysis Name: kmer (pacbio)
+Platform: PacBio Revio
+Pipeline: inhouse v2.0.0
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Number of Groups: 3
+Number of Steps: 5
+Number of Tools: 3
+
+--------------------------------------------------------------------------------
+RESOURCE REQUIREMENTS
+--------------------------------------------------------------------------------
+Total CPUs: 24
+Total Memory: 105 GB
+Total Compute Time: 6.70 hours
+Total Storage: 24.42 GB
+
+--------------------------------------------------------------------------------
+COST SUMMARY
+--------------------------------------------------------------------------------
+Total Cost: $6.87
+  - Compute Cost: $6.86 (99.9%)
+  - Storage Cost: $0.01 (0.1%)
+Cost per Hour: $1.03
+
+--------------------------------------------------------------------------------
+COST BREAKDOWN BY GROUP
+--------------------------------------------------------------------------------
+
+KMER_COUNT:
+  Steps: 3
+  Time: 6.10 hours
+  Cost: $6.82
+  Tools: meryl
+
+GENOME_SIZE_EST:
+  Steps: 1
+  Time: 0.50 hours
+  Cost: $0.04
+  Tools: genomescope2
+
+REPORTING:
+  Steps: 1
+  Time: 0.10 hours
+  Cost: $0.01
+  Tools: python
+
+--------------------------------------------------------------------------------
+DETAILED STEP-BY-STEP BREAKDOWN
+--------------------------------------------------------------------------------
+
+Group: KMER_COUNT
+Step: MERYL_COUNT
+Tool: meryl v1.4.1
+Resources: 16 CPUs, 64 GB RAM, 15000 MB storage
+Runtime: 4.00 hours × 1 parallel tasks
+Instance: c6i.8xlarge @ $1.3600/hr
+Cost: $5.4465 (compute: $5.4400, storage: $0.0065)
+
+Group: KMER_COUNT
+Step: MERYL_MERGE
+Tool: meryl v1.4.1
+Resources: 4 CPUs, 32 GB RAM, 10000 MB storage
+Runtime: 2.00 hours × 1 parallel tasks
+Instance: c6i.4xlarge @ $0.6800/hr
+Cost: $1.3622 (compute: $1.3600, storage: $0.0022)
+
+Group: KMER_COUNT
+Step: MERYL_HISTOGRAM
+Tool: meryl v1.4.1
+Resources: 1 CPUs, 4 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+Group: GENOME_SIZE_EST
+Step: GENOMESCOPE_HIFI
+Tool: genomescope2 v2
+Resources: 2 CPUs, 4 GB RAM, 5 MB storage
+Runtime: 0.50 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0425 (compute: $0.0425, storage: $0.0000)
+
+Group: REPORTING
+Step: COMPARE_ESTIMATES
+Tool: python v-
+Resources: 1 CPUs, 1 GB RAM, 1 MB storage
+Runtime: 0.10 hours × 1 parallel tasks
+Instance: c6i.large @ $0.0850/hr
+Cost: $0.0085 (compute: $0.0085, storage: $0.0000)
+
+================================================================================
+END OF REPORT
+================================================================================
