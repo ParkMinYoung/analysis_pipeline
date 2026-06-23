@@ -51,6 +51,9 @@ DECISIONS.md
 PENDING.md
 SCOPE.md
 
+# Sensitive: Google Sheets URLs (local only — do NOT commit)
+docs/team_url.md
+
 # OS
 Thumbs.db
 .DS_Store

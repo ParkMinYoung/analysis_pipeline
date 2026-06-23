@@ -125,6 +125,10 @@ grep -nE '<이전비용>|<이전파이프라인수>|<이전steps>' README.md QUI
 - [ ] 보고에 시트 URL/gid 평문 없음
 - [ ] commit 메시지에 민감값 없음
 
-## 알려진 보안 이슈
+## 보안 (team_url.md 는 로컬 전용)
 
-`docs/team_url.md` 가 공개 repo에 URL 평문으로 커밋되어 있을 수 있음. 발견 시 근본 해결(시트 공유 권한 '제한' 변경 / `.gitignore` + `git rm --cached`)은 사용자 승인 후 진행. skill 실행 중에는 추가 노출을 막는 것(본문 평문 금지)만 담당.
+`docs/team_url.md` 는 2026-06-23부터 git 추적에서 제외됨(`.gitignore` + `git rm --cached`). Google Sheets URL이 공개 repo에 노출되는 것을 막기 위함.
+- **로컬**: 파일이 워킹트리에 남아 있으므로 skill 정상 작동.
+- **다른 클론/팀원**: 파일이 없음 → `docs/team_url.md`(gid 목록)는 별도 비공개 채널로 전달할 것.
+- **주의(한계)**: 과거 커밋 히스토리에는 URL이 잔존. 완전 제거하려면 BFG/filter-branch + force push(파괴적) 또는 시트 공유 권한을 '제한'으로 근본 차단(사용자가 시트에서 직접).
+- team_url.md가 없는 환경에서는 단계 1에서 사용자에게 gid를 직접 입력받는다.
