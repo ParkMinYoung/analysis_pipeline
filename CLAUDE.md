@@ -23,12 +23,15 @@ python3 scripts/03_analyze_pipelines.py $TEAM    # 분석 + 리포트 생성
 규칙·예시는 `docs/rule.md`, 시트 URL은 `docs/team_url.md` 참조.
 
 ## 정기 갱신 워크플로우
+> **우선 `/update-pipeline-costs` skill 사용** (아래 전체 절차 + 변경 감지·무결성 검증·git push 자동화). 수동 fallback:
 1. 시트 다운로드: `curl -sL ".../export?format=csv&gid=<GID>" -o data/team{N}/analysis_raw.csv`
 2. 위 3단계 스크립트 실행
 3. `reports/pipeline_summary_all.csv` **수동 갱신** (3개 팀 pipeline_summary.csv 병합 + 맨 앞 `Team` 컬럼)
 4. `README.md`, `QUICK_SUMMARY.md` 요약 수치 동기화
 
 ## 환경 / Gotcha
+- **시트 다운로드 HTTP 400** = gid 만료/변경 의심 → `docs/team_url.md`의 gid 확인 (시트 재구성 시 gid가 바뀜).
+- `docs/team_url.md`는 **gitignored** (Google Sheets URL 민감값, 추적 제외). 팀 배포 시 별도 전달 필요.
 - `python3` = miniconda 3.13. **pandas/numpy 기본 미설치** → `pip install pandas numpy` 선행 (README의 "3.11" 기록과 실제 불일치).
 - **pandas 3.0**: 구식 API 주의 (`fillna(method='ffill')` → `.ffill()`, 이미 `01_process_data.py`에 반영됨).
 - 비용 합계는 **step-level**(`analysis_with_costs.csv` 합산)이 가장 정확. pipeline_summary.csv 합계는 파이프라인별 반올림 누적으로 미세 차이 발생.
