@@ -428,6 +428,10 @@ Top 2 비용 작업 (시트 확장 후 maker 제외):
 - `reports/team3/pipeline_summary.csv` - 파이프라인별 요약 (CSV)
 - `reports/team3/*_report.txt` - 21개 파이프라인 상세 리포트
 
+### 자동화 (skill)
+
+정기 갱신은 **`/update-pipeline-costs` skill**으로 자동화됨 (시트 다운로드 → 변경 감지 → 무결성 검증 → 스크립트 실행 → 문서 동기화 → git push). 상세 단계·보안 규칙은 `README.md`와 `CLAUDE.md` 참조.
+
 ### 공통 스크립트
 
 ```bash

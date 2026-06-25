@@ -43,11 +43,40 @@ pipeline_price/
 │   └── pipeline_summary_all.csv    # 3개 팀 통합 요약
 ├── docs/                           # 문서
 │   ├── rule.md                     # 분석 규칙 및 요구사항
-│   ├── team_url.md                 # Google Sheets URL 목록
+│   ├── team_url.md                 # Google Sheets URL 목록 (gitignored - 민감값)
 │   └── TEAM_SETUP_GUIDE.md        # 팀별 분석 설정 가이드
+├── .claude/skills/                 # Claude Code skills
+│   └── update-pipeline-costs/      # 파이프라인 비용 갱신 자동화
+│       └── SKILL.md
 └── README.md                       # 이 파일
 
 ```
+
+## 자동화: update-pipeline-costs skill
+
+정기 갱신(시트 다운로드 → 변경 감지 → 비용 재계산 → 문서 동기화 → git push)은 **`/update-pipeline-costs` skill**으로 자동화되어 있다. 수동 스크립트 실행보다 우선 사용.
+
+**사용법:**
+```
+/update-pipeline-costs
+```
+또는 자연어("파이프라인 비용 갱신해줘" 등).
+
+**skill이 수행하는 단계:**
+0. 환경(pandas) 및 AWS 가격 최신성 확인
+1. 3팀 시트 다운로드 (`docs/team_url.md`의 gid에서 조립)
+2. **변경 감지** — 변경 없는 팀은 스킵, 전부 변경 없으면 즉시 중단
+3. 데이터 무결성 검증 (이상 시 리포트 후 대기)
+4. 변경된 팀만 스크립트 01/02/03 실행
+5. `reports/pipeline_summary_all.csv` 갱신
+6. `README.md`, `QUICK_SUMMARY.md` 수치 동기화
+7. 변경 요약 + git commit/push
+
+> 수동 실행·상세 규칙은 아래 '분석 프로세스' 및 `CLAUDE.md`, `docs/rule.md` 참조.
+
+**보안:** 시트 URL·gid는 평문 노출 금지. `docs/team_url.md`는 gitignored(추적 제외)이며 skill 본문에 URL을 적지 않는다. 다운로드 HTTP 400 = gid 만료 의심 → `team_url.md`의 gid 확인.
+
+---
 
 ## 분석 프로세스
 

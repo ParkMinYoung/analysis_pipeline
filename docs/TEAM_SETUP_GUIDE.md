@@ -70,6 +70,8 @@ Google Sheets에는 다음 컬럼들이 포함되어야 합니다:
 
 ## 3단계: 분석 실행
 
+> **자동화 우선**: 정기 갱신은 `/update-pipeline-costs` skill 사용 (시트 다운로드 → 변경 감지 → 무결성 검증 → 스크립트 실행 → 문서 동기화 → git push). 아래는 수동 실행 절차.
+
 ```bash
 cd /path/to/pipeline_price
 
